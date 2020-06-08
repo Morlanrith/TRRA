@@ -1,0 +1,3 @@
+displayName = TRRA (A RWBY Mod)
+author = Morlanrith
+version = 0.1

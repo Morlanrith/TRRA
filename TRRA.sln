@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRRA", "TRRA.csproj", "{664A6962-3753-4F97-9F94-B3E8D58F72F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{664A6962-3753-4F97-9F94-B3E8D58F72F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664A6962-3753-4F97-9F94-B3E8D58F72F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664A6962-3753-4F97-9F94-B3E8D58F72F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664A6962-3753-4F97-9F94-B3E8D58F72F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A882EC6-8F07-484A-8769-742D802F4A9F}
+	EndGlobalSection
+EndGlobal
