@@ -3,7 +3,7 @@
 Hello!
 
 This is TRRA, a mod for the game Terraria designed to bring elements of the online web series RWBY into the game.
-This is the inital 0.1 version of the mod, which currently features a single weapon from the series, Crescent Rose. 
+This is the initial 0.1 version of the mod, which currently features a single weapon from the series, Crescent Rose. 
 The hope is to continue working on this mod in the coming weeks, with the next update adding the sword Myrtenaster.
 
 This mod currently includes the following:
