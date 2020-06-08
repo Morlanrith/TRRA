@@ -1,0 +1,100 @@
+Progress Diary - Terraria Modification Project
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 1st 2020
+-------------
+Work Done:
+- Considered several projects to occupy the time in lockdown, prior to returning to university (lasting for roughly 12 weeks).
+- I have decided to work on creating my own modifications (Mods) for the sandbox game Terraria, utilising the available 
+“tModLoader” modification to run them. Of the projects considered this seemed one of the most feasible, as well as one of 
+the most interesting to me.
+- Working on these mods should allow me to develop my skills using C#.
+-------------
+Next Task:
+- Download and run various different existing modifications and attempt to alter them slightly to better understand how the 
+various aspects of the game work and how to manipulate them.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 2nd 2020
+-------------
+Work Done:
+- Downloaded Microsoft visual studio along with other tools to allow for easy mod viewing and editing.
+- Created a basic mod using tModLoader and edited the values of a basic “sword” for the game.
+-------------
+Next Task:
+- Continue experimenting with this basic mod template, editing the template sword as well as manipulating existing aspects 
+of the game.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 3rd 2020
+-------------
+Work Done:
+- Continued editing the test sword, replacing its model with a new design based on a popular web series I’m fond of, and 
+manipulating other aspects (such as adding the ability to apply de-buffs and generate particle effects). 
+- Then proceeded to do similar work with a basic “gun” prototype, replacing its model and altering its characteristics.
+-------------
+Next Task:
+- Continue experimenting with modification options, such as creating new types of item as well as perhaps changing sound 
+effects.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 4th 2020
+-------------
+Work Done:
+- Replaced the sounds used by the mod items with sound clips that match the weapons from the web series. 
+- Also began experimenting with a test dual use item, i.e. and item that has an additional functionality that can be used by 
+pressing <right>.
+-------------
+Next Task:
+- Add right click functionality to the test sword, attempting to then replace the sword with the test gun.
+- If successful then implement the same to the gun, to convert to the sword (create what is then essentially a single 
+“transforming” weapon).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 5th 2020
+-------------
+Work Done:
+- Fully implemented both the sword and gun variants, complete with new sound effects.
+- Created an additional hotkey that can be remapped, which allows the user to swap the weapon from a sword to a gun and vice
+versa.
+-------------
+Next Task:
+- Fix a notable bug that causes the item ID of the weapons to become unreadable when attempting to swap (occurs after placing
+the item in a different location from the player, then returning it).
+- Clean up code names and adjust item balance for a version 0.1 release (featuring the finished weapon, “Crescent Rose”).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 6th 2020
+-------------
+Work Done:
+- Fixed the ID bug and rebalanced the mod for use with the standard game (adjusting the weapons performance and obtain method). 
+- Cleaned up the code, adding comments and renaming the mod from “TestMod” to “TRRA” (a shorthand of Terraria, similar to 
+those used in the web series “RWBY”, which serves as the basis for this mod). 
+- Released version 0.1 of TRRA, including the weapon and hotkey, using the tModLoader API (notably missing some aspects 
+however, as it requires a link to a GitHub page for the mod).
+-------------
+Next Task:
+- Take a break tomorrow to reflect on the current work accomplished.
+- Create a GitHub page for the mod and link it to the online tModLoader resource (will allow the mod to always be downloaded).
+- Begin implementation on the second weapon for the mod, “Myrtenaster”.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 8th 2020
+-------------
+Work Done:
+- Uploaded the project to a GitHub page, creating a link between a TRRA repository and the mod source folder.
+- Released a new version of the mod, simply including the GitHub link.
+-------------
+Next Task:
+- Begin implementation on the second weapon for the mod, “Myrtenaster”.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+
+-------------
+Work Done:
+
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
