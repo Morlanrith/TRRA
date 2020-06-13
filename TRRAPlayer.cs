@@ -16,6 +16,10 @@ namespace TRRA
         private readonly int gunType = ItemType<CrescentRoseG>();
         private readonly Item scythe = GetModItem(ItemType<CrescentRoseS>()).item;
         private readonly int scytheType = ItemType<CrescentRoseS>();
+        private readonly Item rapier = GetModItem(ItemType<Myrtenaster>()).item;
+        private readonly int rapierType = ItemType<Myrtenaster>();
+        private readonly Item rapierF = GetModItem(ItemType<MyrtenasterF>()).item;
+        private readonly int rapierFType = ItemType<MyrtenasterF>();
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -39,6 +43,22 @@ namespace TRRA
                     {
                         player.inventory[player.selectedItem] = scythe;
                         player.inventory[player.selectedItem].SetDefaults(scytheType);
+                    }
+                }
+                else if (heldItem.Name == "Myrtenaster" || heldItem.Name == "Myrtenaster (Fire)")
+                {
+                    // Plays the transform sound effect for Myrtenaster
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/DustSpin"));
+                    // If the current held Myrtenaster is in base form, swaps to fire, and vice versa
+                    if (heldItem.type.Equals(rapierType))
+                    {
+                        player.inventory[player.selectedItem] = rapierF;
+                        player.inventory[player.selectedItem].SetDefaults(rapierFType);
+                    }
+                    if (heldItem.type.Equals(rapierFType))
+                    {
+                        player.inventory[player.selectedItem] = rapier;
+                        player.inventory[player.selectedItem].SetDefaults(rapierType);
                     }
                 }
             }

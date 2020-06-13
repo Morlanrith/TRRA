@@ -90,11 +90,49 @@ Next Task:
 - Begin implementation on the second weapon for the mod, “Myrtenaster”.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-
+June 9th 2020
 -------------
 Work Done:
-
+Created a basic version of the Myrtenaster, just using the provided example dual use weapon from the tModLoader example mod.
+Experimented simulating a fast striking sword by using a "shooting" fire method, similar to a weapon from the base game,
+known as the "Arkhalis".
 -------------
 Next Task:
-
+Continue experimenting with the newly created sword.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 11th 2020
+-------------
+Work Done:
+Continued experimenting with ways to simulate a fast piercing sword, having experimented with various fire formats, with
+none currently providing the desired effect. Created sprites for Myrtenaster and its intended alt-fire projectile.
+-------------
+Next Task:
+Continue experimenting with the created "sword".
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 12th 2020
+-------------
+Work Done:
+Settled on using the standard "shortsword" fire method for Myrtenaster, as achieving the desired effect will be very time
+consuming (additionally when tModLoader is updated to be compatiable with version 1.4 of Terraria, the shortsword fire
+method will change too, with this new method matching my desired style for Myrtenaster). Fully setup the alt-fire method
+for the weapon, including new sound FX and dust particles.
+-------------
+Next Task:
+Add extending projectile to Myrtenasters thrust attack, then begin creating alternate version of the sword to swap to.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 13th 2020
+-------------
+Work Done:
+Added a "flurry" projectile to the weapons main fire method, which creates a multitude of small line projectiles in the 
+players direction. Created a base version of the Myrtenaster alt form (a "fire" variant), that can be swapped to using
+the transform hotkey.
+Created new projectiles for the fire variant, along with new SFX and VFX.
+Released the finished Myrtenaster with version 0.2 of TRRA.
+-------------
+Next Task:
+Take a break to reflect on current progress.
+Begin work on third weapon "Gambol Shroud"
 ----------------------------------------------------------------------------------------------------------------------------

@@ -23,7 +23,7 @@ namespace TRRA.Items
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.noMelee = true;
 			item.knockBack = 7;
-			item.value = 10000;
+			item.value = Item.sellPrice(gold: 10);
 			item.rare = ItemRarityID.Cyan;
 			// Plays the sound effect for a Crescent Rose gunshot
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/RoseShot");

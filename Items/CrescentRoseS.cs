@@ -25,7 +25,7 @@ namespace TRRA.Items
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.melee = true;
 			item.knockBack = 7;
-			item.value = 10000;
+			item.value = Item.sellPrice(gold: 10);
 			item.rare = ItemRarityID.Cyan;
 			item.crit = 26;
 			item.autoReuse = true;
@@ -61,7 +61,7 @@ namespace TRRA.Items
 				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/RoseSlice");
 				item.noUseGraphic = false;
 				item.useStyle = ItemUseStyleID.SwingThrow;
-				item.damage = 60;
+				item.damage = 130;
 				item.useTime = 25;
 				item.useAnimation = 25;
 				item.autoReuse = true;
