@@ -1,4 +1,4 @@
 displayName = TRRA (A RWBY Mod)
 author = Morlanrith
-version = 0.2
+version = 0.3
 homepage = https://github.com/Morlanrith/TRRA

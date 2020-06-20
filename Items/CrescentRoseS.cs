@@ -29,6 +29,7 @@ namespace TRRA.Items
 			item.rare = ItemRarityID.Cyan;
 			item.crit = 26;
 			item.autoReuse = true;
+			item.maxStack = 1;
 		}
 
 		public override bool AltFunctionUse(Player player)

@@ -32,6 +32,7 @@ namespace TRRA.Items
 			item.shootSpeed = 16f;
 			item.crit = 26;
 			item.useAmmo = AmmoID.Bullet;
+			item.maxStack = 1;
 		}
 
 		public override void UseStyle(Player player)

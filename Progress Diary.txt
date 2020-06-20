@@ -136,3 +136,67 @@ Next Task:
 Take a break to reflect on current progress.
 Begin work on third weapon "Gambol Shroud"
 ----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 16th 2020
+-------------
+Work Done:
+Created a base version of the weapon "Gambol Shroud", a sword that can swap to a fast firing gun.
+Created custom sprites for both weapon variants, and added custom SFX for both as well.
+Implemented the transform functionality for this base weapon along with custom SFX for the transformation process.
+-------------
+Next Task:
+Begin experimenting with new types of alternate fire methods, for both the sword and gun variants.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 17th 2020
+-------------
+Work Done:
+Began experimenting with alternate fire methods for the gun variant of Gambol Shroud, attempting to create a projectile that
+when fired travels a set distance while attached to a "ribbon". Base Terraria has a number of similar fire methods for
+weapons, however none seem to match the behaviour I need.
+After continue testing, have determined that the "Harpoon" from the base version of Terraria matches the most (although still
+not exactly), so will now be using that as a base to modify from.
+-------------
+Next Task:
+Continue experimenting with ribbon fire methods.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 18th 2020
+-------------
+Work Done:
+Continued experimenting with ribbon fire methods, but eventually decided that my desired fire method just isn't possible
+using the basic projectile styles, so I decided to create my own AI for the projectile instead.
+Created the projectile, which suspends a spinning projectile at a distance from the player (the distance can be manipulated
+using the cursor up to a set limit).
+-------------
+Next Task:
+Polish up ribbon fire method with new FX.
+Begin altering the sword fire method (experimenting with a "parry" alt-fire).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 19th 2020
+-------------
+Work Done:
+Adjusted fire method for the ribbon, and added new dust and SFX to the weapon.
+Added an alternate fire to the sword variant, that acts as a "parry", where activating the effect grants the user the
+"Shadow Dodge" buff (used from base Terraria) for half a second.
+-------------
+Next Task:
+Continue adjusting parry mechanic, along with its animation and FX, as well as balancing it (likely adding a cooldown of some 
+kind).
+Experiment with ways to make the standard sword swing (primary fire) more interesting.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 20th 2020
+-------------
+Work Done:
+Adjusted parry mechanic, adding a 5 second cooldown to activating the ability.
+Replaced the standard sword swing with an aimable projectile that appears as a quick slash of a blade. Created by mimicing a
+pre-existing weapon known as "Arkhalis", with the projectile being an edit of the same attack.
+Re-balanced weapon along with adding a proper recipe and tooltip.
+Released version 3.0 of TRRA.
+-------------
+Next Task:
+Take a break to reflect on current progress.
+Begin work on fourth and final weapon (before a 1.0 release), the "Ember Celica".
+----------------------------------------------------------------------------------------------------------------------------

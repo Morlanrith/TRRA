@@ -28,6 +28,7 @@ namespace TRRA.Items
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/IceStab");
 			item.shoot = mod.ProjectileType("MyrtenasterR");
 			item.shootSpeed = 6f;
+			item.maxStack = 1;
 		}
 
 		public override void AddRecipes() {

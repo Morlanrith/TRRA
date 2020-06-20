@@ -20,6 +20,10 @@ namespace TRRA
         private readonly int rapierType = ItemType<Myrtenaster>();
         private readonly Item rapierF = GetModItem(ItemType<MyrtenasterF>()).item;
         private readonly int rapierFType = ItemType<MyrtenasterF>();
+        private readonly Item katana = GetModItem(ItemType<GambolShroudS>()).item;
+        private readonly int katanaType = ItemType<GambolShroudS>();
+        private readonly Item gunkata = GetModItem(ItemType<GambolShroudG>()).item;
+        private readonly int gunkataType = ItemType<GambolShroudG>();
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
@@ -60,6 +64,19 @@ namespace TRRA
                         player.inventory[player.selectedItem] = rapier;
                         player.inventory[player.selectedItem].SetDefaults(rapierType);
                     }
+                }
+                // If the current held item is Gambol Shroud, swaps its form between sword and gun
+                else if (heldItem.type.Equals(katanaType))
+                {
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/GambolCock"));
+                    player.inventory[player.selectedItem] = gunkata;
+                    player.inventory[player.selectedItem].SetDefaults(gunkataType);
+                }
+                else if (heldItem.type.Equals(gunkataType))
+                {
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/GambolTransform"));
+                    player.inventory[player.selectedItem] = katana;
+                    player.inventory[player.selectedItem].SetDefaults(katanaType);
                 }
             }
 
