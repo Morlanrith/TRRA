@@ -24,7 +24,15 @@ namespace TRRA
         private readonly int katanaType = ItemType<GambolShroudS>();
         private readonly Item gunkata = GetModItem(ItemType<GambolShroudG>()).item;
         private readonly int gunkataType = ItemType<GambolShroudG>();
+        private readonly Item fist = GetModItem(ItemType<EmberCelicaS>()).item;
+        private readonly int fistType = ItemType<EmberCelicaS>();
+        private readonly Item rocket = GetModItem(ItemType<EmberCelicaR>()).item;
+        private readonly int rocketType = ItemType<EmberCelicaR>();
 
+        public override void PostUpdate()
+        {
+            EmberFists();
+        }
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             // Transform Weapon
@@ -78,6 +86,22 @@ namespace TRRA
                     player.inventory[player.selectedItem] = katana;
                     player.inventory[player.selectedItem].SetDefaults(katanaType);
                 }
+                else if (heldItem.Name == "Ember Celica" || heldItem.Name == "Ember Celica (Rocket)")
+                {
+                    // Plays the transform sound effect for the Ember Celica
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/EmberTransform"));
+                    // If the current held Ember Celica is in shotgun form, swaps to rocket, and vice versa
+                    if (heldItem.type.Equals(fistType))
+                    {
+                        player.inventory[player.selectedItem] = rocket;
+                        player.inventory[player.selectedItem].SetDefaults(rocketType);
+                    }
+                    if (heldItem.type.Equals(rocketType))
+                    {
+                        player.inventory[player.selectedItem] = fist;
+                        player.inventory[player.selectedItem].SetDefaults(fistType);
+                    }
+                }
             }
 
             // Prevents the transform hotkey from being repeatedly activated whilst holding the key down
@@ -87,6 +111,23 @@ namespace TRRA
             }
 
             base.ProcessTriggers(triggersSet);
+        }
+
+        private void EmberFists()
+        {
+            if (player.HeldItem.type == fistType || player.HeldItem.type == rocketType)
+            {
+                if (player.HeldItem.handOnSlot > 0)
+                {
+                    player.handon = player.HeldItem.handOnSlot;
+                    player.cHandOn = 0;
+                }
+                if (player.HeldItem.handOffSlot > 0)
+                {
+                    player.handoff = player.HeldItem.handOffSlot;
+                    player.cHandOff = 0;
+                }
+            }
         }
 
     }

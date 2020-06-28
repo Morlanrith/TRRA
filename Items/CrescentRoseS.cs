@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Terraria.GameInput;
 
 namespace TRRA.Items
 {
@@ -18,8 +19,8 @@ namespace TRRA.Items
 		public override void SetDefaults() 
 		{
 			item.damage = 130;
-			item.width = 64;
-			item.height = 56;
+			item.width = 66;
+			item.height = 58;
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.useStyle = ItemUseStyleID.SwingThrow;
@@ -34,6 +35,7 @@ namespace TRRA.Items
 
 		public override bool AltFunctionUse(Player player)
 		{
+			if(player.mount.Active) return false;
 			return true;
 		}
 
@@ -42,13 +44,12 @@ namespace TRRA.Items
 			// If the player uses the alt function (Right Click), causes the player to dash in the direction they are currently facing
 			if (player.altFunctionUse == 2)
 			{
+				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
 				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/RoseDash");
 				item.noUseGraphic = true;
 				item.useStyle = ItemUseStyleID.Stabbing;
-				item.damage = 0;
 				item.autoReuse = false;
 				item.noMelee = true;
-				item.ranged = true;
 				item.shoot = ProjectileID.PurificationPowder;
 				item.shootSpeed = 16f;
 				item.useTime = 40;
@@ -62,12 +63,10 @@ namespace TRRA.Items
 				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/RoseSlice");
 				item.noUseGraphic = false;
 				item.useStyle = ItemUseStyleID.SwingThrow;
-				item.damage = 130;
 				item.useTime = 25;
 				item.useAnimation = 25;
 				item.autoReuse = true;
 				item.noMelee = false;
-				item.ranged = false;
 				item.shoot = ProjectileID.None;
 			}
 			return base.CanUseItem(player);

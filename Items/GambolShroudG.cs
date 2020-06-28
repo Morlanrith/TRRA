@@ -75,7 +75,7 @@ namespace TRRA.Items
 				item.knockBack = 4;
 				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/GambolShot");
 				item.shoot = ProjectileID.PurificationPowder;
-				item.shootSpeed = 16f;
+				item.shootSpeed = 13f;
 				item.crit = 10;
 				item.useAmmo = AmmoID.Bullet;
 				item.channel = false;

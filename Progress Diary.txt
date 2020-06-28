@@ -191,7 +191,7 @@ June 20th 2020
 -------------
 Work Done:
 Adjusted parry mechanic, adding a 5 second cooldown to activating the ability.
-Replaced the standard sword swing with an aimable projectile that appears as a quick slash of a blade. Created by mimicing a
+Replaced the standard sword swing with an aimable projectile that appears as a quick slash of a blade. Created by mimicking a
 pre-existing weapon known as "Arkhalis", with the projectile being an edit of the same attack.
 Re-balanced weapon along with adding a proper recipe and tooltip.
 Released version 3.0 of TRRA.
@@ -199,4 +199,80 @@ Released version 3.0 of TRRA.
 Next Task:
 Take a break to reflect on current progress.
 Begin work on fourth and final weapon (before a 1.0 release), the "Ember Celica".
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 23rd 2020
+-------------
+Work Done:
+Begun work on weapon 4, the Ember Celica.
+This weapon is traditionally a pair of gauntlets that can fire bullets and rockets. So in order to implement this weapon
+properly, I will need to use a feature that causes a pair of gauntlets to be displayed on the player model when the weapon is
+selected.
+This functionality is already somewhat possible through accessories which change the players hand models, so it's a small leap
+to take that function and change it to display when the weapon is held, as opposed to when the accessory is equipped.
+Achieved functionality, with an imported test sword displaying new hand models (which in turn are being temporarily borrowed 
+from the WeaponOut mod, found at https://forums.terraria.org/index.php?threads/weaponout.47130/) while being selected.
+-------------
+Next Task:
+Begin designing weapon functionality for both variants.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 24th 2020
+-------------
+Work Done:
+Began implementing functionality for both the shotgun and rocket variants of the weapon, adjusting velocities for both.
+Also implemented new SFX for the weapon, along with the transform function (with the gauntlets showing up on both variants).
+-------------
+Next Task:
+Carefully examine the temporary sprites to see how the hand model changes, then begin replacing this model with my own one,
+which will resemble the orignal weapon from the show.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 25th 2020
+-------------
+Work Done:
+Completely replaced the sprites for both the weapon base models and hand sprites for both variations of the weapon.
+-------------
+Next Task:
+Replace the currently fired projectiles with new custom projectiles.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 26th 2020
+-------------
+Work Done:
+Decided to take a small break before advancing further with the Ember Celica, to go and improve some of the earlier weapon
+sprites (Crescent Rose and Myrtenaster).
+-------------
+Next Task:
+Replace the currently fired projectiles with new custom projectiles.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 27th 2020
+-------------
+Work Done:
+Replaced the Rocket variant of the Ember Celicas projectile with brand new rocket projectiles (that still consume rockets as
+ammunition).
+These include a homing rocket for the primary fire (Left Click) and a splitting rocket for the alt fire (Right Click).
+Also modified the damage and other variables for the weapon, also adding a relevant tooltip.
+-------------
+Next Task:
+Add new "punching" projectile to the Shotgun variant, along with implementing its dash.
+Polish up new aspects of TRRA.
+Release version 0.4 of TRRA.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 28th 2020
+-------------
+Work Done:
+Added a new punching projectile to the shotgun variant of the weapon, that appears over the players hand dealing damage.
+Implemented the dash mechanic for the shotgun variant, which works similar to the previously implemented dash for Crescent
+Rose, however it also uses the new punching projectile while travelling less distance to compensate.
+Re-balanced weapon along with adding a proper recipe and tooltip. 
+Went and looked back at the previously implemented Crescent Rose and Myrtenaster, now seeing easy ways to iron out some
+pre-existing issues and streamline the code.
+Released version 0.4 of TRRA.
+-------------
+Next Task:
+Begin work on an accessory that boosts both melee and ranged damage types for the player.
+Begin devising a more unique method to craft the TRRA weapons.
 ----------------------------------------------------------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,8 +20,9 @@ namespace TRRA.Items
 			item.useAnimation = 12;
 			item.useTime = 2;
 			item.knockBack = 4.5f;
-			item.width = 32;
-			item.height = 32;
+			item.width = 70;
+			item.height = 70;
+			item.scale = 0.65f;
 			item.rare = ItemRarityID.Cyan;
 			item.value = Item.sellPrice(gold: 10);
 			item.melee = true;
@@ -49,6 +51,22 @@ namespace TRRA.Items
 			if (player.altFunctionUse == 2) player.itemRotation = 0f;
 		}
 
+		[Obsolete]
+		public override void GetWeaponDamage(Player player, ref int damage)
+		{
+			if (player.altFunctionUse == 2)
+			{
+				if (player.itemAnimation == 1) //Resets the animation so it doesn't let the hand return to resting position
+				{
+					player.itemAnimation = item.useAnimation;
+					Main.PlaySound(item.UseSound, player.Center);
+				}
+				if (PlayerInput.Triggers.JustReleased.MouseRight) //Stops the animation manually
+				{
+					player.itemAnimation = 0;
+				}
+			}
+		}
 
 		public override bool CanUseItem(Player player) {
 			if (player.altFunctionUse == 2) {
@@ -81,7 +99,7 @@ namespace TRRA.Items
 		public override Vector2? HoldoutOffset()
 		{
 			// Offsets the weapon model, so it is being held correctly
-			return new Vector2(6, -12);
+			return new Vector2(7, -12);
 		}
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -94,10 +112,10 @@ namespace TRRA.Items
 				Random r = new Random();
 				posY += r.Next(-20, 20);
 				speedX = new Vector2(speedX, speedY).Length() * (speedX > 0 ? 1 : -1);
-				Projectile.NewProjectile(posX, posY, speedX, 0, type, damage, knockBack, player.whoAmI);
-				return false;
+				Projectile.NewProjectile(posX, posY, speedX, 0, type, 25, knockBack, player.whoAmI);
 			}
-			else return true;
+			else Projectile.NewProjectile(position.X, position.Y, speedX, 0, type, 135, knockBack, player.whoAmI);
+			return false;
 		}
 	}
 }

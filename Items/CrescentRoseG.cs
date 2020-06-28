@@ -16,8 +16,8 @@ namespace TRRA.Items
 		public override void SetDefaults() {
 			item.damage = 190;
 			item.ranged = true;
-			item.width = 65;
-			item.height = 15;
+			item.width = 68;
+			item.height = 18;
 			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = ItemUseStyleID.HoldingOut;
@@ -41,10 +41,16 @@ namespace TRRA.Items
 			player.scope = true;
 		}
 
+		public override bool HoldItemFrame(Player player)
+		{
+			player.scope = true;
+			return false;
+		}
+
 		public override Vector2? HoldoutOffset()
 		{
 			// Offsets the weapon model, so it is being held correctly
-			return new Vector2(7, 0);
+			return new Vector2(4, 0);
 		}
 
 		// Offsets the fire location of the bullet from the weapons muzzle
