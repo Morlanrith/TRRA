@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Items;
+using TRRA.Items.Weapons;
 using static Terraria.ModLoader.ModContent;
 
 namespace TRRA
@@ -44,7 +44,7 @@ namespace TRRA
                 if (heldItem.Name == "Crescent Rose")
                 {
                     // Plays the transform sound effect for Crescent Rose
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/RoseTransform"));
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/CrescentRose/RoseTransform"));
                     // If the current held Crescent Rose is in Scythe form, swaps to gun, and vice versa
                     if (heldItem.type.Equals(scytheType))
                     {
@@ -60,7 +60,7 @@ namespace TRRA
                 else if (heldItem.Name == "Myrtenaster" || heldItem.Name == "Myrtenaster (Fire)")
                 {
                     // Plays the transform sound effect for Myrtenaster
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/DustSpin"));
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/Myrtenaster/DustSpin"));
                     // If the current held Myrtenaster is in base form, swaps to fire, and vice versa
                     if (heldItem.type.Equals(rapierType))
                     {
@@ -76,20 +76,20 @@ namespace TRRA
                 // If the current held item is Gambol Shroud, swaps its form between sword and gun
                 else if (heldItem.type.Equals(katanaType))
                 {
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/GambolCock"));
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/GambolCock"));
                     player.inventory[player.selectedItem] = gunkata;
                     player.inventory[player.selectedItem].SetDefaults(gunkataType);
                 }
                 else if (heldItem.type.Equals(gunkataType))
                 {
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/GambolTransform"));
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/GambolTransform"));
                     player.inventory[player.selectedItem] = katana;
                     player.inventory[player.selectedItem].SetDefaults(katanaType);
                 }
                 else if (heldItem.Name == "Ember Celica" || heldItem.Name == "Ember Celica (Rocket)")
                 {
                     // Plays the transform sound effect for the Ember Celica
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/EmberTransform"));
+                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/EmberCelica/EmberTransform"));
                     // If the current held Ember Celica is in shotgun form, swaps to rocket, and vice versa
                     if (heldItem.type.Equals(fistType))
                     {

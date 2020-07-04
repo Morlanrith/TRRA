@@ -276,3 +276,91 @@ Next Task:
 Begin work on an accessory that boosts both melee and ranged damage types for the player.
 Begin devising a more unique method to craft the TRRA weapons.
 ----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 29th 2020
+-------------
+Work Done:
+Seemingly caused a new bug on Myrtenaster that affects its projectiles. Fixed this bug.
+Released version 0.4.1 of TRRA (Just includes the fix).
+Implemented two new accessories designed to be used with the TRRA weapons. 
+The first being the Huntress Emblem, an item similar in function to the base games class emblems (Warrior Emblem, Ranger 
+Emblem, etc.) which gives a 14% increase to the players melee and ranged damage.
+The second is the Eye of the Huntress, which combines the Huntress Emblem with the pre-existing item the Eye of the Golem.
+This accessory grants a 12% increase to the players melee and ranged damage, along with an 8% increase to the players critical
+strike chance with those weapon types.
+-------------
+Next Task:
+Begin devising a more unique method to craft the TRRA weapons.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 1st 2020
+-------------
+Work Done:
+Implemented a new material that is dropped from the pre-existing boss, the Golem.
+This material, known as the "Dust Extract", is to be used to craft the TRRA weapons, with players now being able to see the
+recipes for the weapons (which now includes the extract) once the extract is obtained. This is a much more natural way for
+players to unlock the weapons, as opposed to before where players would seemingly need to know beforehand what was required
+to craft them (which was why I included that information in the mod description).
+-------------
+Next Task:
+Organise the mod files more efficiently, and alter code to work correctly with these changes (e.g. move weapon items to a 
+folder called weapons within the items folder).
+Stress test the existing weapons to iron out any remaining bugs or issues.
+Re-balance any weapons as needed.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 2nd 2020
+-------------
+Work Done:
+Re-organised the layout of the mod files so that they are all more specifically located by their details (i.e. weapons are
+now in a weapons folder, materials in a materials folder, etc.). This is so that, as the project goes forward and continues
+to grow, it's easy to find and alter needed files, as well as so that old files do not get in the way while adding new ones.
+Fixed an old bug for Myrtenaster (both forms) and Gambol Shrouds gun form that was a byproduct of the implementation of
+auto-reuse on their alt fire function.
+-------------
+Next Task:
+Stress test the existing weapons to iron out any remaining bugs or issues.
+Re-balance any weapons as needed.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 3rd 2020
+-------------
+Work Done:
+Fixed an issue with Myrtenaster relating to its damage when alternating between its standard and alt-fire methods (this issue
+was previously "fixed", but that caused a much worse bug to start occuring so it was reverted, with this new solution not
+causing that bug).
+Examined all of the weapons currently implemented, and compared their damage to see if any re-balancing was needed.
+The following was changed:
+- Crescent Rose scythe damage was increased.
+- Gambol shroud sword damage and crit chance was increased (this was actually a bug causing it to do only 1/3 of its damage).
+- Myrtenasters projectiles, along with the Ember Celicas punching projectile, were fixed to increase in damage based on the 
+players stats.
+-------------
+Next Task:
+Stress test the existing weapons to iron out any remaining bugs or issues.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 4th 2020
+-------------
+Work Done:
+Performed testing on each weapon, testing against the following:
+- Behaviour in various liquids
+- Behaviour upon players death
+- Behaviour in various storage types (piggy bank, etc.)
+- Behaviour when sold and re-purchased
+- Behaviour when used with various flasks and ammunition
+- Behaviour when transforming frequently
+- Behaviour when displayed in item frames/weapon racks
+- Behaviour in multiplayers sessions
+Behaviour of all weapons was as expected for each of these scenarios.
+However, Myrtenaster appears very large when dropped from the players inventory (the sprite for the weapon is large, but it 
+is then scaled down when used by the player).
+A new sprite has been created for Myrtenaster to solve this issue, with the scaling now being far less drastic.
+Created a new sprite for Gambol Shroud (both forms and projectile) to be consistent with Terraria's visual style (2x2 pixels
+per on screen pixel).
+Released version 1.0 of TRRA.
+-------------
+Next Task:
+Take some time to list out ideas for the next iteration of TRRA, and construct a rough plan on the order things should be 
+achieved.
+----------------------------------------------------------------------------------------------------------------------------
