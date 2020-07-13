@@ -361,6 +361,19 @@ per on screen pixel).
 Released version 1.0 of TRRA.
 -------------
 Next Task:
-Take some time to list out ideas for the next iteration of TRRA, and construct a rough plan on the order things should be 
-achieved.
+Take some time to list out ideas for the next iteration of TRRA, and construct a rough plan on the order in which things 
+should be achieved.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 13th 2020
+-------------
+Work Done:
+Created a document titled "1.1 Development Plan", which details the planned development period for a version 1.1 of TRRA.
+This document covers the focus of the mod, which is to implement the "Dust" resource from the show, along with the weapon
+"Hush".
+This development period is planned to last roughly 4-5 weeks.
+-------------
+Next Task:
+Begin stage 1 of the development period, which focuses on creating the Dust objects in the game, and allowing them to grow
+naturally in a generated world.
 ----------------------------------------------------------------------------------------------------------------------------
