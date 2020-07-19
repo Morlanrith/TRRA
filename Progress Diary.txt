@@ -377,3 +377,91 @@ Next Task:
 Begin stage 1 of the development period, which focuses on creating the Dust objects in the game, and allowing them to grow
 naturally in a generated world.
 ----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 14th 2020
+-------------
+Work Done:
+Began experimenting with tiles, by creating a base version of the "Fire Dust" crytals (which currently are using the crystal
+shard sprites from the base game) and adjusting its various properties.
+The crystals largely now function as they should (not being stackable, or solid, but placeable), however they still are not
+placeable on the sides of the walls or ceilings, which they should be able to.
+-------------
+Next Task:
+Adjust fire dust crystals to be placeable on ceilings and walls.
+Adjust fire dust crystal properties and visuals.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 15th 2020
+-------------
+Work Done:
+Adjusted a number of the fire dust crystals visuals and properties.
+Altered the fire dust crystals to now be placeable on ceilings and walls, with the sprite adjusting as needed.
+However, currently the sprite will not adjust if the block beneath the crystal is mined while an adjacent block is still
+present (so the crystal is suspending in mid air, which is not desired).
+-------------
+Next Task:
+Adjust fire dust crystals to adjust sprites when surrounding blocks are mined.
+Adjust fire dust crystal properties and visuals.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 16th 2020
+-------------
+Work Done:
+Adjusted fire dust crystals to adjust sprites when surrounding blocks are mined, this is similar in behaviour to crystal shards
+from the base game.
+Adjusted fire dust crystal properties and visuals.
+-------------
+Next Task:
+Begin implementing world generation of fire dust crystals.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 17th 2020
+-------------
+Work Done:
+Experimented upon and implemented world generation of fire dust crystals, upon defeating the "Eye of Cthulhu" (the first boss
+in the base game).
+These crystals spawn in small veins (1-4 blocks) throughout the underworld (the bottom of the map).
+-------------
+Next Task:
+Investigate upside-down placement of dust crystals while next to half-blocks.
+Expand upon the fire dust crystal sprite sheet, to allow for more variants of crystal.
+Examine dust crystal sprites after generation, create new variants in cases of strange tile placement.
+Alter generation method for dust crystals (currently spawn after beating the first boss, but this is just for testing).
+Begin implementing other dust types (plant, gravity and possibly ice).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 18th 2020
+-------------
+Work Done:
+Investigated the upside-down placement of dust crystals while next to half-blocks. Behaviour is as expected (being similar
+to crystal shards from the base game, which is desired).
+Expanded upon the fire dust crystal sprite sheet, with crystals now coming 1 of 6 random variants when placed (with each
+variant changing direction at different angles as required).
+Completely changed the generation style for the dust crystals, with them now growing on empty spaces in preset environments
+if those spaces are next to a valid block type (so for example, fire dust crystals spawn in the underworld, in empty spaces
+that are adjacent to a block of ash).
+Determined how to alter the generation method of dust, allowing it to spawn after the first time the player defeats a
+"mechanical" boss. However, the method currently still requires the Eye of Cthulhu instead, as testing is still in process.
+-------------
+Next Task:
+Begin implementing other dust types (plant, gravity and possibly ice).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 19th 2020
+-------------
+Work Done:
+Implemented 3 more variants of dust crystal, plant, gravity and ice. Each of these has newly made sprites.
+Each of these uses specific block placing to spawn, in mass, in specific biomes. The underground jungle for plant, the
+floating islands for gravity, and the underground ice biome for ice.
+Additionaly, after stress testing dust crystal spawns, altered the generation method so that all three mechanical bosses must
+be defeated.
+Whilst testing this new change however, it was discovered that entering hard-mode (done normally by beating the boss, the "Wall
+of flesh") causes a mass of errors to be thrown (seemingly a result of the world attemtpting to alter blocks dust crystals are
+located on). This issue would not actually occur during normal gameplay, as conventionally the mechanical bosses are fought after
+entering hard-mode. However, it is possible to beat each mechanical boss before hardmode, through the use of multiple world files.
+As a result of all of this, additional checks were implemented to ensure dust only spawns when all the mechanical bosses are 
+defeated in hard-mode.
+-------------
+Next Task:
+Begin work on dust ammunition types, starting with fire.
+----------------------------------------------------------------------------------------------------------------------------
