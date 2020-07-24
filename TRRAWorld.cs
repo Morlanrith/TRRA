@@ -1,4 +1,3 @@
-using IL.Terraria;
 using Terraria.ModLoader;
 
 namespace TRRA

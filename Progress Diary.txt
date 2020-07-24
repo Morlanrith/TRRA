@@ -435,7 +435,7 @@ July 18th 2020
 Work Done:
 Investigated the upside-down placement of dust crystals while next to half-blocks. Behaviour is as expected (being similar
 to crystal shards from the base game, which is desired).
-Expanded upon the fire dust crystal sprite sheet, with crystals now coming 1 of 6 random variants when placed (with each
+Expanded upon the fire dust crystal sprite sheet, with crystals now coming in 1 of 6 random variants when placed (with each
 variant changing direction at different angles as required).
 Completely changed the generation style for the dust crystals, with them now growing on empty spaces in preset environments
 if those spaces are next to a valid block type (so for example, fire dust crystals spawn in the underworld, in empty spaces
@@ -464,4 +464,36 @@ defeated in hard-mode.
 -------------
 Next Task:
 Begin work on dust ammunition types, starting with fire.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 21st 2020
+-------------
+Work Done:
+Created a new bullet ammunition type that is crafted using fire dust crystals. This bullet applys an on fire debuff to enemies
+and leaves a small burst of flames where it impacts. These flames do a perecentage of the original bullets damage.
+-------------
+Next Task:
+Continue work on dust ammunition types, moving onto plant and then gravity (before finishing with ice).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 23rd 2020
+-------------
+Work Done:
+Created plant bullets. These bullets bounce off of surfaces, leaving "Jungle spores" in the bounce locations. These spores 
+move towards enemies, dealing half of the bullets original damage.
+-------------
+Next Task:
+Continue work on dust ammunition types, moving onto gravity (before finishing with ice).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 24th 2020
+-------------
+Work Done:
+Created gravity bullets. These bullets have "recoil" when fired, altering the players velocity to increase in the opposite
+direction of the bullets. Besides this the bullets have high power, and very high knockback.
+Created ice bullets. These bullets "shatter" upon impact with a surface or enemy, creating 3 smaller fragment projectiles
+which return at a (randomly determined) inverted angle, dealing half the original bullets damage.
+-------------
+Next Task:
+Implement a new crafting table tile. This will be used to craft all dust related items, along with the TRRA weapons.
 ----------------------------------------------------------------------------------------------------------------------------
