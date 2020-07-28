@@ -17,7 +17,7 @@ namespace TRRA.NPCs
                 {
 					if (!TRRAWorld.noDust && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
 					{
-						Main.NewText("Your world has been graced with Dust!", 255, 0, 102);
+						Main.NewText(Main.worldName + " has been graced with Dust!", 255, 0, 102);
 						int style = 0;
 						for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 100E-05); k++)
 						{

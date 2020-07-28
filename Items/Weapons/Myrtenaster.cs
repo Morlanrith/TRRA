@@ -6,6 +6,7 @@ using Terraria.GameInput;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
+using TRRA.Tiles;
 
 namespace TRRA.Items.Weapons
 {
@@ -18,7 +19,7 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 30;
+			item.damage = 20;
 			item.useStyle = ItemUseStyleID.Stabbing;
 			item.useAnimation = 12;
 			item.useTime = 2;
@@ -39,9 +40,11 @@ namespace TRRA.Items.Weapons
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemID.NorthPole, 1);
+			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
+			recipe.AddIngredient(ItemType<FireDustCrystal>(), 20);
+			recipe.AddIngredient(ItemType<IceDustCrystal>(), 20);
 			recipe.AddIngredient(ItemID.WhitePaint, 10);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileType<DustToolbenchTile>());
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
@@ -120,7 +123,7 @@ namespace TRRA.Items.Weapons
 				Random r = new Random();
 				posY += r.Next(-20, 20);
 				speedX = new Vector2(speedX, speedY).Length() * (speedX > 0 ? 1 : -1);
-				Projectile.NewProjectile(posX, posY, speedX, 0, type, 30 + (int)(30 * player.meleeDamageMult), knockBack, player.whoAmI);
+				Projectile.NewProjectile(posX, posY, speedX, 0, type, 20 + (int)(20 * player.meleeDamageMult), knockBack, player.whoAmI);
 				return false;
 			}
 			else

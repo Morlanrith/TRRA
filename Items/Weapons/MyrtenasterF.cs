@@ -16,7 +16,7 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 25;
+			item.damage = 15;
 			item.useStyle = ItemUseStyleID.Stabbing;
 			item.useAnimation = 12;
 			item.useTime = 2;
@@ -117,7 +117,7 @@ namespace TRRA.Items.Weapons
 				Random r = new Random();
 				posY += r.Next(-20, 20);
 				speedX = new Vector2(speedX, speedY).Length() * (speedX > 0 ? 1 : -1);
-				Projectile.NewProjectile(posX, posY, speedX, 0, type, 25 + (int)(25 * player.meleeDamageMult), knockBack, player.whoAmI);
+				Projectile.NewProjectile(posX, posY, speedX, 0, type, 15 + (int)(15 * player.meleeDamageMult), knockBack, player.whoAmI);
 				return false;
 			}
 			else

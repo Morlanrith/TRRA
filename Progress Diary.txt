@@ -497,3 +497,45 @@ which return at a (randomly determined) inverted angle, dealing half the origina
 Next Task:
 Implement a new crafting table tile. This will be used to craft all dust related items, along with the TRRA weapons.
 ----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 25th 2020
+-------------
+Work Done:
+Implemented a new crafting table tile known as the Dust Toolbench. This is used to craft all dust related items, with the
+recipes for the new ammo types changed to use this new crafting station. The TRRA weapons have not been updated yet, as I
+plan to update their recipes to use a specific item (or items) which will be purchased from my planned NPC. As a result,
+their recipes don't need to be updated yet.
+-------------
+Next Task:
+Begin implementation of the "Shopkeep" NPC, starting with investigating how town NPCs function in the base game (look at other
+mods for examples, etc.).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 27th 2020
+-------------
+Work Done:
+Created a base version of the "Shopkeep" NPC by using the ExamplePerson NPC from the example mod.
+Altered the example NPC to use new lines, have new spawn conditions as well as a new attack type (using a handgun with Fire
+Dust bullets).
+Altered the example NPC to sell the Dust Toolbench.
+Created 4 new materials, which are dust extracts for the different dust types (Fire, Plant, etc.). These are sold by the 
+Shopkeep NPC and can be combined with Crystal Shards to produce Dust crystals of the extract type. This is to allow the player
+to obtain as much Dust as they want even after mining all spawned dust on their world.
+Created new material, the Dust Weapon Kit, to be sold by the Shopkeep. This is used to craft the TRRA weapons.
+Updated the TRRA weapon recipes to use the new material (as well as the Dust Toolbench).
+-------------
+Next Task:
+Create new sprites for the Shopkeep NPC.
+Test the Shopkeeps attack style (firing a handgun) to ensure it works as intended. Alter it if neccessary.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 28th 2020
+-------------
+Work Done:
+Created completely new sprites for the Shopkeep NPC.
+During the process of creating this spritework, I discovered how NPC attack variants are set and decided. As a result, I was
+able to ensure the Shopkeeps attack style works as intended.
+-------------
+Next Task:
+Begin work on the final TRRA weapon, as well as the final planned addition to TRRA, the parasol "Hush".
+----------------------------------------------------------------------------------------------------------------------------

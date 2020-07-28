@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.GameInput;
+using TRRA.Tiles;
 
 namespace TRRA.Items.Weapons
 {
@@ -85,9 +86,13 @@ namespace TRRA.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemID.DeathSickle, 1);
+			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
+			recipe.AddIngredient(ItemType<FireDustCrystal>(), 10);
+			recipe.AddIngredient(ItemType<PlantDustCrystal>(), 10);
+			recipe.AddIngredient(ItemType<GravityDustCrystal>(), 10);
+			recipe.AddIngredient(ItemType<IceDustCrystal>(), 10);
 			recipe.AddIngredient(ItemID.RedPaint, 10);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileType<DustToolbenchTile>());
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

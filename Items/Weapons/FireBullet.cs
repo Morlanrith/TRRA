@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TRRA.Tiles;
 using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons
@@ -31,7 +32,7 @@ namespace TRRA.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.EmptyBullet, 50);
             recipe.AddIngredient(ItemType<Materials.FireDustCrystal>(), 1);
-			recipe.AddTile(TileID.MythrilAnvil); // To be replaced with a custom workbench for dust
+			recipe.AddTile(TileType<DustToolbenchTile>());
 			recipe.SetResult(this, 50);
 			recipe.AddRecipe();
 		}

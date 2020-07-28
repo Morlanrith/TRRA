@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TRRA.Tiles;
 using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Materials
@@ -25,6 +26,16 @@ namespace TRRA.Items.Materials
 			item.height = 18;
 			item.value = Item.sellPrice(silver: 25);
 			item.rare = ItemRarityID.Blue;
+		}
+
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemType<PlantDustExtract>(), 1);
+			recipe.AddIngredient(ItemID.CrystalShard, 1);
+			recipe.AddTile(TileType<DustToolbenchTile>());
+			recipe.SetResult(this, 1);
+			recipe.AddRecipe();
 		}
 	}
 }
