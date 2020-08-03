@@ -19,13 +19,13 @@ namespace TRRA.Items.Weapons
 			item.damage = 15;
 			item.useStyle = ItemUseStyleID.Stabbing;
 			item.useAnimation = 12;
-			item.useTime = 2;
+			item.useTime = 4;
 			item.knockBack = 4.5f;
 			item.width = 46;
 			item.height = 46;
 			item.scale = 0.9f;
 			item.rare = ItemRarityID.Cyan;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 25);
 			item.melee = true;
 			item.autoReuse = true;
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Myrtenaster/FireStab");

@@ -14,7 +14,7 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 190;
+			item.damage = 200;
 			item.ranged = true;
 			item.width = 68;
 			item.height = 18;
@@ -23,7 +23,7 @@ namespace TRRA.Items.Weapons
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.noMelee = true;
 			item.knockBack = 7;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = ItemRarityID.Cyan;
 			// Plays the sound effect for a Crescent Rose gunshot
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/CrescentRose/RoseShot");

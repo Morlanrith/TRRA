@@ -539,3 +539,92 @@ able to ensure the Shopkeeps attack style works as intended.
 Next Task:
 Begin work on the final TRRA weapon, as well as the final planned addition to TRRA, the parasol "Hush".
 ----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 29th 2020
+-------------
+Work Done:
+Began work on "Hush", currently using the sprites from the standard Umbrella from the base game before making new sprites.
+Added code from the base Umbrella to allow for slow falling when holding Hush. Also altered the code so that the effect is 
+cancelled when attacking with Hush. In addition, I also added a new sound effect that plays when Hush appears while falling
+(so it sounds as if the player has just opened the umbrella).
+-------------
+Next Task:
+Continue work on Hush, this should include the following:
+- Create new sprites for the base version of Hush.
+- Create a new projectile for Hush's primary attack, which should be thrusting a closed version of Hush in a target direction
+  (This should also include new sprites, and sound effects).
+- Begin experimenting with an alt-fire attack, that causes the player to teleport. This should also utilise new sound 
+  effects as well as likely a new dust (the trail effects, not the crystals implemented with this mod).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 30th 2020
+-------------
+Work Done:
+Continued work on Hush, creating new sprites for the base version of Hush, as well as beginning to work on the weapons primary
+fire method. A new projectile sprite has been created for this primary fire, however its quality is questionable, and I feel
+it may need extra work later on, but still, it fulfills its function well enough for the time being.
+-------------
+Next Task:
+Continue work on Hush, this should include the following:
+- Work on a new projectile for Hush's primary attack, which should be thrusting a closed version of Hush in a target direction
+  (This should also include new sound effects).
+- Begin experimenting with an alt-fire attack, that causes the player to teleport. This should also utilise new sound 
+  effects as well as likely a new dust (the trail effects, not the crystals implemented with this mod).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+August 1st 2020
+-------------
+Work Done:
+Continued work on Hush, adjusting its primary fire projectile to function like a "spear" from the base game, as this causes
+it to function they way I intend. This primary fire also uses a new sound effect.
+Also have adjusted the damage for the primary fire, as well as comparing it to the other weapons and adjusting their damages
+so they feel more conistent (Crescent Rose and Gambol Shroud got damage increases, Myrtenaster had some of its bonus projectiles
+removed lowering its damage and the Ember Celica were left as is).
+-------------
+Next Task:
+Continue work on Hush, this should include the following:
+- Begin experimenting with an alt-fire attack, that causes the player to teleport. This should also utilise new sound 
+  effects as well as likely a new dust (the trail effects, not the crystals implemented with this mod).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+August 2nd 2020
+-------------
+Work Done:
+Continued work on Hush, implementing an alt-fire that causes the player to teleport to the position of the mouse. providing
+it is a valid location the player can fit in. This teleport also applys the "chaos state" debuff which is traditionally used
+with the "Rod of Discord" item, to damage the player for frequent teleportations. With Hush the debuff lasts for less time
+but the player is unable to teleport at all while under the chaos state.
+This teleport also features a new Dust effect and sound effect when used.
+Also altered the fire animation for the teleport so that Hush is held out in front of the player when activated.
+-------------
+Next Task:
+Test each aspect of the planned 1.1 update for TRRA for bugs, fixing any discovered.
+Release version 1.1 of TRRA.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+August 3rd 2020
+-------------
+Work Done:
+Tested each aspect of the planned 1.1 update for TRRA for bugs, this included the following:
+- Ensuring dust crystals spawned correctly upon defeating all three mechanical bosses
+- Ensuring holding a dust crystal, of any type, would allow the shopkeep to spawn
+- Ensuring that defeating the Golem would cause the shopkeep to begin selling the dust weapon kit, and not before that point
+- Ensuring all recipes and prices were correct
+- Ensuring all various aspects of Hush worked as intended
+Fixed an issue with Hush, where teleporting while grappled to an object wouldn't disable the grappling hook (so it would 
+attempt to pull you back). Any active grappling hooks present while using Hush's teleport will now be disabled when doing so.
+Released version 1.1 of TRRA.
+-------------
+Next Task:
+This marks the release of version 1.1 of TRRA, which was the final planned update for the mod. As a result of this, there is
+no more planned work to be done on this mod besides an update to make it compatible with a new version of tModLoader, which 
+is dependent on that version releasing first. 
+
+I'll likely write a small retrospective on the development of this mod over the last 9 weeks on my LinkedIn, but besides that,
+this release marks the end of development for TRRA.
+
+This project has been a lot of fun (albeit frustrating at times) and has really helped give me a sense of stability and structure
+to my days in these times. I hope I can apply what I've learned here to any similar work I get to do in the future.
+I'm not sure if anyone will ever actually read these logs, but if you have, I just want to say thank you for taking an interest
+in my work.
+----------------------------------------------------------------------------------------------------------------------------

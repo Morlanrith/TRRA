@@ -17,7 +17,7 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 140;
+			item.damage = 180;
 			item.melee = true;
 			item.width = 44;
 			item.height = 44;
@@ -25,11 +25,11 @@ namespace TRRA.Items.Weapons
 			item.useAnimation = 21;
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 4;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = ItemRarityID.Cyan;
 			item.UseSound = null;
 			item.autoReuse = false;
-			item.crit = 26;
+			item.crit = 36;
 			item.noMelee = true;
 			item.noUseGraphic = true;
 			item.channel = true;

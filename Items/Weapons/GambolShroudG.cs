@@ -21,7 +21,7 @@ namespace TRRA.Items.Weapons
 			item.height = 24;
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.noMelee = true;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = ItemRarityID.Cyan;
 			item.noUseGraphic = true;
 			item.useTime = 10;

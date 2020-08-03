@@ -27,7 +27,7 @@ namespace TRRA.Items.Weapons
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 7;
 			item.noUseGraphic = true;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = ItemRarityID.Cyan;
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/EmberCelica/EmberShot");
 			item.autoReuse = false;

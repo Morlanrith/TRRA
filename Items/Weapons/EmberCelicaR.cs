@@ -24,7 +24,7 @@ namespace TRRA.Items.Weapons
 			item.useAnimation = 25;
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 6;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = ItemRarityID.Cyan;
 			item.autoReuse = false;
 			item.shoot = ProjectileID.RocketI;
