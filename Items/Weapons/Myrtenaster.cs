@@ -38,7 +38,7 @@ namespace TRRA.Items.Weapons
 			Item.damage = 30;
 			Item.useStyle = ItemUseStyleID.Thrust;
 			Item.useAnimation = 12;
-			Item.useTime = 4;
+			Item.useTime = 3;
 			Item.knockBack = 3.5f;
 			Item.width = 46;
 			Item.height = 46;
@@ -109,7 +109,7 @@ namespace TRRA.Items.Weapons
 				Item.noMelee = false;
 				Item.useAnimation = 12;
 				Item.DamageType = DamageClass.Melee;
-				Item.useTime = 2;
+				Item.useTime = 3;
 				Item.damage = 30;
 				Item.shoot = ProjectileType<MyrtenasterR>();
 				Item.UseSound = IceStabSound;

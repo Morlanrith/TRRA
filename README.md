@@ -3,7 +3,7 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 2.0.3 of the mod, a working version of its update to work with a version 1.4 updated tModLoader.
+This is version 2.0.4 of the mod, a working version of its update to work with a version 1.4 updated tModLoader.
 This version is likely to recieve additional updates as the 1.4 alpha for tModLoader continues development, in order to adjust behaviours.
 
 This update includes a new fire method for the Floating Array weapon added in the last update, a deadly laser that can be used in place of the summoned blades (providing some have already been summoned).

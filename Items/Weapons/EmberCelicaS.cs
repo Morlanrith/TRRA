@@ -87,6 +87,7 @@ namespace TRRA.Items.Weapons
 				player.velocity = newVelocity;
 			}
 			else {
+				if (!PlayerInput.Triggers.JustPressed.MouseLeft) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
 				Item.UseSound = EmberShotSound;
 				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.shoot = ProjectileID.Bullet;

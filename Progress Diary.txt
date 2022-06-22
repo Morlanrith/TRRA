@@ -678,6 +678,7 @@ June 22nd 2022
 -------------
 Work Done:
 Removed (now) unneeded kill sound function from dust crystal tiles.
+Fixed some balance issues.
 Began work an a new enemy NPC, the Beowolf. This is planned to be part of a new in-game event.
 -------------
 Next Task:

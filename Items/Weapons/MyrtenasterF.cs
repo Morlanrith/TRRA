@@ -36,7 +36,7 @@ namespace TRRA.Items.Weapons
 			Item.damage = 25;
 			Item.useStyle = ItemUseStyleID.Thrust;
 			Item.useAnimation = 12;
-			Item.useTime = 4;
+			Item.useTime = 3;
 			Item.knockBack = 4.5f;
 			Item.width = 46;
 			Item.height = 46;
@@ -105,7 +105,7 @@ namespace TRRA.Items.Weapons
 				Item.useStyle = ItemUseStyleID.Thrust;
 				Item.DamageType = DamageClass.Melee;
 				Item.noMelee = false;
-				Item.useTime = 2;
+				Item.useTime = 3;
 				Item.useAnimation = 12;
 				Item.damage = 25;
 				Item.knockBack = 4.5f;
