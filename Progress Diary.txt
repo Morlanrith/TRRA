@@ -628,3 +628,67 @@ to my days in these times. I hope I can apply what I've learned here to any simi
 I'm not sure if anyone will ever actually read these logs, but if you have, I just want to say thank you for taking an interest
 in my work.
 ----------------------------------------------------------------------------------------------------------------------------
+Date:
+February 5th 2022
+-------------
+Work Done:
+Updated all functionality from version 1.1 of TRRA, to be compatible with the alpha 1.4 version of tModLoader.
+Released version 1.11 of TRRA.
+-------------
+Next Task:
+No following work is currently planned, as I will instead be awaiting for more developments with the 1.4 compatible tModLoader.
+
+I did this follow up work now, as I had a small window of time in which I was meant to finish my prior project (Azem), but it
+was finished ahead of schedule, so I decided to begin this update.
+
+I may still return to perform more content additions in the future, should I find the time again.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+February 24th 2022
+-------------
+Work Done:
+Have decided to once again return to the project, while participating in game jams when not working on it.
+Began work on a new weapon, the "Floating Array".
+-------------
+Next Task:
+Begin work on the sword summon for the Floating Array.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+March 16th 2022
+-------------
+Work Done:
+Completely finished the Floating Array weapon, complete with alt-fire mode.
+Released version 2.0 of TRRA.
+-------------
+Next Task:
+Have once again decided to halt work on the mod, this time due to the ever changing nature of tModLoaders 1.4 alpha
+making development difficult. May still return again one day to make more additions.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 1st 2022
+-------------
+Work Done:
+Repaired sound use for all items in TRRA.
+-------------
+Next Task:
+Fix any future issues caused by updates to the tModLoader 1.4 alpha.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 22nd 2022
+-------------
+Work Done:
+Removed (now) unneeded kill sound function from dust crystal tiles.
+Began work an a new enemy NPC, the Beowolf. This is planned to be part of a new in-game event.
+-------------
+Next Task:
+Fix any future issues caused by updates to the tModLoader 1.4 beta.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+
+-------------
+Work Done:
+
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------

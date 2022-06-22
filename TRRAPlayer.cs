@@ -1,106 +1,110 @@
 using Terraria;
 using Terraria.GameInput;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 using TRRA.Items.Weapons;
 using static Terraria.ModLoader.ModContent;
+using System.Collections.Generic;
 
 namespace TRRA
 {
     public class TRRAPlayer : ModPlayer
 	{
+        private static readonly SoundStyle RoseTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseTransform")
+        {
+            Volume = 0.5f,
+            Pitch = 0.0f,
+        };
 
-        private ModHotKey altUseHotkey = null;
+        private static readonly SoundStyle DustSpinSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/DustSpin")
+        {
+            Volume = 0.8f,
+            Pitch = 0.0f,
+        };
+
+        private static readonly SoundStyle GambolCockSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolCock")
+        {
+            Volume = 0.5f,
+            Pitch = 0.0f,
+        };
+
+        private static readonly SoundStyle GambolTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolTransform")
+        {
+            Volume = 0.5f,
+            Pitch = 0.0f,
+        };
+
+        private static readonly SoundStyle EmberTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberTransform")
+        {
+            Volume = 0.5f,
+            Pitch = 0.0f,
+        };
+
+        private ModKeybind altUseHotkey = null;
+        private List<Projectile> blades = new List<Projectile>();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
-        private readonly Item gun = GetModItem(ItemType<CrescentRoseG>()).item;
-        private readonly int gunType = ItemType<CrescentRoseG>();
-        private readonly Item scythe = GetModItem(ItemType<CrescentRoseS>()).item;
-        private readonly int scytheType = ItemType<CrescentRoseS>();
-        private readonly Item rapier = GetModItem(ItemType<Myrtenaster>()).item;
-        private readonly int rapierType = ItemType<Myrtenaster>();
-        private readonly Item rapierF = GetModItem(ItemType<MyrtenasterF>()).item;
-        private readonly int rapierFType = ItemType<MyrtenasterF>();
-        private readonly Item katana = GetModItem(ItemType<GambolShroudS>()).item;
-        private readonly int katanaType = ItemType<GambolShroudS>();
-        private readonly Item gunkata = GetModItem(ItemType<GambolShroudG>()).item;
-        private readonly int gunkataType = ItemType<GambolShroudG>();
-        private readonly Item fist = GetModItem(ItemType<EmberCelicaS>()).item;
-        private readonly int fistType = ItemType<EmberCelicaS>();
-        private readonly Item rocket = GetModItem(ItemType<EmberCelicaR>()).item;
-        private readonly int rocketType = ItemType<EmberCelicaR>();
+        private static readonly Item 
+            gun = GetModItem(ItemType<CrescentRoseG>()).Item,
+            scythe = GetModItem(ItemType<CrescentRoseS>()).Item,
+            rapier = GetModItem(ItemType<Myrtenaster>()).Item,
+            rapierF = GetModItem(ItemType<MyrtenasterF>()).Item,
+            katana = GetModItem(ItemType<GambolShroudS>()).Item,
+            gunkata = GetModItem(ItemType<GambolShroudG>()).Item,
+            fist = GetModItem(ItemType<EmberCelicaS>()).Item,
+            rocket = GetModItem(ItemType<EmberCelicaR>()).Item;
 
         public override void PostUpdate()
         {
             EmberFists();
         }
+
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             // Transform Weapon
-            if(TRRA.TransformHotKey.JustPressed)
+            if(TRRA.TransformHotKey.JustPressed && Player.altFunctionUse != 2)
             {
-                // Obtains the current held item from the players inventory
-                Item heldItem = player.inventory[player.selectedItem];
-                // Checks if the held item is one of two Crescent Rose variants
-                if (heldItem.Name == "Crescent Rose")
+                Item heldItem = Player.inventory[Player.selectedItem]; // Obtains the current held item from the players inventory
+                Item chosenItem = null;
+                switch (heldItem.Name) // Determines action based on the name of the item
                 {
-                    // Plays the transform sound effect for Crescent Rose
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/CrescentRose/RoseTransform"));
-                    // If the current held Crescent Rose is in Scythe form, swaps to gun, and vice versa
-                    if (heldItem.type.Equals(scytheType))
-                    {
-                        player.inventory[player.selectedItem] = gun;
-                        player.inventory[player.selectedItem].SetDefaults(gunType);
-                    }
-                    if (heldItem.type.Equals(gunType))
-                    {
-                        player.inventory[player.selectedItem] = scythe;
-                        player.inventory[player.selectedItem].SetDefaults(scytheType);
-                    }
+                    case "Crescent Rose":
+                        SoundEngine.PlaySound(RoseTransformSound); // Plays the transform sound effect for Crescent Rose
+                        if (heldItem.type.Equals(scythe.type)) // If the current held Crescent Rose is in Scythe form, swaps to gun
+                            chosenItem = gun;
+                        else // Otherwise, swaps to scythe
+                            chosenItem = scythe;
+                        break;
+                    case "Myrtenaster":
+                        SoundEngine.PlaySound(DustSpinSound); // Plays the transform sound effect for Myrtenaster
+                        if (heldItem.type.Equals(rapier.type)) // If the current held Myrtenaster is in base form, swaps to fire
+                            chosenItem = rapierF;
+                        else // Otherwise, swaps to base
+                            chosenItem = rapier;
+                        break;
+                    case "Gambol Shroud":
+                        if(heldItem.type.Equals(katana.type)) // If the current held Gambol Shroud is in katana form, swaps to gun
+                        {
+                            SoundEngine.PlaySound(GambolCockSound); // Plays the relevant transform sound effect
+                            chosenItem = gunkata;
+                        }
+                        else // Otherwise, swaps to katana
+                        {
+                            SoundEngine.PlaySound(GambolTransformSound); // Plays the relevant transform sound effect
+                            chosenItem = katana;
+                        }
+                        break;
+                    case "Ember Celica":
+                        SoundEngine.PlaySound(EmberTransformSound); // Plays the transform sound effect for the Ember Celica
+                        if (heldItem.type.Equals(fist.type)) // If the current held Ember Celica is in shotgun form, swaps to rocket
+                            chosenItem = rocket;
+                        else // Otherwise, swaps to shotgun
+                            chosenItem = fist;
+                        break;
                 }
-                else if (heldItem.Name == "Myrtenaster" || heldItem.Name == "Myrtenaster (Fire)")
+                if(chosenItem != null)
                 {
-                    // Plays the transform sound effect for Myrtenaster
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/Myrtenaster/DustSpin"));
-                    // If the current held Myrtenaster is in base form, swaps to fire, and vice versa
-                    if (heldItem.type.Equals(rapierType))
-                    {
-                        player.inventory[player.selectedItem] = rapierF;
-                        player.inventory[player.selectedItem].SetDefaults(rapierFType);
-                    }
-                    if (heldItem.type.Equals(rapierFType))
-                    {
-                        player.inventory[player.selectedItem] = rapier;
-                        player.inventory[player.selectedItem].SetDefaults(rapierType);
-                    }
-                }
-                // If the current held item is Gambol Shroud, swaps its form between sword and gun
-                else if (heldItem.type.Equals(katanaType))
-                {
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/GambolCock"));
-                    player.inventory[player.selectedItem] = gunkata;
-                    player.inventory[player.selectedItem].SetDefaults(gunkataType);
-                }
-                else if (heldItem.type.Equals(gunkataType))
-                {
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/GambolTransform"));
-                    player.inventory[player.selectedItem] = katana;
-                    player.inventory[player.selectedItem].SetDefaults(katanaType);
-                }
-                else if (heldItem.Name == "Ember Celica" || heldItem.Name == "Ember Celica (Rocket)")
-                {
-                    // Plays the transform sound effect for the Ember Celica
-                    Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/EmberCelica/EmberTransform"));
-                    // If the current held Ember Celica is in shotgun form, swaps to rocket, and vice versa
-                    if (heldItem.type.Equals(fistType))
-                    {
-                        player.inventory[player.selectedItem] = rocket;
-                        player.inventory[player.selectedItem].SetDefaults(rocketType);
-                    }
-                    if (heldItem.type.Equals(rocketType))
-                    {
-                        player.inventory[player.selectedItem] = fist;
-                        player.inventory[player.selectedItem].SetDefaults(fistType);
-                    }
+                    Player.inventory[Player.selectedItem] = chosenItem.Clone();
+                    Player.inventory[Player.selectedItem].SetDefaults(chosenItem.type);
                 }
             }
 
@@ -115,19 +119,37 @@ namespace TRRA
 
         private void EmberFists()
         {
-            if (player.HeldItem.type == fistType || player.HeldItem.type == rocketType)
+            if (Player.HeldItem.Name == "Ember Celica")
             {
-                if (player.HeldItem.handOnSlot > 0)
+                if (Player.HeldItem.handOnSlot > 0)
                 {
-                    player.handon = player.HeldItem.handOnSlot;
-                    player.cHandOn = 0;
+                    Player.handon = Player.HeldItem.handOnSlot;
+                    Player.cHandOn = 0;
                 }
-                if (player.HeldItem.handOffSlot > 0)
+                if (Player.HeldItem.handOffSlot > 0)
                 {
-                    player.handoff = player.HeldItem.handOffSlot;
-                    player.cHandOff = 0;
+                    Player.handoff = Player.HeldItem.handOffSlot;
+                    Player.cHandOff = 0;
                 }
             }
+        }
+
+        public void AddBlade(Projectile projectile)
+        {
+            blades.Add(projectile);
+        }
+
+        public void RemoveBlade(Projectile projectile)
+        {
+            blades.Remove(projectile);
+        }
+
+        public int KillBlades()
+        {
+            int currentAmount = blades.Count;
+            for(int i=blades.Count-1; i >= 0; i--)
+                blades[i].Kill();
+            return currentAmount;
         }
 
     }

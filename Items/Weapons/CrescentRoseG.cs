@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,6 +8,12 @@ namespace TRRA.Items.Weapons
 {
 	public class CrescentRoseG : ModItem
 	{
+		private static readonly SoundStyle RoseShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseShot")
+		{
+			Volume = 0.6f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() {
 			// Sets the display name and tooltip for Crescent Rose (gun form)
 			DisplayName.SetDefault("Crescent Rose");
@@ -14,37 +21,36 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 200;
-			item.ranged = true;
-			item.width = 68;
-			item.height = 18;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.noMelee = true;
-			item.knockBack = 7;
-			item.value = Item.sellPrice(gold: 25);
-			item.rare = ItemRarityID.Cyan;
+			Item.damage = 200;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 68;
+			Item.height = 18;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.noMelee = true;
+			Item.knockBack = 7;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.rare = ItemRarityID.Cyan;
 			// Plays the sound effect for a Crescent Rose gunshot
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/CrescentRose/RoseShot");
-			item.autoReuse = false;
-			item.shoot = ProjectileID.PurificationPowder;
-			item.shootSpeed = 16f;
-			item.crit = 26;
-			item.useAmmo = AmmoID.Bullet;
-			item.maxStack = 1;
+			Item.UseSound = RoseShotSound;
+			Item.autoReuse = false;
+			Item.shoot = ProjectileID.PurificationPowder;
+			Item.shootSpeed = 16f;
+			Item.crit = 26;
+			Item.useAmmo = AmmoID.Bullet;
+			Item.maxStack = 1;
 		}
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle r)
 		{
 			// Allows the player to utilise the scope function with Right Click
 			player.scope = true;
 		}
 
-		public override bool HoldItemFrame(Player player)
+		public override void HoldItemFrame(Player player)
 		{
 			player.scope = true;
-			return false;
 		}
 
 		public override Vector2? HoldoutOffset()
@@ -54,14 +60,10 @@ namespace TRRA.Items.Weapons
 		}
 
 		// Offsets the fire location of the bullet from the weapons muzzle
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
 		{
-			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
-			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
-			{
-				position += muzzleOffset;
-			}
-			return true;
+			Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
+			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0)) position += muzzleOffset;
 		}
 
 	}

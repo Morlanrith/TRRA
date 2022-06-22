@@ -11,11 +11,11 @@ namespace TRRA.Items.Materials
 		}
 
 		public override void SetDefaults() {
-			item.width = 32;
-			item.height = 34;
-			item.maxStack = 99;
-			item.value = Item.sellPrice(gold: 20);
-			item.rare = ItemRarityID.Lime;
+			Item.width = 32;
+			Item.height = 34;
+			Item.maxStack = 99;
+			Item.value = Item.sellPrice(gold: 20);
+			Item.rare = ItemRarityID.Lime;
 		}
 	}
 }

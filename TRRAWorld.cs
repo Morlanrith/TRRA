@@ -2,13 +2,15 @@ using Terraria.ModLoader;
 
 namespace TRRA
 {
-	public class TRRAWorld : ModWorld
+	public class TRRAWorld : ModSystem
 	{
 		public static bool noDust = false;
-        public override void Initialize()
+
+        public override void OnWorldLoad()
         {
-            if(Terraria.NPC.downedMechBoss1 && Terraria.NPC.downedMechBoss2 && Terraria.NPC.downedMechBoss3) noDust = true;
-            base.Initialize();
+            if (Terraria.NPC.downedPlantBoss) noDust = true;
+            base.OnWorldLoad();
         }
+
     }
 }

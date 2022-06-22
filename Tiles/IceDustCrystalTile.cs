@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
@@ -11,7 +12,7 @@ namespace TRRA.Tiles
 {
 	public class IceDustCrystalTile : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileShine[Type] = 1100;
 			Main.tileSolid[Type] = false;
@@ -63,8 +64,8 @@ namespace TRRA.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Ice Dust Crystal");
 			AddMapEntry(new Color(115, 225, 255), name);
-			disableSmartCursor = true;
-			adjTiles = new int[] { Type };
+			TileID.Sets.DisableSmartCursor[Type] = true;
+			AdjTiles = new int[] { Type };
 		}
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
@@ -78,45 +79,24 @@ namespace TRRA.Tiles
 			int num24 = -1;
 			int num25 = -1;
 			int num26 = -1;
-			if (tile8 != null && tile8.nactive() && !tile8.bottomSlope())
-			{
-				num24 = tile8.type;
-			}
-			if (tile9 != null && tile9.nactive() && !tile9.halfBrick() && !tile9.topSlope())
-			{
-				num23 = tile9.type;
-			}
-			if (tile2 != null && tile2.nactive())
-			{
-				num25 = tile2.type;
-			}
-			if (tile3 != null && tile3.nactive())
-			{
-				num26 = tile3.type;
-			}
+			if (tile8 != null && tile8.HasUnactuatedTile && !(tile8.Slope == SlopeType.SlopeUpLeft || tile8.Slope == SlopeType.SlopeUpRight))
+				num24 = tile8.TileType;
+			if (tile9 != null && tile9.HasUnactuatedTile && !tile9.IsHalfBlock && !(tile9.Slope == SlopeType.SlopeDownLeft || tile9.Slope == SlopeType.SlopeDownRight))
+				num23 = tile9.TileType;
+			if (tile2 != null && tile2.HasUnactuatedTile && !tile2.IsHalfBlock && !(tile2.Slope == SlopeType.SlopeUpLeft || tile2.Slope == SlopeType.SlopeDownLeft))
+				num25 = tile2.TileType;
+			if (tile3 != null && tile3.HasUnactuatedTile)
+				num26 = tile3.TileType;
 			if (num23 >= 0 && Main.tileSolid[num23] && !Main.tileSolidTop[num23])
-			{
-				tile.frameY = 0;
-			}
+				tile.TileFrameY = 0;
 			else if (num24 >= 0 && Main.tileSolid[num24] && !Main.tileSolidTop[num24])
-			{
-				tile.frameY = 18;
-			}
+				tile.TileFrameY = 18;
 			else if (num25 >= 0 && Main.tileSolid[num25] && !Main.tileSolidTop[num25])
-			{
-				tile.frameY = 54;
-			}
+				tile.TileFrameY = 54;
 			else if (num26 >= 0 && Main.tileSolid[num26] && !Main.tileSolidTop[num26])
-			{
-				tile.frameY = 36;
-			}
+				tile.TileFrameY = 36;
 			return base.TileFrame(i, j, ref resetFrame, ref noBreak);
-        }
-
-        public override bool KillSound(int i, int j)
-        {
-			return false;
-        }
+		}
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
@@ -127,8 +107,8 @@ namespace TRRA.Tiles
 
         public override bool Drop(int i, int j)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Materials.IceDustCrystal>());
-			Main.PlaySound(SoundID.Item27, i*16,j*16);
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<Items.Materials.IceDustCrystal>());
+			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i *16,j*16));
 			return base.Drop(i, j);
 		}
 	}

@@ -1,0 +1,24 @@
+Mods: {
+	TRRA: {
+		NPCName: {
+			Shopkeep: Shopkeep
+		}
+		
+		TownNPCMood: {
+			Shopkeep: {
+				Content: I feel rather relaxed right now.
+				NoHome: It would be nice to have some sort of fortification, if these monsters are like Grimm then we're going to need it.
+				LoveSpace: It's nice having enough room for all my dispensers.
+				FarFromHome: I feel I'm a bit lost, do you know the way back?
+				DislikeCrowded: I'm more of a solo businessman, all these people are really getting in the way.
+				LikeBiome: "I like {BiomeName}, it reminds me of home."
+				DislikeBiome: "It's far too dangerous in {BiomeName}, you have to get me out of here!"
+				LikeNPC: "{NPCName} gives me enough space, I like that."
+				LikeNPC_Princess: "{NPCName} seems very interested in Remnant, such a sweet girl."
+				LoveNPC: "{NPCName} seems intrigued by some potential uses of Dust, it's nice to have someone who appreciates my wares."
+				DislikeNPC: "{NPCName} can be a bit annoying."
+				HateNPC: "Does {NPCName} really not understand how reactive Dust can be! I swear he's going to get us all killed."
+			}
+		}
+	}
+}

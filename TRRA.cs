@@ -4,23 +4,16 @@ namespace TRRA
 {
     public class TRRA : Mod
     {
-        public static ModHotKey TransformHotKey;
+        public static ModKeybind TransformHotKey;
 
         public TRRA()
         {
-            Properties = new ModProperties()
-            {
-                Autoload = true,
-                AutoloadGores = true,
-                AutoloadSounds = true
-
-            };
         }
 
         public override void Load()
         {
             // Registers hotkeys
-            TransformHotKey = RegisterHotKey("Transform Weapon", "F");
+            TransformHotKey = KeybindLoader.RegisterKeybind(this,"Transform Weapon", "F");
 
             base.Load();
         }

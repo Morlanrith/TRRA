@@ -2,39 +2,50 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ID;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
+using TRRA.Projectiles.Item.Weapon.GambolShroud;
+using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
 	public class GambolShroudG : ModItem
 	{
 		private bool resetTime = false;
+
+		private static readonly SoundStyle GambolShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolShot")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Gambol Shroud");
 			Tooltip.SetDefault("Don't be so dramatic\nRight Click to fire as a gun\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
-			item.damage = 130;
-			item.ranged = true;
-			item.width = 36;
-			item.height = 24;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.noMelee = true;
-			item.value = Item.sellPrice(gold: 25);
-			item.rare = ItemRarityID.Cyan;
-			item.noUseGraphic = true;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.knockBack = 7f;
-			item.UseSound = SoundID.Item1;
-			item.shoot = mod.ProjectileType("GambolRibbonEnd");
-			item.shootSpeed = 10f;
-			item.crit = 0;
-			item.useAmmo = AmmoID.None;
-			item.channel = true;
-			item.autoReuse = false;
-			item.maxStack = 1;
+			Item.damage = 130;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 36;
+			Item.height = 24;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.noMelee = true;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.rare = ItemRarityID.Cyan;
+			Item.noUseGraphic = true;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.knockBack = 7f;
+			Item.UseSound = SoundID.Item1;
+			Item.shoot = ProjectileType<GambolRibbonEnd>();
+			Item.shootSpeed = 10f;
+			Item.crit = 0;
+			Item.useAmmo = AmmoID.None;
+			Item.channel = true;
+			Item.autoReuse = false;
+			Item.maxStack = 1;
 		}
 
 		public override bool AltFunctionUse(Player player)
@@ -42,15 +53,15 @@ namespace TRRA.Items.Weapons
 			return true;
 		}
 
-		public override void UseStyle(Player player)
-		{
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
 			// Prevents the player from utilising the scope function with Right Click
 			player.scope = false;
-		}
+			//base.UseStyle(player, heldItemFrame);
+        }
 
-        [System.Obsolete]
-        public override void GetWeaponDamage(Player player, ref int damage)
-        {
+		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+		{
 			if (player.altFunctionUse == 2)
 			{
 				if (PlayerInput.Triggers.JustReleased.MouseRight) //Stops the animation manually
@@ -61,8 +72,8 @@ namespace TRRA.Items.Weapons
 				{
 					if (!resetTime)
                     {
-						player.itemAnimation = item.useAnimation;
-						Main.PlaySound(item.UseSound, player.Center);
+						player.itemAnimation = Item.useAnimation;
+						SoundEngine.PlaySound(GambolShotSound, player.Center);
 					}
 					else resetTime = false;
 				}
@@ -73,33 +84,33 @@ namespace TRRA.Items.Weapons
 		{
 			if (player.altFunctionUse == 2)
 			{
-				item.noUseGraphic = false;
-				item.damage = 120;
-				item.useTime = 20;
-				item.useAnimation = 20;
-				item.knockBack = 4;
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/GambolShot");
-				item.shoot = ProjectileID.PurificationPowder;
-				item.shootSpeed = 13f;
-				item.crit = 10;
-				item.useAmmo = AmmoID.Bullet;
-				item.channel = false;
-				item.autoReuse = true;
+				Item.noUseGraphic = false;
+				Item.damage = 120;
+				Item.useTime = 20;
+				Item.useAnimation = 20;
+				Item.knockBack = 4;
+				Item.UseSound = GambolShotSound;
+				Item.shoot = ProjectileID.PurificationPowder;
+				Item.shootSpeed = 13f;
+				Item.crit = 10;
+				Item.useAmmo = AmmoID.Bullet;
+				Item.channel = false;
+				Item.autoReuse = true;
 			}
 			else
 			{
-				item.noUseGraphic = true;
-				item.damage = 130;
-				item.useTime = 10;
-				item.useAnimation = 10;
-				item.knockBack = 7f;
-				item.UseSound = SoundID.Item1;
-				item.shoot = mod.ProjectileType("GambolRibbonEnd");
-				item.shootSpeed = 10f;
-				item.crit = 0;
-				item.useAmmo = AmmoID.None;
-				item.channel = true;
-				item.autoReuse = false;
+				Item.noUseGraphic = true;
+				Item.damage = 130;
+				Item.useTime = 10;
+				Item.useAnimation = 10;
+				Item.knockBack = 7f;
+				Item.UseSound = SoundID.Item1;
+				Item.shoot = ProjectileType<GambolRibbonEnd>();
+				Item.shootSpeed = 10f;
+				Item.crit = 0;
+				Item.useAmmo = AmmoID.None;
+				Item.channel = true;
+				Item.autoReuse = false;
 			}
 			return base.CanUseItem(player);
 		}
@@ -110,16 +121,10 @@ namespace TRRA.Items.Weapons
 			return new Vector2(-15, 3);
 		}
 
-		// Offsets the fire location of the bullet from the weapons muzzle
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		// Changes musket balls to high velocity bullets
+		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
 		{
-			if (player.altFunctionUse == 2)
-			{
-				Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
-				if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0)) position += muzzleOffset;
-				if (type == ProjectileID.Bullet) type = ProjectileID.BulletHighVelocity;
-			}
-			return true;
+			if (player.altFunctionUse == 2 && type == ProjectileID.Bullet) type = ProjectileID.BulletHighVelocity;
 		}
 
 	}

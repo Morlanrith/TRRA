@@ -7,47 +7,60 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
 using TRRA.Tiles;
+using TRRA.Projectiles.Item.Weapon.Myrtenaster;
+using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
 	public class Myrtenaster : ModItem
 	{
 		private bool resetTime = false;
+
+		private static readonly SoundStyle IceStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/IceStab")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle IceSwordSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/IceSword")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Myrtenaster");
 			Tooltip.SetDefault("For those who are more than just a name\nRight Click to fire a summoned sword\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
-			item.damage = 20;
-			item.useStyle = ItemUseStyleID.Stabbing;
-			item.useAnimation = 12;
-			item.useTime = 4;
-			item.knockBack = 3.5f;
-			item.width = 46;
-			item.height = 46;
-			item.scale = 0.9f;
-			item.rare = ItemRarityID.Cyan;
-			item.value = Item.sellPrice(gold: 25);
-			item.melee = true;
-			item.autoReuse = true;
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Myrtenaster/IceStab");
-			item.shoot = mod.ProjectileType("MyrtenasterR");
-			item.shootSpeed = 6f;
-			item.maxStack = 1;
+			Item.damage = 30;
+			Item.useStyle = ItemUseStyleID.Thrust;
+			Item.useAnimation = 12;
+			Item.useTime = 4;
+			Item.knockBack = 3.5f;
+			Item.width = 46;
+			Item.height = 46;
+			Item.scale = 0.9f;
+			Item.rare = ItemRarityID.Cyan;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.DamageType = DamageClass.Melee;
+			Item.autoReuse = true;
+			Item.UseSound = IceSwordSound;
+			Item.shoot = ProjectileType<MyrtenasterR>();
+			Item.shootSpeed = 6f;
+			Item.maxStack = 1;
 		}
 
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
-			recipe.AddIngredient(ItemType<FireDustCrystal>(), 20);
-			recipe.AddIngredient(ItemType<IceDustCrystal>(), 20);
-			recipe.AddIngredient(ItemID.WhitePaint, 10);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<FireDustCrystal>(), 20)
+			.AddIngredient(ItemType<IceDustCrystal>(), 20)
+			.AddIngredient(ItemID.WhitePaint, 10)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
 		public override bool AltFunctionUse(Player player) {
 			return true;
@@ -59,9 +72,8 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse == 2) player.itemRotation = 0f;
 		}
 
-		[Obsolete]
-		public override void GetWeaponDamage(Player player, ref int damage)
-		{
+        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+        {
 			if (player.altFunctionUse == 2)
 			{
 				if (PlayerInput.Triggers.JustReleased.MouseRight) //Stops the animation manually
@@ -72,8 +84,8 @@ namespace TRRA.Items.Weapons
 				{
 					if (!resetTime)
 					{
-						player.itemAnimation = item.useAnimation;
-						Main.PlaySound(item.UseSound, player.Center);
+						player.itemAnimation = Item.useAnimation;
+						SoundEngine.PlaySound(IceSwordSound, player.Center);
 					}
 					else resetTime = false;
 				}
@@ -81,28 +93,26 @@ namespace TRRA.Items.Weapons
 		}
 
 
-		public override bool CanUseItem(Player player) {
+        public override bool CanUseItem(Player player) {
 			if (player.altFunctionUse == 2) {
-				item.useStyle = ItemUseStyleID.HoldingOut;
-				item.damage = 200;
-				item.useTime = 30;
-				item.useAnimation = 30;
-				item.melee = false;
-				item.ranged = true;
-				item.shoot = mod.ProjectileType("MyrtenasterS");
-				item.noMelee = true;
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Myrtenaster/IceSword");
+				Item.useStyle = ItemUseStyleID.Shoot;
+				Item.damage = 200;
+				Item.useTime = 30;
+				Item.useAnimation = 30;
+				Item.DamageType = DamageClass.Ranged;
+				Item.shoot = ProjectileType<MyrtenasterS>();
+				Item.noMelee = true;
+				Item.UseSound = IceSwordSound;
 			}
 			else {
-				item.useStyle = ItemUseStyleID.Stabbing;
-				item.noMelee = false;
-				item.useAnimation = 12;
-				item.melee = true;
-				item.ranged = false;
-				item.useTime = 2;
-				item.damage = 30;
-				item.shoot = mod.ProjectileType("MyrtenasterR");
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Myrtenaster/IceStab");
+				Item.useStyle = ItemUseStyleID.Thrust;
+				Item.noMelee = false;
+				Item.useAnimation = 12;
+				Item.DamageType = DamageClass.Melee;
+				Item.useTime = 2;
+				Item.damage = 30;
+				Item.shoot = ProjectileType<MyrtenasterR>();
+				Item.UseSound = IceStabSound;
 			}
 			return base.CanUseItem(player);
 		}
@@ -113,7 +123,7 @@ namespace TRRA.Items.Weapons
 			return new Vector2(6, -11);
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			if (player.altFunctionUse != 2)
 			{
@@ -122,15 +132,14 @@ namespace TRRA.Items.Weapons
 				if (player.direction == 1) posX += 83;
 				Random r = new Random();
 				posY += r.Next(-20, 20);
-				speedX = new Vector2(speedX, speedY).Length() * (speedX > 0 ? 1 : -1);
-				Projectile.NewProjectile(posX, posY, speedX, 0, type, 20 + (int)(20 * player.meleeDamageMult), knockBack, player.whoAmI);
-				return false;
+				velocity.X = new Vector2(velocity.X, velocity.Y).Length() * (velocity.X > 0 ? 1 : -1);
+				Projectile.NewProjectile(source, posX, posY, velocity.X, 0, type, (int)(20 * player.GetDamage(DamageClass.Melee).Multiplicative), Item.knockBack, player.whoAmI);
 			}
 			else
 			{
-				damage = 200 + (int)(200 * player.rangedDamageMult);
-				return true;
+				Projectile.NewProjectile(source, position, velocity, type, (int)(200 * player.GetDamage(DamageClass.Ranged).Multiplicative), Item.knockBack, player.whoAmI);
 			}
+			return false;
 		}
 	}
 }

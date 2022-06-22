@@ -14,28 +14,25 @@ namespace TRRA.Items.Accessories
 		}
 
 		public override void SetDefaults() {
-			item.width = 28;
-			item.height = 28;
-			item.accessory = true;
-			item.value = Item.sellPrice(gold: 9);
-			item.rare = ItemRarityID.Pink;
-			item.maxStack = 1;
+			Item.width = 28;
+			Item.height = 28;
+			Item.accessory = true;
+			Item.value = Item.sellPrice(gold: 9);
+			Item.rare = ItemRarityID.Pink;
+			Item.maxStack = 1;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.meleeDamageMult += 0.12f;
-			player.rangedDamageMult += 0.12f;
-			player.meleeCrit += 8;
-			player.rangedCrit += 8;
+			player.GetDamage(DamageClass.Melee) += 0.12f;
+			player.GetDamage(DamageClass.Ranged) += 0.12f;
+			player.GetCritChance(DamageClass.Melee) += 8;
+			player.GetCritChance(DamageClass.Ranged) += 8;
 		}
 
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<HuntressEmblem>(), 1);
-			recipe.AddIngredient(ItemID.EyeoftheGolem, 1);
-			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<HuntressEmblem>(), 1)
+			.AddIngredient(ItemID.EyeoftheGolem, 1)
+			.AddTile(TileID.TinkerersWorkbench)
+			.Register();
 	}
 }

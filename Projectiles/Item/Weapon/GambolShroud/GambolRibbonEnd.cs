@@ -1,12 +1,23 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 {
     internal class GambolRibbonEnd : ModProjectile
 	{
+        private static Asset<Texture2D> ribbonTexture;
+
+        private static readonly SoundStyle RibbonSwingSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/RibbonSwing")
+        {
+            Volume = 0.3f,
+            Pitch = 0.0f,
+        };
+
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Gambol Ribbon End");
@@ -14,70 +25,75 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 
         public override void SetDefaults()
         {
-            projectile.width = 100;
-            projectile.height = 100;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.ranged = true;
-            projectile.tileCollide = false;
+            Projectile.width = 100;
+            Projectile.height = 100;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.tileCollide = false;
+        }
+
+        public override void Load()
+        {
+            ribbonTexture = ModContent.Request<Texture2D>("TRRA/Projectiles/Item/Weapon/GambolShroud/GambolRibbon");
         }
 
         public override void AI()
         {
             if (Main.rand.Next(5) == 0)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, 27, projectile.velocity.X * 0.25f, projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
             }
-            if (projectile.soundDelay == 0)
+            if (Projectile.soundDelay == 0)
             {
-                projectile.soundDelay = 12;
-                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/RibbonSwing"), projectile.position);
+                Projectile.soundDelay = 12;
+                SoundEngine.PlaySound(RibbonSwingSound, Projectile.position);
             }
-            Vector2 playerCenter = Main.player[projectile.owner].MountedCenter; 
+            Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter; 
             Vector2 distToProj = playerCenter - Main.MouseWorld;
             float distance = distToProj.Length();
-            if (Main.player[projectile.owner].channel)
+            if (Main.player[Projectile.owner].channel)
             {
-                projectile.spriteDirection = Main.player[projectile.owner].direction;
-                projectile.rotation += 0.6f * Main.player[projectile.owner].direction;
+                Projectile.spriteDirection = Main.player[Projectile.owner].direction;
+                Projectile.rotation += 0.6f * Main.player[Projectile.owner].direction;
                 Vector2 newPosition = Main.MouseWorld;
                 if (distance < 150f)
                 {
                     newPosition.X -= 50;
                     newPosition.Y -= 50;
-                    projectile.position = newPosition;
+                    Projectile.position = newPosition;
                 }
                 else
                 {
                     float newX = distToProj.X * (150f / distance);
                     float newY = distToProj.Y * (150f / distance);
-                    projectile.position = new Vector2(playerCenter.X-newX-50,playerCenter.Y-newY-50);
+                    Projectile.position = new Vector2(playerCenter.X-newX-50,playerCenter.Y-newY-50);
                 }
                 float projRotation;
-                Main.player[projectile.owner].itemTime = 10;
-                Main.player[projectile.owner].itemAnimation = 10;
+                Main.player[Projectile.owner].itemTime = 10;
+                Main.player[Projectile.owner].itemAnimation = 10;
                 if (playerCenter.X - Main.MouseWorld.X > 0)
                 {
                     projRotation = distToProj.ToRotation();
-                    Main.player[projectile.owner].direction = -1;
-                    Main.player[projectile.owner].itemRotation = projRotation;
+                    Main.player[Projectile.owner].direction = -1;
+                    Main.player[Projectile.owner].itemRotation = projRotation;
                 }
                 else
                 {
                     projRotation = (Main.MouseWorld - playerCenter).ToRotation();
-                    Main.player[projectile.owner].direction = 1;
-                    Main.player[projectile.owner].itemRotation = projRotation;
+                    Main.player[Projectile.owner].direction = 1;
+                    Main.player[Projectile.owner].itemRotation = projRotation;
                 }
                 
             }
-            else projectile.Kill();
+            else Projectile.Kill();
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 playerCenter = Main.player[projectile.owner].MountedCenter;
-            Vector2 center = projectile.Center;
-            Vector2 distToProj = playerCenter - projectile.Center;
+            Vector2 playerCenter = Main.player[Projectile.owner].MountedCenter;
+            Vector2 center = Projectile.Center;
+            Vector2 distToProj = playerCenter - Projectile.Center;
             float projRotation = distToProj.ToRotation() - 1.57f;
             float distance = distToProj.Length();
             while (distance > 30f && !float.IsNaN(distance))
@@ -89,7 +105,12 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
                 distance = distToProj.Length();
                 Color drawColor = lightColor;
                 //Draw ribbon
-                spriteBatch.Draw(mod.GetTexture("Projectiles/Item/Weapon/GambolShroud/GambolRibbon"), new Vector2(center.X - Main.screenPosition.X, center.Y - Main.screenPosition.Y), new Rectangle(0, 0, 2, Main.chain30Texture.Height*2), drawColor, projRotation, new Vector2(2 * 0.5f, Main.chain30Texture.Height * 1f), 1f, SpriteEffects.None, 0f);
+                Main.EntitySpriteDraw(
+                    ribbonTexture.Value, 
+                    center - Main.screenPosition, 
+                    new Rectangle(0, 0, 2, Terraria.GameContent.TextureAssets.Chain30.Value.Height*2), drawColor, projRotation, 
+                    new Vector2(2 * 0.5f, Terraria.GameContent.TextureAssets.Chain30.Value.Height * 1f), 
+                    1f, SpriteEffects.None, 0);
             }
             return true;
         }

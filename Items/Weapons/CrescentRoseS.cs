@@ -7,11 +7,27 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.GameInput;
 using TRRA.Tiles;
+using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
     public class CrescentRoseS : ModItem
 	{
+		private bool canSwing = true;
+
+		private static readonly SoundStyle RoseDashSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseDash")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle RoseSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseSlice")
+		{
+			Volume = 0.4f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Crescent Rose");
@@ -20,19 +36,19 @@ namespace TRRA.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 240;
-			item.width = 66;
-			item.height = 58;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.melee = true;
-			item.knockBack = 7;
-			item.value = Item.sellPrice(gold: 25);
-			item.rare = ItemRarityID.Cyan;
-			item.crit = 26;
-			item.autoReuse = true;
-			item.maxStack = 1;
+			Item.damage = 240;
+			Item.width = 66;
+			Item.height = 58;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.DamageType = DamageClass.Melee;
+			Item.knockBack = 7;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.rare = ItemRarityID.Cyan;
+			Item.crit = 26;
+			Item.autoReuse = true;
+			Item.maxStack = 1;
 		}
 
 		public override bool AltFunctionUse(Player player)
@@ -41,35 +57,52 @@ namespace TRRA.Items.Weapons
 			return true;
 		}
 
-        public override bool CanUseItem(Player player)
+		private void ResetValues()
+        {
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.noMelee = false;
+			Item.noUseGraphic = false;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.shoot = ProjectileID.None;
+			Item.UseSound = RoseSliceSound;
+		}
+
+
+		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
 		{
+			if (player.altFunctionUse == 2 && player.itemAnimation == 0)
+			{
+				ResetValues();
+				canSwing = true;
+			}
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			if (!canSwing) return false;
 			// If the player uses the alt function (Right Click), causes the player to dash in the direction they are currently facing
 			if (player.altFunctionUse == 2)
 			{
-				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/CrescentRose/RoseDash");
-				item.noUseGraphic = true;
-				item.useStyle = ItemUseStyleID.Stabbing;
-				item.autoReuse = false;
-				item.noMelee = true;
-				item.shoot = ProjectileID.PurificationPowder;
-				item.shootSpeed = 16f;
-				item.useTime = 40;
-				item.useAnimation = 40;
+				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false;
+				canSwing = false;
+				Item.useStyle = ItemUseStyleID.Thrust;
+				Item.noMelee = true;
+				Item.noUseGraphic = true;
+				Item.useTime = 40;
+				Item.useAnimation = 40;
+				Item.autoReuse = false;
+				Item.shoot = ProjectileID.PurificationPowder;
+				Item.shootSpeed = 16f;
+				Item.UseSound = RoseDashSound;
 				Vector2 newVelocity = player.velocity;
 				newVelocity.X = 10f * player.direction;
 				player.velocity = newVelocity;
 			}
 			else
             {
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/CrescentRose/RoseSlice");
-				item.noUseGraphic = false;
-				item.useStyle = ItemUseStyleID.SwingThrow;
-				item.useTime = 25;
-				item.useAnimation = 25;
-				item.autoReuse = true;
-				item.noMelee = false;
-				item.shoot = ProjectileID.None;
+				ResetValues();
+				Item.autoReuse = true;
 			}
 			return base.CanUseItem(player);
 		}
@@ -82,36 +115,31 @@ namespace TRRA.Items.Weapons
 			}
 		}
 
-		public override void AddRecipes() 
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
-			recipe.AddIngredient(ItemType<FireDustCrystal>(), 10);
-			recipe.AddIngredient(ItemType<PlantDustCrystal>(), 10);
-			recipe.AddIngredient(ItemType<GravityDustCrystal>(), 10);
-			recipe.AddIngredient(ItemType<IceDustCrystal>(), 10);
-			recipe.AddIngredient(ItemID.RedPaint, 10);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+				.AddIngredient(ItemType<DustExtract>(), 1)
+				.AddIngredient(ItemType<DustWeaponKit>(), 1)
+				.AddIngredient(ItemType<FireDustCrystal>(), 10)
+				.AddIngredient(ItemType<PlantDustCrystal>(), 10)
+				.AddIngredient(ItemType<GravityDustCrystal>(), 10)
+				.AddIngredient(ItemType<IceDustCrystal>(), 10)
+				.AddIngredient(ItemID.RedPaint, 10)
+				.AddTile(TileType<DustToolbenchTile>())
+				.Register();
 
-		// Shoot override, used for the dash (doesn't actually generate a projectile)
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
+        // Shoot override, used for the dash (doesn't actually generate a projectile)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
 			int dustQuantity = 5;
 			for (int i = 0; i < dustQuantity; i++)
 			{
-				Vector2 dustOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 32f;
-				int dust = Dust.NewDust(player.position + dustOffset, item.width, item.height, DustType<RosePetal>());
+				Vector2 dustOffset = Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 32f;
+				int dust = Dust.NewDust(player.position + dustOffset, Item.width, Item.height, DustType<RosePetal>());
 				Main.dust[dust].noGravity = false;
 				Main.dust[dust].velocity *= 1f;
 				Main.dust[dust].scale = 1.5f;
 			}
 			return false;
 		}
-
 
 	}
 

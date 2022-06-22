@@ -12,18 +12,18 @@ namespace TRRA.Items.Placeable
 		}
 
 		public override void SetDefaults() {
-			item.width = 28;
-			item.height = 24;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.consumable = true;
-			item.value = Item.sellPrice(gold: 10);
-			item.rare = ItemRarityID.Orange;
-			item.createTile = TileType<Tiles.DustToolbenchTile>();
+			Item.width = 28;
+			Item.height = 24;
+			Item.maxStack = 99;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.consumable = true;
+			Item.value = Item.sellPrice(gold: 10);
+			Item.rare = ItemRarityID.Orange;
+			Item.createTile = TileType<Tiles.DustToolbenchTile>();
 		}
 	}
 }

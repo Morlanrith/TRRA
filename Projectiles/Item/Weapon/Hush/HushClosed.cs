@@ -12,50 +12,50 @@ namespace TRRA.Projectiles.Item.Weapon.Hush
 
 		public override void SetDefaults()
 		{
-			projectile.width = 14;
-			projectile.height = 14;
-			projectile.aiStyle = 19;
-			projectile.penetrate = -1;
-			projectile.alpha = 0;
-			projectile.scale = 1.0f;
-			projectile.timeLeft = 15;
-			projectile.hide = true;
-			projectile.ownerHitCheck = true;
-			projectile.melee = true;
-			projectile.tileCollide = false;
-			projectile.friendly = true;
+			Projectile.width = 14;
+			Projectile.height = 14;
+			Projectile.aiStyle = 19;
+			Projectile.penetrate = -1;
+			Projectile.alpha = 0;
+			Projectile.scale = 1.0f;
+			Projectile.timeLeft = 15;
+			Projectile.hide = true;
+			Projectile.ownerHitCheck = true;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.tileCollide = false;
+			Projectile.friendly = true;
 		}
 
 		public float MovementFactor
 		{
-			get => projectile.ai[0];
-			set => projectile.ai[0] = value;
+			get => Projectile.ai[0];
+			set => Projectile.ai[0] = value;
 		}
 
 		public override void AI()
 		{
-			Player projOwner = Main.player[projectile.owner];
+			Player projOwner = Main.player[Projectile.owner];
 			Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
-			projectile.direction = projOwner.direction;
-			projOwner.heldProj = projectile.whoAmI;
+			Projectile.direction = projOwner.direction;
+			projOwner.heldProj = Projectile.whoAmI;
 			projOwner.itemTime = projOwner.itemAnimation;
-			projectile.position.X = ownerMountedCenter.X - (float)(projectile.width / 2);
-			projectile.position.Y = ownerMountedCenter.Y - (float)(projectile.height / 2);
+			Projectile.position.X = ownerMountedCenter.X - (float)(Projectile.width / 2);
+			Projectile.position.Y = ownerMountedCenter.Y - (float)(Projectile.height / 2);
 			if (!projOwner.frozen)
 			{
 				if (MovementFactor == 0f)
 				{
 					MovementFactor = 3f;
-					projectile.netUpdate = true;
+					Projectile.netUpdate = true;
 				}
 				if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3) MovementFactor -= 2.4f;
 				else MovementFactor += 2.1f;
 			}
-			projectile.position += projectile.velocity * MovementFactor;
-			projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
-			if (projectile.spriteDirection == -1)
+			Projectile.position += Projectile.velocity * MovementFactor;
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+			if (Projectile.spriteDirection == -1)
 			{
-				projectile.rotation -= MathHelper.ToRadians(90f);
+				Projectile.rotation -= MathHelper.ToRadians(90f);
 			}
 		}
 	}

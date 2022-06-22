@@ -8,11 +8,34 @@ using TRRA.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent;
 using Terraria.GameInput;
+using TRRA.Projectiles.Item.Weapon.Hush;
+using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
     public class Hush : ModItem
 	{
+		private bool canTeleport;
+
+		private static readonly SoundStyle HushOpenSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Hush/HushOpen")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle HushShatterSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Hush/HushShatter")
+		{
+			Volume = 0.4f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle HushStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Hush/HushStab")
+		{
+			Volume = 0.4f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Hush");
@@ -21,23 +44,23 @@ namespace TRRA.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.width = 51;
-			item.height = 51;
-			item.rare = ItemRarityID.Cyan;
-			item.value = Item.sellPrice(gold: 25);
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.useAnimation = 15;
-			item.useTime = 15;
-			item.damage = 160;
-			item.crit = 62;
-			item.knockBack = 5f;
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Hush/HushStab");
-			item.melee = true;
-			item.shoot = mod.ProjectileType("HushClosed");
-			item.noUseGraphic = true;
-			item.shootSpeed = 5f;
-			item.noMelee = true;
-			item.autoReuse = true;
+			Item.width = 51;
+			Item.height = 51;
+			Item.rare = ItemRarityID.Cyan;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.useAnimation = 15;
+			Item.useTime = 15;
+			Item.damage = 160;
+			Item.crit = 62;
+			Item.knockBack = 5f;
+			Item.UseSound = HushStabSound;
+			Item.DamageType = DamageClass.Melee;
+			Item.shoot = ProjectileType<HushClosed>();
+			Item.noUseGraphic = true;
+			Item.shootSpeed = 5f;
+			Item.noMelee = true;
+			Item.autoReuse = true;
 		}
 
 		public override bool AltFunctionUse(Player player)
@@ -113,26 +136,26 @@ namespace TRRA.Items.Weapons
 				for (int i = 0; i < 3; i++) player.UpdateSocialShadow();		
 				player.oldPosition = player.position + player.BlehOldPositionFixer;
 				ShatterEffect(player.getRect(), player.teleportTime);
+				SoundEngine.PlaySound(HushShatterSound);
 			}
 			catch
 			{
 			}
 		}
 
+		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+		{
+			if (PlayerInput.Triggers.JustReleased.MouseRight) canTeleport = false;
+			if (player.altFunctionUse != 2 && player.itemAnimation == 0) canTeleport = true;
+		}
+
 		public override bool CanUseItem(Player player)
 		{
+			if (!canTeleport) return false;
 			// If the player uses the alt function (Right Click), causes the player to teleport
 			if (player.altFunctionUse == 2)
 			{
 				if (player.chaosState || !PlayerInput.Triggers.JustPressed.MouseRight) return false;
-				item.useAnimation = 22;
-				item.useTime = 22;
-				item.damage = 0;
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Hush/HushShatter");
-				item.shoot = ProjectileID.None;
-				item.autoReuse = false;
-				item.noUseGraphic = false;
-				item.useStyle = ItemUseStyleID.HoldingOut;
 				Vector2 vector = default;
 				vector.X = (float)Main.mouseX + Main.screenPosition.X;
 				if (player.gravDir == 1f) vector.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;		
@@ -141,20 +164,21 @@ namespace TRRA.Items.Weapons
 				if (!(vector.X > 50f) || !(vector.X < (float)(Main.maxTilesX * 16 - 50)) || !(vector.Y > 50f) || !(vector.Y < (float)(Main.maxTilesY * 16 - 50))) return false;
 				int num = (int)(vector.X / 16f);
 				int num2 = (int)(vector.Y / 16f);
-				if ((Main.tile[num, num2].wall == 87 && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
+				if ((Main.tile[num, num2].WallType == 87 && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
 				Shatter(vector, player);
 				player.AddBuff(88, 240);
+				return false;
 			}
 			else
 			{
-				item.useAnimation = 15;
-				item.useTime = 15;
-				item.damage = 160;
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/Hush/HushStab");
-				item.shoot = mod.ProjectileType("HushClosed");
-				item.autoReuse = true;
-				item.noUseGraphic = true;
-				item.useStyle = ItemUseStyleID.HoldingOut;
+				Item.holdStyle = 0;
+				Item.useAnimation = 15;
+				Item.useTime = 15;
+				Item.damage = 160;
+				Item.UseSound = HushStabSound;
+				Item.shoot = ProjectileType<HushClosed>();
+				Item.noUseGraphic = true;
+				Item.useStyle = ItemUseStyleID.Shoot;
 			}
 			return base.CanUseItem(player);
 		}
@@ -163,21 +187,18 @@ namespace TRRA.Items.Weapons
         {
 			if (player.itemAnimation == 0 && !player.mount.Active)
 			{
-				player.itemRotation = 0f;
 				player.itemLocation.X = player.position.X + (float)player.width * 0.5f - (float)(16 * player.direction);
-				player.itemLocation.Y = player.position.Y + 22f;
+				player.itemLocation.Y = player.position.Y + 18f;
 				player.fallStart = (int)(player.position.Y / 16f);
 				if (player.gravDir == -1f)
 				{
-					item.noUseGraphic = false;
-					item.useStyle = ItemUseStyleID.Stabbing;
-					if (item.holdStyle != 2)
+					Item.noUseGraphic = false;
+					Item.useStyle = ItemUseStyleID.Thrust;
+					if (Item.holdStyle != 2)
 					{
-						item.holdStyle = 2;
-						Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/Hush/HushOpen"));
+						Item.holdStyle = 2;
+						SoundEngine.PlaySound(HushOpenSound);
 					}
-
-					player.itemRotation = 0f - player.itemRotation;
 					player.itemLocation.Y = player.position.Y + (float)player.height + (player.position.Y - player.itemLocation.Y);
 					if (player.velocity.Y < -2f && !player.controlDown)
 					{
@@ -186,66 +207,46 @@ namespace TRRA.Items.Weapons
 				}
 				else if (player.velocity.Y > 2f && !player.controlDown)
 				{
-					item.noUseGraphic = false;
-					item.useStyle = ItemUseStyleID.Stabbing;
-					if (item.holdStyle != 2)
+					Item.noUseGraphic = false;
+					Item.useStyle = ItemUseStyleID.Thrust;
+					if (Item.holdStyle != 2)
 					{
-						item.holdStyle = 2;
-						Main.PlaySound(SoundID.Item, -1, -1, mod.GetSoundSlot(SoundType.Item, "Sounds/Item/Weapon/Hush/HushOpen"));
+						Item.holdStyle = 2;
+						SoundEngine.PlaySound(HushOpenSound);
 					}
 					player.velocity.Y = 2f;
 				}
 				else
 				{
-					item.holdStyle = 0;
-					item.noUseGraphic = true;
+					Item.holdStyle = 0;
 				}
 			}
-			else if (player.altFunctionUse == 2)
-            {
-				item.holdStyle = 0;
-				item.noUseGraphic = false;
-				player.itemLocation.Y = player.position.Y - 32f;
-				if (player.direction == 1)
-				{
-					player.itemRotation = 0.8f;
-					player.itemLocation.X -= 4f;
-				}
-                else
-                {
-					player.itemRotation = -0.8f;
-					player.itemLocation.X += 4f;
-				}
-				
-			}
-			else
-			{
-				item.holdStyle = 0;
-				item.noUseGraphic = true;
-			}
+			base.HoldItem(player);
 		}
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override Vector2? HoldoutOffset()
+		{
+			// Offsets the weapon model, so it is being held correctly
+			return new Vector2(0, -12);
+		}
+
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			if (player.altFunctionUse != 2)
 			{
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, 160 + (int)(160 * player.meleeDamageMult), knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, position, velocity, type, 160 + (int)(160 *  player.GetDamage(DamageClass.Melee).Multiplicative), Item.knockBack, player.whoAmI);
 			}
 			return false;
 		}
 
-		public override void AddRecipes() 
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
-			recipe.AddIngredient(ItemType<GravityDustCrystal>(), 10);
-			recipe.AddIngredient(ItemType<IceDustCrystal>(), 30);
-			recipe.AddIngredient(ItemID.PinkPaint, 10);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
+			.AddIngredient(ItemType<IceDustCrystal>(), 30)
+			.AddIngredient(ItemID.PinkPaint, 10)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
 	}
 

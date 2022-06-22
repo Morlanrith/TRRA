@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -8,7 +10,7 @@ namespace TRRA.Tiles
 {
 	public class DustToolbenchTile : ModTile
 	{
-		public override void SetDefaults() {
+		public override void SetStaticDefaults() {
 			Main.tileSolidTop[Type] = false;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -20,8 +22,8 @@ namespace TRRA.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Dust Toolbench");
 			AddMapEntry(new Color(200, 200, 200), name);
-			disableSmartCursor = true;
-			animationFrameHeight = 36;
+			TileID.Sets.DisableSmartCursor[Type] = true;
+			AnimationFrameHeight = 36;
 		}
 
 		public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -36,7 +38,7 @@ namespace TRRA.Tiles
 		}
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-			Item.NewItem(i * 16, j * 16, 48, 32, ItemType<Items.Placeable.DustToolbench>());
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ItemType<Items.Placeable.DustToolbench>());
 		}
 	}
 }

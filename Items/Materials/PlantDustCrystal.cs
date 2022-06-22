@@ -14,28 +14,24 @@ namespace TRRA.Items.Materials
 		}
 		public override void SetDefaults()
 		{
-			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.autoReuse = true;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.createTile = TileType<Tiles.PlantDustCrystalTile>();
-			item.width = 18;
-			item.height = 18;
-			item.value = Item.sellPrice(silver: 25);
-			item.rare = ItemRarityID.Blue;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.useTurn = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.autoReuse = true;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.createTile = TileType<Tiles.PlantDustCrystalTile>();
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = Item.sellPrice(silver: 25);
+			Item.rare = ItemRarityID.Blue;
 		}
 
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<PlantDustExtract>(), 1);
-			recipe.AddIngredient(ItemID.CrystalShard, 1);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this, 1);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<PlantDustExtract>(), 1)
+			.AddIngredient(ItemID.CrystalShard, 1)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 	}
 }

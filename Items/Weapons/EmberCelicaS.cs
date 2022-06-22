@@ -6,56 +6,68 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
 using TRRA.Tiles;
+using Terraria.DataStructures;
+using TRRA.Projectiles.Item.Weapon.EmberCelica;
+using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
 	[AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
 	public class EmberCelicaS : ModItem
 	{
+		private static readonly SoundStyle EmberShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberShot")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle EmberDashSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberDash")
+		{
+			Volume = 0.3f,
+			Pitch = -0.1f,
+		};
+
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Ember Celica");
 			Tooltip.SetDefault("Armed and Ready\nRight Click to Charge\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
-			item.damage = 90;
-			item.melee = true;
-			item.width = 62;
-			item.height = 34;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.knockBack = 7;
-			item.noUseGraphic = true;
-			item.value = Item.sellPrice(gold: 25);
-			item.rare = ItemRarityID.Cyan;
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/EmberCelica/EmberShot");
-			item.autoReuse = false;
-			item.shoot = ProjectileID.Bullet;
-			item.shootSpeed = 9f;
-			item.useAmmo = AmmoID.Bullet;
-			item.noMelee = true;
-			item.crit = 26;
+			Item.damage = 90;
+			Item.DamageType = DamageClass.Melee;
+			Item.width = 62;
+			Item.height = 34;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.knockBack = 7;
+			Item.noUseGraphic = true;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.rare = ItemRarityID.Cyan;
+			Item.UseSound = EmberShotSound;
+			Item.autoReuse = false;
+			Item.shoot = ProjectileID.Bullet;
+			Item.shootSpeed = 9f;
+			Item.useAmmo = AmmoID.Bullet;
+			Item.noMelee = true;
+			Item.crit = 26;
 		}
 
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
-			recipe.AddIngredient(ItemType<FireDustCrystal>(), 30);
-			recipe.AddIngredient(ItemType<GravityDustCrystal>(), 10);
-			recipe.AddIngredient(ItemID.YellowPaint, 10);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<FireDustCrystal>(), 30)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
+			.AddIngredient(ItemID.YellowPaint, 10)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
 		public override bool AltFunctionUse(Player player) {
 			if (player.mount.Active) return false;
 			return true;
 		}
 
-		public override void UseStyle(Player player)
+		public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{
 			// Prevents the player from utilising the scope function with Right Click
 			player.scope = false;
@@ -64,43 +76,42 @@ namespace TRRA.Items.Weapons
 		public override bool CanUseItem(Player player) {
 			if (player.altFunctionUse == 2) {
 				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/EmberCelica/EmberDash");
-				item.useStyle = ItemUseStyleID.Stabbing;
-				item.shoot = ProjectileID.PurificationPowder;
-				item.useTime = 40;
-				item.useAnimation = 40;
-				item.useAmmo = AmmoID.None;
+				Item.UseSound = EmberDashSound;
+				Item.useStyle = ItemUseStyleID.Thrust;
+				Item.shoot = ProjectileID.PurificationPowder;
+				Item.useTime = 40;
+				Item.useAnimation = 40;
+				Item.useAmmo = AmmoID.None;
 				Vector2 newVelocity = player.velocity;
 				newVelocity.X = 8.5f * player.direction;
 				player.velocity = newVelocity;
 			}
 			else {
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/EmberCelica/EmberShot");
-				item.useStyle = ItemUseStyleID.HoldingOut;
-				item.shoot = ProjectileID.Bullet;
-				item.useTime = 20;
-				item.useAnimation = 20;
-				item.useAmmo = AmmoID.Bullet;
+				Item.UseSound = EmberShotSound;
+				Item.useStyle = ItemUseStyleID.Shoot;
+				Item.shoot = ProjectileID.Bullet;
+				Item.useTime = 20;
+				Item.useAnimation = 20;
+				Item.useAmmo = AmmoID.Bullet;
 			}
 			return base.CanUseItem(player);
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-            if (player.altFunctionUse != 2)
+			if (player.altFunctionUse != 2)
             {
-				Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
-				if (!player.mount.Active) Projectile.NewProjectile(position.X, position.Y, speedX * .25f, speedY * .25f, mod.ProjectileType("EmberPunch"), 180 + (int)(180 * player.meleeDamageMult), 8, player.whoAmI);
-				if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0)) position += muzzleOffset;
+				Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
+				if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), 180 + (int)(180 * player.GetDamage(DamageClass.Melee).Multiplicative), 8, player.whoAmI);
 				int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
 				for (int i = 0; i < numberProjectiles; i++)
 				{
 					Vector2 perturbedSpeed = muzzleOffset.RotatedByRandom(MathHelper.ToRadians(30)); // 30 degree spread.
-					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+					Projectile.NewProjectile(source, position, perturbedSpeed, type, damage, Item.knockBack, player.whoAmI);
 				}
 			}
-			else Projectile.NewProjectile(position.X, position.Y, speedX * .25f, speedY * .25f, mod.ProjectileType("EmberPunch"), 150 + (int)(150 * player.meleeDamageMult), 12, player.whoAmI, 1);
-			return false; // return false because we don't want tmodloader to shoot projectile
+			else Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), 150 + (int)(150 * player.GetDamage(DamageClass.Melee).Multiplicative), 12, player.whoAmI, 1);
+			return false; // return false because we don't want to shoot automatic projectile
 		}
 
 	}

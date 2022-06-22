@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,40 +11,40 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("MyrtenasterR");
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
 		public override void SetDefaults() {
-			projectile.width = 5;
-			projectile.height = 5;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.melee = true;
-			projectile.penetrate = -1;
-			projectile.timeLeft = 15;
-			projectile.alpha = 255;
-			projectile.ignoreWater = true;
-			projectile.tileCollide = false;
-			projectile.extraUpdates = 1;
-			aiType = ProjectileID.Bullet;
-			projectile.usesLocalNPCImmunity = true;
-			projectile.localNPCHitCooldown = 0;
+			Projectile.width = 5;
+			Projectile.height = 5;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.penetrate = -1;
+			Projectile.timeLeft = 15;
+			Projectile.alpha = 255;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = false;
+			Projectile.extraUpdates = 1;
+			AIType = ProjectileID.Bullet;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 0;
 		}
 
 		public override void AI()
 		{
-			Lighting.AddLight(projectile.Center, 0.4f, 0.9f, 1.0f);
+			Lighting.AddLight(Projectile.Center, 0.4f, 0.9f, 1.0f);
 		}
 
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor) {
-			//Redraw the projectile with the color not influenced by light
-			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-			for (int k = 0; k < projectile.oldPos.Length; k++) {
-				Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-				Color color = projectile.GetAlpha(lightColor) * ((float)(projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-				spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
+		public override bool PreDraw(ref Color lightColor) {
+			//Redraw the Projectile with the color not influenced by light
+			Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+			for (int k = 0; k < Projectile.oldPos.Length; k++) {
+				Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+				Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
+				Main.EntitySpriteDraw(TextureAssets.Projectile[Projectile.type].Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
 			}
 			return true;
 		}

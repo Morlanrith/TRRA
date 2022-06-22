@@ -6,36 +6,47 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
 using TRRA.Tiles;
+using TRRA.Projectiles.Item.Weapon.GambolShroud;
+using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
 	public class GambolShroudS : ModItem
 	{
+		private bool canParry = true;
+
+		private static readonly SoundStyle ShadowCloneSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/ShadowClone")
+		{
+			Volume = 0.3f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Gambol Shroud");
 			Tooltip.SetDefault("Don't be so dramatic\nRight Click to activate a parry (has a cooldown)\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
-			item.damage = 180;
-			item.melee = true;
-			item.width = 44;
-			item.height = 44;
-			item.useTime = 21;
-			item.useAnimation = 21;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.knockBack = 4;
-			item.value = Item.sellPrice(gold: 25);
-			item.rare = ItemRarityID.Cyan;
-			item.UseSound = null;
-			item.autoReuse = false;
-			item.crit = 36;
-			item.noMelee = true;
-			item.noUseGraphic = true;
-			item.channel = true;
-			item.shoot = mod.ProjectileType("GambolBlade");
-			item.shootSpeed = 5f;
-			item.maxStack = 1;
+			Item.damage = 180;
+			Item.DamageType = DamageClass.Melee;
+			Item.width = 44;
+			Item.height = 44;
+			Item.useTime = 21;
+			Item.useAnimation = 21;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.knockBack = 4;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.rare = ItemRarityID.Cyan;
+			Item.UseSound = null;
+			Item.autoReuse = false;
+			Item.crit = 36;
+			Item.noMelee = true;
+			Item.noUseGraphic = true;
+			Item.channel = true;
+			Item.shoot = ProjectileType<GambolBlade>();
+			Item.shootSpeed = 5f;
+			Item.maxStack = 1;
 		}
 
 		public override bool AltFunctionUse(Player player)
@@ -44,28 +55,44 @@ namespace TRRA.Items.Weapons
 			return false;
 		}
 
+		private void ResetValues()
+		{
+			Item.noUseGraphic = false;
+			Item.UseSound = ShadowCloneSound;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.channel = false;
+			Item.shoot = ProjectileID.None;
+		}
+
+		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+		{
+			if (PlayerInput.Triggers.JustReleased.MouseRight) canParry = false;
+			if (player.altFunctionUse != 2 && player.itemAnimation == 0)
+			{
+				ResetValues();
+				canParry = true;
+			}
+		}
+
 		public override bool CanUseItem(Player player)
 		{
+			if (!canParry && player.itemAnimation == 0) return false;
+
 			if (player.altFunctionUse == 2)
 			{
-				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
-				item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/Weapon/GambolShroud/ShadowClone");
-				item.useTime = 30;
-				item.useAnimation = 30;
-				item.noUseGraphic = false;
-				item.channel = false;
-				item.shoot = ProjectileID.None;
+				ResetValues();
 				player.AddBuff(BuffID.ShadowDodge, 30);
 				player.shadowDodgeTimer = 300;
 			}
 			else
 			{
-				item.UseSound = null;
-				item.useTime = 21;
-				item.useAnimation = 21;
-				item.noUseGraphic = true;
-				item.channel = true;
-				item.shoot = mod.ProjectileType("GambolBlade");
+				Item.noUseGraphic = true;
+				Item.UseSound = null;
+				Item.useTime = 21;
+				Item.useAnimation = 21;
+				Item.channel = true;
+				Item.shoot = ProjectileType<GambolBlade>();
 			}
 			return base.CanUseItem(player);
 		}
@@ -76,25 +103,22 @@ namespace TRRA.Items.Weapons
 			return new Vector2(6, -12);
 		}
 
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<DustExtract>(), 1);
-			recipe.AddIngredient(ItemType<DustWeaponKit>(), 1);
-			recipe.AddIngredient(ItemType<PlantDustCrystal>(), 20);
-			recipe.AddIngredient(ItemType<GravityDustCrystal>(), 20);
-			recipe.AddIngredient(ItemID.BlackPaint, 10);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
+			.AddIngredient(ItemID.BlackPaint, 10)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			if (player.altFunctionUse != 2)
 			{
 				player.channel = true;
 
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 30f, 0f);
+				Projectile.NewProjectile(source, position, velocity, type, damage, Item.knockBack, player.whoAmI, 30f, 0f);
 
 				return false;
 			}

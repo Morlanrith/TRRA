@@ -14,27 +14,24 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			item.damage = 13;
-			item.ranged = true;
-			item.width = 8;
-			item.height = 8;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.knockBack = 2.0f;
-			item.value = Item.sellPrice(copper: 50);
-			item.rare = ItemRarityID.Orange;
-			item.shoot = ProjectileType<Projectiles.Item.Weapon.FireBullet>();
-			item.shootSpeed = 5f;
-			item.ammo = AmmoID.Bullet;
+			Item.damage = 13;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 8;
+			Item.height = 8;
+			Item.maxStack = 999;
+			Item.consumable = true;
+			Item.knockBack = 2.0f;
+			Item.value = Item.sellPrice(copper: 50);
+			Item.rare = ItemRarityID.Orange;
+			Item.shoot = ProjectileType<Projectiles.Item.Weapon.FireBullet>();
+			Item.shootSpeed = 5f;
+			Item.ammo = AmmoID.Bullet;
 		}
 
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.EmptyBullet, 50);
-            recipe.AddIngredient(ItemType<Materials.FireDustCrystal>(), 1);
-			recipe.AddTile(TileType<DustToolbenchTile>());
-			recipe.SetResult(this, 50);
-			recipe.AddRecipe();
-		}
+		public override void AddRecipes() => CreateRecipe(50)
+			.AddIngredient(ItemID.EmptyBullet, 50)
+            .AddIngredient(ItemType<Materials.FireDustCrystal>(), 1)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 	}
 }
