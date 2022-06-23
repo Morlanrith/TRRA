@@ -17,7 +17,7 @@ namespace TRRA.NPCs
 		public override string Texture => "TRRA/NPCs/Enemies/Beowolf";
 
 		public override void SetStaticDefaults() {
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Lihzahrd];
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertBeast];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
 			// Influences how the NPC looks in the Bestiary
@@ -30,8 +30,8 @@ namespace TRRA.NPCs
 		}
 
 		public override void SetDefaults() {
-			NPC.width = 18;
-			NPC.height = 42;
+			NPC.width = 94;
+			NPC.height = 56;
 			NPC.aiStyle = 3;
 			NPC.damage = 80;
 			NPC.defense = 40;
@@ -39,8 +39,8 @@ namespace TRRA.NPCs
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.knockBackResist = 0f;
-			AIType = NPCID.LihzahrdCrawler;
-			AnimationType = NPCID.Lihzahrd;
+			AIType = NPCID.DesertBeast;
+			AnimationType = NPCID.DesertBeast;
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

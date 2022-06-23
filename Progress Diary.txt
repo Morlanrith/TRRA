@@ -685,6 +685,15 @@ Next Task:
 Fix any future issues caused by updates to the tModLoader 1.4 beta.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+June 23rd 2022
+-------------
+Work Done:
+Created a new initial sprite for the Beowolf enemy.
+-------------
+Next Task:
+Continue work on Beowolf.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
