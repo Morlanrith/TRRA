@@ -38,7 +38,7 @@ namespace TRRA.NPCs
 			NPC.lifeMax = 400;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.knockBackResist = 0f;
+			NPC.knockBackResist = 0.25f;
 			AIType = NPCID.DesertBeast;
 			AnimationType = NPCID.DesertBeast;
 		}
