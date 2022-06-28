@@ -712,6 +712,17 @@ Next Task:
 Continue work on Beowolf.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+June 28th 2022
+-------------
+Work Done:
+Added new gore sprites for the Beowolf enemy.
+Added sound effects for the Beowolf enemy.
+Did basic balance/drop work for the Beowolf enemy (will most likely adjust later).
+-------------
+Next Task:
+Begin work on second "Grimm" enemy, the "Lancer".
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
@@ -16,14 +17,25 @@ namespace TRRA.NPCs
 	{
 		public override string Texture => "TRRA/NPCs/Enemies/Beowolf";
 
+		private static readonly SoundStyle BeoHitSound = new($"{nameof(TRRA)}/Sounds/NPCs/Beowolf/Beowolf_Hit")
+		{
+			Volume = 0.6f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle BeoPounceSound = new($"{nameof(TRRA)}/Sounds/NPCs/Beowolf/Beowolf_Pounce")
+		{
+			Volume = 0.6f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertBeast];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			// Influences how the NPC looks in the Bestiary
 			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
 			{
-				Velocity = 3f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+				Velocity = 3f,
 			};
 
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
@@ -33,13 +45,13 @@ namespace TRRA.NPCs
 			NPC.width = 94;
 			NPC.height = 56;
 			NPC.aiStyle = -1;
-			NPC.damage = 80;
-			NPC.defense = 40;
-			NPC.lifeMax = 400;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+			NPC.damage = 100;
+			NPC.defense = 35;
+			NPC.lifeMax = 500;
+			NPC.HitSound = BeoHitSound;
+			NPC.DeathSound = SoundID.NPCDeath5;
 			NPC.knockBackResist = 0.25f;
-			NPC.npcSlots = 0.75f;
+			NPC.value = 1000f;
 			AnimationType = NPCID.DesertBeast;
 		}
 
@@ -51,6 +63,19 @@ namespace TRRA.NPCs
 				new FlavorTextBestiaryInfoElement("A dangerous wolf-like creature that is not of this world."),
 
 			});
+		}
+
+        public override void OnKill()
+        {
+            base.OnKill();
+			if (Main.netMode == NetmodeID.Server)
+				return;
+
+			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Head").Type);
+			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Torso").Type);
+			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Tail").Type);
+			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_FrontLeg").Type);
+			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_BackLeg").Type);
 		}
 
 		public override void AI()
@@ -110,6 +135,9 @@ namespace TRRA.NPCs
 				if (NPC.direction == 0)
 					NPC.direction = 1;
 			}
+
+			if(NPC.spriteDirection == -1) Lighting.AddLight(NPC.Left, 0.2f, 0f, 0f);
+			else Lighting.AddLight(NPC.Right, 0.2f, 0f, 0f);
 
 			float num97 = 5f;
 			float num98 = 0.15f;
@@ -216,8 +244,6 @@ namespace TRRA.NPCs
 
 			if (flag5)
 			{
-				Main.NewText("Flag5", 255, 0, 102); // REMOVE THIS LATER
-
 				int num180 = (int)((NPC.position.X + (float)(NPC.width / 2) + (float)((NPC.width / 2 + 16) * NPC.direction)) / 16f);
 				int num181 = (int)((NPC.position.Y + (float)NPC.height - 15f) / 16f);
 
@@ -296,6 +322,7 @@ namespace TRRA.NPCs
 				else
 				{
 					int num183 = NPC.spriteDirection;
+					bool playSound = false;
 					if ((NPC.velocity.X < 0f && num183 == -1) || (NPC.velocity.X > 0f && num183 == 1))
 					{
 						if (NPC.height >= 32 && Main.tile[num180, num181 - 2].HasUnactuatedTile && Main.tileSolid[Main.tile[num180, num181 - 2].TileType])
@@ -310,22 +337,26 @@ namespace TRRA.NPCs
 								NPC.velocity.Y = -7f;
 								NPC.netUpdate = true;
 							}
+							playSound = true;
 						}
 						else if (Main.tile[num180, num181 - 1].HasUnactuatedTile && Main.tileSolid[Main.tile[num180, num181 - 1].TileType])
 						{
 							NPC.velocity.Y = -6f;
 							NPC.netUpdate = true;
+							playSound = true;
 						}
 						else if (NPC.position.Y + (float)NPC.height - (float)(num181 * 16) > 20f && Main.tile[num180, num181].HasUnactuatedTile && !Main.tile[num180, num181].TopSlope && Main.tileSolid[Main.tile[num180, num181].TileType])
 						{
 							NPC.velocity.Y = -5f;
 							NPC.netUpdate = true;
+							playSound = true;
 						}
 						else if (NPC.directionY < 0 && (!Main.tile[num180, num181 + 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num180, num181 + 1].TileType]) && (!Main.tile[num180 + NPC.direction, num181 + 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num180 + NPC.direction, num181 + 1].TileType]))
 						{
 							NPC.velocity.Y = -8f;
 							NPC.velocity.X *= 1.5f;
 							NPC.netUpdate = true;
+							playSound = true;
 						}
 						else if (flag8)
 						{
@@ -333,29 +364,15 @@ namespace TRRA.NPCs
 							NPC.ai[2] = 0f;
 						}
 						if (NPC.velocity.Y == 0f && flag6 && NPC.ai[3] == 1f)
+						{ 
 							NPC.velocity.Y = -5f;
-						if (NPC.velocity.Y == 0f && Main.expertMode && Main.player[NPC.target].Bottom.Y < NPC.Top.Y && Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) < (float)(Main.player[NPC.target].width * 3) && Collision.CanHit(NPC, Main.player[NPC.target]))
-						{
-							if (NPC.velocity.Y == 0f)
-							{
-								int num186 = 6;
-								if (Main.player[NPC.target].Bottom.Y > NPC.Top.Y - (float)(num186 * 16))
-									NPC.velocity.Y = -7.9f;
-								else
-								{
-									int num187 = (int)(NPC.Center.X / 16f);
-									int num188 = (int)(NPC.Bottom.Y / 16f) - 1;
-									for (int num189 = num188; num189 > num188 - num186; num189--)
-									{
-										if (Main.tile[num187, num189].HasUnactuatedTile && TileID.Sets.Platforms[Main.tile[num187, num189].TileType])
-										{
-											NPC.velocity.Y = -7.9f;
-											break;
-										}
-									}
-								}
-							}
+							playSound = true;
 						}
+					}
+					if (playSound)
+					{
+						Random r = new();
+						if(r.Next(0, 15) == 0) SoundEngine.PlaySound(BeoPounceSound, NPC.Center);
 					}
 				}
 			}
