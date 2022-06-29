@@ -723,6 +723,18 @@ Next Task:
 Begin work on second "Grimm" enemy, the "Lancer".
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+June 29th 2022
+-------------
+Work Done:
+Began work on the Lancer enemy.
+Created base sprite for the Lancer.
+Finished animated sprite for the Lancer.
+Created gore sprite for the Lancer.
+-------------
+Next Task:
+Continue work on the Lancer.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

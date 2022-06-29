@@ -1,15 +1,10 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.Personalities;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using TRRA.Projectiles.Item.Weapon;
-using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.NPCs
 {
