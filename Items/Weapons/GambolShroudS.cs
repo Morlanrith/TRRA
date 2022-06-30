@@ -83,7 +83,7 @@ namespace TRRA.Items.Weapons
 			{
 				ResetValues();
 				player.AddBuff(BuffID.ShadowDodge, 30);
-				player.shadowDodgeTimer = 300;
+				player.shadowDodgeTimer = 600;
 			}
 			else
 			{

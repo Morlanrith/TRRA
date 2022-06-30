@@ -730,9 +730,22 @@ Began work on the Lancer enemy.
 Created base sprite for the Lancer.
 Finished animated sprite for the Lancer.
 Created gore sprite for the Lancer.
+Setup basic AI for the Lancer.
 -------------
 Next Task:
 Continue work on the Lancer.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+June 30th 2022
+-------------
+Work Done:
+Finished AI for the Lancer.
+Created new projectile for the Lancer.
+Created new dust for the Lancer and Beowolf.
+Did basic balance/drop work for the Lancer (will most likely adjust later).
+-------------
+Next Task:
+Begin work on 3rd Grimm enemy.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

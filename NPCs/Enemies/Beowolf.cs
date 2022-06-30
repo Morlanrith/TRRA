@@ -3,10 +3,12 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TRRA.Dusts;
 
-namespace TRRA.NPCs
+namespace TRRA.NPCs.Enemies
 {
 	public class Beowolf : ModNPC
 	{
@@ -60,17 +62,24 @@ namespace TRRA.NPCs
 			});
 		}
 
-        public override void OnKill()
-        {
-            base.OnKill();
-			if (Main.netMode == NetmodeID.Server)
-				return;
-
-			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Head").Type);
-			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Torso").Type);
-			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Tail").Type);
-			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_FrontLeg").Type);
-			Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_BackLeg").Type);
+		public override void HitEffect(int hitDirection, double damage)
+		{
+			base.HitEffect(hitDirection, damage);
+			if (NPC.life <= 0)
+			{
+				for (int i = 0; i < 15; i++)
+				{
+					Vector2 dustOffset = Vector2.Normalize(new Vector2(NPC.velocity.X, NPC.velocity.Y)) * 32f;
+					int dust = Dust.NewDust(NPC.position + dustOffset, NPC.width, NPC.height, DustType<GrimmParticle>());
+					Main.dust[dust].noGravity = true;
+					Main.dust[dust].velocity *= 1f;
+				}
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Head").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Torso").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_Tail").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_FrontLeg").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Beowolf_BackLeg").Type);
+			}
 		}
 
 		public override void AI()
