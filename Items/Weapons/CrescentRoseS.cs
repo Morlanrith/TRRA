@@ -68,19 +68,8 @@ namespace TRRA.Items.Weapons
 			Item.UseSound = RoseSliceSound;
 		}
 
-
-		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
-		{
-			if (player.altFunctionUse == 2 && player.itemAnimation == 0)
-			{
-				ResetValues();
-				canSwing = true;
-			}
-		}
-
 		public override bool CanUseItem(Player player)
 		{
-			if (!canSwing) return false;
 			// If the player uses the alt function (Right Click), causes the player to dash in the direction they are currently facing
 			if (player.altFunctionUse == 2)
 			{
@@ -90,7 +79,7 @@ namespace TRRA.Items.Weapons
 				Item.noMelee = true;
 				Item.noUseGraphic = true;
 				Item.useTime = 40;
-				Item.useAnimation = 40;
+				Item.useAnimation = 20;
 				Item.autoReuse = false;
 				Item.shoot = ProjectileID.PurificationPowder;
 				Item.shootSpeed = 16f;
@@ -101,6 +90,12 @@ namespace TRRA.Items.Weapons
 			}
 			else
             {
+				if (!canSwing)
+				{
+					ResetValues();
+					canSwing = true;
+					return false;
+				}
 				ResetValues();
 				Item.autoReuse = true;
 			}

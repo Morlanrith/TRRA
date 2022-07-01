@@ -748,6 +748,17 @@ Next Task:
 Begin work on 3rd Grimm enemy.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 1st 2022
+-------------
+Work Done:
+Added gore for the existing Shopkeep NPC.
+Fixed invisible CR glitch (hopefully for good this time!).
+Added a new mini-icon for the overall mod (for use in Bestiary, etc.).
+-------------
+Next Task:
+Begin work on 3rd Grimm enemy (now decided to be the "Beringel").
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

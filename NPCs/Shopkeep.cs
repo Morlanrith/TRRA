@@ -73,6 +73,17 @@ namespace TRRA.NPCs
 			});
 		}
 
+		public override void HitEffect(int hitDirection, double damage)
+		{
+			base.HitEffect(hitDirection, damage);
+			if (NPC.life <= 0)
+			{
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Head").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Arm").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Leg").Type);
+			}
+		}
+
 		public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
 			for (int k = 0; k < 255; k++) {
 				Player player = Main.player[k];
