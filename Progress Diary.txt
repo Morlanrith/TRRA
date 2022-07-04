@@ -759,6 +759,19 @@ Next Task:
 Begin work on 3rd Grimm enemy (now decided to be the "Beringel").
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 4th 2022
+-------------
+Work Done:
+Changed my mind about the next Grimm enemy, choosing instead to add the "Creep".
+Created basic version of the Creep enemy.
+Created animated sprite for the Creep enemy.
+Created gore sprites for the Creep enemy.
+Completed AI for the Creep enemy.
+-------------
+Next Task:
+Begin work on the main event for fighting the Grimm enemies, the "Shattered Moon".
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

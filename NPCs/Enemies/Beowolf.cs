@@ -373,11 +373,7 @@ namespace TRRA.NPCs.Enemies
 							playSound = true;
 						}
 					}
-					if (playSound)
-					{
-						Random r = new();
-						if(r.Next(0, 15) == 0) SoundEngine.PlaySound(BeoPounceSound, NPC.Center);
-					}
+					if (playSound && Main.rand.Next(15) == 0) SoundEngine.PlaySound(BeoPounceSound, NPC.Center);
 				}
 			}
 			else if (flag8)
