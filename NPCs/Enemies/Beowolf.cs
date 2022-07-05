@@ -84,6 +84,9 @@ namespace TRRA.NPCs.Enemies
 
 		public override void AI()
         {
+			if (!TRRAWorld.ShatteredMoon)
+				NPC.EncourageDespawn(10);
+
 			if (Main.player[NPC.target].position.Y + (float)Main.player[NPC.target].height == NPC.position.Y + (float)NPC.height)
 				NPC.directionY = -1;
 			
@@ -122,8 +125,6 @@ namespace TRRA.NPCs.Enemies
 			}
 			else if (!(NPC.ai[2] > 0f))
 			{
-				if (Main.dayTime && (double)(NPC.position.Y / 16f) < Main.worldSurface)
-					NPC.EncourageDespawn(10);
 				if (NPC.velocity.X == 0f && NPC.velocity.Y == 0f)
 				{
 					NPC.ai[0] += 1f;

@@ -101,12 +101,12 @@ namespace TRRA.NPCs
 					else style += 18;
 				}
 			}
-			TRRAWorld.noDust = true;
+			TRRAWorld.NoDust = true;
 		}
 
 		public override void OnKill(NPC npc)
 		{
-			if (npc.type == NPCID.Plantera && !TRRAWorld.noDust) GenerateDust();
+			if (npc.type == NPCID.Plantera && !TRRAWorld.NoDust) GenerateDust();
 			base.OnKill(npc);
 		}
 

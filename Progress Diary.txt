@@ -772,6 +772,18 @@ Next Task:
 Begin work on the main event for fighting the Grimm enemies, the "Shattered Moon".
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 5th 2022
+-------------
+Work Done:
+Began work on the Shattered Moon event.
+Added ability to trigger a lighting change and message to signal the event starting.
+Added a summon item to trigger the event.
+Added a chance for the event to start when it becomes night.
+-------------
+Next Task:
+Refine lighting/effect changes during the Shattered Moon event.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

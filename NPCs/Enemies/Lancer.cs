@@ -75,6 +75,9 @@ namespace TRRA.NPCs.Enemies
 
         public override void AI()
         {
+			if (!TRRAWorld.ShatteredMoon)
+				NPC.EncourageDespawn(10);
+
 			if (NPC.target < 0 || NPC.target <= 255 || Main.player[NPC.target].dead)
 			{
 				NPC.TargetClosest();

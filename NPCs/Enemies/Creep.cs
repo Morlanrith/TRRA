@@ -63,6 +63,9 @@ namespace TRRA.NPCs.Enemies
 
         public override void AI()
         {
+			if (!TRRAWorld.ShatteredMoon)
+				NPC.EncourageDespawn(10);
+
 			if (NPC.ai[2] > 1f)
 			{
 				NPC.ai[2] -= 1f;
