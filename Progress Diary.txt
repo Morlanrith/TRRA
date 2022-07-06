@@ -784,6 +784,15 @@ Next Task:
 Refine lighting/effect changes during the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 6th 2022
+-------------
+Work Done:
+Finished work on lighting changes during the Shattered Moon event.
+-------------
+Next Task:
+Change enemy spawns during the Shattered Moon to the new Grimm enemies.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

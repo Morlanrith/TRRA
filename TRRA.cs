@@ -1,4 +1,6 @@
 using Terraria.ModLoader;
+using TRRA.Effects;
+using Terraria.Graphics.Effects;
 
 namespace TRRA
 {
@@ -14,6 +16,9 @@ namespace TRRA
         {
             // Registers hotkeys
             TransformHotKey = KeybindLoader.RegisterKeybind(this,"Transform Weapon", "F");
+
+            // Setup filter for Shattered Moon
+            Filters.Scene["ShatteredMoon"] = new Filter(new ShatteredMoonShader("FilterBloodMoon").UseColor(1f, 0f, 0.5f), EffectPriority.Medium);
 
             base.Load();
         }

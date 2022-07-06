@@ -29,6 +29,7 @@ namespace TRRA.Items.Consumables
             {
                 Main.NewText("The Shattered Moon rises...", 186, 34, 64);
                 TRRAWorld.ShatteredMoon = true;
+
                 return true;
             }
             return false;

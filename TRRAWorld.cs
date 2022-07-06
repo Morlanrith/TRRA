@@ -9,7 +9,7 @@ namespace TRRA
 		public static bool NoDust = false;
         public static bool ShatteredMoon = false;
         private bool justDay = false;
-        private Color moonCrimson = new(34, 10, 25);
+        private Color moonCrimson = new(40, 10, 34);
 
         public override void OnWorldLoad()
         {
