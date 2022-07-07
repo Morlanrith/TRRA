@@ -793,6 +793,15 @@ Next Task:
 Change enemy spawns during the Shattered Moon to the new Grimm enemies.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 7th 2022
+-------------
+Work Done:
+Adjusted enemy spawns during the Shattered Moon event.
+-------------
+Next Task:
+Change the moon texture to a new custom version during the Shattered Moon event.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

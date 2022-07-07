@@ -7,6 +7,7 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
+using Terraria.ModLoader.Utilities;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -82,9 +83,9 @@ namespace TRRA.NPCs.Enemies
 			}
 		}
 
-		public override void AI()
+        public override void AI()
         {
-			if (!TRRAWorld.ShatteredMoon)
+			if (!TRRAWorld.IsShatteredMoon())
 				NPC.EncourageDespawn(10);
 
 			if (Main.player[NPC.target].position.Y + (float)Main.player[NPC.target].height == NPC.position.Y + (float)NPC.height)

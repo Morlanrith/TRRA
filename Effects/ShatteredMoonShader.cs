@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Shaders;
 
@@ -11,11 +10,6 @@ namespace TRRA.Effects
             : base(passName)
         {
         }
-
-		public ShatteredMoonShader(Ref<Effect> shader, string passName)
-			: base(shader, passName)
-		{
-		}
 
 		public override void Update(GameTime gameTime)
 		{

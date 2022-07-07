@@ -5,6 +5,8 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using TRRA.Tiles;
 using Terraria.GameContent.ItemDropRules;
+using System.Collections.Generic;
+using TRRA.NPCs.Enemies;
 
 namespace TRRA.NPCs
 {
@@ -38,6 +40,17 @@ namespace TRRA.NPCs
 			}
 		}
 
+		public class ShatteredMoon
+		{
+			private static readonly int[] enemies = {
+				NPCType<Beowolf>(),
+				NPCType<Creep>(),
+				NPCType<Lancer>()
+			};
+
+			public static int[] GetEnemies() { return enemies; }
+		}
+
 		public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
 		{
 			if (npc.type == NPCID.Golem)
@@ -49,7 +62,32 @@ namespace TRRA.NPCs
 			}
 		}
 
-		public void GenerateDust()
+        public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
+        {
+			if (TRRAWorld.IsShatteredMoon() && player.position.Y < Main.worldSurface * 16.0)
+            {
+				spawnRate = (int)(spawnRate * 0.2);
+				maxSpawns = (int)(maxSpawns * 1.9f);
+			}
+        }
+
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+			if (TRRAWorld.IsShatteredMoon() && spawnInfo.Player.position.Y < Main.worldSurface * 16.0)
+			{
+				pool.Clear();
+				if(spawnInfo.Sky) // If the player is in the sky, spawn only Lancers
+					pool.Add(NPCType<Lancer>(), 0.6f);
+				else
+                {
+					// Otherwise, makes the enemy pool for the surface consist only of Grimm (with Lancers having a lower spawn chance)
+					foreach (int i in ShatteredMoon.GetEnemies())
+						pool.Add(i, i == NPCType<Lancer>() ? 0.6f : 1f);
+				}
+			}
+        }
+
+        public void GenerateDust()
         {
 			Main.NewText(Main.worldName + " has been graced with Dust!", 255, 0, 102);
 			int style = 0;
@@ -101,12 +139,12 @@ namespace TRRA.NPCs
 					else style += 18;
 				}
 			}
-			TRRAWorld.NoDust = true;
+			TRRAWorld.DustSpawned();
 		}
 
 		public override void OnKill(NPC npc)
 		{
-			if (npc.type == NPCID.Plantera && !TRRAWorld.NoDust) GenerateDust();
+			if (npc.type == NPCID.Plantera && !TRRAWorld.GetNoDust()) GenerateDust();
 			base.OnKill(npc);
 		}
 

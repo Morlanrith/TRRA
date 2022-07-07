@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,11 +26,10 @@ namespace TRRA.Items.Consumables
 
         public override bool? UseItem(Player player)
         {
-            if (!TRRAWorld.ShatteredMoon && !Main.dayTime && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+            if (!TRRAWorld.IsShatteredMoon() && !Main.dayTime && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
             {
-                Main.NewText("The Shattered Moon rises...", 186, 34, 64);
-                TRRAWorld.ShatteredMoon = true;
-
+                SoundEngine.PlaySound(SoundID.Roar, player.position);
+                TRRAWorld.BeginShatteredMoon();
                 return true;
             }
             return false;

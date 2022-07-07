@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace TRRA.Effects
@@ -8,7 +7,7 @@ namespace TRRA.Effects
 	{
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("ShatteredMoon", TRRAWorld.ShatteredMoon);
+            player.ManageSpecialBiomeVisuals("ShatteredMoon", TRRAWorld.IsShatteredMoon());
         }
     }
 }

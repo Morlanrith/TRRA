@@ -7,6 +7,7 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
+using Terraria.ModLoader.Utilities;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -61,9 +62,9 @@ namespace TRRA.NPCs.Enemies
 			}
 		}
 
-        public override void AI()
+		public override void AI()
         {
-			if (!TRRAWorld.ShatteredMoon)
+			if (!TRRAWorld.IsShatteredMoon())
 				NPC.EncourageDespawn(10);
 
 			if (NPC.ai[2] > 1f)
