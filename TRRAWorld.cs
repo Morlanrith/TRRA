@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.Main;
@@ -21,11 +22,15 @@ namespace TRRA
 		public static bool GetNoDust() { return NoDust; }
 		public static void DustSpawned() { NoDust = true; }
 		public static bool IsShatteredMoon() { return ShatteredMoon; }
-		public static void BeginShatteredMoon()
+		public static bool BeginShatteredMoon()
         {
+			if (IsShatteredMoon() || dayTime || bloodMoon || pumpkinMoon || snowMoon || invasionType != 0 || DD2Event.Ongoing)
+				return false;
 			Main.NewText("The Shattered Moon rises...", 186, 34, 64);
 			moonType = TextureAssets.Moon.Length - 1;
+			invasionType = -1;
 			ShatteredMoon = true;
+			return true;
 		}
 
 		public override void OnWorldLoad()
@@ -45,9 +50,10 @@ namespace TRRA
 			Asset<Texture2D>[] oldMoons = new Asset<Texture2D>[TextureAssets.Moon.Length - 1];
 			for (int i = 0; i < oldMoons.Length; i++) oldMoons[i] = TextureAssets.Moon[i];
 			TextureAssets.Moon = oldMoons;
+			if (invasionType == -1) invasionType = 0;
 		}
 
-        public override void PreSaveAndQuit()
+		public override void PreSaveAndQuit()
         {
 			moonType = oldMoonType;
 		}
@@ -56,7 +62,10 @@ namespace TRRA
         {
 			tag.TryGet<bool>("WasShatteredMoon", out ShatteredMoon);
 			if (ShatteredMoon)
+            {
 				moonType = TextureAssets.Moon.Length - 1;
+				invasionType = -1;
+			}
 		}
 
 		public override void SaveWorldData(TagCompound tag)
@@ -76,22 +85,21 @@ namespace TRRA
 
         public override void PostUpdateWorld()
         {
-			if (ShatteredMoon && (dayTime || bloodMoon || pumpkinMoon || snowMoon))
+			if (ShatteredMoon && (dayTime || bloodMoon || pumpkinMoon || snowMoon || DD2Event.Ongoing || invasionType > 0))
 			{
 				ShatteredMoon = false;
 				moonType = oldMoonType;
+				if(invasionType == -1) invasionType = 0;
 			}
-        }
+		}
 
         public override void PostUpdateTime()
         {
             if (justDay && !dayTime && !fastForwardTime && !Main.ShouldNormalEventsBeAbleToStart())
             {
                 justDay = false;
-                if (!bloodMoon && moonPhase != 4 && rand.Next(8) == 0)
-                {
+                if (rand.Next(8) == 0 && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp)
 					BeginShatteredMoon();
-                }
             }
             else if (!justDay && dayTime && !gameMenu) justDay = true;
         }

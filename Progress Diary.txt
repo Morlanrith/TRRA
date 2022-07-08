@@ -809,9 +809,11 @@ Worked on ensuring that the Shattered Moon event begins/ends correctly.
 Worked on ensuring that the Shattered Moon event persists if the world is closed.
 Changed the moon texture to a custom version during the Shattered Moon event (currently just an example texture).
 Created new moon texture for the Shattered Moon event.
+Disabled sleeping in bed during the Shattered Moon event.
+Disabled Shattered Moon event occuring during other events.
 -------------
 Next Task:
-
+Experiment with changes to liquid, music, and other miscellaneous elements during the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

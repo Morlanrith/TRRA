@@ -56,6 +56,8 @@ namespace TRRA
         public override void PostUpdate()
         {
             EmberFists();
+            if(Player.sleeping.isSleeping && TRRAWorld.IsShatteredMoon())
+                Player.sleeping.timeSleeping = 0;
         }
 
         public override void ProcessTriggers(TriggersSet triggersSet)
