@@ -56,8 +56,11 @@ namespace TRRA.Projectiles.NPCs.Enemies.Lancer
 
 		public override void Kill(int timeLeft)
 		{
-			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.Item167, Projectile.position);
+			if(timeLeft > 0)
+            {
+				Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+				SoundEngine.PlaySound(SoundID.Item167, Projectile.position);
+			}
 		}
 	}
 }
