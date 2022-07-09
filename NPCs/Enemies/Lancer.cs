@@ -10,7 +10,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Projectiles.NPCs.Enemies.Lancer;
 using TRRA.Dusts;
-using Terraria.ModLoader.Utilities;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -22,7 +21,7 @@ namespace TRRA.NPCs.Enemies
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Hornet];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Velocity = 1f,
 			};
@@ -91,7 +90,7 @@ namespace TRRA.NPCs.Enemies
 			}
 			float num = 4f;
 			float num2 = 0.017f;
-			Vector2 vector = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
+			Vector2 vector = new(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
 			float num4 = targetData.Position.X + (float)(targetData.Width / 2);
 			float num5 = targetData.Position.Y + (float)(targetData.Height / 2);
 			num4 = (int)(num4 / 8f) * 8;
@@ -235,7 +234,7 @@ namespace TRRA.NPCs.Enemies
 				SoundEngine.PlaySound(SoundID.Item17, NPC.position);
 				NPC.ai[1] = 0f;
 			}
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				NPC.ai[1] += (float)Main.rand.Next(5, 20) * 0.1f * NPC.scale;
 				NPC.ai[1] += (float)Main.rand.Next(5, 20) * 0.1f * NPC.scale;
@@ -252,7 +251,7 @@ namespace TRRA.NPCs.Enemies
 					if (targetData.Type != 0 && Collision.CanHit(NPC, targetData))
 					{
 						float num17 = 8f;
-						Vector2 vector2 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)(NPC.height / 2));
+						Vector2 vector2 = new(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)(NPC.height / 2));
 						float num18 = targetData.Center.X - vector2.X + (float)Main.rand.Next(-20, 21);
 						float num19 = targetData.Center.Y - vector2.Y + (float)Main.rand.Next(-20, 21);
 						if ((num18 < 0f && NPC.velocity.X < 0f) || (num18 > 0f && NPC.velocity.X > 0f))

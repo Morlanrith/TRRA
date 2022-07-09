@@ -816,6 +816,16 @@ Next Task:
 Experiment with changes to liquid, music, and other miscellaneous elements during the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 9th
+-------------
+Work Done:
+Changed the music during the Shattered Moon event to use a specific, pre-existing, music.
+Changed the liquid type during the Shattered Moon to a new custom type.
+-------------
+Next Task:
+Miscellaneous changes/additions for Shattered Moon.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

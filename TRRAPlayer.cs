@@ -41,7 +41,7 @@ namespace TRRA
         };
 
         private ModKeybind altUseHotkey = null;
-        private List<Projectile> blades = new List<Projectile>();
+        private readonly List<Projectile> blades = new();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
         private static readonly Item 
             gun = GetModItem(ItemType<CrescentRoseG>()).Item,
@@ -63,7 +63,7 @@ namespace TRRA
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             // Transform Weapon
-            if(TRRA.TransformHotKey.JustPressed && Player.altFunctionUse != 2)
+            if(TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2)
             {
                 Item heldItem = Player.inventory[Player.selectedItem]; // Obtains the current held item from the players inventory
                 Item chosenItem = null;

@@ -7,7 +7,6 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
-using Terraria.ModLoader.Utilities;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -31,7 +30,7 @@ namespace TRRA.NPCs.Enemies
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertBeast];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Velocity = 3f,
 			};

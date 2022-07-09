@@ -6,11 +6,13 @@ namespace TRRA
 {
     public class TRRA : Mod
     {
-        public static ModKeybind TransformHotKey;
+        private static ModKeybind TransformHotKey;
 
         public TRRA()
         {
         }
+
+        public static ModKeybind GetTransformHotKey() { return TransformHotKey; }
 
         public override void Load()
         {

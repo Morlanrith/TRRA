@@ -7,7 +7,6 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
-using Terraria.ModLoader.Utilities;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -92,7 +91,7 @@ namespace TRRA.NPCs.Enemies
 					NPC.velocity.X = 0f;
 				}
 				NPC.ai[0] += 2f;
-				Vector2 vector74 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
+				Vector2 vector74 = new(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
 				float num608 = Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f - vector74.X;
 				float num609 = Main.player[NPC.target].position.Y + (float)Main.player[NPC.target].height * 0.5f - vector74.Y;
 				float num610 = (float)Math.Sqrt(num608 * num608 + num609 * num609);

@@ -4,6 +4,7 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.Main;
@@ -26,7 +27,8 @@ namespace TRRA
         {
 			if (IsShatteredMoon() || dayTime || bloodMoon || pumpkinMoon || snowMoon || invasionType != 0 || DD2Event.Ongoing)
 				return false;
-			Main.NewText("The Shattered Moon rises...", 186, 34, 64);
+			if (netMode != NetmodeID.Server)
+				Main.NewText("The Shattered Moon rises...", 186, 34, 64);
 			moonType = TextureAssets.Moon.Length - 1;
 			invasionType = -1;
 			ShatteredMoon = true;

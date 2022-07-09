@@ -87,9 +87,10 @@ namespace TRRA.NPCs
 			}
         }
 
-        public void GenerateDust()
+        public static void GenerateDust()
         {
-			Main.NewText(Main.worldName + " has been graced with Dust!", 255, 0, 102);
+			if(Main.netMode != NetmodeID.Server)
+				Main.NewText(Main.worldName + " has been graced with Dust!", 255, 0, 102);
 			int style = 0;
 			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 100E-05); k++)
 			{
@@ -148,7 +149,7 @@ namespace TRRA.NPCs
 			base.OnKill(npc);
 		}
 
-		private bool PlacementCheck(int i, int j, int attachType)
+		private static bool PlacementCheck(int i, int j, int attachType)
         {
 			if (WorldGen.TileEmpty(i, j))
             {
