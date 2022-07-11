@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace TRRA.Biomes
@@ -9,8 +10,7 @@ namespace TRRA.Biomes
 
 		public override string BestiaryIcon => base.BestiaryIcon;
 		public override string BackgroundPath => base.BackgroundPath;
-
-
+        public override Color? BackgroundColor => new(0.8f, 0.8f, 0.8f);
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Shattered Moon");
