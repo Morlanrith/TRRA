@@ -74,7 +74,7 @@ namespace TRRA.NPCs.Enemies
 			{
 				NPC.ai[0] = -100f;
 				NPC.ai[2] = 1f;
-				NPC.TargetClosest();
+				if (TRRAWorld.IsShatteredMoon()) NPC.TargetClosest();
 				NPC.spriteDirection = NPC.direction;
 			}
 			if (NPC.velocity.Y == 0f)
@@ -106,7 +106,7 @@ namespace TRRA.NPCs.Enemies
 					NPC.netUpdate = true;
 					if (NPC.ai[2] == 1f)
 					{
-						NPC.TargetClosest();
+						if (TRRAWorld.IsShatteredMoon()) NPC.TargetClosest();
 					}
 					if (NPC.ai[1] == 2f)
 					{

@@ -73,11 +73,32 @@ namespace TRRA.NPCs.Enemies
 			}
         }
 
-		public override void AI()
+		private void Flee()
+        {
+			Vector2 vector130 = new(NPC.Center.X + (float)(NPC.direction * 20), NPC.Center.Y + 6f);
+			float num990 = Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f - vector130.X;
+			float num991 = Main.player[NPC.target].position.Y - vector130.Y;
+			float num992 = (float)Math.Sqrt(num990 * num990 + num991 * num991);
+			float num993 = 7f / num992;
+			num990 *= num993;
+			num991 *= num993;
+			int num994 = 60;
+			NPC.velocity.X = (NPC.velocity.X * (float)(num994 - 1) - num990) / (float)num994;
+			NPC.velocity.Y = (NPC.velocity.Y * (float)(num994 - 1) - num991) / (float)num994;
+			NPC.EncourageDespawn(10);
+			if (NPC.velocity.X > 0f)
+				NPC.spriteDirection = 1;
+			if (NPC.velocity.X < 0f)
+				NPC.spriteDirection = -1;
+		}
+
+        public override void AI()
         {
 			if (!TRRAWorld.IsShatteredMoon())
-				NPC.EncourageDespawn(10);
-
+			{
+				Flee();
+				return;
+			}
 			if (NPC.target < 0 || NPC.target <= 255 || Main.player[NPC.target].dead)
 			{
 				NPC.TargetClosest();

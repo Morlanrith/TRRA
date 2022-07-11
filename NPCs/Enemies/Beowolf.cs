@@ -50,12 +50,13 @@ namespace TRRA.NPCs.Enemies
 			NPC.knockBackResist = 0.25f;
 			NPC.value = 1000f;
 			AnimationType = NPCID.DesertBeast;
+			SpawnModBiomes = new int[] { };
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
+				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.BloodMoon,
 
 				new FlavorTextBestiaryInfoElement("A dangerous wolf-like creature that is not of this world."),
 
@@ -119,7 +120,7 @@ namespace TRRA.NPCs.Enemies
 
 			if (NPC.ai[3] < (float)num55)
 			{
-				NPC.TargetClosest();
+				if (TRRAWorld.IsShatteredMoon()) NPC.TargetClosest();
 				if (NPC.directionY > 0 && Main.player[NPC.target].Center.Y <= NPC.Bottom.Y)
 					NPC.directionY = -1;
 			}
@@ -278,7 +279,7 @@ namespace TRRA.NPCs.Enemies
 						bool flag21 = false;
 						bool flag22 = Main.player[NPC.target].ZoneGraveyard && Main.rand.Next(60) == 0;
 
-						if ((!Main.bloodMoon || Main.getGoodWorld) && !flag22 && flag21)
+						if (Main.getGoodWorld && !flag22 && flag21)
 							NPC.ai[1] = 0f;
 
 						NPC.velocity.X = 0.5f * (float)(-NPC.direction);
