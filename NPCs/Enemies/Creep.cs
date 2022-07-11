@@ -7,6 +7,7 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
+using TRRA.Biomes;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -31,12 +32,12 @@ namespace TRRA.NPCs.Enemies
 			NPC.knockBackResist = 0.25f;
 			NPC.value = 1000f;
 			AnimationType = NPCID.Derpling;
+			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
 
 				new FlavorTextBestiaryInfoElement("A dangerous lizard-like creature that is not of this world."),
 

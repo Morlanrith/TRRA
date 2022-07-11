@@ -10,6 +10,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Projectiles.NPCs.Enemies.Lancer;
 using TRRA.Dusts;
+using TRRA.Biomes;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -42,12 +43,12 @@ namespace TRRA.NPCs.Enemies
 			NPC.value = 1000f;
 			NPC.noGravity = true;
 			AnimationType = NPCID.Hornet;
+			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
 
 				new FlavorTextBestiaryInfoElement("A dangerous hornet-like creature that is not of this world."),
 

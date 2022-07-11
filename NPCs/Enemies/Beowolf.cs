@@ -7,6 +7,7 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
+using TRRA.Biomes;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -50,13 +51,12 @@ namespace TRRA.NPCs.Enemies
 			NPC.knockBackResist = 0.25f;
 			NPC.value = 1000f;
 			AnimationType = NPCID.DesertBeast;
-			SpawnModBiomes = new int[] { };
+			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.BloodMoon,
 
 				new FlavorTextBestiaryInfoElement("A dangerous wolf-like creature that is not of this world."),
 

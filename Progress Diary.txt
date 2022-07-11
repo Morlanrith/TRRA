@@ -830,9 +830,11 @@ July 11th 2022
 -------------
 Work Done:
 Added elements to the Grimm enemies AI, so that they will stop targeting the player when the Shattered Moon event ends.
+Created a fake biome class that is used to represent the Shattered Moon event in the Bestiary.
+Created new assets for the fake biome, to properly reflect the Shattered Moon event in the Bestiary.
 -------------
 Next Task:
-
+More miscellaneous changes/additions for Shattered Moon.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
