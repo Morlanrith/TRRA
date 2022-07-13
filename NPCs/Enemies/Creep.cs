@@ -39,7 +39,7 @@ namespace TRRA.NPCs.Enemies
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 
-				new FlavorTextBestiaryInfoElement("A dangerous lizard-like creature that is not of this world."),
+				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Creep"),
 
 			});
 		}

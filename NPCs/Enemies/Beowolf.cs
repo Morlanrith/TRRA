@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
 using TRRA.Biomes;
+using TRRA.Items.Placeable;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -50,6 +51,8 @@ namespace TRRA.NPCs.Enemies
 			NPC.DeathSound = SoundID.NPCDeath5;
 			NPC.knockBackResist = 0.25f;
 			NPC.value = 1000f;
+			Banner = NPC.type;
+			BannerItem = ItemType<BeowolfBanner>();
 			AnimationType = NPCID.DesertBeast;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
@@ -58,7 +61,7 @@ namespace TRRA.NPCs.Enemies
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 
-				new FlavorTextBestiaryInfoElement("A dangerous wolf-like creature that is not of this world."),
+				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Beowolf"),
 
 			});
 		}

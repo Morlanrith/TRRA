@@ -20,8 +20,5 @@ New NPC: A new town NPC that sells a variety of Dust related items which are req
 
 Transform Hotkey: An additional hotkey for use with the new weapons in this mod. Causes the weapons to change from one form to another.
 
-Known Issues:
-Existing Princess NPC is missing happiness dialogue for the new Shopkeep NPC
-
 It should go without saying, but I do not own the copyright to the weapon designs implemented in this mod.
 These are owned by Rooster Teeth Productions, LLC.

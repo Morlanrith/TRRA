@@ -68,7 +68,7 @@ namespace TRRA.NPCs
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
 
-				new FlavorTextBestiaryInfoElement("A simple shopkeep from a distant and incomplete world, they can provide you with all manner of wares to assist you in using 'Dust'."),
+				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Shopkeep"),
 
 			});
 		}

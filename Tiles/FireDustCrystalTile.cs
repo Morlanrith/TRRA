@@ -40,7 +40,7 @@ namespace TRRA.Tiles
 			TileObjectData.newAlternate.AnchorBottom = AnchorData.Empty;
 			TileObjectData.addAlternate(0);
 
-			// Allow attaching to a solid object that is to the left of the sign
+			// Allow attaching to a solid object that is to the left of the crystal
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
 			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.newAlternate.Origin = new Point16(0, 0);
@@ -48,7 +48,7 @@ namespace TRRA.Tiles
 			TileObjectData.newAlternate.AnchorBottom = AnchorData.Empty;
 			TileObjectData.addAlternate(0);
 
-			// Allow attaching to a solid object that is to the right of the sign
+			// Allow attaching to a solid object that is to the right of the crystal
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
 			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.newAlternate.Origin = new Point16(0, 0);
@@ -56,7 +56,7 @@ namespace TRRA.Tiles
 			TileObjectData.newAlternate.AnchorBottom = AnchorData.Empty;
 			TileObjectData.addAlternate(0);
 
-			// Allow attaching sign to the ground
+			// Allow attaching crystal to the ground
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
 			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.newAlternate.Origin = new Point16(0, 0);

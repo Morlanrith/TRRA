@@ -837,6 +837,17 @@ Next Task:
 More miscellaneous changes/additions for Shattered Moon.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 13th 2022
+-------------
+Work Done:
+Updated the Bestiary descriptions for all Grimm enemies to be more informative.
+Fixed the missing happiness dialogue for the existing Princess NPC for the Shopkeep NPC (FINALLY!).
+Began work on banners for Grimm enemies.
+-------------
+Next Task:
+Continue work on banners.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
