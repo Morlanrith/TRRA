@@ -11,6 +11,7 @@ using Terraria.ModLoader;
 using TRRA.Projectiles.NPCs.Enemies.Lancer;
 using TRRA.Dusts;
 using TRRA.Biomes;
+using TRRA.Items.Placeable;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -42,6 +43,8 @@ namespace TRRA.NPCs.Enemies
 			NPC.knockBackResist = 0.5f;
 			NPC.value = 1000f;
 			NPC.noGravity = true;
+			Banner = NPC.type;
+			BannerItem = ItemType<LancerBanner>();
 			AnimationType = NPCID.Hornet;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}

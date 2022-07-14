@@ -29,8 +29,9 @@ Mods: {
 		}
 
 		ItemTooltip: {
-			# Note that the translation files for other languages don't need to define ItemTooltip.OctopusBanner, they would only need to define NPCName.Octopus, as seen in zh-Hans.hjson file. 
 			BeowolfBanner: "{$CommonItemTooltip.BannerBonus}Beowolf"
+			CreepBanner: "{$CommonItemTooltip.BannerBonus}Creep"
+			LancerBanner: "{$CommonItemTooltip.BannerBonus}Lancer"
 		}
 
 	}

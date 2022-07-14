@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Dusts;
 using TRRA.Biomes;
+using TRRA.Items.Placeable;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -31,6 +32,8 @@ namespace TRRA.NPCs.Enemies
 			NPC.DeathSound = SoundID.NPCDeath25;
 			NPC.knockBackResist = 0.25f;
 			NPC.value = 1000f;
+			Banner = NPC.type;
+			BannerItem = ItemType<CreepBanner>();
 			AnimationType = NPCID.Derpling;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}

@@ -848,6 +848,19 @@ Next Task:
 Continue work on banners.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 14th 2022
+-------------
+Work Done:
+Implemented banners for all Grimm enemies (using dummy sprites). NOTE: These banners do not sway in the wind like the games
+conventional banners. From what I have read in the source code, it does not seem like it is possible to achieve this without
+completely re-constructing the functions/code used to achieve, which seems like a bad idea.
+Finished new sprites for Grimm banners.
+-------------
+Next Task:
+Re-balance Grimm.
+Finalise point of progression that the Shattered Moon event can start to occur.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

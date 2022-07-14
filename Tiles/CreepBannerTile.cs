@@ -10,7 +10,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Tiles
 {
-	public class BeowolfBannerTile : ModTile
+	public class CreepBannerTile : ModTile
 	{
 		public override void SetStaticDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -31,14 +31,14 @@ namespace TRRA.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<Items.Placeable.BeowolfBanner>());
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<Items.Placeable.CreepBanner>());
 		}
 
 		public override void NearbyEffects(int i, int j, bool closer)
 		{
 			if (closer)
 			{
-				Main.SceneMetrics.NPCBannerBuff[NPCType<Beowolf>()] = true;
+				Main.SceneMetrics.NPCBannerBuff[NPCType<Creep>()] = true;
 				Main.SceneMetrics.hasBanner = true;
 			}
 		}
