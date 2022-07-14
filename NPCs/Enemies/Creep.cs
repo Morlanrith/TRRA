@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 using TRRA.Dusts;
 using TRRA.Biomes;
 using TRRA.Items.Placeable;
+using Terraria.DataStructures;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -19,6 +20,19 @@ namespace TRRA.NPCs.Enemies
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Derpling];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+
+			NPCDebuffImmunityData debuffData = new()
+			{
+				SpecificallyImmuneTo = new int[] {
+					BuffID.Poisoned,
+					BuffID.Bleeding,
+					BuffID.Venom,
+					BuffID.Ichor,
+					BuffID.Confused
+				}
+			};
+
+			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
 		}
 
 		public override void SetDefaults() {

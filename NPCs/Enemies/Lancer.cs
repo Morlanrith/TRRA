@@ -23,6 +23,19 @@ namespace TRRA.NPCs.Enemies
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Hornet];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
+			NPCDebuffImmunityData debuffData = new()
+            {
+				SpecificallyImmuneTo = new int[] {
+					BuffID.Poisoned,
+					BuffID.Bleeding,
+					BuffID.Venom,
+					BuffID.Ichor,
+					BuffID.Confused
+				}
+			};
+
+			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+
 			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Velocity = 1f,

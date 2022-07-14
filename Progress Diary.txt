@@ -855,6 +855,7 @@ Implemented banners for all Grimm enemies (using dummy sprites). NOTE: These ban
 conventional banners. From what I have read in the source code, it does not seem like it is possible to achieve this without
 completely re-constructing the functions/code used to achieve, which seems like a bad idea.
 Finished new sprites for Grimm banners.
+Added immunities for Grimm enemies.
 -------------
 Next Task:
 Re-balance Grimm.
