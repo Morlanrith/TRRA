@@ -100,7 +100,7 @@ namespace TRRA
             if (justDay && !dayTime && !fastForwardTime && !Main.ShouldNormalEventsBeAbleToStart())
             {
                 justDay = false;
-                if (rand.Next(15) == 0 && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp)
+                if (rand.Next(9) == 0 && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp && NPC.downedPlantBoss)
 					BeginShatteredMoon();
             }
             else if (!justDay && dayTime && !gameMenu) justDay = true;

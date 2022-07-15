@@ -41,7 +41,7 @@ namespace TRRA.NPCs.Enemies
 			NPC.aiStyle = -1;
 			NPC.damage = 100;
 			NPC.defense = 35;
-			NPC.lifeMax = 400;
+			NPC.lifeMax = 600;
 			NPC.HitSound = SoundID.NPCHit20;
 			NPC.DeathSound = SoundID.NPCDeath25;
 			NPC.knockBackResist = 0.25f;

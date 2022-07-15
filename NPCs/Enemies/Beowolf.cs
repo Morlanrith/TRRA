@@ -59,8 +59,8 @@ namespace TRRA.NPCs.Enemies
 			NPC.height = 56;
 			NPC.aiStyle = -1;
 			NPC.damage = 100;
-			NPC.defense = 35;
-			NPC.lifeMax = 500;
+			NPC.defense = 40;
+			NPC.lifeMax = 800;
 			NPC.HitSound = BeoHitSound;
 			NPC.DeathSound = SoundID.NPCDeath5;
 			NPC.knockBackResist = 0.25f;

@@ -862,6 +862,19 @@ Re-balance Grimm.
 Finalise point of progression that the Shattered Moon event can start to occur.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 15th 2022
+-------------
+Work Done:
+Re-balanced Grimm enemies.
+Set the Shattered Moon event to only have a chance to spawn following the defeat of Plantera.
+Finished the initially created Moon Summoner item, now known as the "Stone of Negativity".
+Added unique dialogue for every town NPC during the Shattered Moon event.
+-------------
+Next Task:
+Finalise elements of the Shattered Moon event.
+More miscellaneous changes.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

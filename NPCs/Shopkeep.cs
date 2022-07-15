@@ -114,6 +114,7 @@ namespace TRRA.NPCs
 		}
 
 		public override string GetChat() {
+			if (TRRAWorld.IsShatteredMoon()) return "There are Grimm here too?!";
 			int traveller = NPC.FindFirstNPC(NPCID.TravellingMerchant);
 			if (traveller >= 0 && Main.rand.NextBool(4))
 			{
