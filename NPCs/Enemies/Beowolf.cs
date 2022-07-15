@@ -10,6 +10,8 @@ using TRRA.Dusts;
 using TRRA.Biomes;
 using TRRA.Items.Placeable;
 using Terraria.DataStructures;
+using Terraria.GameContent.ItemDropRules;
+using TRRA.Items.Consumables;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -58,12 +60,12 @@ namespace TRRA.NPCs.Enemies
 			NPC.width = 94;
 			NPC.height = 56;
 			NPC.aiStyle = -1;
-			NPC.damage = 100;
+			NPC.damage = 110;
 			NPC.defense = 40;
 			NPC.lifeMax = 800;
 			NPC.HitSound = BeoHitSound;
 			NPC.DeathSound = SoundID.NPCDeath5;
-			NPC.knockBackResist = 0.25f;
+			NPC.knockBackResist = 0.4f;
 			NPC.value = 1000f;
 			Banner = NPC.type;
 			BannerItem = ItemType<BeowolfBanner>();
@@ -71,7 +73,13 @@ namespace TRRA.NPCs.Enemies
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
-		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+			IItemDropRule rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
+			npcLoot.Add(rule);
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 

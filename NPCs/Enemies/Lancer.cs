@@ -12,6 +12,8 @@ using TRRA.Projectiles.NPCs.Enemies.Lancer;
 using TRRA.Dusts;
 using TRRA.Biomes;
 using TRRA.Items.Placeable;
+using Terraria.GameContent.ItemDropRules;
+using TRRA.Items.Consumables;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -60,6 +62,12 @@ namespace TRRA.NPCs.Enemies
 			BannerItem = ItemType<LancerBanner>();
 			AnimationType = NPCID.Hornet;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
+		{
+			IItemDropRule rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
+			npcLoot.Add(rule);
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
