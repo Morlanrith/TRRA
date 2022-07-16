@@ -882,8 +882,11 @@ Work Done:
 Changed dust spawn to now to be linked to defeating Skeletron, as opposed to Plantera (moving its spawn to a much earlier
 point in the game).
 Created a new icon for the mod.
+Began working on an overhaul of the Myrtenaster weapon. This is being done to make the weapon more in-line with the existing
+weapon known as the "Starlight". Have a basic protoype of this done, called the "Fake Starlight".
 -------------
 Next Task:
+Finish the Myrtenaster overhaul.
 Begin work on weapon progression.
 Create upgrade materials to be dropped by the Grimm, in order to finalise the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
