@@ -145,7 +145,7 @@ namespace TRRA.NPCs
 
 		public override void OnKill(NPC npc)
 		{
-			if (npc.type == NPCID.Plantera && !TRRAWorld.GetNoDust()) GenerateDust();
+			if (npc.type == NPCID.SkeletronHead && !TRRAWorld.GetNoDust()) GenerateDust();
 			base.OnKill(npc);
 		}
 

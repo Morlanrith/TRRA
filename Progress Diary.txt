@@ -876,6 +876,18 @@ Finalise elements of the Shattered Moon event.
 More miscellaneous changes.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 16th 2022
+-------------
+Work Done:
+Changed dust spawn to now to be linked to defeating Skeletron, as opposed to Plantera (moving its spawn to a much earlier
+point in the game).
+Created a new icon for the mod.
+-------------
+Next Task:
+Begin work on weapon progression.
+Create upgrade materials to be dropped by the Grimm, in order to finalise the Shattered Moon event.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

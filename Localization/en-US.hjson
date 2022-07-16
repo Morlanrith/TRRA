@@ -17,7 +17,8 @@ Mods: {
 				NoHome: It would be nice to have some sort of fortification, if these monsters are like Grimm then we're going to need it.
 				LoveSpace: It's nice having enough room for all my dispensers.
 				FarFromHome: I feel I'm a bit lost, do you know the way back?
-				DislikeCrowded: I'm more of a solo businessman, all these people are really getting in the way.
+				DislikeCrowded: I'm more of a solo businessman, all these people are starting to get in the way.
+				HateCrowded: This is getting out of hand, I can't keep track of anything with all these people!
 				LikeBiome: "I like {BiomeName}, it reminds me of home."
 				DislikeBiome: "It's far too dangerous in {BiomeName}, you have to get me out of here!"
 				LikeNPC: "{NPCName} gives me enough space, I like that."

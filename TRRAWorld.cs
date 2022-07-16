@@ -42,7 +42,7 @@ namespace TRRA
 			TextureAssets.Moon.CopyTo(newMoons, 0);
 			newMoons[TextureAssets.Moon.Length] = ModContent.Request<Texture2D>($"{effectAssetPath}/Moon_Shattered");
 			TextureAssets.Moon = newMoons;
-			NoDust = Terraria.NPC.downedPlantBoss;
+			NoDust = Terraria.NPC.downedBoss3;
 		}
 
 		public override void OnWorldUnload()

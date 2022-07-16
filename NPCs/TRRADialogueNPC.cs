@@ -8,6 +8,7 @@ namespace TRRA.NPCs
 	{
         public override void GetChat(NPC npc, ref string chat)
         {
+            if (!TRRAWorld.IsShatteredMoon()) return;
             switch (npc.type)
             {
                 case NPCID.Guide:
@@ -77,7 +78,7 @@ namespace TRRA.NPCs
                     chat = "No critters like these on any seas I've sailed!";
                     return;
                 case NPCID.Steampunker:
-                    chat = "I'm tellin ya, we build a sky city to escape the Grimm!";
+                    chat = "I'm tellin ya, we could build a sky city to escape the Grimm!";
                     return;
                 case NPCID.Cyborg:
                     chat = "I have identified multiple creatures of 'Grimm'. I advise lethal force.";
