@@ -891,6 +891,17 @@ Begin work on weapon progression.
 Create upgrade materials to be dropped by the Grimm, in order to finalise the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+17th July 2022
+-------------
+Work Done:
+Finished the overhaul for the standard ice variant of Myrtenaster.
+Finished the overhaul for the fire variant of Myrtenaster.
+Created new sprites for Myrtenaster.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

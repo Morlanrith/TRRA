@@ -103,7 +103,7 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse != 2)
             {
 				Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-				if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), 180 + (int)(180 * player.GetDamage(DamageClass.Melee).Multiplicative), 8, player.whoAmI);
+				if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(280 * player.GetDamage(DamageClass.Melee).Additive), 8, player.whoAmI);
 				int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
 				for (int i = 0; i < numberProjectiles; i++)
 				{
@@ -111,7 +111,7 @@ namespace TRRA.Items.Weapons
 					Projectile.NewProjectile(source, position, perturbedSpeed, type, damage, Item.knockBack, player.whoAmI);
 				}
 			}
-			else Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), 150 + (int)(150 * player.GetDamage(DamageClass.Melee).Multiplicative), 12, player.whoAmI, 1);
+			else Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(300 * player.GetDamage(DamageClass.Melee).Additive), 12, player.whoAmI, 1);
 			return false; // return false because we don't want to shoot automatic projectile
 		}
 

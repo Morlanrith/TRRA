@@ -15,12 +15,6 @@ namespace TRRA.Items.Weapons
 	{
 		private bool resetTime = false;
 
-		private static readonly SoundStyle FireStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/FireStab")
-		{
-			Volume = 0.3f,
-			Pitch = 0.0f,
-		};
-
 		private static readonly SoundStyle FireWaveSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/FireWave")
 		{
 			Volume = 0.3f,
@@ -33,21 +27,24 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			Item.damage = 25;
-			Item.useStyle = ItemUseStyleID.Thrust;
-			Item.useAnimation = 12;
-			Item.useTime = 3;
-			Item.knockBack = 4.5f;
-			Item.width = 46;
+			Item.width = 14;
 			Item.height = 46;
-			Item.scale = 0.9f;
 			Item.rare = ItemRarityID.Cyan;
-			Item.value = Item.sellPrice(gold: 25);
+			Item.noUseGraphic = true;
+			Item.channel = true;
+			Item.noMelee = true;
+			Item.damage = 80;
+			Item.crit = 10;
+			Item.knockBack = 4f;
+			Item.autoReuse = false;
+			Item.noMelee = true;
 			Item.DamageType = DamageClass.Melee;
-			Item.autoReuse = true;
-			Item.UseSound = FireStabSound;
 			Item.shoot = ProjectileType<MyrtenasterFR>();
-			Item.shootSpeed = 6f;
+			Item.shootSpeed = 15f;
+			Item.value = Item.sellPrice(gold: 25);
+			Item.useStyle = ItemUseStyleID.Rapier; // 13
+			Item.useAnimation = 18;
+			Item.useTime = 6;
 			Item.maxStack = 1;
 		}
 
@@ -100,17 +97,23 @@ namespace TRRA.Items.Weapons
 				Item.knockBack = 7.5f;
 				Item.shoot = ProjectileType<MyrtenasterFS>();
 				Item.UseSound = FireWaveSound;
+				Item.noUseGraphic = false;
+				Item.channel = false;
+				Item.shootSpeed = 6f;
+				Item.autoReuse = true;
 			}
 			else {
-				Item.useStyle = ItemUseStyleID.Thrust;
+				Item.noUseGraphic = true;
+				Item.channel = true;
+				Item.useStyle = ItemUseStyleID.Rapier;
 				Item.DamageType = DamageClass.Melee;
-				Item.noMelee = false;
-				Item.useTime = 3;
-				Item.useAnimation = 12;
-				Item.damage = 25;
-				Item.knockBack = 4.5f;
+				Item.useAnimation = 18;
+				Item.useTime = 6;
+				Item.damage = 80;
 				Item.shoot = ProjectileType<MyrtenasterFR>();
-				Item.UseSound = FireStabSound;
+				Item.shootSpeed = 15f;
+				Item.UseSound = null;
+				Item.autoReuse = false;
 			}
 			return base.CanUseItem(player);
 		}
@@ -123,20 +126,10 @@ namespace TRRA.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			if (player.altFunctionUse != 2)
-			{
-				float posY = player.position.Y + 25;
-				float posX = player.position.X - 33;
-				if (player.direction == 1) posX += 83;
-				Random r = new Random();
-				posY += r.Next(-20, 20);
-				velocity.X = new Vector2(velocity.X, velocity.Y).Length() * (velocity.X > 0 ? 1 : -1);
-				Projectile.NewProjectile(source, posX, posY, velocity.X, 0, type, (int)(18 * player.GetDamage(DamageClass.Melee).Multiplicative), Item.knockBack, player.whoAmI);
-			}			
+			if (player.altFunctionUse == 2)
+				Projectile.NewProjectile(source, position, velocity, type, (int)(135 * player.GetDamage(DamageClass.Ranged).Additive), Item.knockBack, player.whoAmI);
 			else
-			{
-				Projectile.NewProjectile(source, position, velocity, type, (int)(135 * player.GetDamage(DamageClass.Ranged).Multiplicative), Item.knockBack, player.whoAmI);
-			}
+				Projectile.NewProjectile(source, position, velocity, type, (int)(80 * player.GetDamage(DamageClass.Melee).Additive), Item.knockBack, player.whoAmI);
 			return false;
 		}
 	}
