@@ -909,9 +909,11 @@ Work Done:
 Added Crescent Bud and Crescent Bloom, earlier game variants of the existing Crescent Rose weapon.
 Added Kleineblume and Silbernelke, earlier game variants of the existing Myrtenaster weapon.
 Added Gambol Veil and Gambol Shade, earlier game variants of the existing Gambol Shroud weapon.
+Added Steel Celica and Spark Celica, earlier game variants of the existing Ember Celica weapon.
+Added Quiet and Whisper, earlier game variants of the existing Hush weapon.
 -------------
 Next Task:
-Add earlier game variants for the Ember Celica and Hush.
+Add new materials for the final stage upgrades.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

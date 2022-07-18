@@ -153,7 +153,7 @@ namespace TRRA
 
         private void EmberFists()
         {
-            if (Player.HeldItem.Name == "Ember Celica")
+            if (Player.HeldItem.Name == "Ember Celica" || Player.HeldItem.Name == "Steel Celica" || Player.HeldItem.Name == "Spark Celica")
             {
                 if (Player.HeldItem.handOnSlot > 0)
                 {

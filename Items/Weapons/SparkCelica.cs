@@ -13,7 +13,7 @@ using Terraria.Audio;
 namespace TRRA.Items.Weapons
 {
 	[AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-	public class EmberCelicaS : ModItem
+	public class SparkCelica : ModItem
 	{
 		private static readonly SoundStyle EmberShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberShot")
 		{
@@ -28,41 +28,42 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ember Celica");
-			Tooltip.SetDefault("'Armed and Ready'\nRight Click to Charge\nTransforms by pressing a mapped hotkey");
+			DisplayName.SetDefault("Spark Celica");
+			Tooltip.SetDefault("'Hotter than the sun in the middle of July'\nRight Click to Charge");
 		}
 
 		public override void SetDefaults() {
-			Item.damage = 90;
+			Item.damage = 60;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 62;
-			Item.height = 34;
+			Item.height = 30;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 7;
 			Item.noUseGraphic = true;
-			Item.value = Item.sellPrice(gold: 25);
-			Item.rare = ItemRarityID.Cyan;
+			Item.value = Item.sellPrice(gold: 8);
+			Item.rare = ItemRarityID.Pink;
 			Item.UseSound = EmberShotSound;
 			Item.autoReuse = false;
 			Item.shoot = ProjectileID.Bullet;
 			Item.shootSpeed = 9f;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.noMelee = true;
-			Item.crit = 26;
+			Item.crit = 16;
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<SparkCelica>(), 1)
+			.AddIngredient(ItemType<SteelCelica>(), 1)
 			.AddIngredient(ItemType<FireDustCrystal>(), 30)
 			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
-			.AddIngredient(ItemID.YellowPaint, 10)
-			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddIngredient(ItemID.YellowPaint, 5)
+			.AddIngredient(ItemID.SoulofMight, 20)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
 
-		public override bool AltFunctionUse(Player player) {
+		public override bool AltFunctionUse(Player player)
+		{
 			if (player.mount.Active) return false;
 			return true;
 		}
@@ -73,8 +74,10 @@ namespace TRRA.Items.Weapons
 			player.scope = false;
 		}
 
-		public override bool CanUseItem(Player player) {
-			if (player.altFunctionUse == 2) {
+		public override bool CanUseItem(Player player)
+		{
+			if (player.altFunctionUse == 2)
+			{
 				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
 				Item.UseSound = EmberDashSound;
 				Item.useStyle = ItemUseStyleID.Thrust;
@@ -86,7 +89,8 @@ namespace TRRA.Items.Weapons
 				newVelocity.X = 8.5f * player.direction;
 				player.velocity = newVelocity;
 			}
-			else {
+			else
+			{
 				if (!PlayerInput.Triggers.JustPressed.MouseLeft) return false; //Equivalent to autoReuse being set to false, as that flag is bugged with alternate use
 				Item.UseSound = EmberShotSound;
 				Item.useStyle = ItemUseStyleID.Shoot;
@@ -103,15 +107,15 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse != 2)
             {
 				Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-				if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(280 * player.GetDamage(DamageClass.Melee).Additive), 8, player.whoAmI);
-				int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
+				if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(100 * player.GetDamage(DamageClass.Melee).Additive), 8, player.whoAmI);
+				int numberProjectiles = 2 + Main.rand.Next(2); // 2 or 3 shots
 				for (int i = 0; i < numberProjectiles; i++)
 				{
 					Vector2 perturbedSpeed = muzzleOffset.RotatedByRandom(MathHelper.ToRadians(30)); // 30 degree spread.
 					Projectile.NewProjectile(source, position, perturbedSpeed, type, damage, Item.knockBack, player.whoAmI);
 				}
 			}
-			else Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(300 * player.GetDamage(DamageClass.Melee).Additive), 12, player.whoAmI, 1);
+			else Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(120 * player.GetDamage(DamageClass.Melee).Additive), 12, player.whoAmI, 1);
 			return false; // return false because we don't want to shoot automatic projectile
 		}
 

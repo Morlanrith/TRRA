@@ -44,14 +44,14 @@ namespace TRRA.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			Item.width = 51;
-			Item.height = 51;
+			Item.width = 50;
+			Item.height = 48;
 			Item.rare = ItemRarityID.Cyan;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 15;
 			Item.useTime = 15;
-			Item.damage = 160;
+			Item.damage = 220;
 			Item.crit = 62;
 			Item.knockBack = 5f;
 			Item.UseSound = HushStabSound;
@@ -174,7 +174,7 @@ namespace TRRA.Items.Weapons
 				Item.holdStyle = 0;
 				Item.useAnimation = 15;
 				Item.useTime = 15;
-				Item.damage = 160;
+				Item.damage = 220;
 				Item.UseSound = HushStabSound;
 				Item.shoot = ProjectileType<HushClosed>();
 				Item.noUseGraphic = true;
@@ -234,17 +234,17 @@ namespace TRRA.Items.Weapons
 		{
 			if (player.altFunctionUse != 2)
 			{
-				Projectile.NewProjectile(source, position, velocity, type, 160 + (int)(160 *  player.GetDamage(DamageClass.Melee).Multiplicative), Item.knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, position, velocity, type, damage, Item.knockBack, player.whoAmI);
 			}
 			return false;
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<Whisper>(), 1)
 			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemType<IceDustCrystal>(), 30)
-			.AddIngredient(ItemID.PinkPaint, 10)
+			.AddIngredient(ItemID.PinkThread, 2)
+			.AddIngredient(ItemType<DustExtract>(), 1)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
 
