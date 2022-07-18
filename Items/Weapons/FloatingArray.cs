@@ -53,13 +53,13 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-				.AddIngredient(ItemType<DustExtract>(), 1)
-				.AddIngredient(ItemType<DustWeaponKit>(), 1)
-				.AddIngredient(ItemType<PlantDustCrystal>(), 30)
-				.AddIngredient(ItemType<GravityDustCrystal>(), 10)
-				.AddIngredient(ItemID.BlackPaint, 10)
-				.AddTile(TileType<DustToolbenchTile>())
-				.Register();
+			.AddIngredient(ItemType<PlantDustCrystal>(), 50)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 30)
+			.AddIngredient(ItemID.BlackPaint, 10)
+			.AddIngredient(ItemType<EssenceOfGrimm>(), 40)
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
 		public override bool AltFunctionUse(Player player)
 		{

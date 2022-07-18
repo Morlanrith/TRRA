@@ -54,6 +54,7 @@ namespace TRRA.Items.Weapons
 			.AddIngredient(ItemType<FireDustCrystal>(), 20)
 			.AddIngredient(ItemType<IceDustCrystal>(), 20)
 			.AddIngredient(ItemID.WhitePaint, 10)
+			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
 			.AddIngredient(ItemType<DustExtract>(), 1)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();

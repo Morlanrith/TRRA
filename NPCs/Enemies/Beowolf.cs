@@ -12,6 +12,7 @@ using TRRA.Items.Placeable;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using TRRA.Items.Consumables;
+using TRRA.Items.Materials;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -75,9 +76,11 @@ namespace TRRA.NPCs.Enemies
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-			IItemDropRule rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
+			IItemDropRule rule = ItemDropRule.Common(ItemType<EssenceOfGrimm>(), 5);
 			npcLoot.Add(rule);
-        }
+			rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
+			npcLoot.Add(rule);
+		}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{

@@ -911,9 +911,10 @@ Added Kleineblume and Silbernelke, earlier game variants of the existing Myrtena
 Added Gambol Veil and Gambol Shade, earlier game variants of the existing Gambol Shroud weapon.
 Added Steel Celica and Spark Celica, earlier game variants of the existing Ember Celica weapon.
 Added Quiet and Whisper, earlier game variants of the existing Hush weapon.
+Added a new material, the "Essence of Grimm" which is used for the final stage weapon upgrades.
 -------------
 Next Task:
-Add new materials for the final stage upgrades.
+Test everything and re-balance as needed.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

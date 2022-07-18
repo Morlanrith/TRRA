@@ -108,6 +108,7 @@ namespace TRRA.Items.Weapons
 			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
 			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
 			.AddIngredient(ItemID.BlackPaint, 10)
+			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
 			.AddIngredient(ItemType<DustExtract>(), 1)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
