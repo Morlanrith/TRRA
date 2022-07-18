@@ -22,7 +22,7 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Gambol Shroud");
-			Tooltip.SetDefault("Don't be so dramatic\nRight Click to fire as a gun\nTransforms by pressing a mapped hotkey");
+			Tooltip.SetDefault("'Don't be so dramatic'\nRight Click to fire as a gun\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {

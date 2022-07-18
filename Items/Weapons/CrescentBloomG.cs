@@ -3,15 +3,12 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Items.Materials;
-using TRRA.Tiles;
-using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons
 {
-	public class CrescentRoseG : ModItem
+	public class CrescentBloomG : ModItem
 	{
-		private static readonly SoundStyle RoseShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseShot")
+		private static readonly SoundStyle BloomShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseShot")
 		{
 			Volume = 0.6f,
 			Pitch = 0.0f,
@@ -19,12 +16,12 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			// Sets the display name and tooltip for Crescent Rose (gun form)
-			DisplayName.SetDefault("Crescent Rose");
-			Tooltip.SetDefault("'It's also a scythe'\nRight Click to zoom out\nTransforms by pressing a mapped hotkey");
+			DisplayName.SetDefault("Crescent Bloom");
+			Tooltip.SetDefault("'Justice will be painful!'\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
-			Item.damage = 200;
+			Item.damage = 138;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 68;
 			Item.height = 18;
@@ -33,38 +30,16 @@ namespace TRRA.Items.Weapons
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 7;
-			Item.value = Item.sellPrice(gold: 25);
-			Item.rare = ItemRarityID.Cyan;
+			Item.value = Item.sellPrice(gold: 8);
+			Item.rare = ItemRarityID.Pink;
 			// Plays the sound effect for a Crescent Rose gunshot
-			Item.UseSound = RoseShotSound;
+			Item.UseSound = BloomShotSound;
 			Item.autoReuse = false;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 16f;
-			Item.crit = 26;
+			Item.crit = 18;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.maxStack = 1;
-		}
-
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<CrescentBloomG>(), 1)
-			.AddIngredient(ItemType<FireDustCrystal>(), 10)
-			.AddIngredient(ItemType<PlantDustCrystal>(), 10)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
-			.AddIngredient(ItemType<IceDustCrystal>(), 10)
-			.AddIngredient(ItemID.RedPaint, 10)
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddTile(TileType<DustToolbenchTile>())
-			.Register();
-
-		public override void UseStyle(Player player, Rectangle r)
-		{
-			// Allows the player to utilise the scope function with Right Click
-			player.scope = true;
-		}
-
-		public override void HoldItemFrame(Player player)
-		{
-			player.scope = true;
 		}
 
 		public override Vector2? HoldoutOffset()

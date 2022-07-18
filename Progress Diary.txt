@@ -897,6 +897,17 @@ Work Done:
 Finished the overhaul for the standard ice variant of Myrtenaster.
 Finished the overhaul for the fire variant of Myrtenaster.
 Created new sprites for Myrtenaster.
+Created new sprites for all variants of the existing weapons, which are planned to be used for the weapon progression system.
+-------------
+Next Task:
+Begin adding the new weapon variants.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 18th 2022
+-------------
+Work Done:
+Added Crescent Bud and Crescent Bloom, earlier game variants of the existing Crescent Rose weapon.
+Added Kleineblume and Silbernelke, earlier game variants of the existing Myrtenaster weapon.
 -------------
 Next Task:
 

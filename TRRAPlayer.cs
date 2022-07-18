@@ -46,8 +46,12 @@ namespace TRRA
         private static readonly Item 
             gun = GetModItem(ItemType<CrescentRoseG>()).Item,
             scythe = GetModItem(ItemType<CrescentRoseS>()).Item,
+            gunJr = GetModItem(ItemType<CrescentBloomG>()).Item,
+            scytheJr = GetModItem(ItemType<CrescentBloomS>()).Item,
             rapier = GetModItem(ItemType<Myrtenaster>()).Item,
             rapierF = GetModItem(ItemType<MyrtenasterF>()).Item,
+            rapierJr = GetModItem(ItemType<Silbernelke>()).Item,
+            rapierFJr = GetModItem(ItemType<SilbernelkeF>()).Item,
             katana = GetModItem(ItemType<GambolShroudS>()).Item,
             gunkata = GetModItem(ItemType<GambolShroudG>()).Item,
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
@@ -76,12 +80,26 @@ namespace TRRA
                         else // Otherwise, swaps to scythe
                             chosenItem = scythe;
                         break;
+                    case "Crescent Bloom":
+                        SoundEngine.PlaySound(RoseTransformSound); // Plays the transform sound effect for Crescent Rose
+                        if (heldItem.type.Equals(scytheJr.type)) // If the current held Crescent Bloom is in Scythe form, swaps to gun
+                            chosenItem = gunJr;
+                        else // Otherwise, swaps to scythe
+                            chosenItem = scytheJr;
+                        break;
                     case "Myrtenaster":
                         SoundEngine.PlaySound(DustSpinSound); // Plays the transform sound effect for Myrtenaster
                         if (heldItem.type.Equals(rapier.type)) // If the current held Myrtenaster is in base form, swaps to fire
                             chosenItem = rapierF;
                         else // Otherwise, swaps to base
                             chosenItem = rapier;
+                        break;
+                    case "Silbernelke":
+                        SoundEngine.PlaySound(DustSpinSound); // Plays the transform sound effect for Myrtenaster
+                        if (heldItem.type.Equals(rapierJr.type)) // If the current held Silbernelke is in base form, swaps to fire
+                            chosenItem = rapierFJr;
+                        else // Otherwise, swaps to base
+                            chosenItem = rapierJr;
                         break;
                     case "Gambol Shroud":
                         if(heldItem.type.Equals(katana.type)) // If the current held Gambol Shroud is in katana form, swaps to gun

@@ -1,4 +1,3 @@
-using System;
 using TRRA.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -25,7 +24,7 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Myrtenaster");
-			Tooltip.SetDefault("For those who are more than just a name\nRight Click to fire a summoned sword\nTransforms by pressing a mapped hotkey");
+			Tooltip.SetDefault("'For those who are more than just a name'\nRight Click to fire a summoned sword\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
@@ -51,11 +50,11 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<Silbernelke>(), 1)
 			.AddIngredient(ItemType<FireDustCrystal>(), 20)
 			.AddIngredient(ItemType<IceDustCrystal>(), 20)
 			.AddIngredient(ItemID.WhitePaint, 10)
+			.AddIngredient(ItemType<DustExtract>(), 1)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
 

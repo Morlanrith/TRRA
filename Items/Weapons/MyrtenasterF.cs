@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -8,6 +7,8 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
 using TRRA.Projectiles.Item.Weapon.Myrtenaster;
+using TRRA.Tiles;
+using TRRA.Items.Materials;
 
 namespace TRRA.Items.Weapons
 {
@@ -23,7 +24,7 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Myrtenaster");
-			Tooltip.SetDefault("For those who are more than just a name\nRight Click to shoot a wave of fire\nTransforms by pressing a mapped hotkey");
+			Tooltip.SetDefault("'For those who are more than just a name'\nRight Click to shoot a wave of fire\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {
@@ -47,6 +48,15 @@ namespace TRRA.Items.Weapons
 			Item.useTime = 6;
 			Item.maxStack = 1;
 		}
+
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<SilbernelkeF>(), 1)
+			.AddIngredient(ItemType<FireDustCrystal>(), 20)
+			.AddIngredient(ItemType<IceDustCrystal>(), 20)
+			.AddIngredient(ItemID.WhitePaint, 10)
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
 		public override bool AltFunctionUse(Player player) {
 			return true;

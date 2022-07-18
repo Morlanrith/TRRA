@@ -6,23 +6,16 @@ using Terraria.Audio;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 {
-	public class MyrtenasterR : ModProjectile
+	public class KleineblumeR : ModProjectile
 	{
-		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Myrtenaster").Value;
-		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/MyrtenasterR").Value;
-		private static readonly SoundStyle IceStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/IceStab")
-		{
-			Volume = 0.3f,
-			Pitch = 0.0f,
-		};
+		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Kleineblume").Value;
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("MyrtenasterR");
+			DisplayName.SetDefault("KleineblumeR");
 		}
 
 		public override void SetDefaults()
@@ -42,7 +35,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 		public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			if (player.HeldItem.type != ItemType<Items.Weapons.Myrtenaster>()) Projectile.Kill();
 			float num = (float)Math.PI / 2f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
 			int num2 = 2;
@@ -58,8 +50,8 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Projectile.soundDelay--;
 			if (Projectile.soundDelay <= 0)
 			{
-				SoundEngine.PlaySound(IceStabSound, Projectile.Center);
-				Projectile.soundDelay = 18;
+				SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+				Projectile.soundDelay = 6;
 			}
 			if (Main.myPlayer == Projectile.owner)
 			{
@@ -103,15 +95,12 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
 		{
-			for (int j = 1; j <= 5; j++)
+			Rectangle rectangle = projHitbox;
+			Vector2 vector5 = Projectile.velocity.SafeNormalize(Vector2.Zero) * Projectile.width;
+			rectangle.Offset((int)vector5.X, (int)vector5.Y);
+			if (rectangle.Intersects(targetHitbox))
 			{
-				Rectangle rectangle = projHitbox;
-				Vector2 vector5 = Projectile.velocity.SafeNormalize(Vector2.Zero) * Projectile.width * j;
-				rectangle.Offset((int)vector5.X, (int)vector5.Y);
-				if (rectangle.Intersects(targetHitbox))
-				{
-					return true;
-				}
+				return true;
 			}
 			if (projHitbox.Intersects(targetHitbox))
 			{
@@ -163,11 +152,11 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-			Draw_Myrtenaster();
+			Draw_Kleineblume();
 			return false;
 		}
 
-		private void Draw_Myrtenaster()
+		private void Draw_Kleineblume()
 		{
 			int num2 = 2;
 			Vector2 vector = Projectile.Center - Projectile.rotation.ToRotationVector2() * num2;
@@ -187,36 +176,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 				spriteEffects |= SpriteEffects.FlipHorizontally;
 			}
 			Main.spriteBatch.Draw(weaponTexture, position, null, color, num8, origin, 1f, spriteEffects, 0f);
-			for (int j = 0; j < 3; j++)
-			{
-				float num9 = Main.rand.NextFloat();
-				float num10 = Utils.GetLerpValue(0f, 0.3f, num9, clamped: true) * Utils.GetLerpValue(1f, 0.5f, num9, clamped: true);
-				float amount = Utils.GetLerpValue(0f, 0.3f, num9, clamped: true) * Utils.GetLerpValue(1f, 0.5f, num9, clamped: true);
-				float num11 = MathHelper.Lerp(0.6f, 1f, amount);
-				Color color2 = new(192, 252, 252);
-				color2 *= num10 * 0.5f;
-				Vector2 origin2 = projTexture.Size() / 2f;
-				Color color3 = Microsoft.Xna.Framework.Color.White * num10;
-				color3.A /= 2;
-				Color color4 = color3 * 0.5f;
-				float num12 = 1f;
-				float num13 = Main.rand.NextFloat() * 2f;
-				float num14 = Main.rand.NextFloatDirection();
-				Vector2 vector2 = new Vector2(2.8f + num13, 1f) * num12 * num11;
-				_ = new Vector2(1.5f + num13 * 0.5f, 1f) * num12 * num11;
-				int num15 = 50;
-				Vector2 vector3 = Projectile.rotation.ToRotationVector2() * ((j >= 1) ? 56 : 0);
-				float num16 = 0.03f - (float)j * 0.012f;
-				float num17 = 30f + MathHelper.Lerp(0f, num15, num9) + num13 * 16f;
-				float num18 = Projectile.rotation + num14 * ((float)Math.PI * 2f) * num16;
-				float rotation = num18;
-				Vector2 position2 = vector + num18.ToRotationVector2() * num17 + Main.rand.NextVector2Circular(20f, 20f) + vector3 - Main.screenPosition;
-				color2 *= num12;
-				color4 *= num12;
-				SpriteEffects effects = SpriteEffects.None;
-				Main.spriteBatch.Draw(projTexture, position2, null, color2, rotation, origin2, vector2, effects, 0f);
-				Main.spriteBatch.Draw(projTexture, position2, null, color4, rotation, origin2, vector2 * 0.6f, effects, 0f);
-			}
 		}
 	}
 }

@@ -28,7 +28,7 @@ namespace TRRA.NPCs
 			NPCID.Sets.HatOffsetY[NPC.type] = 4;
 
 			// Influences how the NPC looks in the Bestiary
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
 			};
@@ -128,18 +128,15 @@ namespace TRRA.NPCs
 			int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
 			if (partyGirl >= 0 && Main.rand.NextBool(4)) {
 				return "That " + Main.npc[partyGirl].GivenName + " reminds me of a cat faunus who came into my store once... by the brothers, she was loud...";
-			} 
-			switch (Main.rand.Next(4)) {
-				case 0:
-					return "I hear Argus is lovely this time of year.";
-				case 1:
-					return "No, I don't have any hard-light Dust. Stop asking.";
-				case 2:
-					return "If your Dust explodes, you can complain to the SDC. Just keep me out of it!";
-				default:
-					return "There... there aren't any robbers in " + Main.worldName + "... right?";
 			}
-		}
+            return Main.rand.Next(4) switch
+            {
+                0 => "I hear Argus is lovely this time of year.",
+                1 => "No, I don't have any hard-light Dust. Stop asking.",
+                2 => "If your Dust explodes, you can complain to the SDC. Just keep me out of it!",
+                _ => "There... there aren't any robbers in " + Main.worldName + "... right?",
+            };
+        }
 
 		public override void SetChatButtons(ref string button, ref string button2) {
 			button = Language.GetTextValue("LegacyInterface.28");
@@ -152,25 +149,26 @@ namespace TRRA.NPCs
 		public override void SetupShop(Chest shop, ref int nextSlot) {
 			shop.item[nextSlot].SetDefaults(ItemType<Items.Placeable.DustToolbench>());
 			nextSlot++;
-			if (NPC.downedGolemBoss) {
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.DustWeaponKit>());
+			shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.DustWeaponKit>());
+			nextSlot++;
+			if(Main.hardMode)
+            {
+				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.FireDustExtract>());
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.PlantDustExtract>());
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.GravityDustExtract>());
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.IceDustExtract>());
 				nextSlot++;
 			}
-			shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.FireDustExtract>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.PlantDustExtract>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.GravityDustExtract>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.IceDustExtract>());
-			nextSlot++;
 		}
 
 		public override bool CanGoToStatue(bool toKingStatue) {
 			return toKingStatue;
 		}
 
-		public void StatueTeleport() {
+		public static void StatueTeleport() {
 			for (int i = 0; i < 30; i++) {
 				Vector2 position = Main.rand.NextVector2Square(-20, 21);
 				if (Math.Abs(position.X) > Math.Abs(position.Y)) {

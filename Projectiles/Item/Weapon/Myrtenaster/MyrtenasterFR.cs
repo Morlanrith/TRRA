@@ -6,6 +6,7 @@ using Terraria.Audio;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 {
@@ -46,6 +47,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
         public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
+			if (player.HeldItem.type != ItemType<Items.Weapons.MyrtenasterF>()) Projectile.Kill();
 			float num = (float)Math.PI / 2f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
 			int num2 = 2;

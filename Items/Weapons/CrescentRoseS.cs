@@ -111,15 +111,15 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-				.AddIngredient(ItemType<DustExtract>(), 1)
-				.AddIngredient(ItemType<DustWeaponKit>(), 1)
-				.AddIngredient(ItemType<FireDustCrystal>(), 10)
-				.AddIngredient(ItemType<PlantDustCrystal>(), 10)
-				.AddIngredient(ItemType<GravityDustCrystal>(), 10)
-				.AddIngredient(ItemType<IceDustCrystal>(), 10)
-				.AddIngredient(ItemID.RedPaint, 10)
-				.AddTile(TileType<DustToolbenchTile>())
-				.Register();
+			.AddIngredient(ItemType<CrescentBloomS>(), 1)
+			.AddIngredient(ItemType<FireDustCrystal>(), 10)
+			.AddIngredient(ItemType<PlantDustCrystal>(), 10)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
+			.AddIngredient(ItemType<IceDustCrystal>(), 10)
+			.AddIngredient(ItemID.RedPaint, 10)
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
         // Shoot override, used for the dash (doesn't actually generate a projectile)
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

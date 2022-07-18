@@ -14,8 +14,8 @@ namespace TRRA.Items.Materials
 			Item.width = 32;
 			Item.height = 34;
 			Item.maxStack = 99;
-			Item.value = Item.sellPrice(gold: 20);
-			Item.rare = ItemRarityID.Lime;
+			Item.value = Item.buyPrice(gold: 25);
+			Item.rare = ItemRarityID.Green;
 		}
 	}
 }

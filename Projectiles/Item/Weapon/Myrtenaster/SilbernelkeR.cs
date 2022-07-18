@@ -10,19 +10,14 @@ using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 {
-	public class MyrtenasterR : ModProjectile
+	public class SilbernelkeR : ModProjectile
 	{
-		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Myrtenaster").Value;
-		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/MyrtenasterR").Value;
-		private static readonly SoundStyle IceStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/IceStab")
-		{
-			Volume = 0.3f,
-			Pitch = 0.0f,
-		};
+		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Silbernelke").Value;
+		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/SilbernelkeR").Value;
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("MyrtenasterR");
+			DisplayName.SetDefault("SilbernelkeR");
 		}
 
 		public override void SetDefaults()
@@ -42,7 +37,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 		public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			if (player.HeldItem.type != ItemType<Items.Weapons.Myrtenaster>()) Projectile.Kill();
+			if (player.HeldItem.type != ItemType<Items.Weapons.Silbernelke>()) Projectile.Kill();
 			float num = (float)Math.PI / 2f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
 			int num2 = 2;
@@ -58,8 +53,8 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Projectile.soundDelay--;
 			if (Projectile.soundDelay <= 0)
 			{
-				SoundEngine.PlaySound(IceStabSound, Projectile.Center);
-				Projectile.soundDelay = 18;
+				SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
+				Projectile.soundDelay = 6;
 			}
 			if (Main.myPlayer == Projectile.owner)
 			{
@@ -103,7 +98,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
 		{
-			for (int j = 1; j <= 5; j++)
+			for (int j = 1; j <= 3; j++)
 			{
 				Rectangle rectangle = projHitbox;
 				Vector2 vector5 = Projectile.velocity.SafeNormalize(Vector2.Zero) * Projectile.width * j;
@@ -163,11 +158,11 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 
 		public override bool PreDraw(ref Color lightColor)
 		{
-			Draw_Myrtenaster();
+			Draw_Silbernelke();
 			return false;
 		}
 
-		private void Draw_Myrtenaster()
+		private void Draw_Silbernelke()
 		{
 			int num2 = 2;
 			Vector2 vector = Projectile.Center - Projectile.rotation.ToRotationVector2() * num2;
@@ -187,7 +182,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 				spriteEffects |= SpriteEffects.FlipHorizontally;
 			}
 			Main.spriteBatch.Draw(weaponTexture, position, null, color, num8, origin, 1f, spriteEffects, 0f);
-			for (int j = 0; j < 3; j++)
+			for (int j = 0; j < 1; j++)
 			{
 				float num9 = Main.rand.NextFloat();
 				float num10 = Utils.GetLerpValue(0f, 0.3f, num9, clamped: true) * Utils.GetLerpValue(1f, 0.5f, num9, clamped: true);

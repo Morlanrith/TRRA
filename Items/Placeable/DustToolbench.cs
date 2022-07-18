@@ -21,7 +21,7 @@ namespace TRRA.Items.Placeable
 			Item.useTime = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.consumable = true;
-			Item.value = Item.sellPrice(gold: 10);
+			Item.value = Item.buyPrice(gold: 40);
 			Item.rare = ItemRarityID.Orange;
 			Item.createTile = TileType<Tiles.DustToolbenchTile>();
 		}

@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 {
@@ -40,6 +41,7 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 
         public override void AI()
         {
+            if (Main.player[Projectile.owner].HeldItem.type != ItemType<Items.Weapons.GambolShroudG>()) Projectile.Kill();
             if (Main.rand.Next(5) == 0)
             {
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);

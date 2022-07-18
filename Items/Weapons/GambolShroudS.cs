@@ -24,7 +24,7 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Gambol Shroud");
-			Tooltip.SetDefault("Don't be so dramatic\nRight Click to activate a parry (has a cooldown)\nTransforms by pressing a mapped hotkey");
+			Tooltip.SetDefault("'Don't be so dramatic'\nRight Click to activate a parry (has a cooldown)\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults() {

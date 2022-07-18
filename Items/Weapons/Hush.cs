@@ -68,7 +68,7 @@ namespace TRRA.Items.Weapons
             return true;
 		}
 
-		private void ShatterEffect(Rectangle effectRect, float teleportTime)
+		private static void ShatterEffect(Rectangle effectRect, float teleportTime)
         {
 			int num3 = effectRect.Width * effectRect.Height / 5;
 			float num = MathHelper.Clamp(1f - teleportTime * 0.99f, 0.01f, 1f);
@@ -88,7 +88,7 @@ namespace TRRA.Items.Weapons
 			}
 		}
 
-		private void Shatter(Vector2 newPos, Player player)
+		private static void Shatter(Vector2 newPos, Player player)
 		{
 			try
 			{
@@ -103,7 +103,7 @@ namespace TRRA.Items.Weapons
 				}
 				float num = MathHelper.Clamp(1f - player.teleportTime * 0.99f, 0.01f, 1f);
 				Vector2 position = player.position;
-				ShatterEffect(player.getRect(), player.teleportTime);
+                ShatterEffect(player.getRect(), player.teleportTime);
 				float num2 = Vector2.Distance(player.position, newPos);
 				PressurePlateHelper.UpdatePlayerPosition(player);
 				player.position = newPos;
@@ -135,7 +135,7 @@ namespace TRRA.Items.Weapons
 				PressurePlateHelper.UpdatePlayerPosition(player);
 				for (int i = 0; i < 3; i++) player.UpdateSocialShadow();		
 				player.oldPosition = player.position + player.BlehOldPositionFixer;
-				ShatterEffect(player.getRect(), player.teleportTime);
+                ShatterEffect(player.getRect(), player.teleportTime);
 				SoundEngine.PlaySound(HushShatterSound);
 			}
 			catch
