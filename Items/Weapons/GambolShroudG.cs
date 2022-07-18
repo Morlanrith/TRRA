@@ -5,8 +5,9 @@ using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
 using TRRA.Projectiles.Item.Weapon.GambolShroud;
-using Terraria.DataStructures;
 using Terraria.Audio;
+using TRRA.Items.Materials;
+using TRRA.Tiles;
 
 namespace TRRA.Items.Weapons
 {
@@ -114,6 +115,15 @@ namespace TRRA.Items.Weapons
 			}
 			return base.CanUseItem(player);
 		}
+
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemType<GambolShadeG>(), 1)
+			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
+			.AddIngredient(ItemID.BlackPaint, 10)
+			.AddIngredient(ItemType<DustExtract>(), 1)
+			.AddTile(TileType<DustToolbenchTile>())
+			.Register();
 
 		public override Vector2? HoldoutOffset()
 		{

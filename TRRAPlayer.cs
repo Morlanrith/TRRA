@@ -54,6 +54,8 @@ namespace TRRA
             rapierFJr = GetModItem(ItemType<SilbernelkeF>()).Item,
             katana = GetModItem(ItemType<GambolShroudS>()).Item,
             gunkata = GetModItem(ItemType<GambolShroudG>()).Item,
+            katanaJr = GetModItem(ItemType<GambolShadeS>()).Item,
+            gunkataJr = GetModItem(ItemType<GambolShadeG>()).Item,
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
             rocket = GetModItem(ItemType<EmberCelicaR>()).Item;
 
@@ -111,6 +113,18 @@ namespace TRRA
                         {
                             SoundEngine.PlaySound(GambolTransformSound); // Plays the relevant transform sound effect
                             chosenItem = katana;
+                        }
+                        break;
+                    case "Gambol Shade":
+                        if (heldItem.type.Equals(katanaJr.type)) // If the current held Gambol Shade is in katana form, swaps to gun
+                        {
+                            SoundEngine.PlaySound(GambolCockSound); // Plays the relevant transform sound effect
+                            chosenItem = gunkataJr;
+                        }
+                        else // Otherwise, swaps to katana
+                        {
+                            SoundEngine.PlaySound(GambolTransformSound); // Plays the relevant transform sound effect
+                            chosenItem = katanaJr;
                         }
                         break;
                     case "Ember Celica":

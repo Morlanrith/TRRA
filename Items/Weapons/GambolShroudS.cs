@@ -104,11 +104,11 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddIngredient(ItemType<DustWeaponKit>(), 1)
+			.AddIngredient(ItemType<GambolShadeS>(), 1)
 			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
 			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
 			.AddIngredient(ItemID.BlackPaint, 10)
+			.AddIngredient(ItemType<DustExtract>(), 1)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
 
