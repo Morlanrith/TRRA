@@ -75,7 +75,8 @@ namespace TRRA.NPCs
 
 		public override void HitEffect(int hitDirection, double damage)
 		{
-			base.HitEffect(hitDirection, damage);
+			if (Main.netMode == NetmodeID.Server)
+				return;
 			if (NPC.life <= 0)
 			{
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Head").Type);

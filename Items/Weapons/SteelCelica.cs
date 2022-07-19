@@ -26,7 +26,7 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			Item.damage = 30;
+			Item.damage = 58;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 60;
 			Item.height = 30;
@@ -61,7 +61,7 @@ namespace TRRA.Items.Weapons
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-			if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(60 * player.GetDamage(DamageClass.Melee).Additive), 8, player.whoAmI);
+			if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), damage, 8, player.whoAmI);
 			return false; // return false because we don't want to shoot automatic projectile
 		}
 

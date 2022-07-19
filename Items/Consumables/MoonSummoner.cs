@@ -10,7 +10,7 @@ namespace TRRA.Items.Consumables
 	{
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Stone of Negativity");
-            Tooltip.SetDefault("Summons the Shattered Moon\n'This is the beginning of the end...'");
+            Tooltip.SetDefault("'This is the beginning of the end...'\nSummons the Shattered Moon");
 		}
 
 		public override void SetDefaults() {
@@ -37,6 +37,11 @@ namespace TRRA.Items.Consumables
                 return true;
             }
             return false;
+        }
+
+        public override void Update(ref float gravity, ref float maxFallSpeed)
+        {
+            Lighting.AddLight(Item.position, 0.2f, 0f, 0f);
         }
     }
 }

@@ -3,10 +3,17 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 2.0.4 of the mod, a working version of its update to work with a version 1.4 updated tModLoader.
-This version is likely to recieve additional updates as the 1.4 alpha for tModLoader continues development, in order to adjust behaviours.
+This is version 3.0.0 of the mod, which includes a notable amount of new content/changes from the last update. Such as:
 
-This update includes a new fire method for the Floating Array weapon added in the last update, a deadly laser that can be used in place of the summoned blades (providing some have already been summoned).
+New Event: A new 'blood moon' style event called the 'Shattered Moon', during which the creatures of Grimm will swarm the surface. This event will start randomly occuring at the beginning of night once Plantera has been defeated.
+
+Earlier Dust Spawning: The spawning point for the 'Dust' resource has been moved to after defeating Skeletron (previously Plantera).
+
+Weapon Progression: TRRA weapons can now be obtained at a much earlier point in the game (once 'Dust' is available), with these early variants having less developed appearances and functions, along with their own unique names. These variants can then be upgraded at points to eventually match the weapons from the original series.
+
+Myrtenaster Re-work: The melee attack method for Myrtenaster has been overhauled in exchange for something more closely resembling the existing 'Starlight' weapon (ranged attacks are unchanged).
+
+Other bug fixes/adjustments: A wide myriad of fixes and changes to the prior existing content in TRRA.
 
 This mod currently includes the following:
 
@@ -14,7 +21,7 @@ New Weapons: A variety of weapons from the original series. Most of these weapon
 
 New Accessories: Two new accessories which are designed to improve the players melee and ranged damage output. They can be constructed from the current class emblems.
 
-New Resource - Dust: A new resource based on the substance from the original series, these crystals will spawn throughout the world upon defeating Plantera. (NOTE: CONDITION CHANGED FROM MECH BOSSES TO PLANTERA)
+New Resource - Dust: A new resource based on the substance from the original series, these crystals will spawn throughout the world upon defeating Skeletron.
 
 New NPC: A new town NPC that sells a variety of Dust related items which are required to craft the various weapons and ammo, as well as produce more Dust.
 

@@ -27,7 +27,7 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void SetDefaults() {
-			Item.damage = 130;
+			Item.damage = 150;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 36;
 			Item.height = 24;
@@ -42,7 +42,7 @@ namespace TRRA.Items.Weapons
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<GambolRibbonEnd>();
 			Item.shootSpeed = 10f;
-			Item.crit = 0;
+			Item.crit = 8;
 			Item.useAmmo = AmmoID.None;
 			Item.channel = true;
 			Item.autoReuse = false;
@@ -86,14 +86,14 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse == 2)
 			{
 				Item.noUseGraphic = false;
-				Item.damage = 120;
+				Item.damage = 130;
 				Item.useTime = 20;
 				Item.useAnimation = 20;
 				Item.knockBack = 4;
 				Item.UseSound = GambolShotSound;
 				Item.shoot = ProjectileID.PurificationPowder;
 				Item.shootSpeed = 13f;
-				Item.crit = 10;
+				Item.crit = 16;
 				Item.useAmmo = AmmoID.Bullet;
 				Item.channel = false;
 				Item.autoReuse = true;
@@ -101,14 +101,14 @@ namespace TRRA.Items.Weapons
 			else
 			{
 				Item.noUseGraphic = true;
-				Item.damage = 130;
+				Item.damage = 150;
 				Item.useTime = 10;
 				Item.useAnimation = 10;
 				Item.knockBack = 7f;
 				Item.UseSound = SoundID.Item1;
 				Item.shoot = ProjectileType<GambolRibbonEnd>();
 				Item.shootSpeed = 10f;
-				Item.crit = 0;
+				Item.crit = 8;
 				Item.useAmmo = AmmoID.None;
 				Item.channel = true;
 				Item.autoReuse = false;

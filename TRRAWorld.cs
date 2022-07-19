@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -28,8 +29,10 @@ namespace TRRA
 			if (IsShatteredMoon() || dayTime || bloodMoon || pumpkinMoon || snowMoon || invasionType != 0 || DD2Event.Ongoing)
 				return false;
 			if (netMode != NetmodeID.Server)
+			{
 				Main.NewText("The Shattered Moon rises...", 186, 34, 64);
-			moonType = TextureAssets.Moon.Length - 1;
+				moonType = TextureAssets.Moon.Length - 1;
+			}
 			invasionType = -1;
 			ShatteredMoon = true;
 			return true;
@@ -37,11 +40,14 @@ namespace TRRA
 
 		public override void OnWorldLoad()
         {
-			oldMoonType = moonType;
-			Asset<Texture2D>[] newMoons = new Asset<Texture2D>[TextureAssets.Moon.Length + 1];
-			TextureAssets.Moon.CopyTo(newMoons, 0);
-			newMoons[TextureAssets.Moon.Length] = ModContent.Request<Texture2D>($"{effectAssetPath}/Moon_Shattered");
-			TextureAssets.Moon = newMoons;
+			if (netMode != NetmodeID.Server)
+			{
+				oldMoonType = moonType;
+				Asset<Texture2D>[] newMoons = new Asset<Texture2D>[TextureAssets.Moon.Length + 1];
+				TextureAssets.Moon.CopyTo(newMoons, 0);
+				newMoons[TextureAssets.Moon.Length] = ModContent.Request<Texture2D>($"{effectAssetPath}/Moon_Shattered");
+				TextureAssets.Moon = newMoons;
+			}
 			NoDust = Terraria.NPC.downedBoss3;
 		}
 
@@ -49,23 +55,44 @@ namespace TRRA
         {
 			NoDust = false;
             ShatteredMoon = false;
-			Asset<Texture2D>[] oldMoons = new Asset<Texture2D>[TextureAssets.Moon.Length - 1];
-			for (int i = 0; i < oldMoons.Length; i++) oldMoons[i] = TextureAssets.Moon[i];
-			TextureAssets.Moon = oldMoons;
+			if (netMode != NetmodeID.Server)
+			{
+				Asset<Texture2D>[] oldMoons = new Asset<Texture2D>[TextureAssets.Moon.Length - 1];
+				for (int i = 0; i < oldMoons.Length; i++) oldMoons[i] = TextureAssets.Moon[i];
+				TextureAssets.Moon = oldMoons;
+			}
 			if (invasionType == -1) invasionType = 0;
 		}
 
 		public override void PreSaveAndQuit()
         {
-			moonType = oldMoonType;
+			if (netMode != NetmodeID.Server)
+				moonType = oldMoonType;
 		}
 
-        public override void LoadWorldData(TagCompound tag)
+
+		public override void NetSend(BinaryWriter writer)
+		{
+			// Order of operations is important and has to match that of NetReceive
+			var flags = new BitsByte();
+			flags[0] = ShatteredMoon;
+			writer.Write(flags);
+		}
+
+		public override void NetReceive(BinaryReader reader)
+		{
+			// Order of operations is important and has to match that of NetSend
+			BitsByte flags = reader.ReadByte();
+			ShatteredMoon = flags[0];
+		}
+
+		public override void LoadWorldData(TagCompound tag)
         {
 			tag.TryGet<bool>("WasShatteredMoon", out ShatteredMoon);
 			if (ShatteredMoon)
             {
-				moonType = TextureAssets.Moon.Length - 1;
+				if (netMode != NetmodeID.Server) 
+					moonType = TextureAssets.Moon.Length - 1;
 				invasionType = -1;
 			}
 		}
@@ -85,19 +112,16 @@ namespace TRRA
 			}
         }
 
-        public override void PostUpdateWorld()
+        public override void PostUpdateTime()
         {
 			if (ShatteredMoon && (dayTime || bloodMoon || pumpkinMoon || snowMoon || DD2Event.Ongoing || invasionType > 0))
 			{
 				ShatteredMoon = false;
-				moonType = oldMoonType;
-				if(invasionType == -1) invasionType = 0;
+				if (netMode != NetmodeID.Server)
+					moonType = oldMoonType;
+				if (invasionType == -1) invasionType = 0;
 			}
-		}
-
-        public override void PostUpdateTime()
-        {
-            if (justDay && !dayTime && !fastForwardTime && !Main.ShouldNormalEventsBeAbleToStart())
+			else if (justDay && !dayTime && !fastForwardTime && !Main.ShouldNormalEventsBeAbleToStart())
             {
                 justDay = false;
                 if (rand.Next(9) == 0 && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp && NPC.downedPlantBoss)

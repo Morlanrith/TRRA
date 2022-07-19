@@ -76,10 +76,10 @@ namespace TRRA.NPCs
 			if (TRRAWorld.IsShatteredMoon() && spawnInfo.Player.position.Y < Main.worldSurface * 16.0)
 			{
 				pool.Clear();
-				if(spawnInfo.Sky) // If the player is in the sky, spawn only Lancers
+				if (spawnInfo.Sky) // If the player is in the sky, spawn only Lancers
 					pool.Add(NPCType<Lancer>(), 0.6f);
 				else
-                {
+				{
 					// Otherwise, makes the enemy pool for the surface consist only of Grimm (with Lancers having a lower spawn chance)
 					foreach (int i in ShatteredMoon.GetEnemies())
 						pool.Add(i, i == NPCType<Lancer>() ? 0.6f : 1f);

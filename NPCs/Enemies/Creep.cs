@@ -74,7 +74,8 @@ namespace TRRA.NPCs.Enemies
 
 		public override void HitEffect(int hitDirection, double damage)
 		{
-			base.HitEffect(hitDirection, damage);
+			if (Main.netMode == NetmodeID.Server)
+				return;
 			if (NPC.life <= 0)
 			{
 				for (int i = 0; i < 10; i++)

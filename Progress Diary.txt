@@ -917,6 +917,17 @@ Next Task:
 Test everything and re-balance as needed.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 19th 2022
+-------------
+Work Done:
+Re-balanced several weapons/items.
+Tested everything in both single/multiplayer, fixing any issues that arose during this.
+Released version 3.0.0 of TRRA.
+-------------
+Next Task:
+Adjust any bug fixes/other issues that arise.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
