@@ -3,7 +3,7 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 3.0.0 of the mod, which includes a notable amount of new content/changes from the last update. Such as:
+This is version 3.0.0.1 of the mod, which includes a notable amount of new content/changes from the last update. Such as:
 
 New Event: A new 'blood moon' style event called the 'Shattered Moon', during which the creatures of Grimm will swarm the surface. This event will start randomly occuring at the beginning of night once Plantera has been defeated.
 

@@ -1,7 +1,7 @@
 Hello! 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 
-This is version 3.0.0 of the mod, which includes a notable amount of new content/changes from the last update. Such as:
+This is version 3.0.0.1 of the mod, which includes a notable amount of new content/changes from the last update. Such as:
 New Event: A new 'blood moon' style event called the 'Shattered Moon', during which the creatures of Grimm will swarm the surface. This event will start randomly occuring at the beginning of night once Plantera has been defeated.
 Earlier Dust Spawning: The spawning point for the 'Dust' resource has been moved to after defeating Skeletron (previously Plantera).
 Weapon Progression: TRRA weapons can now be obtained at a much earlier point in the game (once 'Dust' is available), with these early variants having less developed appearances and functions, along with their own unique names. These variants can then be upgraded at points to eventually match the weapons from the original series.
