@@ -928,6 +928,16 @@ Next Task:
 Adjust any bug fixes/other issues that arise.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 25th 2022
+-------------
+Work Done:
+Had an idea for a way to implement a new weapon that I feel compelled to try.
+May or may not fully implement this weapon, it depends on the success of this implementation attempt.
+-------------
+Next Task:
+Continue work on "Harbinger"?
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
