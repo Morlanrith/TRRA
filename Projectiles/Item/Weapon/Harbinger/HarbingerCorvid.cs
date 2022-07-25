@@ -4,6 +4,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
+using Terraria.GameInput;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.Item.Weapon.Harbinger
 {
@@ -12,7 +14,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Corvid Form");
-			Description.SetDefault("SCRAW!");
+			Description.SetDefault("Gifted with the ability to \"see\" more");
 
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
@@ -39,7 +41,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Harbinger Corvid");
-			Main.projFrames[Projectile.type] = 8;
+			Main.projFrames[Projectile.type] = 4;
 		}
 
 		public override void SetDefaults()
@@ -48,9 +50,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			Projectile.height = 32;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.light = 0.8f;
 			Projectile.DamageType = DamageClass.Melee;
-			DrawOriginOffsetY = -6;
 		}
 
 		public override bool? CanHitNPC(NPC target)
@@ -78,9 +78,9 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 				Player player = Main.player[Projectile.owner];
 				// If the player channels the weapon, do something. This check only works if item.channel is true for the weapon.
-				if (player.channel)
+				if (!PlayerInput.Triggers.JustReleased.MouseRight && !(player.CCed || player.dead || player.mount.Active) && player.HeldItem.type == ItemType<Items.Weapons.HarbingerSc>())
 				{
-					float maxDistance = 18f; // This also sets the maximun speed the Projectile can reach while following the cursor.
+					float maxDistance = 15f; // This also sets the maximun speed the Projectile can reach while following the cursor.
 					Vector2 vectorToCursor = Main.MouseWorld - Projectile.Center;
 					float distanceToCursor = vectorToCursor.Length();
 
@@ -122,7 +122,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			if (++Projectile.frameCounter >= 3)
 			{
 				Projectile.frameCounter = 0;
-				if (++Projectile.frame >= 8)
+				if (++Projectile.frame >= 4)
 				{
 					Projectile.frame = 0;
 				}

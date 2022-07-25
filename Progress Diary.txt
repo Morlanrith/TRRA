@@ -933,9 +933,11 @@ July 25th 2022
 Work Done:
 Had an idea for a way to implement a new weapon that I feel compelled to try.
 May or may not fully implement this weapon, it depends on the success of this implementation attempt.
+Managed to fully implement the idea of "transforming" the player into a bird with alt-fire.
+Created new sprites for the bird form and buff icon.
 -------------
 Next Task:
-Continue work on "Harbinger"?
+Continue work on "Harbinger"
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
