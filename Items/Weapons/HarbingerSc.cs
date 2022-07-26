@@ -6,23 +6,31 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using TRRA.Projectiles.Item.Weapon.Harbinger;
 using Terraria.Audio;
+using TRRA.Dusts;
 
 namespace TRRA.Items.Weapons
 {
 	public class HarbingerSc : ModItem
 	{
+		private static readonly SoundStyle HarbingerCorvidSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerCorvidTransform")
+		{
+			Volume = 0.4f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Harbinger");
-			Tooltip.SetDefault("This magic weapon shoots missiles that follow your cursor.");
+			Tooltip.SetDefault("'Doubles as a bad luck charm'\nRight Click to take the form of a Corvid\nTransforms by pressing a mapped hotkey");
 		}
 
 		public override void SetDefaults()
 		{
-			Item.damage = 140;
+			Item.damage = 125;
+			Item.crit = 20;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 26;
-			Item.height = 26;
+			Item.width = 74;
+			Item.height = 62;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -33,8 +41,8 @@ namespace TRRA.Items.Weapons
 			Item.value = Item.sellPrice(gold: 25);
 			Item.buffType = BuffType<CorvidBuff>();
 			Item.rare = ItemRarityID.Cyan;
-			Item.UseSound = SoundID.DD2_SkyDragonsFurySwing;
-			Item.shoot = ProjectileID.MonkStaffT3;
+			Item.UseSound = null;
+			Item.shoot = ProjectileType<HarbingerScythe>();
 			Item.shootSpeed = 24f;
 			Item.autoReuse = true;
 			Item.maxStack = 1;
@@ -53,7 +61,6 @@ namespace TRRA.Items.Weapons
 				Item.useStyle = ItemUseStyleID.Swing;
 				Item.useAnimation = 1;
 				Item.shootSpeed = 10f;
-				Item.UseSound = null;
 				Item.shoot = ProjectileType<HarbingerCorvid>();
 				Item.autoReuse = false;
 			}
@@ -62,8 +69,7 @@ namespace TRRA.Items.Weapons
 				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.useAnimation = 30;
 				Item.shootSpeed = 24f;
-				Item.UseSound = SoundID.DD2_SkyDragonsFurySwing;
-				Item.shoot = ProjectileID.MonkStaffT3;
+				Item.shoot = ProjectileType<HarbingerScythe>();
 				Item.autoReuse = true;
 			}
 			return base.CanUseItem(player);
@@ -73,8 +79,10 @@ namespace TRRA.Items.Weapons
 		{
 			if (player.altFunctionUse == 2) {
 				player.AddBuff(Item.buffType, 2);
-				SoundEngine.PlaySound(SoundID.Item9, position);
-				Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, Main.myPlayer);
+				SoundEngine.PlaySound(HarbingerCorvidSound, position);
+				Projectile.NewProjectileDirect(source, player.direction == 1 ? player.Left : player.Right, velocity, type, damage, knockback, Main.myPlayer);
+				for (int i = 0; i < Main.rand.Next(5,10); i++)
+					Dust.NewDust(player.Top, player.width, player.height, DustType<CrowFeathers>());
 				return false;
 			}
 			return true;

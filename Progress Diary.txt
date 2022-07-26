@@ -935,9 +935,23 @@ Had an idea for a way to implement a new weapon that I feel compelled to try.
 May or may not fully implement this weapon, it depends on the success of this implementation attempt.
 Managed to fully implement the idea of "transforming" the player into a bird with alt-fire.
 Created new sprites for the bird form and buff icon.
+Created scythe sprite for Harbinger.
+Created initial version of scythe projectile for Harbinger.
 -------------
 Next Task:
 Continue work on "Harbinger"
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+July 26th 2022
+-------------
+Work Done:
+Finished adjusting corvid and scythe projectiles.
+Added new sound effects and dust to Harbinger and its projectiles.
+Performed final adjustments on Harbingers scythe form.
+Began work on sword form of Harbinger.
+-------------
+Next Task:
+
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

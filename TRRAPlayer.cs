@@ -57,7 +57,9 @@ namespace TRRA
             katanaJr = GetModItem(ItemType<GambolShadeS>()).Item,
             gunkataJr = GetModItem(ItemType<GambolShadeG>()).Item,
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
-            rocket = GetModItem(ItemType<EmberCelicaR>()).Item;
+            rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
+            oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
+            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item;
 
         public override void PostUpdate()
         {
@@ -133,6 +135,13 @@ namespace TRRA
                             chosenItem = rocket;
                         else // Otherwise, swaps to shotgun
                             chosenItem = fist;
+                        break;
+                    case "Harbinger":
+                        SoundEngine.PlaySound(RoseTransformSound); // Plays the transform sound effect for Harbinger
+                        if (heldItem.type.Equals(oldSword.type)) // If the current held Harbinger is in sword form, swaps to scythe
+                            chosenItem = oldScythe;
+                        else // Otherwise, swaps to sword
+                            chosenItem = oldSword;
                         break;
                 }
                 if(chosenItem != null)

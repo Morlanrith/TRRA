@@ -6,6 +6,7 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
+using TRRA.Dusts;
 
 namespace TRRA.Projectiles.Item.Weapon.Harbinger
 {
@@ -22,7 +23,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<HarbingerCorvid>()] > 0)
+			if (player.ownedProjectileCounts[ProjectileType<HarbingerCorvid>()] > 0)
 			{
 				player.buffTime[buffIndex] = 18000;
 				player.invis = true;
@@ -38,6 +39,18 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 	// Code adapted from the vanilla's magic missile.
 	public class HarbingerCorvid : ModProjectile
 	{
+		private static readonly SoundStyle HarbingerWooshSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerWoosh")
+		{
+			Volume = 0.4f,
+			Pitch = 0.0f,
+		};
+
+		private static readonly SoundStyle HarbingerFlapSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerWingFlap")
+		{
+			Volume = 0.05f,
+			Pitch = 0.0f,
+		};
+
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Harbinger Corvid");
@@ -68,8 +81,8 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			// This part makes the Projectile do a shime sound every 10 ticks as long as it is moving.
 			if (Projectile.soundDelay == 0 && Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y) > 2f)
 			{
-				Projectile.soundDelay = 10;
-				//SoundEngine.PlaySound(SoundID.Item9, Projectile.position);
+				Projectile.soundDelay = 20;
+				SoundEngine.PlaySound(HarbingerFlapSound, Projectile.position);
 			}
 
 			// In Multi Player (MP) This code only runs on the client of the Projectile's owner, this is because it relies on mouse position, which isn't the same across all clients.
@@ -78,7 +91,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 				Player player = Main.player[Projectile.owner];
 				// If the player channels the weapon, do something. This check only works if item.channel is true for the weapon.
-				if (!PlayerInput.Triggers.JustReleased.MouseRight && !(player.CCed || player.dead || player.mount.Active) && player.HeldItem.type == ItemType<Items.Weapons.HarbingerSc>())
+				if (!PlayerInput.Triggers.JustReleased.MouseRight && !(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.HarbingerSc>())
 				{
 					float maxDistance = 15f; // This also sets the maximun speed the Projectile can reach while following the cursor.
 					Vector2 vectorToCursor = Main.MouseWorld - Projectile.Center;
@@ -132,7 +145,10 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 		public override void Kill(int timeLeft)
 		{
 			Main.player[Projectile.owner].direction = Projectile.spriteDirection*-1;
-			SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+			Main.player[Projectile.owner].velocity = Projectile.velocity/3;
+			SoundEngine.PlaySound(HarbingerWooshSound, Projectile.position);
+			for (int i = 0; i < Main.rand.Next(4, 7); i++)
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<CrowFeathers>());
 		}
 	}
 }
