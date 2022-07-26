@@ -30,7 +30,7 @@ namespace TRRA
 				return false;
 			if (netMode != NetmodeID.Server)
 			{
-				Main.NewText("The Shattered Moon rises...", 186, 34, 64);
+                NewText("The Shattered Moon rises...", 186, 34, 64);
 				moonType = TextureAssets.Moon.Length - 1;
 			}
 			invasionType = -1;

@@ -14,7 +14,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 		private static readonly SoundStyle HarbingerSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerSlice")
 		{
 			Volume = 0.4f,
-			Pitch = -0.1f,
+			Pitch = 0.1f,
 		};
 
 		public override void SetStaticDefaults()

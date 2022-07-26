@@ -939,7 +939,7 @@ Created scythe sprite for Harbinger.
 Created initial version of scythe projectile for Harbinger.
 -------------
 Next Task:
-Continue work on "Harbinger"
+Continue work on "Harbinger".
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 July 26th 2022
@@ -949,9 +949,14 @@ Finished adjusting corvid and scythe projectiles.
 Added new sound effects and dust to Harbinger and its projectiles.
 Performed final adjustments on Harbingers scythe form.
 Began work on sword form of Harbinger.
+Created sprite for sword version.
+Created projectile for use with sword version.
+Began work on gun aspect of the sword version.
+Finished gun aspect of the sword version.
 -------------
 Next Task:
-
+Finish work on Harbinger.
+Implement early game variants of Harbinger.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

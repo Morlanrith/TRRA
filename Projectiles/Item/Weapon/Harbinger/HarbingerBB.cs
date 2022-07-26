@@ -6,30 +6,29 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
+namespace TRRA.Projectiles.Item.Weapon.Harbinger
 {
-	public class MyrtenasterFS : ModProjectile
+	public class HarbingerBB : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("MyrtenasterFS");
-			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
+			DisplayName.SetDefault("Harbinger Blade Beam");
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 2;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
 		public override void SetDefaults()
 		{
-			Projectile.damage = 135;
-			Projectile.width = 80;
-			Projectile.height = 80;
+			Projectile.width = 36;
+			Projectile.height = 36;
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 5;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.penetrate = 3;
 			Projectile.timeLeft = 150;
 			Projectile.alpha = 255;
 			Projectile.ignoreWater = true;
-			Projectile.tileCollide = false;
+			Projectile.tileCollide = true;
 			Projectile.extraUpdates = 1;
 			AIType = ProjectileID.Bullet;
 		}
@@ -41,33 +40,21 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 
 		public override void AI()
 		{
-			Lighting.AddLight(Projectile.Center, 1.0f, 0.42f, 0.0f);
-
-			int fire = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 80, 80, DustID.Torch, Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
-			Main.dust[fire].velocity *= -0.25f;
-			fire = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 80, 80, DustID.Torch, Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
-			Main.dust[fire].velocity *= -0.25f;
-			Main.dust[fire].position -= Projectile.velocity * 0.5f;
-		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.OnFire, 180);
+			Lighting.AddLight(Projectile.Center, 0.6f, 0.0f, 0.0f);
 		}
 
 		public override void Kill(int timeLeft)
 		{
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-			int dustQuantity = 10;
-			for (int i = 0; i < dustQuantity; i++)
+			SoundEngine.PlaySound(SoundID.NPCDeath55, Projectile.position);
+			for (int i = 0; i < Main.rand.Next(3,5); i++)
 			{
 				Vector2 dustOffset = Vector2.Normalize(new Vector2(Projectile.velocity.X, Projectile.velocity.Y)) * 32f;
-				int dust = Dust.NewDust(Projectile.position + dustOffset, Projectile.width, Projectile.height, DustID.Torch);
+				int dust = Dust.NewDust(Projectile.position + dustOffset, Projectile.width, Projectile.height, DustID.RedTorch);
 				Main.dust[dust].noGravity = false;
 				Main.dust[dust].velocity *= 1f;
-				Main.dust[dust].scale = 1.5f;
+				Main.dust[dust].scale = 1.25f;
 			}
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(),Projectile.Center, new Vector2(0, 0), ProjectileID.SolarWhipSwordExplosion, Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 1);
 
 		}
 
