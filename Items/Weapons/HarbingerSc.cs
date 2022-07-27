@@ -29,8 +29,8 @@ namespace TRRA.Items.Weapons
 			Item.damage = 125;
 			Item.crit = 20;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 74;
-			Item.height = 62;
+			Item.width = 76;
+			Item.height = 66;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
 			Item.useStyle = ItemUseStyleID.Shoot;

@@ -40,6 +40,18 @@ namespace TRRA
             Pitch = 0.0f,
         };
 
+        private static readonly SoundStyle HarbingerScTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerScytheTransform")
+        {
+            Volume = 0.7f,
+            Pitch = 0.0f,
+        };
+
+        private static readonly SoundStyle HarbingerSwTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerSwordTransform")
+        {
+            Volume = 0.7f,
+            Pitch = -0.2f,
+        };
+
         private ModKeybind altUseHotkey = null;
         private readonly List<Projectile> blades = new();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
@@ -137,11 +149,16 @@ namespace TRRA
                             chosenItem = fist;
                         break;
                     case "Harbinger":
-                        SoundEngine.PlaySound(RoseTransformSound); // Plays the transform sound effect for Harbinger
                         if (heldItem.type.Equals(oldSword.type)) // If the current held Harbinger is in sword form, swaps to scythe
+                        {
+                            SoundEngine.PlaySound(HarbingerScTransformSound); // Plays the relevant transform sound effect
                             chosenItem = oldScythe;
+                        }
                         else // Otherwise, swaps to sword
+                        {
+                            SoundEngine.PlaySound(HarbingerSwTransformSound); // Plays the relevant transform sound effect
                             chosenItem = oldSword;
+                        }
                         break;
                 }
                 if(chosenItem != null)

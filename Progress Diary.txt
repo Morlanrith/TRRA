@@ -959,6 +959,19 @@ Finish work on Harbinger.
 Implement early game variants of Harbinger.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+July 27th 2022
+-------------
+Work Done:
+Realised that the sprites for the scythe and gun variants of Harbinger were based on incorrect concept art, they have since
+been corrected.
+Added sound effects for Harbinger transformation.
+Adjusted damage values for Harbinger.
+Finished Harbinger.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

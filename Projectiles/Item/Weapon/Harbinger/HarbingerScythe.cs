@@ -24,8 +24,8 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 		public override void SetDefaults()
 		{
-			Projectile.width = 110;
-			Projectile.height = 92;
+			Projectile.width = 112;
+			Projectile.height = 96;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.penetrate = -1;

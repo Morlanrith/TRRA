@@ -40,7 +40,7 @@ namespace TRRA.Items.Weapons
 			Item.autoReuse = false;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 16f;
-			Item.crit = 26;
+			Item.crit = 36;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.maxStack = 1;
 		}

@@ -92,7 +92,7 @@ namespace TRRA.NPCs
 					continue;
 				}
 				foreach (Item item in player.inventory) {
-					if (item.type == ItemType<Items.Materials.FireDustCrystal>() || item.type == ItemType<Items.Materials.PlantDustCrystal>() || item.type == ItemType<Items.Materials.GravityDustCrystal>() || item.type == ItemType<Items.Materials.IceDustCrystal>()) {
+					if (item.type == ItemType<Items.Materials.FireDustCrystal>() || item.type == ItemType<Items.Materials.PlantDustCrystal>() || item.type == ItemType<Items.Materials.GravityDustCrystal>() || item.type == ItemType<Items.Materials.IceDustCrystal>() || (item.ModItem?.Mod == Mod && item.damage > 0)) {
 						return true;
 					}
 				}

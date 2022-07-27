@@ -18,7 +18,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 		public override void SetDefaults()
 		{
-			Projectile.width = 36;
+			Projectile.width = 14;
 			Projectile.height = 36;
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
@@ -43,10 +43,15 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			Lighting.AddLight(Projectile.Center, 0.6f, 0.0f, 0.0f);
 		}
 
-		public override void Kill(int timeLeft)
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+			return true;
+        }
+
+        public override void Kill(int timeLeft)
 		{
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.NPCDeath55, Projectile.position);
 			for (int i = 0; i < Main.rand.Next(3,5); i++)
 			{
 				Vector2 dustOffset = Vector2.Normalize(new Vector2(Projectile.velocity.X, Projectile.velocity.Y)) * 32f;

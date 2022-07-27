@@ -6,11 +6,9 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using TRRA.Projectiles.Item.Weapon.Harbinger;
 using Terraria.Audio;
-using TRRA.Dusts;
 using TRRA.Tiles;
 using TRRA.Items.Materials;
 using Terraria.GameInput;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace TRRA.Items.Weapons
 {
@@ -32,8 +30,8 @@ namespace TRRA.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			Item.damage = 125;
-			Item.crit = 20;
+			Item.damage = 220;
+			Item.crit = 14;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 62;
 			Item.height = 64;
@@ -86,7 +84,7 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse == 2)
 			{
 				Item.noUseGraphic = true;
-				Item.damage = 130;
+				Item.damage = 110;
 				Item.useTime = 30;
 				Item.useAnimation = 30;
 				Item.knockBack = 5;
@@ -95,14 +93,14 @@ namespace TRRA.Items.Weapons
 				Item.UseSound = SoundID.Item38;
 				Item.shoot = ProjectileID.Bullet;
 				Item.shootSpeed = 13f;
-				Item.crit = 16;
+				Item.crit = 8;
 				Item.useAmmo = AmmoID.Bullet;
 				Item.noMelee = true;
 			}
 			else
 			{
 				Item.noUseGraphic = false;
-				Item.damage = 125;
+				Item.damage = 220;
 				Item.useTime = 25;
 				Item.useAnimation = 25;
 				Item.knockBack = 6;
@@ -111,7 +109,7 @@ namespace TRRA.Items.Weapons
 				Item.UseSound = HarbingerSliceSound;
 				Item.shoot = ProjectileType<HarbingerBB>();
 				Item.shootSpeed = 7f;
-				Item.crit = 20;
+				Item.crit = 14;
 				Item.useAmmo = AmmoID.None;
 				Item.noMelee = false;
 			}
@@ -131,10 +129,9 @@ namespace TRRA.Items.Weapons
 				Projectile.NewProjectile(source, bullet1Pos, velocity, type, damage, Item.knockBack, player.whoAmI);
 				Projectile.NewProjectile(source, bullet2Pos, velocity, type, damage, Item.knockBack, player.whoAmI);
 				Projectile.NewProjectile(source, position, velocity, ProjectileType<HarbingerG>(), damage, Item.knockBack, player.whoAmI);
-				return false;
 			}
 			else
-				Projectile.NewProjectile(source, position, velocity, type, (int)(125 * player.GetDamage(DamageClass.Melee).Additive) / 2, Item.knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, position, velocity, type, (int)(220 * player.GetDamage(DamageClass.Melee).Additive) / 3, Item.knockBack, player.whoAmI);
 			return false;
 		}
 
@@ -143,7 +140,8 @@ namespace TRRA.Items.Weapons
 			.AddIngredient(ItemType<FireDustCrystal>(), 10)
 			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
-			.AddIngredient(ItemID.GrayPaint, 10)
+			.AddIngredient(ItemID.GrayPaint, 5)
+			.AddIngredient(ItemID.RedPaint, 5)
 			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
 			.AddIngredient(ItemType<DustExtract>(), 1)
 			.AddTile(TileType<DustToolbenchTile>())
