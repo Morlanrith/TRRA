@@ -967,9 +967,10 @@ been corrected.
 Added sound effects for Harbinger transformation.
 Adjusted damage values for Harbinger.
 Finished Harbinger.
+Added Herald and Portent, earlier game variants of Harbinger.
 -------------
 Next Task:
-
+Add Crescent Rose (Nightmare).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

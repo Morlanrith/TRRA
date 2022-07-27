@@ -130,6 +130,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			if (Projectile.velocity != Vector2.Zero)
 			{
 				Projectile.spriteDirection = Projectile.direction*-1;
+				Main.player[Projectile.owner].direction = Projectile.spriteDirection * -1;
 			}
 			//Animation and firing in terms of frameCounter and first counter
 			if (++Projectile.frameCounter >= 3)
