@@ -40,6 +40,18 @@ namespace TRRA
             Pitch = 0.0f,
         };
 
+        private static readonly SoundStyle HarbingerScTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerScytheTransform")
+        {
+            Volume = 0.7f,
+            Pitch = 0.0f,
+        };
+
+        private static readonly SoundStyle HarbingerSwTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerSwordTransform")
+        {
+            Volume = 0.7f,
+            Pitch = -0.2f,
+        };
+
         private ModKeybind altUseHotkey = null;
         private readonly List<Projectile> blades = new();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
@@ -57,7 +69,9 @@ namespace TRRA
             katanaJr = GetModItem(ItemType<GambolShadeS>()).Item,
             gunkataJr = GetModItem(ItemType<GambolShadeG>()).Item,
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
-            rocket = GetModItem(ItemType<EmberCelicaR>()).Item;
+            rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
+            oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
+            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item;
 
         public override void PostUpdate()
         {
@@ -133,6 +147,18 @@ namespace TRRA
                             chosenItem = rocket;
                         else // Otherwise, swaps to shotgun
                             chosenItem = fist;
+                        break;
+                    case "Harbinger":
+                        if (heldItem.type.Equals(oldSword.type)) // If the current held Harbinger is in sword form, swaps to scythe
+                        {
+                            SoundEngine.PlaySound(HarbingerScTransformSound); // Plays the relevant transform sound effect
+                            chosenItem = oldScythe;
+                        }
+                        else // Otherwise, swaps to sword
+                        {
+                            SoundEngine.PlaySound(HarbingerSwTransformSound); // Plays the relevant transform sound effect
+                            chosenItem = oldSword;
+                        }
                         break;
                 }
                 if(chosenItem != null)

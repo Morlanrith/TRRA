@@ -30,7 +30,7 @@ namespace TRRA
 				return false;
 			if (netMode != NetmodeID.Server)
 			{
-				Main.NewText("The Shattered Moon rises...", 186, 34, 64);
+                NewText("The Shattered Moon rises...", 186, 34, 64);
 				moonType = TextureAssets.Moon.Length - 1;
 			}
 			invasionType = -1;
@@ -124,7 +124,7 @@ namespace TRRA
 			else if (justDay && !dayTime && !fastForwardTime && !Main.ShouldNormalEventsBeAbleToStart())
             {
                 justDay = false;
-                if (rand.Next(9) == 0 && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp && NPC.downedPlantBoss)
+                if (rand.NextBool(9) && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp && NPC.downedPlantBoss)
 					BeginShatteredMoon();
             }
             else if (!justDay && dayTime && !gameMenu) justDay = true;

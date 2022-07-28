@@ -104,7 +104,7 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse != 2)
             {
 				Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
-				if (!player.mount.Active) Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(280 * player.GetDamage(DamageClass.Melee).Additive), 8, player.whoAmI);
+				Projectile.NewProjectile(source, position, velocity * .25f, ProjectileType<EmberPunch>(), (int)(280 * player.GetDamage(DamageClass.Melee).Additive), 8, player.whoAmI);
 				int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
 				for (int i = 0; i < numberProjectiles; i++)
 				{

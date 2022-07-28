@@ -29,7 +29,7 @@ namespace TRRA.Projectiles.Item.Weapon.EmberCelica
 		public override void AI()
 		{
 			Lighting.AddLight(Projectile.Center, 1.0f, 0.42f, 0.0f);
-			if (Main.rand.Next(5) == 0) Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+			if (Main.rand.NextBool(5)) Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
 
 			Main.player[Projectile.owner].heldProj = Projectile.whoAmI;
 			Projectile.position = Main.player[Projectile.owner].MountedCenter;

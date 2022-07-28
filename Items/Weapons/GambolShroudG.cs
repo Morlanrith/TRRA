@@ -18,7 +18,7 @@ namespace TRRA.Items.Weapons
 		private static readonly SoundStyle GambolShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolShot")
 		{
 			Volume = 0.3f,
-			Pitch = 0.0f,
+			Pitch = -0.1f,
 		};
 
 		public override void SetStaticDefaults() {
@@ -58,7 +58,6 @@ namespace TRRA.Items.Weapons
         {
 			// Prevents the player from utilising the scope function with Right Click
 			player.scope = false;
-			//base.UseStyle(player, heldItemFrame);
         }
 
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
