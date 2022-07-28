@@ -58,7 +58,6 @@ namespace TRRA.Items.Weapons
         {
 			// Prevents the player from utilising the scope function with Right Click
 			player.scope = false;
-			//base.UseStyle(player, heldItemFrame);
         }
 
 		public override void ModifyWeaponDamage(Player player, ref StatModifier damage)

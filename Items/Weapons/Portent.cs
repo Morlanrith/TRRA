@@ -98,7 +98,7 @@ namespace TRRA.Items.Weapons
 			else
 			{
 				Item.noUseGraphic = false;
-				Item.damage = 75;
+				Item.damage = 90;
 				Item.knockBack = 6;
 				Item.DamageType = DamageClass.Melee;
 				Item.useStyle = ItemUseStyleID.Swing;
@@ -127,7 +127,7 @@ namespace TRRA.Items.Weapons
 				Projectile.NewProjectile(source, position, velocity, ProjectileType<PortentG>(), damage, Item.knockBack, player.whoAmI);
 			}
 			else
-				Projectile.NewProjectile(source, position, velocity, type, (int)(220 * player.GetDamage(DamageClass.Melee).Additive) / 3, Item.knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, position, velocity, type, (int)(90 * player.GetDamage(DamageClass.Melee).Additive) / 3, Item.knockBack, player.whoAmI);
 			return false;
 		}
 
