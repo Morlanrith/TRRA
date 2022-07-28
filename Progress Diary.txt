@@ -977,6 +977,7 @@ July 28th 2022
 -------------
 Work Done:
 Created Crescent Rose (Nightmare), a joke variant of Crescent Rose based on the weapon seen in the new "Ice Queendom" series.
+Updated the build number/description to version 3.1.0.
 -------------
 Next Task:
 
