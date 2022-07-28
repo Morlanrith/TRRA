@@ -23,3 +23,5 @@ Transform Hotkey: An additional hotkey for use with the new weapons in this mod.
 
 It should go without saying, but I do not own the copyright to the weapon designs implemented in this mod.
 These are owned by Rooster Teeth Productions, LLC.
+
+Some sound effects used from: https://mixkit.co/
