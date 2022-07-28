@@ -68,6 +68,7 @@ namespace TRRA.Items.Weapons
 			Item.autoReuse = true;
 			Item.damage = 240;
 			Item.useStyle = ItemUseStyleID.Swing;
+			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = false;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
@@ -84,6 +85,7 @@ namespace TRRA.Items.Weapons
 				canSwing = false;
 				Item.damage = 200;
 				Item.useStyle = ItemUseStyleID.Shoot;
+				Item.DamageType = DamageClass.Ranged;
 				Item.noMelee = true;
 				Item.useTime = 30;
 				Item.useAnimation = 30;
