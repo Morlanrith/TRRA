@@ -980,7 +980,26 @@ Created Crescent Rose (Nightmare), a joke variant of Crescent Rose based on the 
 Updated the build number/description to version 3.1.0.
 -------------
 Next Task:
-
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 6th 2022
+-------------
+Work Done:
+Updated the sprites for Crescent Rose and the Ember Celica.
+-------------
+Next Task:
+Begin work on the new weapon "Omen".
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 7th 2022
+-------------
+Work Done:
+Created base weapon for Omen.
+Added sprite for the Omen item.
+Created initial projectile (with sprite) for Omen's standard fire.
+-------------
+Next Task:
+Continue work on Omen.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
