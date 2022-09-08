@@ -1006,9 +1006,12 @@ September 8th 2022
 -------------
 Work Done:
 Adjusted the sprite for Omen's main projectile to more closely resemble the attack smears from the original show.
+Added specific dust and debuffs to the Omen projectile, that vary depending on the current blade colour.
+Added a new sound effect for the Omen projectile.
+Began work on Omen's alt-fire projectile, the portal.
 -------------
 Next Task:
-
+Continue work on the portal.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

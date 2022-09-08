@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,10 +10,10 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 {
 	public class OmenBlade : ModProjectile
 	{
-		private static readonly SoundStyle GambolSwingSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolSwing")
+		private static readonly SoundStyle OmenSlashSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Omen/OmenSlash")
 		{
-			Volume = 0.3f,
-			Pitch = 0.0f,
+			Volume = 0.5f,
+			Pitch = 0.7f,
 		};
 
 		public override void SetStaticDefaults()
@@ -36,14 +37,42 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 			Projectile.penetrate = -1;
 		}
 
-		public override void AI()
+		private void DisplayVFX(int dustID)
+        {
+			if (Main.rand.NextBool(5))
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustID, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+		}
+
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+			switch (Projectile.frame / 7)
+			{
+				case 0:
+					target.AddBuff(BuffID.OnFire, 300);
+					break;
+				case 1:
+					target.AddBuff(BuffID.Frostburn, 300);
+					break;
+				case 2:
+					target.AddBuff(BuffID.CursedInferno, 300);
+					break;
+				case 3:
+					target.AddBuff(BuffID.ShadowFlame, 300);
+					break;
+				case 4:
+					target.AddBuff(BuffID.Ichor, 600);
+					break;
+			}
+		}
+
+        public override void AI()
         {
 			int itemType = Main.player[Projectile.owner].HeldItem.type;
 			if (itemType != ItemType<Items.Weapons.Omen>()) Projectile.Kill();
 			if (Projectile.soundDelay == 0)
 			{
 				Projectile.soundDelay = 21;
-				SoundEngine.PlaySound(GambolSwingSound, Projectile.position);
+				SoundEngine.PlaySound(OmenSlashSound, Projectile.position);
 			}
 			//Settings for updating on net
 			Vector2 vector22 = Main.player[Projectile.owner].RotatedRelativePoint(Main.player[Projectile.owner].MountedCenter, true);
@@ -116,6 +145,25 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 				{
 					Projectile.frame = 0;
 				}
+			}
+
+			switch (Projectile.frame / 7)
+			{
+				case 0:
+					DisplayVFX(DustID.RedTorch);
+					break;
+				case 1:
+					DisplayVFX(DustID.IceTorch);
+					break;
+				case 2:
+					DisplayVFX(DustID.GreenTorch);
+					break;
+				case 3:
+					DisplayVFX(DustID.PurpleTorch);
+					break;
+				case 4:
+					DisplayVFX(DustID.YellowTorch);
+					break;
 			}
 
 			Main.player[Projectile.owner].itemTime = 21;
