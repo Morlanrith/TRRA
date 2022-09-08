@@ -1002,6 +1002,15 @@ Next Task:
 Continue work on Omen.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+September 8th 2022
+-------------
+Work Done:
+Adjusted the sprite for Omen's main projectile to more closely resemble the attack smears from the original show.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
