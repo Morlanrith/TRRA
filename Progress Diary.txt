@@ -1014,6 +1014,19 @@ Next Task:
 Continue work on the portal.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+September 9th 2022
+-------------
+Work Done:
+Finished the sprite for Omen's portal.
+Added new VFX/SFX to Omen's portal.
+Added new buff icon for Omen's portal.
+Performed final balance adjustments/misc. changes to Omen.
+Finished Omen.
+-------------
+Next Task:
+Create earlier game variants for Omen.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
