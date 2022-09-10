@@ -159,11 +159,9 @@ namespace TRRA.Items.Weapons
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<GambolShadeS>(), 1) // Change to child Omen
-			.AddIngredient(ItemType<FireDustCrystal>(), 10)
-			.AddIngredient(ItemType<IceDustCrystal>(), 10)
-			.AddIngredient(ItemType<PlantDustCrystal>(), 10)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
+			.AddIngredient(ItemType<Presage>(), 1)
+			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
 			.AddIngredient(ItemID.BlackPaint, 10)
 			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
 			.AddIngredient(ItemType<DustExtract>(), 1)
