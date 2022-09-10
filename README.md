@@ -3,9 +3,9 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 3.1.0.1 of the mod, which includes a new weapon "Harbinger" (Qrows Scythe). This weapon is capable of transforming between a sword and a scythe, and, in line with most of the other TRRA weapons, has earlier game variants which are used to eventually progress to the final version.
+This is version 3.2.0 of the mod, which includes a new weapon "Omen" (Ravens Sword). This weapon can apply multiple debuffs with different dust blades, and can also create a portal that the player can return to at will. As usual, Omen also has earlier game variants which are used to eventually progress to the final version.
 
-This update also includes a few minor adjustments/fixes, as well an additional bonus weapon which is a reference to the new series "Ice Queendom".
+This update also includes some sprite improvements for Crescent Rose and the Ember Celica.
 
 This mod currently includes the following:
 

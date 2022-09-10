@@ -980,7 +980,60 @@ Created Crescent Rose (Nightmare), a joke variant of Crescent Rose based on the 
 Updated the build number/description to version 3.1.0.
 -------------
 Next Task:
-
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 6th 2022
+-------------
+Work Done:
+Updated the sprites for Crescent Rose and the Ember Celica.
+-------------
+Next Task:
+Begin work on the new weapon "Omen".
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 7th 2022
+-------------
+Work Done:
+Created base weapon for Omen.
+Added sprite for the Omen item.
+Created initial projectile (with sprite) for Omen's standard fire.
+-------------
+Next Task:
+Continue work on Omen.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 8th 2022
+-------------
+Work Done:
+Adjusted the sprite for Omen's main projectile to more closely resemble the attack smears from the original show.
+Added specific dust and debuffs to the Omen projectile, that vary depending on the current blade colour.
+Added a new sound effect for the Omen projectile.
+Began work on Omen's alt-fire projectile, the portal.
+-------------
+Next Task:
+Continue work on the portal.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 9th 2022
+-------------
+Work Done:
+Finished the sprite for Omen's portal.
+Added new VFX/SFX to Omen's portal.
+Added new buff icon for Omen's portal.
+Performed final balance adjustments/misc. changes to Omen.
+Finished Omen.
+-------------
+Next Task:
+Create earlier game variants for Omen.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 10th 2022
+-------------
+Work Done:
+Added Forebode and Presage, earlier game variants of Omen.
+Released version 3.2.0.
+-------------
+Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
