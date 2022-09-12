@@ -1036,6 +1036,17 @@ Released version 3.2.0.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+September 12th 2022
+-------------
+Work Done:
+Began experimenting with adding vanity outfits.
+Created sprites and basic items for an outfit based on the one worn by Ruby Rose.
+-------------
+Next Task:
+Finish rose outfit.
+Begin work on other outfits.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
