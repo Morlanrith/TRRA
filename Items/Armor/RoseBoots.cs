@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Rose Boots");
-			Tooltip.SetDefault("This is a modded leg armor.");
+			Tooltip.SetDefault("'Just like the heroes in the books'");
 		}
 
 		public override void SetDefaults()
@@ -17,11 +17,12 @@ namespace TRRA.Items.Armor
 			Item.width = 18;
 			Item.height = 18;
 			Item.rare = ItemRarityID.Blue;
+			Item.value = Item.sellPrice(silver: 15);
 			Item.vanity = true;
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Silk, 1)
+			.AddIngredient(ItemID.Silk, 30)
 			.AddTile(TileID.Loom)
 			.Register();
 	}
