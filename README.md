@@ -3,7 +3,7 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 3.2.0 of the mod, which includes a new weapon "Omen" (Ravens Sword). This weapon can apply multiple debuffs with different dust blades, and can also create a portal that the player can return to at will. As usual, Omen also has earlier game variants which are used to eventually progress to the final version.
+This is version 3.2.1 of the mod, which is a smaller update that includes some vanity outfits based off of the original outfits for team RWBY.
 
 This update also includes some sprite improvements for Crescent Rose and the Ember Celica.
 

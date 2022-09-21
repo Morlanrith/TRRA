@@ -1089,6 +1089,7 @@ Work Done:
 Completed work on burning outfit.
 Adjusted recipes for vanity outfits.
 Added head pieces for the vanity outfits that didn't have one.
+Released version 3.2.1.
 -------------
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
