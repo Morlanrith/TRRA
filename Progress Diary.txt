@@ -1036,6 +1036,64 @@ Released version 3.2.0.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+September 12th 2022
+-------------
+Work Done:
+Began experimenting with adding vanity outfits.
+Created sprites and basic items for an outfit based on the one worn by Ruby Rose.
+-------------
+Next Task:
+Finish rose outfit.
+Begin work on other outfits.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 13th 2022
+-------------
+Work Done:
+Finished rose outfit.
+-------------
+Next Task:
+Begin work on other outfits.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 17th 2022
+-------------
+Work Done:
+Began work on and completed the snow outfit (based on Weiss Schnee).
+-------------
+Next Task:
+Begin work on shroud outfit (based on Blake Belladonna).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 19th 2022
+-------------
+Work Done:
+Began work on and completed the shroud outfit (based on Blake Belladonna).
+-------------
+Next Task:
+Begin work on burning outfit (based on Yang Xiao Long).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 20th 2022
+-------------
+Work Done:
+Began work on burning outfit (based on Yang Xiao Long).
+-------------
+Next Task:
+Finish work on burning outfit.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+September 21st 2022
+-------------
+Work Done:
+Completed work on burning outfit.
+Adjusted recipes for vanity outfits.
+Added head pieces for the vanity outfits that didn't have one.
+Released version 3.2.1.
+-------------
+Next Task:
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
