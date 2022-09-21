@@ -22,7 +22,8 @@ namespace TRRA.Items.Armor
 		}
 
         public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Silk, 30)
+			.AddIngredient(ItemID.Moonglow, 1)
+			.AddIngredient(ItemID.Silk, 20)
 			.AddTile(TileID.Loom)
 			.Register();
 	}

@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Burning Jacket");
-			Tooltip.SetDefault("'TOOLTIP HERE'");
+			Tooltip.SetDefault("'Yellow beauty burns gold'");
 		}
 
 		public override void SetDefaults()
@@ -21,8 +21,9 @@ namespace TRRA.Items.Armor
 			Item.vanity = true;
 		}
 
-        public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Silk, 30)
+		public override void AddRecipes() => CreateRecipe()
+			.AddIngredient(ItemID.Fireblossom, 1)
+			.AddIngredient(ItemID.Silk, 20)
 			.AddTile(TileID.Loom)
 			.Register();
 	}
