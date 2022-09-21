@@ -5,11 +5,11 @@ using Terraria.ID;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Head)]
-	public class ShroudBow : ModItem
+	public class BurningAviators : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Bow");
-			Tooltip.SetDefault("'It'll go great with your pajamas!'");
+			DisplayName.SetDefault("Burning Aviators");
+			Tooltip.SetDefault("'Yellow beauty burns gold'");
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
 		}
@@ -24,10 +24,9 @@ namespace TRRA.Items.Armor
 
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Moonglow, 1)
-			.AddIngredient(ItemID.BlackThread, 1)
-			.AddIngredient(ItemID.Silk, 5)
-			.AddTile(TileID.Loom)
+			.AddIngredient(ItemID.Fireblossom, 1)
+			.AddIngredient(ItemID.Sunglasses, 1)
+			.AddTile(TileID.WorkBenches)
 			.Register();
 	}
 }

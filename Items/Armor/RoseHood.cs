@@ -5,13 +5,11 @@ using Terraria.ID;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Head)]
-	public class ShroudBow : ModItem
+	public class RoseHood : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Bow");
-			Tooltip.SetDefault("'It'll go great with your pajamas!'");
-
-			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
+			DisplayName.SetDefault("Rose Hood");
+			Tooltip.SetDefault("'Just like the heroes in the books'");
 		}
 
 		public override void SetDefaults() {
@@ -24,9 +22,8 @@ namespace TRRA.Items.Armor
 
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Moonglow, 1)
-			.AddIngredient(ItemID.BlackThread, 1)
-			.AddIngredient(ItemID.Silk, 5)
+			.AddIngredient(ItemID.Daybloom, 1)
+			.AddIngredient(ItemID.Silk, 10)
 			.AddTile(TileID.Loom)
 			.Register();
 	}

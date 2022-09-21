@@ -1088,6 +1088,7 @@ September 21st 2022
 Work Done:
 Completed work on burning outfit.
 Adjusted recipes for vanity outfits.
+Added head pieces for the vanity outfits that didn't have one.
 -------------
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
