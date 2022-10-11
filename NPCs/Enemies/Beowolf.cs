@@ -306,7 +306,7 @@ namespace TRRA.NPCs.Enemies
 					if (NPC.ai[2] >= 60f)
 					{
 						bool flag21 = false;
-						bool flag22 = Main.player[NPC.target].ZoneGraveyard && Main.rand.Next(60) == 0;
+						bool flag22 = Main.player[NPC.target].ZoneGraveyard && Main.rand.NextBool(60);
 
 						if (Main.getGoodWorld && !flag22 && flag21)
 							NPC.ai[1] = 0f;
@@ -404,7 +404,7 @@ namespace TRRA.NPCs.Enemies
 							playSound = true;
 						}
 					}
-					if (playSound && Main.rand.Next(15) == 0) SoundEngine.PlaySound(BeoPounceSound, NPC.Center);
+					if (playSound && Main.rand.NextBool(15)) SoundEngine.PlaySound(BeoPounceSound, NPC.Center);
 				}
 			}
 			else if (flag8)
