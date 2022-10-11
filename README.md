@@ -5,8 +5,6 @@ Hello!
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 This is version 3.2.1 of the mod, which is a smaller update that includes some vanity outfits based off of the original outfits for team RWBY.
 
-This update also includes some sprite improvements for Crescent Rose and the Ember Celica.
-
 This mod currently includes the following:
 
 New Weapons: A variety of weapons from the original series. Most of these weapons utilise a transform function that gives them dual use.
