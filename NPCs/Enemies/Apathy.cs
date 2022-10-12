@@ -15,6 +15,32 @@ using Terraria.Audio;
 
 namespace TRRA.NPCs.Enemies
 {
+	public class ApatheticDebuff : ModBuff
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Apathetic");
+			Description.SetDefault("You feel tired...");
+
+			Main.debuff[Type] = true;
+		}
+
+		public override void Update(Player player, ref int buffIndex)
+		{
+			// Cuts speed
+			player.moveSpeed /= 2f;
+			if (player.velocity.Y == 0f && Math.Abs(player.velocity.X) > 1f)
+			{
+				player.velocity.X /= 2f;
+			}
+			// Cuts damage
+			player.GetDamage(DamageClass.Melee) *= 0.34f;
+			player.GetDamage(DamageClass.Magic) *= 0.34f;
+			player.GetDamage(DamageClass.Summon) *= 0.34f;
+			player.GetDamage(DamageClass.Ranged) *= 0.34f;
+		}
+	}
+
 	public class Apathy : ModNPC
 	{
 		public override string Texture => "TRRA/NPCs/Enemies/Apathy";
@@ -57,7 +83,6 @@ namespace TRRA.NPCs.Enemies
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = -1;
 
-			//AIType = NPCID.Medusa;
 			AnimationType = NPCID.Medusa;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
@@ -98,6 +123,7 @@ namespace TRRA.NPCs.Enemies
 			npcLoot.Add(rule);
 		}
 
+		// Adapated from the AI for the existing Medusa enemy
         public override void AI()
 		{
 			if (!TRRAWorld.IsShatteredMoon())
@@ -111,14 +137,12 @@ namespace TRRA.NPCs.Enemies
 			int num20 = 180;
 			int num21 = 300;
 			int num22 = 180;
-			int num23 = 60;
 			int num24 = 20;
 			if (NPC.life < NPC.lifeMax / 3)
 			{
 				num20 = 120;
 				num21 = 240;
 				num22 = 240;
-				num23 = 90;
 			}
 			if (NPC.ai[2] > 0f)
 			{
@@ -126,7 +150,7 @@ namespace TRRA.NPCs.Enemies
 			}
 			else if (NPC.ai[2] == 0f)
 			{
-				if (((Main.player[NPC.target].Center.X < NPC.Center.X && NPC.direction < 0) || (Main.player[NPC.target].Center.X > NPC.Center.X && NPC.direction > 0)) && NPC.velocity.Y == 0f && NPC.Distance(Main.player[NPC.target].Center) < 900f && Collision.CanHit(NPC.Center, 1, 1, Main.player[NPC.target].Center, 1, 1))
+				if (((Main.player[NPC.target].Center.X < NPC.Center.X) || (Main.player[NPC.target].Center.X > NPC.Center.X)) && NPC.velocity.Y == 0f && NPC.Distance(Main.player[NPC.target].Center) < 350f)
 				{
 					NPC.ai[2] = -num22 - num24;
 					NPC.netUpdate = true;
@@ -214,28 +238,18 @@ namespace TRRA.NPCs.Enemies
 					}
 					Player player2 = Main.player[Main.myPlayer];
 					_ = Main.myPlayer;
-					if (player2.dead || !player2.active || player2.FindBuffIndex(156) != -1)
+					if (player2.dead || !player2.active || player2.HasBuff(BuffType<ApatheticDebuff>())) // Do nothing if player is dead, inactive, or already has the debuff
 					{
 						return;
 					}
 					Vector2 vector10 = player2.Center - NPC.Center;
-					if (!(vector10.Length() < 700f))
+					if (!(vector10.Length() < 300f))
 					{
 						return;
 					}
-					bool flag3 = vector10.Length() < 30f;
-					if (!flag3)
+					if (!player2.creativeGodMode)
 					{
-						float x = ((float)Math.PI / 4f).ToRotationVector2().X;
-						Vector2 vector11 = Vector2.Normalize(vector10);
-						if (vector11.X > x || vector11.X < 0f - x)
-						{
-							flag3 = true;
-						}
-					}
-					if (((player2.Center.X < NPC.Center.X && NPC.direction < 0 && player2.direction > 0) || (player2.Center.X > NPC.Center.X && NPC.direction > 0 && player2.direction < 0)) && flag3 && (Collision.CanHitLine(NPC.Center, 1, 1, player2.Center, 1, 1) || Collision.CanHitLine(NPC.Center - Vector2.UnitY * 16f, 1, 1, player2.Center, 1, 1) || Collision.CanHitLine(NPC.Center + Vector2.UnitY * 8f, 1, 1, player2.Center, 1, 1)) && !player2.creativeGodMode)
-					{
-						player2.AddBuff(156, num23 + (int)NPC.ai[2] * -1);
+						player2.AddBuff(BuffType<ApatheticDebuff>(), (Main.expertMode ? 1380 : 600) + (int)NPC.ai[2] * -1);
 					}
 					return;
 				}
@@ -324,7 +338,7 @@ namespace TRRA.NPCs.Enemies
 					NPC.direction = 1;
 				}
 			}
-			float num79 = 1.5f + (1f - (float)NPC.life / (float)NPC.lifeMax) * 2f;
+			float num79 = 0.75f;
 			if (NPC.velocity.X < 0f - num79 || NPC.velocity.X > num79)
 			{
 				if (NPC.velocity.Y == 0f)
@@ -594,28 +608,28 @@ namespace TRRA.NPCs.Enemies
 						{
 							if (Main.tile[num180, num181 - 3].HasUnactuatedTile && Main.tileSolid[Main.tile[num180, num181 - 3].TileType])
 							{
-								NPC.velocity.Y = -8f;
+								NPC.velocity.Y = -6f;
 								NPC.netUpdate = true;
 							}
 							else
 							{
-								NPC.velocity.Y = -7f;
+								NPC.velocity.Y = -5.25f;
 								NPC.netUpdate = true;
 							}
 						}
 						else if (Main.tile[num180, num181 - 1].HasUnactuatedTile && Main.tileSolid[Main.tile[num180, num181 - 1].TileType])
 						{
-							NPC.velocity.Y = -6f;
+							NPC.velocity.Y = -4.5f;
 							NPC.netUpdate = true;
 						}
 						else if (NPC.position.Y + (float)NPC.height - (float)(num181 * 16) > 20f && Main.tile[num180, num181].HasUnactuatedTile && !Main.tile[num180, num181].TopSlope && Main.tileSolid[Main.tile[num180, num181].TileType])
 						{
-							NPC.velocity.Y = -5f;
+							NPC.velocity.Y = -3.75f;
 							NPC.netUpdate = true;
 						}
 						else if (NPC.directionY < 0 && (!Main.tile[num180, num181 + 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num180, num181 + 1].TileType]) && (!Main.tile[num180 + NPC.direction, num181 + 1].HasUnactuatedTile || !Main.tileSolid[Main.tile[num180 + NPC.direction, num181 + 1].TileType]))
 						{
-							NPC.velocity.Y = -8f;
+							NPC.velocity.Y = -6f;
 							NPC.velocity.X *= 1.5f;
 							NPC.netUpdate = true;
 						}
@@ -626,7 +640,7 @@ namespace TRRA.NPCs.Enemies
 						}
 						if (NPC.velocity.Y == 0f && flag6 && NPC.ai[3] == 1f)
 						{
-							NPC.velocity.Y = -5f;
+							NPC.velocity.Y = -3.75f;
 						}
 						if (NPC.velocity.Y == 0f && (Main.expertMode) && Main.player[NPC.target].Bottom.Y < NPC.Top.Y && Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) < (float)(Main.player[NPC.target].width * 3) && Collision.CanHit(NPC, Main.player[NPC.target]))
 						{
@@ -635,7 +649,7 @@ namespace TRRA.NPCs.Enemies
 								int num186 = 6;
 								if (Main.player[NPC.target].Bottom.Y > NPC.Top.Y - (float)(num186 * 16))
 								{
-									NPC.velocity.Y = -7.9f;
+									NPC.velocity.Y = -5.175f;
 								}
 								else
 								{
@@ -645,7 +659,7 @@ namespace TRRA.NPCs.Enemies
 									{
 										if (Main.tile[num187, num189].HasUnactuatedTile && TileID.Sets.Platforms[Main.tile[num187, num189].TileType])
 										{
-											NPC.velocity.Y = -7.9f;
+											NPC.velocity.Y = -5.175f;
 											break;
 										}
 									}

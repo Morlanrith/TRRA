@@ -1103,6 +1103,16 @@ Next Task:
 Continue work on the Apathy.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+October 12th 2022
+-------------
+Work Done:
+Finished work on Apathy AI.
+Implemented the "Apathetic" debuff for the Apathy enemy.
+-------------
+Next Task:
+Begin work on sprites for the Apathy.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
