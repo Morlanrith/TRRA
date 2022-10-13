@@ -1113,6 +1113,16 @@ Next Task:
 Begin work on sprites for the Apathy.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+October 13th 2022
+-------------
+Work Done:
+Created new sprite for the Apathetic debuff.
+Created sprites for the Apathy.
+-------------
+Next Task:
+Add gore, VFX and other remaining elements for the Apathy.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

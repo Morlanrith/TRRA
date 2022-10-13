@@ -73,7 +73,7 @@ namespace TRRA.NPCs.Enemies
 
 		public override void SetDefaults() {
 			NPC.width = 18;
-			NPC.height = 40;
+			NPC.height = 80;
 			NPC.damage = 14;
 			NPC.defense = 6;
 			NPC.lifeMax = 200;
@@ -129,6 +129,7 @@ namespace TRRA.NPCs.Enemies
 			if (!TRRAWorld.IsShatteredMoon())
 				NPC.EncourageDespawn(10);
 
+			Lighting.AddLight(NPC.Top, 0.2f, 0f, 0f);
 			if (Main.player[NPC.target].position.Y + (float)Main.player[NPC.target].height == NPC.position.Y + (float)NPC.height)
 			{
 				NPC.directionY = -1;
