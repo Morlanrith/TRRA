@@ -1123,6 +1123,22 @@ Next Task:
 Add gore, VFX and other remaining elements for the Apathy.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+October 14th 2022
+-------------
+Work Done:
+Created gores for the Apathy.
+Adjusted dust effect for Apathy scream.
+Added new sound effect for Apathy scream, and adjusted the sounds for getting hit/killed.
+Completed bestiary info/adjustments for the Apathy.
+Completed banner for the Apathy.
+Finished adjusting Apathy stats.
+Added Apathy to enemy spawn pool for Shattered Moon. (Also adjusted spawn chance for Lancers)
+Finished Apathy.
+-------------
+Next Task:
+Begin work on Grimm 5 (likely to be the "Ravager").
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

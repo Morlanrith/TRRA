@@ -12,6 +12,7 @@ using Terraria.DataStructures;
 using TRRA.Biomes;
 using System;
 using Terraria.Audio;
+using TRRA.Items.Placeable;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -45,6 +46,12 @@ namespace TRRA.NPCs.Enemies
 	{
 		public override string Texture => "TRRA/NPCs/Enemies/Apathy";
 
+		private static readonly SoundStyle ApathyScreechSound = new($"{nameof(TRRA)}/Sounds/NPCs/Apathy/Apathy_Screech")
+		{
+			Volume = 0.7f,
+			Pitch = 0.1f,
+		};
+
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Apathy");
 
@@ -66,6 +73,8 @@ namespace TRRA.NPCs.Enemies
 			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Velocity = 1f,
+				Position = new Vector2(0f, 24f),
+				PortraitPositionYOverride = 0f,
 			};
 
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
@@ -74,15 +83,16 @@ namespace TRRA.NPCs.Enemies
 		public override void SetDefaults() {
 			NPC.width = 18;
 			NPC.height = 80;
-			NPC.damage = 14;
-			NPC.defense = 6;
-			NPC.lifeMax = 200;
-			NPC.HitSound = SoundID.NPCHit1;
+			NPC.damage = 70;
+			NPC.defense = 30;
+			NPC.lifeMax = 550;
+			NPC.HitSound = SoundID.NPCHit23;
 			NPC.DeathSound = SoundID.NPCDeath2;
 			NPC.value = 1000f;
 			NPC.knockBackResist = 0.5f;
 			NPC.aiStyle = -1;
-
+			Banner = NPC.type;
+			BannerItem = ItemType<ApathyBanner>();
 			AnimationType = NPCID.Medusa;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
@@ -91,7 +101,7 @@ namespace TRRA.NPCs.Enemies
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 
-				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Beowolf"),
+				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Apathy"),
 
 			});
 		}
@@ -109,9 +119,9 @@ namespace TRRA.NPCs.Enemies
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 1f;
 				}
-				//Gore.NewGore(NPC.GetSource_Death(), NPC.NPC.position, NPC.NPC.velocity, Mod.Find<ModGore>("Beowolf_Head").Type);
-				//Gore.NewGore(NPC.GetSource_Death(), NPC.NPC.position, NPC.NPC.velocity, Mod.Find<ModGore>("Beowolf_Torso").Type);
-				//Gore.NewGore(NPC.GetSource_Death(), NPC.NPC.position, NPC.NPC.velocity, Mod.Find<ModGore>("Beowolf_Tail").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Apathy_Head").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Apathy_Torso").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Apathy_Arm").Type);
 			}
 		}
 
@@ -178,7 +188,7 @@ namespace TRRA.NPCs.Enemies
 					float num25 = NPC.ai[2] + (float)num22 + (float)num24;
 					if (num25 == 1f)
 					{
-						//SoundEngine.PlaySound(4, (int)NPC.position.X, (int)NPC.position.Y, 17);
+						SoundEngine.PlaySound(ApathyScreechSound, NPC.Center);
 					}
 					if (num25 < (float)num24)
 					{
@@ -188,21 +198,21 @@ namespace TRRA.NPCs.Enemies
 						for (float num27 = 0f; num27 < 2f; num27 += 1f)
 						{
 							Vector2 vector7 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * (Main.rand.NextFloat() * 0.5f + 0.5f);
-							Dust obj = Main.dust[Dust.NewDust(vector6, 0, 0, DustID.GoldFlame)];
+							Dust obj = Main.dust[Dust.NewDust(vector6, 0, 0, DustID.RedTorch)];
 							obj.position = vector6 + vector7 * num26;
 							obj.noGravity = true;
 							obj.velocity = vector7 * 2f;
-							obj.scale = 0.5f + Main.rand.NextFloat() * 0.5f;
+							obj.scale = 0.05f + Main.rand.NextFloat() * 0.5f;
 						}
 					}
-					Lighting.AddLight(NPC.Center, 0.9f, 0.75f, 0.1f);
+					Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.1f);
 					NPC.position -= NPC.netOffset;
 					return;
 				}
 				if (NPC.ai[2] < 0f && NPC.ai[2] >= (float)(-num22))
 				{
 					NPC.position += NPC.netOffset;
-					Lighting.AddLight(NPC.Center, 0.9f, 0.75f, 0.1f);
+					Lighting.AddLight(NPC.Center, 0.4f, 0.0f, 0.1f);
 					NPC.velocity.X *= 0.9f;
 					if (NPC.velocity.Y < -2f || NPC.velocity.Y > 4f || NPC.justHit)
 					{
@@ -217,7 +227,7 @@ namespace TRRA.NPCs.Enemies
 						}
 					}
 					float num28 = NPC.ai[2] + (float)num22;
-					if (num28 < 180f && (Main.rand.NextBool(3)|| NPC.ai[2] % 3f == 0f))
+					if (num28 < 180f && (Main.rand.NextBool(15)|| NPC.ai[2] % 3f == 0f))
 					{
 						Vector2 vector8 = NPC.Top + new Vector2(NPC.spriteDirection * 10, 10f);
 						float num29 = MathHelper.Lerp(20f, 30f, (num28 * 3f + 50f) / 182f);
@@ -225,11 +235,11 @@ namespace TRRA.NPCs.Enemies
 						for (float num30 = 0f; num30 < 1f; num30 += 1f)
 						{
 							Vector2 vector9 = Vector2.UnitY.RotatedByRandom(6.2831854820251465) * (Main.rand.NextFloat() * 0.5f + 0.5f);
-							Dust obj2 = Main.dust[Dust.NewDust(vector8, 0, 0, DustID.GoldFlame)];
+							Dust obj2 = Main.dust[Dust.NewDust(vector8, 0, 0, DustID.RedTorch)];
 							obj2.position = vector8 + vector9 * num29;
 							obj2.noGravity = true;
 							obj2.velocity = vector9 * 4f;
-							obj2.scale = 0.5f + Main.rand.NextFloat();
+							obj2.scale = 0.05f + Main.rand.NextFloat();
 						}
 					}
 					NPC.position -= NPC.netOffset;
