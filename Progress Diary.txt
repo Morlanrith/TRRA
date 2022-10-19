@@ -1154,7 +1154,7 @@ Added Ravager to Shattered Moon spawn list (also adjusted spawn rates for existi
 Finished Ravager.
 -------------
 Next Task:
-
+Add Journey mode research values to all items currently in TRRA.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
