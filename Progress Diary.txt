@@ -1146,6 +1146,12 @@ Began work on Ravager.
 Created a basic dummy version of Ravager enemy (based on the existing flying fox enemy).
 Altered AI for Ravager.
 Created new sprite for Ravager.
+Created gore for Ravager.
+Set SFX for Ravager.
+Added new bestiary info for Ravager.
+Added banner for Ravager.
+Added Ravager to Shattered Moon spawn list (also adjusted spawn rates for existing Grimm).
+Finished Ravager.
 -------------
 Next Task:
 

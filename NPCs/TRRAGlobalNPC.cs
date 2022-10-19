@@ -47,7 +47,8 @@ namespace TRRA.NPCs
 				NPCType<Beowolf>(),
 				NPCType<Creep>(),
 				NPCType<Lancer>(),
-				NPCType<Apathy>()
+				NPCType<Apathy>(),
+				NPCType<Ravager>()
 			};
 
 			public static int[] GetEnemies() { return enemies; }
@@ -78,12 +79,16 @@ namespace TRRA.NPCs
 			if (TRRAWorld.IsShatteredMoon() && spawnInfo.Player.position.Y < Main.worldSurface * 16.0)
 			{
 				pool.Clear();
-				if (spawnInfo.Sky) // If the player is in the sky, spawn only Lancers
-					pool.Add(NPCType<Lancer>(), 0.6f);
+				if (spawnInfo.Sky) // If the player is in the sky, spawn only Ravagers and Lancers
+				{
+					pool.Add(NPCType<Ravager>(), 1f);
+					pool.Add(NPCType<Lancer>(), 0.3f);
+				}
 				else
 				{
-					// Otherwise, makes the enemy pool for the surface consist only of Grimm (with Lancers having a lower spawn chance)
-					foreach (int i in ShatteredMoon.GetEnemies()) {
+					// Otherwise, makes the enemy pool for the surface consist only of Grimm (with Apathy and Lancers having a lower spawn chance)
+					foreach (int i in ShatteredMoon.GetEnemies())
+					{
 						float spawnChance = 1f;
 						if (i == NPCType<Lancer>()) spawnChance = 0.3f;
 						else if (i == NPCType<Apathy>()) spawnChance = 0.4f;

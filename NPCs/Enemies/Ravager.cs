@@ -1,7 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
@@ -35,6 +33,14 @@ namespace TRRA.NPCs.Enemies
 				}
 			};
 
+			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
+			{
+				Position = new Vector2(0f, 24f),
+				PortraitPositionYOverride = 0f,
+			};
+
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+
 			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
 		}
 
@@ -45,13 +51,12 @@ namespace TRRA.NPCs.Enemies
 			NPC.damage = 90;
 			NPC.defense = 40;
 			NPC.lifeMax = 650;
-			NPC.HitSound = SoundID.NPCHit20;
-			NPC.DeathSound = SoundID.NPCDeath25;
+			NPC.HitSound = SoundID.NPCHit22;
+			NPC.DeathSound = SoundID.NPCDeath4;
 			NPC.knockBackResist = 0.5f;
 			NPC.value = 1000f;
-			//Banner = NPC.type;
-			//BannerItem = ItemType<CreepBanner>();
-			//AIType = NPCID.GiantFlyingFox;
+			Banner = NPC.type;
+			BannerItem = ItemType<RavagerBanner>();
 			AnimationType = NPCID.Harpy;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
@@ -68,7 +73,7 @@ namespace TRRA.NPCs.Enemies
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 
-				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Creep"),
+				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Ravager"),
 
 			});
 		}
@@ -86,9 +91,8 @@ namespace TRRA.NPCs.Enemies
 					Main.dust[dust].noGravity = true;
 					Main.dust[dust].velocity *= 1f;
 				}
-				//Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Creep_Head").Type);
-				//Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Creep_Torso").Type);
-				//Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Creep_Tail").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Ravager_Head").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Ravager_Wing").Type);
 			}
 		}
 
