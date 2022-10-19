@@ -1139,6 +1139,18 @@ Next Task:
 Begin work on Grimm 5 (likely to be the "Ravager").
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+19th October 2022
+-------------
+Work Done:
+Began work on Ravager.
+Created a basic dummy version of Ravager enemy (based on the existing flying fox enemy).
+Altered AI for Ravager.
+Created new sprite for Ravager.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
