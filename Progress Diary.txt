@@ -1161,9 +1161,12 @@ Date:
 -------------
 Work Done:
 Added Journey mode research values to all items currently in TRRA.
+Began work on TRRA's first pet, "Zwei".
+Created dummy copy of the existing Puppy pet as base for Zwei.
+Began work on sprite for Zwei.
 -------------
 Next Task:
-
+Finish sprite for Zwei.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
