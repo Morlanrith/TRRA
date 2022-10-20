@@ -11,6 +11,7 @@ namespace TRRA.Items.Armor
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Rose Cloak");
 			Tooltip.SetDefault("'Just like the heroes in the books'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults()

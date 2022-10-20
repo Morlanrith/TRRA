@@ -15,9 +15,9 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			// Sets the display name and tooltip for Crescent Rose (gun form)
 			DisplayName.SetDefault("Crescent Bloom");
 			Tooltip.SetDefault("'Justice will be painful!'\nTransforms by pressing a mapped hotkey");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

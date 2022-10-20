@@ -22,6 +22,7 @@ namespace TRRA.Items.Weapons
 		{
 			DisplayName.SetDefault("Harbinger");
 			Tooltip.SetDefault("'Doubles as a bad luck charm'\nRight Click to take the form of a Corvid\nTransforms by pressing a mapped hotkey");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults()

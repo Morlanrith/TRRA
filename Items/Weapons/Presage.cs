@@ -15,6 +15,7 @@ namespace TRRA.Items.Weapons
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Presage");
 			Tooltip.SetDefault("'The weak die, the strong live. Those are the rules.'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

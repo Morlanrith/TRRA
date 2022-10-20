@@ -1157,6 +1157,15 @@ Next Task:
 Add Journey mode research values to all items currently in TRRA.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+20th October 2022
+-------------
+Work Done:
+Added Journey mode research values to all items currently in TRRA.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

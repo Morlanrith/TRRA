@@ -11,6 +11,7 @@ namespace TRRA.Items.Weapons
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Gravity Dust Bullet");
 			Tooltip.SetDefault("A special kind of bullet that uses gravity dust");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 
 		public override void SetDefaults() {

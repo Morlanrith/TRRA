@@ -8,6 +8,7 @@ namespace TRRA.Items.Materials
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("A kit containing various tools and components to contruct weapons from Dust");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

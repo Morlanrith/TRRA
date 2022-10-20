@@ -32,6 +32,7 @@ namespace TRRA.Items.Weapons
 		{
 			DisplayName.SetDefault("Crescent Rose");
 			Tooltip.SetDefault("'It's also a gun'\nRight Click to dash\nTransforms by pressing a mapped hotkey");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() 

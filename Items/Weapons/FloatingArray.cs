@@ -27,6 +27,7 @@ namespace TRRA.Items.Weapons
 		{
 			DisplayName.SetDefault("Floating Array");
 			Tooltip.SetDefault("'I'm Combat Ready!'\nUse an Array of Blades to fight for you\nRight Click to summon a Blade\nLeft Click with Blades active to fire a laser");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() 

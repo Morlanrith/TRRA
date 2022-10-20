@@ -20,6 +20,7 @@ namespace TRRA.Items.Weapons
 		{
 			DisplayName.SetDefault("Crescent Bud");
 			Tooltip.SetDefault("'A smaller, more honest scythe'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() 
