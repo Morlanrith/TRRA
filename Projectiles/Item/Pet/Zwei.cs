@@ -43,8 +43,8 @@ namespace TRRA.Projectiles.Item.Pet
         public override void SetDefaults()
         {
             Projectile.netImportant = true;
-            Projectile.width = 62;
-            Projectile.height = 36;
+            Projectile.width = 54;
+            Projectile.height = 40;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
