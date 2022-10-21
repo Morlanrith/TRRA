@@ -1170,6 +1170,20 @@ Next Task:
 Begin work on summoning item sprite for Zwei.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+21st October 2022
+-------------
+Work Done:
+Created buff icon sprite for Zwei.
+Created summon item sprite for Zwei.
+Added new summon sound effect for Zwei.
+Adjusted tooltips/misc. values for Zwei.
+Added Zwei summon item to Beowolf drop pool.
+Finished Zwei.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

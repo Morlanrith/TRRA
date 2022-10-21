@@ -80,6 +80,8 @@ namespace TRRA.NPCs.Enemies
 			npcLoot.Add(rule);
 			rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
 			npcLoot.Add(rule);
+			rule = ItemDropRule.Common(ItemType<Items.Pets.ZweiSummoner>(), 200);
+			npcLoot.Add(rule);
 		}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
