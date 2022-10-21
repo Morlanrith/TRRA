@@ -8,6 +8,7 @@ namespace TRRA.Items.Materials
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("A strange otherworldly extract, obtained from the Golems power cell");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

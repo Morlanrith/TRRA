@@ -9,6 +9,8 @@ Mods: {
 			Beowolf: "A dangerous wolf-like creature that is not of this world.\nIn small numbers they are not very intimidating, but with their sharp claws and fangs, large packs will leave you quickly overwhelmed if you're not careful."
 			Creep: "A dangerous lizard-like creature that is not of this world.\nBe mindful of their stocky, clawed hind limbs as they will repeatedly attempt to leap on you."
 			Lancer: "A dangerous hornet-like creature that is not of this world.\nThe stingers they fire are not as poisonous as a conventional Hornet, but the hardened material they're made of allows them to pierce near any armor."
+			Apathy: "A dangerous zombie-like creature that is not of this world.\nWhile rather frail in appearance, the screams they emit can drain you of the will to go on. Try to keep your distance!"
+			Ravager: "A dangerous bat-like creature that is not of this world.\nThough they appear similar to the various bat species of our world, they are notably larger and far more aggressive."
 		}
 		
 		TownNPCMood: {
@@ -33,6 +35,8 @@ Mods: {
 			BeowolfBanner: "{$CommonItemTooltip.BannerBonus}Beowolf"
 			CreepBanner: "{$CommonItemTooltip.BannerBonus}Creep"
 			LancerBanner: "{$CommonItemTooltip.BannerBonus}Lancer"
+			ApathyBanner: "{$CommonItemTooltip.BannerBonus}Apathy"
+			RavagerBanner: "{$CommonItemTooltip.BannerBonus}Ravager"
 		}
 
 	}

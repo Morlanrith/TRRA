@@ -34,7 +34,8 @@ namespace TRRA.NPCs
 
 		public class BossBags : GlobalItem
 		{
-			public override void OpenVanillaBag(string context, Player player, int arg)
+            [System.Obsolete]
+            public override void OpenVanillaBag(string context, Player player, int arg)
 			{
 				if (context == "bossBag" && arg == ItemID.GolemBossBag) player.QuickSpawnItem(player.GetSource_OpenItem(ItemType<DustExtract>()), ItemType<DustExtract>(), 1);
 			}
@@ -45,7 +46,9 @@ namespace TRRA.NPCs
 			private static readonly int[] enemies = {
 				NPCType<Beowolf>(),
 				NPCType<Creep>(),
-				NPCType<Lancer>()
+				NPCType<Lancer>(),
+				NPCType<Apathy>(),
+				NPCType<Ravager>()
 			};
 
 			public static int[] GetEnemies() { return enemies; }
@@ -76,13 +79,21 @@ namespace TRRA.NPCs
 			if (TRRAWorld.IsShatteredMoon() && spawnInfo.Player.position.Y < Main.worldSurface * 16.0)
 			{
 				pool.Clear();
-				if (spawnInfo.Sky) // If the player is in the sky, spawn only Lancers
-					pool.Add(NPCType<Lancer>(), 0.6f);
+				if (spawnInfo.Sky) // If the player is in the sky, spawn only Ravagers and Lancers
+				{
+					pool.Add(NPCType<Ravager>(), 1f);
+					pool.Add(NPCType<Lancer>(), 0.3f);
+				}
 				else
 				{
-					// Otherwise, makes the enemy pool for the surface consist only of Grimm (with Lancers having a lower spawn chance)
+					// Otherwise, makes the enemy pool for the surface consist only of Grimm (with Apathy and Lancers having a lower spawn chance)
 					foreach (int i in ShatteredMoon.GetEnemies())
-						pool.Add(i, i == NPCType<Lancer>() ? 0.6f : 1f);
+					{
+						float spawnChance = 1f;
+						if (i == NPCType<Lancer>()) spawnChance = 0.3f;
+						else if (i == NPCType<Apathy>()) spawnChance = 0.4f;
+						pool.Add(i, spawnChance);
+					}
 				}
 			}
         }

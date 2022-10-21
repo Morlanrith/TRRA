@@ -1094,6 +1094,98 @@ Released version 3.2.1.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+October 11th 2022
+-------------
+Work Done:
+Began experimenting with Grimm 4, the "Apathy".
+-------------
+Next Task:
+Continue work on the Apathy.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+October 12th 2022
+-------------
+Work Done:
+Finished work on Apathy AI.
+Implemented the "Apathetic" debuff for the Apathy enemy.
+-------------
+Next Task:
+Begin work on sprites for the Apathy.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+October 13th 2022
+-------------
+Work Done:
+Created new sprite for the Apathetic debuff.
+Created sprites for the Apathy.
+-------------
+Next Task:
+Add gore, VFX and other remaining elements for the Apathy.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+October 14th 2022
+-------------
+Work Done:
+Created gores for the Apathy.
+Adjusted dust effect for Apathy scream.
+Added new sound effect for Apathy scream, and adjusted the sounds for getting hit/killed.
+Completed bestiary info/adjustments for the Apathy.
+Completed banner for the Apathy.
+Finished adjusting Apathy stats.
+Added Apathy to enemy spawn pool for Shattered Moon. (Also adjusted spawn chance for Lancers)
+Finished Apathy.
+-------------
+Next Task:
+Begin work on Grimm 5 (likely to be the "Ravager").
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+19th October 2022
+-------------
+Work Done:
+Began work on Ravager.
+Created a basic dummy version of Ravager enemy (based on the existing flying fox enemy).
+Altered AI for Ravager.
+Created new sprite for Ravager.
+Created gore for Ravager.
+Set SFX for Ravager.
+Added new bestiary info for Ravager.
+Added banner for Ravager.
+Added Ravager to Shattered Moon spawn list (also adjusted spawn rates for existing Grimm).
+Finished Ravager.
+-------------
+Next Task:
+Add Journey mode research values to all items currently in TRRA.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+20th October 2022
+-------------
+Work Done:
+Added Journey mode research values to all items currently in TRRA.
+Began work on TRRA's first pet, "Zwei".
+Created dummy copy of the existing Puppy pet as base for Zwei.
+Began work on sprite for Zwei.
+Finished sprite for Zwei.
+-------------
+Next Task:
+Begin work on summoning item sprite for Zwei.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+21st October 2022
+-------------
+Work Done:
+Created buff icon sprite for Zwei.
+Created summon item sprite for Zwei.
+Added new summon sound effect for Zwei.
+Adjusted tooltips/misc. values for Zwei.
+Added Zwei summon item to Beowolf drop pool.
+Finished Zwei.
+Fixed Crescent Rose Scythe double click issue (...again...).
+Released version 3.3.0.
+-------------
+Next Task:
+Begin work on planned additions for version 3.4.0.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

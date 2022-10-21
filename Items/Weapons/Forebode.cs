@@ -15,6 +15,7 @@ namespace TRRA.Items.Weapons
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Forebode");
 			Tooltip.SetDefault("'Strength is all that matters in a fight'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

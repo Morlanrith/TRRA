@@ -14,6 +14,7 @@ namespace TRRA.Items.Weapons
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Kleineblume");
 			Tooltip.SetDefault("'I'm. Not. Perfect! Not yet...'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

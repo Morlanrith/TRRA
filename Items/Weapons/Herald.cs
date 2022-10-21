@@ -14,6 +14,7 @@ namespace TRRA.Items.Weapons
 		{
 			DisplayName.SetDefault("Herald");
 			Tooltip.SetDefault("'A dusty, old sword...'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults()

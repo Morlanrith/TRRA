@@ -11,9 +11,10 @@ namespace TRRA.Items.Consumables
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Stone of Negativity");
             Tooltip.SetDefault("'This is the beginning of the end...'\nSummons the Shattered Moon");
-		}
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
 
-		public override void SetDefaults() {
+        public override void SetDefaults() {
             Item.width = 22;
             Item.height = 30;
             Item.maxStack = 20;

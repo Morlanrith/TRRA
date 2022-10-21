@@ -9,6 +9,7 @@ namespace TRRA.Items.Accessories
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Huntress Emblem");
 			Tooltip.SetDefault("For the best and brightest warriors of Remnant\n14% increased melee damage\n14% increased ranged damage");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

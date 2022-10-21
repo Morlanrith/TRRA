@@ -15,6 +15,7 @@ namespace TRRA.Items.Weapons
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Gambol Veil");
 			Tooltip.SetDefault("'Now that's a katana!'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() {

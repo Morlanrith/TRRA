@@ -8,6 +8,7 @@ namespace TRRA.Items.Materials
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("An extract of Fire Dust\nCan be used to convert Crystal Shards to Fire Dust Crystals");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 
 		public override void SetDefaults() {

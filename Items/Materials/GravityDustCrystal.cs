@@ -11,6 +11,7 @@ namespace TRRA.Items.Materials
 		public override void SetStaticDefaults()
 		{
 			Tooltip.SetDefault("A strange otherworldly crystal that holds the power of gravity");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
 		}
 		public override void SetDefaults()
 		{
