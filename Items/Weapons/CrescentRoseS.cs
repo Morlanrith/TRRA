@@ -47,6 +47,7 @@ namespace TRRA.Items.Weapons
 			Item.knockBack = 7;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.rare = ItemRarityID.Cyan;
+			Item.UseSound = RoseSliceSound;
 			Item.crit = 26;
 			Item.autoReuse = true;
 			Item.maxStack = 1;
@@ -67,6 +68,7 @@ namespace TRRA.Items.Weapons
 			Item.useAnimation = 25;
 			Item.shoot = ProjectileID.None;
 			Item.UseSound = RoseSliceSound;
+			Item.autoReuse = true;
 		}
 
 		public override bool CanUseItem(Player player)
@@ -89,16 +91,11 @@ namespace TRRA.Items.Weapons
 				newVelocity.X = 10f * player.direction;
 				player.velocity = newVelocity;
 			}
-			else
-            {
-				if (!canSwing)
-				{
-					ResetValues();
-					canSwing = true;
-					return false;
-				}
+			else if (!canSwing)
+			{
 				ResetValues();
-				Item.autoReuse = true;
+				canSwing = true;
+				return false;
 			}
 			return base.CanUseItem(player);
 		}

@@ -1179,9 +1179,11 @@ Added new summon sound effect for Zwei.
 Adjusted tooltips/misc. values for Zwei.
 Added Zwei summon item to Beowolf drop pool.
 Finished Zwei.
+Fixed Crescent Rose Scythe double click issue (...again...).
+Released version 3.3.0.
 -------------
 Next Task:
-
+Begin work on planned additions for version 3.4.0.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
