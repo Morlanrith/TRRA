@@ -109,8 +109,8 @@ namespace TRRA.Items.Weapons
 
 		public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemType<Quiet>(), 1)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemType<IceDustCrystal>(), 30)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemID.BlackThread, 1)
 			.AddIngredient(ItemID.SoulofFright, 20)
 			.AddTile(TileType<DustToolbenchTile>())

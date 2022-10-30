@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Snow Tiara");
-			Tooltip.SetDefault("'Carve out your own way'");
+			Tooltip.SetDefault("'Burdened by a royal test'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

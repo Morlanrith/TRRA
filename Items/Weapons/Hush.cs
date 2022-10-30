@@ -242,8 +242,8 @@ namespace TRRA.Items.Weapons
 
 		public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemType<Whisper>(), 1)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemType<IceDustCrystal>(), 30)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemID.PinkThread, 2)
 			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
 			.AddIngredient(ItemType<DustExtract>(), 1)

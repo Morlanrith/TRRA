@@ -38,8 +38,8 @@ namespace TRRA.Items.Weapons
 		public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemType<DustWeaponKit>(), 1)
 			.AddIngredient(ItemType<FireDustCrystal>(), 10)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
+			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
 

@@ -194,7 +194,7 @@ Adjusted parry mechanic, adding a 5 second cooldown to activating the ability.
 Replaced the standard sword swing with an aimable projectile that appears as a quick slash of a blade. Created by mimicking a
 pre-existing weapon known as "Arkhalis", with the projectile being an edit of the same attack.
 Re-balanced weapon along with adding a proper recipe and tooltip.
-Released version 3.0 of TRRA.
+Released version 0.3 of TRRA.
 -------------
 Next Task:
 Take a break to reflect on current progress.
@@ -1184,6 +1184,76 @@ Released version 3.3.0.
 -------------
 Next Task:
 Begin work on planned additions for version 3.4.0.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+24th October 2022
+-------------
+Work Done:
+Began setting up a wiki for TRRA over on the Terraria Mods wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+25th October 2022
+-------------
+Work Done:
+Set up pages for all TRRA weapons on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+26th October 2022
+-------------
+Work Done:
+Set up recipes for all TRRA weapons on wiki.
+Started setting up pages for all TRRA materials on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+27th October 2022
+-------------
+Work Done:
+Finished recipes for all Dust related items on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+28th October 2022
+-------------
+Work Done:
+Finished all remaining item pages on wiki.
+Created all pages for Grimm on wiki.
+Created most of the Shopkeep page on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+29th October 2022
+-------------
+Work Done:
+Created Shattered Moon page on wiki.
+Created Dust page on wiki.
+Created Vanity page on wiki.
+Created pages for all vanity sets on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+30th October 2022
+-------------
+Work Done:
+Finished front page on wiki.
+Updated tooltips for vanity outfits to all be unique.
+-------------
+Next Task:
+
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

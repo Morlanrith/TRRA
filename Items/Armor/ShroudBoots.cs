@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Shroud Boots");
-			Tooltip.SetDefault("'Be seen for who you are'");
+			Tooltip.SetDefault("'Nevermore will I run away'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			SetupDrawing();
 		}

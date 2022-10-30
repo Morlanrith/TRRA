@@ -23,7 +23,7 @@ namespace TRRA.Items.Consumables
             Item.UseSound = SoundID.Item1;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
-            Item.value = Item.buyPrice(0, 1, 0, 0);
+            Item.value = Item.sellPrice(0, 0, 20, 0);
             Item.rare = ItemRarityID.Yellow;
         }
 

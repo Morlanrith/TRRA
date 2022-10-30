@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Rose Boots");
-			Tooltip.SetDefault("'Just like the heroes in the books'");
+			Tooltip.SetDefault("'I promise I'll be here until the end'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
