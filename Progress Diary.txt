@@ -1251,9 +1251,41 @@ Date:
 Work Done:
 Finished front page on wiki.
 Updated tooltips for vanity outfits to all be unique.
+Added all buff info to wiki.
+Added all projectile sprites to wiki.
+Completed main version of wiki.
+Released version 3.3.0.2.
 -------------
 Next Task:
-
+Add some extra notes/trivia to the weapon sections on wiki.
+Eventually get started on 3.4.0.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+1st November 2022
+-------------
+Work Done:
+Began adding extra notes/trivia to weapon sections on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+5th November 2022
+-------------
+Work Done:
+Continued adding extra notes/trivia to weapon sections on wiki.
+-------------
+Next Task:
+Continue work on wiki.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+6th November 2022
+-------------
+Work Done:
+Finished adding extra notes/trivia to weapon sections on wiki.
+-------------
+Next Task:
+Begin work on 3.4.0, likely starting with work on the Petra-Gigas miniboss.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

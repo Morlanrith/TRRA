@@ -10,7 +10,7 @@ namespace TRRA.Projectiles.Item.Pet
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Zwei");
-            Description.SetDefault("Known for his perceptive nose and heightened sense of sound.");
+            Description.SetDefault("Known for his perceptive nose and heightened sense of sound");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
