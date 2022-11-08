@@ -5,7 +5,7 @@ Mods: {
 		}
 
 		Bestiary: {
-			Shopkeep: A simple shopkeep from a distant and incomplete world, they can provide you with all manner of wares to assist you in using 'Dust'.
+			Shopkeep: "A simple shopkeep from a distant and incomplete world, they can provide you with all manner of wares to assist you in using 'Dust'."
 			Beowolf: "A dangerous wolf-like creature that is not of this world.\nIn small numbers they are not very intimidating, but with their sharp claws and fangs, large packs will leave you quickly overwhelmed if you're not careful."
 			Creep: "A dangerous lizard-like creature that is not of this world.\nBe mindful of their stocky, clawed hind limbs as they will repeatedly attempt to leap on you."
 			Lancer: "A dangerous hornet-like creature that is not of this world.\nThe stingers they fire are not as poisonous as a conventional Hornet, but the hardened material they're made of allows them to pierce near any armor."

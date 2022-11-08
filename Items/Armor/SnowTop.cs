@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Snow Top");
-			Tooltip.SetDefault("'Carve out your own way'");
+			Tooltip.SetDefault("'It's a combat skirt!'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

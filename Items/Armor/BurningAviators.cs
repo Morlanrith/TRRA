@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Burning Aviators");
-			Tooltip.SetDefault("'Yellow beauty burns gold'");
+			Tooltip.SetDefault("'Fool, you shouldn't stare into these eyes of fire'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

@@ -9,7 +9,7 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Burning Jacket");
-			Tooltip.SetDefault("'Yellow beauty burns gold'");
+			Tooltip.SetDefault("'Light up the night with the love in your heart'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
