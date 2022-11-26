@@ -1285,7 +1285,17 @@ Work Done:
 Finished adding extra notes/trivia to weapon sections on wiki.
 -------------
 Next Task:
-Begin work on 3.4.0, likely starting with work on the Petra-Gigas miniboss.
+Begin work on 3.4.0, likely starting with work on the Petra Gigas miniboss.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+26th November 2022
+-------------
+Work Done:
+Created notes to define the rough design for the Petra Gigas miniboss.
+
+-------------
+Next Task:
+
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
