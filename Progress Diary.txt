@@ -1292,10 +1292,19 @@ Date:
 -------------
 Work Done:
 Created notes to define the rough design for the Petra Gigas miniboss.
-
 -------------
 Next Task:
-
+Create basic dummy version of the enemy using existing enemy code/assets.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+4th December 2022
+-------------
+Work Done:
+Began working on a dummy version of the Petra Gigas, using the Mourning Wood and Skeletron Arms enemies as a base.
+Have the arms spawn correctly as children of the main Petra Gigas enemy.
+-------------
+Next Task:
+Begin modifying the behaviour of the Petra Gigas AI.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
