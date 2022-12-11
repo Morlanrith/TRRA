@@ -70,10 +70,11 @@ namespace TRRA.NPCs.Enemies
 
 		public override void AI()
         {
-			if (!TRRAWorld.IsShatteredMoon())
-				NPC.EncourageDespawn(10);
+			//if (!TRRAWorld.IsShatteredMoon())
+			//	NPC.EncourageDespawn(10);
 
 			NPC.spriteDirection = -(int)NPC.ai[0];
+			// Automatically destroy the arm if the main enemy has been slain
 			if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[1]].type != NPCType<PetraGigas>())
 			{
 				NPC.ai[2] += 10f;
@@ -349,7 +350,6 @@ namespace TRRA.NPCs.Enemies
 			{
 				NPC.ai[2] = 0f;
 			}
-			return;
 		}
 
     }

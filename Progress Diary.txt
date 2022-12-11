@@ -1307,6 +1307,15 @@ Next Task:
 Begin modifying the behaviour of the Petra Gigas AI.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+11th December 2022
+-------------
+Work Done:
+Added comments to the Petra Gigas adapated AI to decipher what each part of the code does, so it can easily be altered.
+-------------
+Next Task:
+Begin modifying the behaviour of the Petra Gigas AI.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
