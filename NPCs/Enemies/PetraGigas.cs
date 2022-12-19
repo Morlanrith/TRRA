@@ -111,10 +111,12 @@ namespace TRRA.NPCs.Enemies
 
         public override void AI()
         {
+			// Performs more dangerous/desperate attacks if below a third of health
+			bool desperationMode = (double)NPC.life < (double)NPC.lifeMax * 0.5;
 			//if (!TRRAWorld.IsShatteredMoon())
 			//	NPC.EncourageDespawn(10);
 
-			float speedAdjustment = 2f;
+			float speedAdjustment = desperationMode ? 4f : 2f;
 
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
@@ -126,15 +128,6 @@ namespace TRRA.NPCs.Enemies
 
 			bool stopMoving = false;
 
-			if ((double)NPC.life < (double)NPC.lifeMax * 0.75)
-			{
-				speedAdjustment = 3f;
-			}
-			if ((double)NPC.life < (double)NPC.lifeMax * 0.5)
-			{
-				speedAdjustment = 4f;
-			}
-
 			//Lighting.AddLight(NPC.Bottom + new Vector2(0f, -30f), 0.3f, 0.125f, 0.06f); // Mourning wood ambient light
 
 			// ATTACKING
@@ -145,48 +138,24 @@ namespace TRRA.NPCs.Enemies
 			}
 			else if (NPC.ai[0] == 0f)
 			{
-				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the next attack will occur (when it reaches 300)
-				if ((double)NPC.life < (double)NPC.lifeMax * 0.5)
-				{
-					NPC.ai[1] += 1f; // If below half health, add an extra tick to the timer (double the standard rate)
-				}
-				if ((double)NPC.life < (double)NPC.lifeMax * 0.25)
-				{
-					NPC.ai[1] += 1f; // If below a quarter health, add another extra tick to the timer (triple the standard rate)
-				}
+				// AI[1] is a timer that controls when the next attack will occur (when it reaches 300)
+				NPC.ai[1] += desperationMode ? 3f : 1f; // If below half health, add three tick to the timer, otherwise just add one
 				// If the timer is at 300
 				if (NPC.ai[1] >= 300f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] = 0f; // Reset the timer
-					// Choose a random attack, with different variants selected if below a quarter health
-					if ((double)NPC.life < (double)NPC.lifeMax * 0.25)
-					{
-						NPC.ai[0] = Main.rand.Next(3, 5);
-					}
-					else
-					{
-						NPC.ai[0] = Main.rand.Next(1, 3);
-					}
+					//NPC.ai[0] = Main.rand.Next(1, 4); // Selects between states 1-3 (attacks 1-3)
+					NPC.ai[0] = 3; // FORCES ATTACK 3 - CHANGE/REMOVE THIS WHEN DONE
 					NPC.netUpdate = true;
 				}
 			}
-			else if (NPC.ai[0] == 1f) // Attack 1 - Regular Version
+			else if (NPC.ai[0] == 1f) // Attack 1 - Throw arms at player
 			{
-				stopMoving = true; // Don't move when attacking (regular only)
+				stopMoving = true; // Don't move when attacking
 				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 120)
 				if (NPC.ai[1] % 15f == 0f) // Creates a projectile every 15 ticks of the timer
 				{
-					Vector2 vector109 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f + 30f);
-					float num878 = Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f - vector109.X;
-					float num879 = Main.player[NPC.target].position.Y - vector109.Y;
-					float num880 = (float)Math.Sqrt(num878 * num878 + num879 * num879);
-					float num881 = 10f;
-					num880 = num881 / num880;
-					num878 *= num880;
-					num879 *= num880;
-					num878 *= 1f + (float)Main.rand.Next(-20, 21) * 0.01f;
-					num879 *= 1f + (float)Main.rand.Next(-20, 21) * 0.01f;
-					int num882 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector109.X, vector109.Y, num878, num879, ProjectileID.FlamingWood, 50, 0f, Main.myPlayer);
+					Main.NewText("Attack 1 Projectile! Timer at: " + NPC.ai[1]);
 				}
 				if (NPC.ai[1] >= 120f) // Stop attacking and reset to netural state
 				{
@@ -194,87 +163,44 @@ namespace TRRA.NPCs.Enemies
 					NPC.ai[0] = 0f;
 				}
 			}
-			else if (NPC.ai[0] == 2f) // Attack 2 - Regular Version
+			else if (NPC.ai[0] == 2f) // Attack 2 - Spin arms around body
 			{
-				stopMoving = true; // Don't move when attacking (regular only)
-				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 300)
-				if (NPC.ai[1] > 60f && NPC.ai[1] < 240f && NPC.ai[1] % 8f == 0f) // Creates a projectile every 8 ticks of the timer, between the values of 60 and 240
+				if (!desperationMode)
 				{
-					float num888 = 10f;
-					Vector2 vector111 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f + 30f);
-					float num889 = Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f - vector111.X;
-					float num890 = Main.player[NPC.target].position.Y - vector111.Y;
-					num890 -= Math.Abs(num889) * 0.3f;
-					num888 += Math.Abs(num889) * 0.004f;
-					if (num888 > 14f)
-					{
-						num888 = 14f;
-					}
-					num889 += (float)Main.rand.Next(-50, 51);
-					num890 -= (float)Main.rand.Next(50, 201);
-					float num891 = (float)Math.Sqrt(num889 * num889 + num890 * num890);
-					num891 = num888 / num891;
-					num889 *= num891;
-					num890 *= num891;
-					num889 *= 1f + (float)Main.rand.Next(-30, 31) * 0.01f;
-					num890 *= 1f + (float)Main.rand.Next(-30, 31) * 0.01f;
-					int num892 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector111.X, vector111.Y, num889, num890, Main.rand.Next(326, 329), 40, 0f, Main.myPlayer); // Greek Fire
+					stopMoving = true; // Don't move when attacking (regular only)
 				}
-				if (NPC.ai[1] >= 300f) // Stop attacking and reset to netural state
+				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 480)
+				if (NPC.ai[1] > 60f && NPC.ai[1] < 420f && NPC.ai[1] % 8f == 0f) // True every 8 ticks of the timer, between the values of 60 and 420
+				{
+					Main.NewText("Attack 2 Projectile! Timer at: " + NPC.ai[1]);
+				}
+				if (NPC.ai[1] >= 480f) // Stop attacking and reset to netural state
 				{
 					NPC.ai[1] = 0f;
 					NPC.ai[0] = 0f;
 				}
 			}
-			else if (NPC.ai[0] == 3f) // Attack 1 - Low health Version
+			else if (NPC.ai[0] == 3f) // Attack 3 - Create hand projectiles that move towards the player
 			{
-				speedAdjustment = 4f;
-				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 120)
+				stopMoving = true; // Don't move when attacking
+				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 240)
 				if (NPC.ai[1] % 30f == 0f) // Creates a projectile every 30 ticks of the timer
 				{
-					Vector2 vector112 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f + 30f);
-					float num893 = Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f - vector112.X;
-					float num894 = Main.player[NPC.target].position.Y - vector112.Y;
-					float num895 = (float)Math.Sqrt(num893 * num893 + num894 * num894);
-					float num896 = 16f;
-					num895 = num896 / num895;
-					num893 *= num895;
-					num894 *= num895;
-					num893 *= 1f + (float)Main.rand.Next(-20, 21) * 0.001f;
-					num894 *= 1f + (float)Main.rand.Next(-20, 21) * 0.001f;
-					int num897 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector112.X, vector112.Y, num893, num894, ProjectileID.FlamingWood, 75, 0f, Main.myPlayer);
-				}
-				if (NPC.ai[1] >= 120f) // Stop attacking and reset to netural state
-				{
-					NPC.ai[1] = 0f;
-					NPC.ai[0] = 0f;
-				}
-			}
-			else if (NPC.ai[0] == 4f) // Attack 2 - Low health Version
-			{
-				speedAdjustment = 4f;
-				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 240)
-				if (NPC.ai[1] % 10f == 0f) // Creates a projectile every 10 ticks of the timer
-				{
-					float num898 = 12f;
-					Vector2 vector113 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f + 30f);
-					float num899 = Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f - vector113.X;
-					float num900 = Main.player[NPC.target].position.Y - vector113.Y;
-					num900 -= Math.Abs(num899) * 0.2f;
-					num898 += Math.Abs(num899) * 0.002f;
-					if (num898 > 16f)
-					{
-						num898 = 16f;
-					}
-					num899 += (float)Main.rand.Next(-50, 51);
-					num900 -= (float)Main.rand.Next(50, 201);
-					float num901 = (float)Math.Sqrt(num899 * num899 + num900 * num900);
-					num901 = num898 / num901;
-					num899 *= num901;
-					num900 *= num901;
-					num899 *= 1f + (float)Main.rand.Next(-30, 31) * 0.005f;
-					num900 *= 1f + (float)Main.rand.Next(-30, 31) * 0.005f;
-					int num902 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector113.X, vector113.Y, num899, num900, Main.rand.Next(326, 329), 50, 0f, Main.myPlayer); // Greek Fire
+					Main.NewText("Attack 3 Projectile! Timer at: " + NPC.ai[1]);
+					Vector2 targetPosition = Main.player[NPC.target].position;
+					Vector2 spawnPosition = targetPosition;
+					int xOffset = Main.rand.Next(75, 151);
+					int yOffset = Main.rand.Next(75, 151);
+					spawnPosition.X += Main.rand.NextBool() ? xOffset : -xOffset;
+					spawnPosition.Y += Main.rand.NextBool() ? yOffset : -yOffset;
+					float projXVelocity = targetPosition.X - spawnPosition.X + (float)Main.rand.Next(-20, 21);
+					float projYVelocity = targetPosition.Y - spawnPosition.Y + (float)Main.rand.Next(-20, 21);
+					float num20 = (float)Math.Sqrt(projXVelocity * projXVelocity + projYVelocity * projYVelocity);
+					num20 = 8f / num20;
+					projXVelocity *= num20;
+					projYVelocity *= num20;
+					Vector2 projVelocity = new Vector2(projXVelocity, projYVelocity);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, projVelocity, ProjectileID.DemonSickle, NPC.damage, 1.0f, 0, 1);
 				}
 				if (NPC.ai[1] >= 240f) // Stop attacking and reset to netural state
 				{

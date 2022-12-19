@@ -1316,6 +1316,17 @@ Next Task:
 Begin modifying the behaviour of the Petra Gigas AI.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+19th December 2022
+-------------
+Work Done:
+Created code structure for the Petra Gigas' attack selection.
+Created rough code structure for Petra Gigas hand projectile attack.
+-------------
+Next Task:
+Create Petra Gigas hand spawn projectile and hand projectile (using existing sprites to start).
+Implement behaviour for Petra Gigas arms.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
