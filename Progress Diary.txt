@@ -1327,6 +1327,15 @@ Create Petra Gigas hand spawn projectile and hand projectile (using existing spr
 Implement behaviour for Petra Gigas arms.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+30th December 2022
+-------------
+Work Done:
+Created Petra Gigas hand spawn projectile and hand projectile (just using existing sprites).
+-------------
+Next Task:
+Implement behaviour for Petra Gigas arms.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

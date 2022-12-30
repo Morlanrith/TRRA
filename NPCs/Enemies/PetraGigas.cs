@@ -13,6 +13,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using TRRA.Items.Consumables;
 using TRRA.Items.Materials;
+using TRRA.Projectiles.NPCs.Enemies.PetraGigas;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -186,23 +187,16 @@ namespace TRRA.NPCs.Enemies
 				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 240)
 				if (NPC.ai[1] % 30f == 0f) // Creates a projectile every 30 ticks of the timer
 				{
-					Main.NewText("Attack 3 Projectile! Timer at: " + NPC.ai[1]);
-					Vector2 targetPosition = Main.player[NPC.target].position;
-					Vector2 spawnPosition = targetPosition;
+					Vector2 spawnPosition = Main.player[NPC.target].position;
 					int xOffset = Main.rand.Next(75, 151);
 					int yOffset = Main.rand.Next(75, 151);
 					spawnPosition.X += Main.rand.NextBool() ? xOffset : -xOffset;
 					spawnPosition.Y += Main.rand.NextBool() ? yOffset : -yOffset;
-					float projXVelocity = targetPosition.X - spawnPosition.X + (float)Main.rand.Next(-20, 21);
-					float projYVelocity = targetPosition.Y - spawnPosition.Y + (float)Main.rand.Next(-20, 21);
-					float num20 = (float)Math.Sqrt(projXVelocity * projXVelocity + projYVelocity * projYVelocity);
-					num20 = 8f / num20;
-					projXVelocity *= num20;
-					projYVelocity *= num20;
-					Vector2 projVelocity = new Vector2(projXVelocity, projYVelocity);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, projVelocity, ProjectileID.DemonSickle, NPC.damage, 1.0f, 0, 1);
-				}
-				if (NPC.ai[1] >= 240f) // Stop attacking and reset to netural state
+
+                    // MAKE SURE TO ADJUST DAMAGE AND KNOCKBACK
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, new(0), ProjectileType<HandSpawner>(), NPC.damage, 1.0f, 0, NPC.target);
+                }
+                if (NPC.ai[1] >= 240f) // Stop attacking and reset to netural state
 				{
 					NPC.ai[1] = 0f;
 					NPC.ai[0] = 0f;
