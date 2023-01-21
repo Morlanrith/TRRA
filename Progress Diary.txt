@@ -1336,9 +1336,28 @@ Next Task:
 Implement behaviour for Petra Gigas arms.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+1st January 2022
+-------------
+Work Done:
+Began altering behaviour for Petra Gigas arms.
+-------------
+Next Task:
+Work on attack 2
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+21st January 2022
+-------------
+Work Done:
+Implemented initial version of attack 2 (arms spinning around body)
+-------------
+Next Task:
+Continue work on attack 2
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
+

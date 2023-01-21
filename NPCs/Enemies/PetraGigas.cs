@@ -145,8 +145,8 @@ namespace TRRA.NPCs.Enemies
 				if (NPC.ai[1] >= 300f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] = 0f; // Reset the timer
-					//NPC.ai[0] = Main.rand.Next(1, 4); // Selects between states 1-3 (attacks 1-3)
-					NPC.ai[0] = 3; // FORCES ATTACK 3 - CHANGE/REMOVE THIS WHEN DONE
+					//NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
+					NPC.ai[0] = 2; // FORCES ATTACK 2 - CHANGE/REMOVE THIS WHEN DONE
 					NPC.netUpdate = true;
 				}
 			}
@@ -171,7 +171,7 @@ namespace TRRA.NPCs.Enemies
 					stopMoving = true; // Don't move when attacking (regular only)
 				}
 				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 480)
-				if (NPC.ai[1] > 60f && NPC.ai[1] < 420f && NPC.ai[1] % 8f == 0f) // True every 8 ticks of the timer, between the values of 60 and 420
+				if (NPC.ai[1] >= 60f && NPC.ai[1] < 420f && NPC.ai[1] % 8f == 0f) // True every 8 ticks of the timer, between the values of 60 and 420
 				{
 					Main.NewText("Attack 2 Projectile! Timer at: " + NPC.ai[1]);
 				}

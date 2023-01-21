@@ -72,20 +72,20 @@ namespace TRRA.NPCs.Enemies
         {
 			//if (!TRRAWorld.IsShatteredMoon())
 			//	NPC.EncourageDespawn(10);
+			float parentState = Main.npc[(int)NPC.ai[1]].ai[0];
 
-			NPC.spriteDirection = -(int)NPC.ai[0];
+            NPC.spriteDirection = -(int)NPC.ai[0];
 			// Automatically destroy the arm if the main enemy has been slain
 			if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[1]].type != NPCType<PetraGigas>())
 			{
-				NPC.ai[2] += 10f;
-				if (NPC.ai[2] > 50f || Main.netMode != NetmodeID.Server)
+				if (Main.netMode != NetmodeID.Server)
 				{
 					NPC.life = -1;
 					NPC.HitEffect();
 					NPC.active = false;
 				}
 			}
-			if (NPC.ai[2] == 0f || NPC.ai[2] == 3f)
+			if (parentState == 0f || parentState == 3f)
 			{
 				if (Main.npc[(int)NPC.ai[1]].ai[1] == 3f)
 				{
@@ -151,7 +151,6 @@ namespace TRRA.NPCs.Enemies
 					}
 					if (NPC.ai[3] >= 300f)
 					{
-						NPC.ai[2] += 1f;
 						NPC.ai[3] = 0f;
 						NPC.netUpdate = true;
 					}
@@ -261,96 +260,38 @@ namespace TRRA.NPCs.Enemies
 				float num184 = (float)Math.Sqrt(num182 * num182 + num183 * num183);
 				NPC.rotation = (float)Math.Atan2(num183, num182) + 1.57f;
 			}
-			else if (NPC.ai[2] == 1f)
+			else if (parentState == 1f)
 			{
-				Vector2 vector23 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-				float num185 = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0] - vector23.X;
-				float num186 = Main.npc[(int)NPC.ai[1]].position.Y + 230f - vector23.Y;
-				float num187 = (float)Math.Sqrt(num185 * num185 + num186 * num186);
-				NPC.rotation = (float)Math.Atan2(num186, num185) + 1.57f;
-				NPC.velocity.X *= 0.95f;
-				NPC.velocity.Y -= 0.1f;
-				if (Main.expertMode)
-				{
-					NPC.velocity.Y -= 0.06f;
-					if (NPC.velocity.Y < -13f)
-					{
-						NPC.velocity.Y = -13f;
-					}
-				}
-				else if (NPC.velocity.Y < -8f)
-				{
-					NPC.velocity.Y = -8f;
-				}
-				if (NPC.position.Y < Main.npc[(int)NPC.ai[1]].position.Y - 200f)
-				{
-					NPC.TargetClosest();
-					NPC.ai[2] = 2f;
-					vector23 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-					num185 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector23.X;
-					num186 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector23.Y;
-					num187 = (float)Math.Sqrt(num185 * num185 + num186 * num186);
-					num187 = ((!Main.expertMode) ? (18f / num187) : (21f / num187));
-					NPC.velocity.X = num185 * num187;
-					NPC.velocity.Y = num186 * num187;
-					NPC.netUpdate = true;
-				}
+
 			}
-			else if (NPC.ai[2] == 2f)
-			{
-				if (NPC.position.Y > Main.player[NPC.target].position.Y || NPC.velocity.Y < 0f)
+            else if (parentState == 2f) // Spin around body
+            {
+				NPC parent = Main.npc[(int)NPC.ai[1]];
+                float timer = parent.ai[1] - 60f;
+				if(timer >= 0f && timer < 360f)
 				{
-					NPC.ai[2] = 3f;
+                    Vector2 newPos = new(parent.Center.X, parent.Center.Y + (NPC.ai[0] == 1f ? 200 : -200));
+					double angle = timer*3.0;
+
+                    double radians = (Math.PI / 180) * angle;
+                    double sin = Math.Sin(radians);
+                    double cos = Math.Cos(radians);
+
+                    // Translate point back to origin
+                    newPos.X -= parent.Center.X;
+                    newPos.Y -= parent.Center.Y;
+
+                    // Rotate point
+                    double xnew = newPos.X * cos - newPos.Y * sin;
+                    double ynew = newPos.X * sin + newPos.Y * cos;
+
+                    // Translate point back
+                    newPos = new Vector2((int)xnew + parent.Center.X, (int)ynew + parent.Center.Y);
+
+                    NPC.Center = newPos;
 				}
-			}
-			else if (NPC.ai[2] == 4f)
-			{
-				Vector2 vector24 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-				float num188 = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0] - vector24.X;
-				float num189 = Main.npc[(int)NPC.ai[1]].position.Y + 230f - vector24.Y;
-				float num190 = (float)Math.Sqrt(num188 * num188 + num189 * num189);
-				NPC.rotation = (float)Math.Atan2(num189, num188) + 1.57f;
-				NPC.velocity.Y *= 0.95f;
-				NPC.velocity.X += 0.1f * (0f - NPC.ai[0]);
-				if (Main.expertMode)
-				{
-					NPC.velocity.X += 0.07f * (0f - NPC.ai[0]);
-					if (NPC.velocity.X < -12f)
-					{
-						NPC.velocity.X = -12f;
-					}
-					else if (NPC.velocity.X > 12f)
-					{
-						NPC.velocity.X = 12f;
-					}
-				}
-				else if (NPC.velocity.X < -8f)
-				{
-					NPC.velocity.X = -8f;
-				}
-				else if (NPC.velocity.X > 8f)
-				{
-					NPC.velocity.X = 8f;
-				}
-				if (NPC.position.X + (float)(NPC.width / 2) < Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 500f || NPC.position.X + (float)(NPC.width / 2) > Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) + 500f)
-				{
-					NPC.TargetClosest();
-					NPC.ai[2] = 5f;
-					vector24 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-					num188 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector24.X;
-					num189 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector24.Y;
-					num190 = (float)Math.Sqrt(num188 * num188 + num189 * num189);
-					num190 = ((!Main.expertMode) ? (17f / num190) : (22f / num190));
-					NPC.velocity.X = num188 * num190;
-					NPC.velocity.Y = num189 * num190;
-					NPC.netUpdate = true;
-				}
-			}
-			else if (NPC.ai[2] == 5f && ((NPC.velocity.X > 0f && NPC.position.X + (float)(NPC.width / 2) > Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2)) || (NPC.velocity.X < 0f && NPC.position.X + (float)(NPC.width / 2) < Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2))))
-			{
-				NPC.ai[2] = 0f;
-			}
-		}
+            }
+        }
 
     }
 }
