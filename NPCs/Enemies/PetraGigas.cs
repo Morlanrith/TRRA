@@ -147,6 +147,7 @@ namespace TRRA.NPCs.Enemies
 					NPC.ai[1] = 0f; // Reset the timer
 					//NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
 					NPC.ai[0] = 2; // FORCES ATTACK 2 - CHANGE/REMOVE THIS WHEN DONE
+					NPC.ai[2] = NPC.direction;
 					NPC.netUpdate = true;
 				}
 			}
@@ -173,9 +174,9 @@ namespace TRRA.NPCs.Enemies
 				NPC.ai[1] += 1f; // AI[1] is a timer that controls when the attack will stop (when it reaches 480)
 				if (NPC.ai[1] >= 60f && NPC.ai[1] < 420f && NPC.ai[1] % 8f == 0f) // True every 8 ticks of the timer, between the values of 60 and 420
 				{
-					Main.NewText("Attack 2 Projectile! Timer at: " + NPC.ai[1]);
+					//Main.NewText("Attack 2 Projectile! Timer at: " + NPC.ai[1]);
 				}
-				if (NPC.ai[1] >= 480f) // Stop attacking and reset to netural state
+				if (NPC.ai[1] >= 420f) // Stop attacking and reset to netural state
 				{
 					NPC.ai[1] = 0f;
 					NPC.ai[0] = 0f;

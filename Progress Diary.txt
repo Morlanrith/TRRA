@@ -1342,16 +1342,27 @@ Work Done:
 Began altering behaviour for Petra Gigas arms.
 -------------
 Next Task:
-Work on attack 2
+Work on attack 2.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 21st January 2022
 -------------
 Work Done:
-Implemented initial version of attack 2 (arms spinning around body)
+Implemented initial version of attack 2 (arms spinning around body).
 -------------
 Next Task:
-Continue work on attack 2
+Continue work on attack 2.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+22nd January 2022
+-------------
+Work Done:
+Finished attack 2 (arms spinning around body).
+-------------
+Next Task:
+Begin work on attack 1 (throw arms at player).
+Adjust position that arms normally occupy.
+Begin work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

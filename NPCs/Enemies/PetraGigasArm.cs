@@ -13,6 +13,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using TRRA.Items.Consumables;
 using TRRA.Items.Materials;
+using System.Reflection.Metadata;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -89,7 +90,7 @@ namespace TRRA.NPCs.Enemies
 			{
 				if (Main.npc[(int)NPC.ai[1]].ai[1] == 3f)
 				{
-					NPC.EncourageDespawn(10);
+					//NPC.EncourageDespawn(10);
 				}
 				if (Main.npc[(int)NPC.ai[1]].ai[1] != 0f)
 				{
@@ -270,26 +271,44 @@ namespace TRRA.NPCs.Enemies
                 float timer = parent.ai[1] - 60f;
 				if(timer >= 0f && timer < 360f)
 				{
-                    Vector2 newPos = new(parent.Center.X, parent.Center.Y + (NPC.ai[0] == 1f ? 200 : -200));
-					double angle = timer*3.0;
+                    Vector2 newPos = new(parent.Center.X + (NPC.ai[0] * -(200+(timer/2f))), parent.Center.Y);
+					double angle = timer*3.0*parent.ai[2];
 
                     double radians = (Math.PI / 180) * angle;
                     double sin = Math.Sin(radians);
                     double cos = Math.Cos(radians);
 
-                    // Translate point back to origin
+                    // Translate position back to origin
                     newPos.X -= parent.Center.X;
                     newPos.Y -= parent.Center.Y;
 
-                    // Rotate point
+                    // Rotate position
                     double xnew = newPos.X * cos - newPos.Y * sin;
                     double ynew = newPos.X * sin + newPos.Y * cos;
 
-                    // Translate point back
+                    // Translate position back
                     newPos = new Vector2((int)xnew + parent.Center.X, (int)ynew + parent.Center.Y);
-
+					NPC.rotation = parent.rotation + (float)((Math.PI / 180) * (angle + (NPC.ai[0] * 90)));
                     NPC.Center = newPos;
 				}
+				else if(timer < 0f)
+                {
+                    timer += 60f;
+                    Vector2 intendedPos = new(parent.Center.X + (NPC.ai[0] * -200), parent.Center.Y);
+					float xDiff = (intendedPos.X - NPC.Center.X) / (60f - timer);
+                    float yDiff = (intendedPos.Y - NPC.Center.Y) / (60f - timer);
+
+                    NPC.Center = new(NPC.Center.X+xDiff, NPC.Center.Y + yDiff);
+
+					float intendedRot = parent.rotation + (float)((Math.PI / 180) * (NPC.ai[0] * 90));
+
+                    while (intendedRot * NPC.ai[0] > NPC.rotation * NPC.ai[0])
+                    {
+                        intendedRot -= (float)(Math.PI * 2) * NPC.ai[0];
+                    }
+
+                    NPC.rotation += (intendedRot - NPC.rotation) / (60f - timer);
+                }
             }
         }
 
