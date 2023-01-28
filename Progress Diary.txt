@@ -1365,6 +1365,16 @@ Adjust position that arms normally occupy.
 Begin work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+28th January 2022
+-------------
+Work Done:
+Implemented attack 1 (throw arms at player).
+-------------
+Next Task:
+Adjust position that arms normally occupy.
+Begin work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
