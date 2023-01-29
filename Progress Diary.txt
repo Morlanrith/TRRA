@@ -1375,6 +1375,15 @@ Adjust position that arms normally occupy.
 Begin work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+29th January 2022
+-------------
+Work Done:
+Adjusted position that arms normally occupy.
+-------------
+Next Task:
+Begin work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

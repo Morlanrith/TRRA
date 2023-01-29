@@ -54,10 +54,7 @@ namespace TRRA.NPCs.Enemies
 			NPC.noTileCollide = true;
 			NPC.knockBackResist = 0f;
 			NPC.value = 0f;
-			//Banner = NPC.type;
-			//BannerItem = ItemType<CreepBanner>();
 			AnimationType = NPCID.SkeletronHand;
-			//AIType = NPCID.SkeletronHand;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
@@ -73,190 +70,72 @@ namespace TRRA.NPCs.Enemies
 
 		private void NormalBehaviour()
 		{
-            if (Main.npc[(int)NPC.ai[1]].ai[1] == 3f)
+            NPC parent = Main.npc[(int)NPC.ai[1]];
+            float elevation = 0f; // Height above the center of the body
+            if (NPC.position.Y > parent.position.Y - elevation)
             {
-                //NPC.EncourageDespawn(10);
-            }
-            if (Main.npc[(int)NPC.ai[1]].ai[1] != 0f)
-            {
-                if (NPC.position.Y > Main.npc[(int)NPC.ai[1]].position.Y - 100f)
+                if (NPC.velocity.Y > 0f)
                 {
-                    if (NPC.velocity.Y > 0f)
-                    {
-                        NPC.velocity.Y *= 0.96f;
-                    }
-                    NPC.velocity.Y -= 0.07f;
-                    if (NPC.velocity.Y > 6f)
-                    {
-                        NPC.velocity.Y = 6f;
-                    }
+                    NPC.velocity.Y *= 0.96f;
                 }
-                else if (NPC.position.Y < Main.npc[(int)NPC.ai[1]].position.Y - 100f)
+                NPC.velocity.Y -= 0.07f;
+                if (NPC.velocity.Y > 6f)
                 {
-                    if (NPC.velocity.Y < 0f)
-                    {
-                        NPC.velocity.Y *= 0.96f;
-                    }
-                    NPC.velocity.Y += 0.07f;
-                    if (NPC.velocity.Y < -6f)
-                    {
-                        NPC.velocity.Y = -6f;
-                    }
-                }
-                if (NPC.position.X + (float)(NPC.width / 2) > Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 120f * NPC.ai[0])
-                {
-                    if (NPC.velocity.X > 0f)
-                    {
-                        NPC.velocity.X *= 0.96f;
-                    }
-                    NPC.velocity.X -= 0.1f;
-                    if (NPC.velocity.X > 8f)
-                    {
-                        NPC.velocity.X = 8f;
-                    }
-                }
-                if (NPC.position.X + (float)(NPC.width / 2) < Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 120f * NPC.ai[0])
-                {
-                    if (NPC.velocity.X < 0f)
-                    {
-                        NPC.velocity.X *= 0.96f;
-                    }
-                    NPC.velocity.X += 0.1f;
-                    if (NPC.velocity.X < -8f)
-                    {
-                        NPC.velocity.X = -8f;
-                    }
+                    NPC.velocity.Y = 6f;
                 }
             }
-            else
+            else if (NPC.position.Y < parent.position.Y - elevation)
             {
-                NPC.ai[3] += 1f;
-                if (Main.expertMode)
+                if (NPC.velocity.Y < 0f)
                 {
-                    NPC.ai[3] += 0.5f;
+                    NPC.velocity.Y *= 0.96f;
                 }
-                if (NPC.ai[3] >= 300f)
+                NPC.velocity.Y += 0.07f;
+                if (NPC.velocity.Y < -6f)
                 {
-                    NPC.ai[3] = 0f;
-                    NPC.netUpdate = true;
-                }
-                if (Main.expertMode)
-                {
-                    if (NPC.position.Y > Main.npc[(int)NPC.ai[1]].position.Y + 230f)
-                    {
-                        if (NPC.velocity.Y > 0f)
-                        {
-                            NPC.velocity.Y *= 0.96f;
-                        }
-                        NPC.velocity.Y -= 0.04f;
-                        if (NPC.velocity.Y > 3f)
-                        {
-                            NPC.velocity.Y = 3f;
-                        }
-                    }
-                    else if (NPC.position.Y < Main.npc[(int)NPC.ai[1]].position.Y + 230f)
-                    {
-                        if (NPC.velocity.Y < 0f)
-                        {
-                            NPC.velocity.Y *= 0.96f;
-                        }
-                        NPC.velocity.Y += 0.04f;
-                        if (NPC.velocity.Y < -3f)
-                        {
-                            NPC.velocity.Y = -3f;
-                        }
-                    }
-                    if (NPC.position.X + (float)(NPC.width / 2) > Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0])
-                    {
-                        if (NPC.velocity.X > 0f)
-                        {
-                            NPC.velocity.X *= 0.96f;
-                        }
-                        NPC.velocity.X -= 0.07f;
-                        if (NPC.velocity.X > 8f)
-                        {
-                            NPC.velocity.X = 8f;
-                        }
-                    }
-                    if (NPC.position.X + (float)(NPC.width / 2) < Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0])
-                    {
-                        if (NPC.velocity.X < 0f)
-                        {
-                            NPC.velocity.X *= 0.96f;
-                        }
-                        NPC.velocity.X += 0.07f;
-                        if (NPC.velocity.X < -8f)
-                        {
-                            NPC.velocity.X = -8f;
-                        }
-                    }
-                }
-                if (NPC.position.Y > Main.npc[(int)NPC.ai[1]].position.Y + 230f)
-                {
-                    if (NPC.velocity.Y > 0f)
-                    {
-                        NPC.velocity.Y *= 0.96f;
-                    }
-                    NPC.velocity.Y -= 0.04f;
-                    if (NPC.velocity.Y > 3f)
-                    {
-                        NPC.velocity.Y = 3f;
-                    }
-                }
-                else if (NPC.position.Y < Main.npc[(int)NPC.ai[1]].position.Y + 230f)
-                {
-                    if (NPC.velocity.Y < 0f)
-                    {
-                        NPC.velocity.Y *= 0.96f;
-                    }
-                    NPC.velocity.Y += 0.04f;
-                    if (NPC.velocity.Y < -3f)
-                    {
-                        NPC.velocity.Y = -3f;
-                    }
-                }
-                if (NPC.position.X + (float)(NPC.width / 2) > Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0])
-                {
-                    if (NPC.velocity.X > 0f)
-                    {
-                        NPC.velocity.X *= 0.96f;
-                    }
-                    NPC.velocity.X -= 0.07f;
-                    if (NPC.velocity.X > 8f)
-                    {
-                        NPC.velocity.X = 8f;
-                    }
-                }
-                if (NPC.position.X + (float)(NPC.width / 2) < Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0])
-                {
-                    if (NPC.velocity.X < 0f)
-                    {
-                        NPC.velocity.X *= 0.96f;
-                    }
-                    NPC.velocity.X += 0.07f;
-                    if (NPC.velocity.X < -8f)
-                    {
-                        NPC.velocity.X = -8f;
-                    }
+                    NPC.velocity.Y = -6f;
                 }
             }
+            float distance = 120f; // Distance from the center of the body
+            if (NPC.position.X + (float)(NPC.width / 2) > parent.position.X + (float)(parent.width / 2) - distance * NPC.ai[0])
+            {
+                if (NPC.velocity.X > 0f)
+                {
+                    NPC.velocity.X *= 0.96f;
+                }
+                NPC.velocity.X -= 0.1f;
+                if (NPC.velocity.X > 8f)
+                {
+                    NPC.velocity.X = 8f;
+                }
+            }
+            if (NPC.position.X + (float)(NPC.width / 2) < parent.position.X + (float)(parent.width / 2) - distance * NPC.ai[0])
+            {
+                if (NPC.velocity.X < 0f)
+                {
+                    NPC.velocity.X *= 0.96f;
+                }
+                NPC.velocity.X += 0.1f;
+                if (NPC.velocity.X < -8f)
+                {
+                    NPC.velocity.X = -8f;
+                }
+            }
+
             Vector2 vector22 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
-            float num182 = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - 200f * NPC.ai[0] - vector22.X;
-            float num183 = Main.npc[(int)NPC.ai[1]].position.Y + 230f - vector22.Y;
-            float num184 = (float)Math.Sqrt(num182 * num182 + num183 * num183);
-            NPC.rotation = (float)Math.Atan2(num183, num182) + 1.57f;
+            float num182 = parent.position.X + (float)(parent.width / 2) - 200f * NPC.ai[0] - vector22.X;
+            float num183 = parent.position.Y + 230f - vector22.Y;
+            NPC.rotation = (float)Math.Atan2(num183, num182) - 1.57f;
         }
 
 		public override void AI()
         {
-            //if (!TRRAWorld.IsShatteredMoon())
-            //	NPC.EncourageDespawn(10);
             NPC parent = Main.npc[(int)NPC.ai[1]];
             float parentState = parent.ai[0];
 
             NPC.spriteDirection = -(int)NPC.ai[0];
 			// Automatically destroy the arm if the main enemy has been slain
-			if (!Main.npc[(int)NPC.ai[1]].active || Main.npc[(int)NPC.ai[1]].type != NPCType<PetraGigas>())
+			if (!parent.active || parent.type != NPCType<PetraGigas>())
 			{
 				if (Main.netMode != NetmodeID.Server)
 				{
@@ -337,9 +216,9 @@ namespace TRRA.NPCs.Enemies
 
                     float intendedRot = parent.rotation + (float)((Math.PI / 180) * (NPC.ai[0] * 90));
 
-                    while (intendedRot * NPC.ai[0] > NPC.rotation * NPC.ai[0])
+                    while (intendedRot * NPC.ai[0] < NPC.rotation * NPC.ai[0])
                     {
-                        intendedRot -= (float)(Math.PI * 2) * NPC.ai[0];
+                        intendedRot += (float)(Math.PI * 2) * NPC.ai[0];
                     }
 
                     NPC.rotation += (intendedRot - NPC.rotation) / (60f - timer);
