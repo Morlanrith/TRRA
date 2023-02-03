@@ -274,7 +274,9 @@ namespace TRRA.NPCs.Enemies
 			{
 				NPC.velocity.Y = 10f;
 			}
-		}
+
+            if(NPC.velocity.X != 0f) NPC.spriteDirection = NPC.direction;
+        }
 
     }
 }

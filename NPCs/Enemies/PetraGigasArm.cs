@@ -42,8 +42,8 @@ namespace TRRA.NPCs.Enemies
 		}
 
 		public override void SetDefaults() {
-			NPC.width = 52;
-			NPC.height = 52;
+			NPC.width = 40;
+			NPC.height = 156;
 			NPC.aiStyle = -1;
 			NPC.damage = 110;
 			NPC.defense = 40;

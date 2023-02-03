@@ -1379,9 +1379,20 @@ Date:
 -------------
 Work Done:
 Adjusted position that arms normally occupy.
+Began work on main body sprites.
 -------------
 Next Task:
-Begin work on sprites.
+Continue work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+3rd February 2022
+-------------
+Work Done:
+Added standard main body (no animation) and arm sprites.
+Updated Petra Gigas to face direction it's moving in.
+-------------
+Next Task:
+Continue work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
