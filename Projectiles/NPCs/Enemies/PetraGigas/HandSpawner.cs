@@ -71,7 +71,7 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
                 projYVelocity *= num20;
                 Vector2 projVelocity = new Vector2(projXVelocity, projYVelocity);
 
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, projVelocity, ProjectileType<GeistHand>(), Projectile.damage, Projectile.knockBack, 0, 1);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projVelocity, ProjectileType<GeistHand>(), Projectile.damage, Projectile.knockBack, 0, 1);
             }
 			if (Main.rand.NextBool(5))
 			{

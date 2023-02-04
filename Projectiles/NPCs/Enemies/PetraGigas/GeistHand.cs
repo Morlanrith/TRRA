@@ -2,9 +2,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TRRA.Dusts;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 {
@@ -12,15 +15,13 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Geist Hand");
-			//ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
-			//ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
 		public override void SetDefaults()
 		{
 			Projectile.damage = 135;
-			Projectile.width = 80;
-			Projectile.height = 80;
+			Projectile.width = 54;
+			Projectile.height = 54;
 			Projectile.aiStyle = 1;
 			Projectile.friendly = false;
 			Projectile.hostile = true;
@@ -36,37 +37,26 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 
 		public override Color? GetAlpha(Color lightColor)
 		{
-			return new Color(255, 255, 255, 50);
+            int timeAlpha = (int)(Projectile.timeLeft * (100.0f / 45));
+            return new Color(timeAlpha, timeAlpha, timeAlpha, timeAlpha);
 		}
 
-		public override void AI()
-		{
-			Lighting.AddLight(Projectile.Center, 1.0f, 0.42f, 0.0f);
-
-			int fire = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 80, 80, DustID.Torch, Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
-			Main.dust[fire].velocity *= -0.25f;
-			fire = Dust.NewDust(new Vector2(Projectile.position.X - Projectile.velocity.X * 4f + 2f, Projectile.position.Y + 2f - Projectile.velocity.Y * 4f), 80, 80, DustID.Torch, Projectile.oldVelocity.X, Projectile.oldVelocity.Y, 100, default, 1.25f);
-			Main.dust[fire].velocity *= -0.25f;
-			Main.dust[fire].position -= Projectile.velocity * 0.5f;
-		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.OnFire, 180);
-		}
+        public override void OnSpawn(IEntitySource source)
+        {
+            Projectile.spriteDirection = Main.rand.NextBool() ? 1 : -1;
+        }
 
 		public override void Kill(int timeLeft)
 		{
-			int dustQuantity = 10;
-			for (int i = 0; i < dustQuantity; i++)
-			{
-				Vector2 dustOffset = Vector2.Normalize(new Vector2(Projectile.velocity.X, Projectile.velocity.Y)) * 32f;
-				int dust = Dust.NewDust(Projectile.position + dustOffset, Projectile.width, Projectile.height, DustID.Torch);
-				Main.dust[dust].noGravity = false;
-				Main.dust[dust].velocity *= 1f;
-				Main.dust[dust].scale = 1.5f;
-			}
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 dustOffset = Vector2.Normalize(new Vector2(Projectile.velocity.X, Projectile.velocity.Y)) * 32f;
+                int dust = Dust.NewDust(Projectile.position + dustOffset, Projectile.width, Projectile.height, DustType<GrimmParticle>());
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].velocity *= 1f;
+            }
 
-		}
+        }
 
         public override bool PreDraw(ref Color lightColor)
         {

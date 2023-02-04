@@ -1400,9 +1400,12 @@ Date:
 Work Done:
 Added animation to Petra Gigas body sprite.
 Added sprite for hand spawning projectile.
+Added sprite for hand projectile.
 -------------
 Next Task:
-Create sprite for hand projectile.
+Create gore sprites.
+Add SFX.
+Add extra VFX (lighting, dusts, etc.).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

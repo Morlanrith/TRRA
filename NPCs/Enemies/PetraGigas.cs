@@ -147,8 +147,7 @@ namespace TRRA.NPCs.Enemies
 				if (NPC.ai[1] >= 300f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] = 0f; // Reset the timer
-                    //NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
-                    NPC.ai[0] = 3; // DELETE LATER
+                    NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
                     NPC.ai[2] = NPC.direction;
 					NPC.ai[3] = NPC.target;
 					NPC.netUpdate = true;
