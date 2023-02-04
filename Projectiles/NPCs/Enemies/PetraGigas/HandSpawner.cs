@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
 using TRRA.Dusts;
+using Terraria.DataStructures;
+using System.Reflection.Metadata;
 
 namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 {
@@ -17,24 +19,25 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Geist Hand Spawner");
-			Main.projFrames[Projectile.type] = 6;
+			Main.projFrames[Projectile.type] = 1;
 		}
 
 		public override void SetDefaults()
 		{
-			Projectile.width = 52;
-			Projectile.height = 70;
+			Projectile.width = 78;
+			Projectile.height = 78;
 			Projectile.aiStyle = 0;
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 			Projectile.timeLeft = 90;
-		}
+        }
 
 		public override Color? GetAlpha(Color lightColor)
 		{
-			return new Color(255, 255, 255, 205);
+			int timeAlpha = (int)(Projectile.timeLeft * (255.0f/90));
+			return new Color(timeAlpha, timeAlpha, timeAlpha, timeAlpha);
 		}
 
 		public override bool? CanHitNPC(NPC target)
@@ -47,12 +50,19 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 			return false;
         }
 
-		public override void AI()
+        public override void OnSpawn(IEntitySource source)
 		{
-			if(Projectile.timeLeft <= 60 && !handSpawned)
+            Projectile.rotation += (float)(Math.PI / 180) * Main.rand.Next(0,361);
+        }
+
+        public override void AI()
+		{
+            Projectile.rotation += Projectile.timeLeft * (0.012f / 90) * Projectile.ai[1];
+            Projectile.scale = 0.5f + ((float)Projectile.timeLeft / 180);
+            if (Projectile.timeLeft <= 60 && !handSpawned)
 			{
 				handSpawned = true;
-				Vector2 targetPosition = Main.player[(int)Projectile.ai[1]].position;
+				Vector2 targetPosition = Main.player[(int)Projectile.ai[0]].position;
                 float projXVelocity = targetPosition.X - Projectile.position.X + (float)Main.rand.Next(-20, 21);
                 float projYVelocity = targetPosition.Y - Projectile.position.Y + (float)Main.rand.Next(-20, 21);
                 float num20 = (float)Math.Sqrt(projXVelocity * projXVelocity + projYVelocity * projYVelocity);
@@ -66,14 +76,6 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 			if (Main.rand.NextBool(5))
 			{
 				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.RedTorch, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
-			}
-			if (++Projectile.frameCounter >= 5)
-			{
-				Projectile.frameCounter = 0;
-				if (++Projectile.frame >= 6)
-				{
-					Projectile.frame = 0;
-				}
 			}
 		}
 

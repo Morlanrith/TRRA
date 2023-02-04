@@ -1395,6 +1395,16 @@ Next Task:
 Continue work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+4th February 2022
+-------------
+Work Done:
+Added animation to Petra Gigas body sprite.
+Added sprite for hand spawning projectile.
+-------------
+Next Task:
+Create sprite for hand projectile.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

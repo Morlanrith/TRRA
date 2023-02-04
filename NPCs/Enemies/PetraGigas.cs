@@ -40,7 +40,7 @@ namespace TRRA.NPCs.Enemies
 		}
 
 		public override void SetDefaults() {
-			NPC.width = 164;
+			NPC.width = 104;
 			NPC.height = 154;
 			NPC.aiStyle = -1;
 			NPC.damage = 140;
@@ -147,8 +147,9 @@ namespace TRRA.NPCs.Enemies
 				if (NPC.ai[1] >= 300f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] = 0f; // Reset the timer
-					NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
-					NPC.ai[2] = NPC.direction;
+                    //NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
+                    NPC.ai[0] = 3; // DELETE LATER
+                    NPC.ai[2] = NPC.direction;
 					NPC.ai[3] = NPC.target;
 					NPC.netUpdate = true;
 				}
@@ -189,7 +190,7 @@ namespace TRRA.NPCs.Enemies
 					spawnPosition.Y += Main.rand.NextBool() ? yOffset : -yOffset;
 
                     // MAKE SURE TO ADJUST DAMAGE AND KNOCKBACK
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, new(0), ProjectileType<HandSpawner>(), NPC.damage, 1.0f, 0, NPC.target);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, new(0), ProjectileType<HandSpawner>(), NPC.damage, 1.0f, 0, NPC.target, Main.rand.NextBool() ? 1 : -1);
                 }
                 if (NPC.ai[1] >= 240f) // Stop attacking and reset to netural state
 				{
