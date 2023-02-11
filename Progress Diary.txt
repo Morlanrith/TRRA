@@ -1412,9 +1412,13 @@ Date:
 -------------
 Work Done:
 Added gore sprites for Petra Gigas.
+Added SFX and lighting to Petra Gigas.
+Added boss health bar for Petra Gigas.
 -------------
 Next Task:
-
+Setup Bestiary for Petra Gigas (remove arms).
+Create boss trophy for Petra Gigas.
+Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

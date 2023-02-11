@@ -14,18 +14,46 @@ using Terraria.GameContent.ItemDropRules;
 using TRRA.Items.Consumables;
 using TRRA.Items.Materials;
 using TRRA.Projectiles.NPCs.Enemies.PetraGigas;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.GameContent.UI.BigProgressBar;
+using Terraria.GameContent;
 
 namespace TRRA.NPCs.Enemies
 {
-	public class PetraGigas : ModNPC
+    public class PetraGigasBossBar : ModBossBar
+    {
+
+        public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float lifePercent, ref float shieldPercent)
+        {
+            NPC npc = Main.npc[info.npcIndexToAimAt];
+            if (!npc.active)
+                return false;
+
+            lifePercent = Utils.Clamp(npc.life / (float)npc.lifeMax, 0f, 1f);
+
+            return true;
+        }
+    }
+
+    [AutoloadBossHead]
+    public class PetraGigas : ModNPC
 	{
-		public override string Texture => "TRRA/NPCs/Enemies/PetraGigas";
+		private int soundTimer = 0;
+        private static readonly SoundStyle GigasHandSound = new($"{nameof(TRRA)}/Sounds/NPCs/PetraGigas/Gigas_HandPortal")
+        {
+            Volume = 0.6f,
+            Pitch = 0.0f,
+        };
+        public override string Texture => "TRRA/NPCs/Enemies/PetraGigas";
 
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.MourningWood];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			NPCDebuffImmunityData debuffData = new()
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
+
+            NPCDebuffImmunityData debuffData = new()
 			{
 				SpecificallyImmuneTo = new int[] {
 					BuffID.Poisoned,
@@ -46,15 +74,16 @@ namespace TRRA.NPCs.Enemies
 			NPC.damage = 140;
 			NPC.defense = 60;
 			NPC.lifeMax = 24000;
-			NPC.HitSound = SoundID.NPCHit20;
-			NPC.DeathSound = SoundID.NPCDeath25;
+			NPC.HitSound = SoundID.NPCHit41;
+			NPC.DeathSound = SoundID.NPCDeath43;
 			NPC.knockBackResist = 0f;
 			NPC.value = 1000f;
 			NPC.npcSlots = 4f;
+			NPC.boss = true;
+			NPC.BossBar = GetInstance<PetraGigasBossBar>();
 			//Banner = NPC.type;
 			//BannerItem = ItemType<CreepBanner>();
 			AnimationType = NPCID.MourningWood;
-			//AIType = NPCID.MourningWood;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
@@ -98,6 +127,11 @@ namespace TRRA.NPCs.Enemies
             }
         }
 
+        public override void BossLoot(ref string name, ref int potionType)
+        {
+			potionType = ItemID.GreaterHealingPotion;
+        }
+
         public override void OnSpawn(IEntitySource source)
         {
 			NPC.TargetClosest();
@@ -120,10 +154,13 @@ namespace TRRA.NPCs.Enemies
         {
 			// Performs more dangerous/desperate attacks if below a third of health
 			bool desperationMode = (double)NPC.life < (double)NPC.lifeMax * 0.5;
-			//if (!TRRAWorld.IsShatteredMoon())
-			//	NPC.EncourageDespawn(10);
+			if (!TRRAWorld.IsShatteredMoon())
+			{
+				NPC.EncourageDespawn(10);
+			}
+            Lighting.AddLight(NPC.Center, 0.3f, 0f, 0f);
 
-			float speedAdjustment = desperationMode ? 4f : 2f;
+            float speedAdjustment = desperationMode ? 4f : 2f;
 
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
@@ -192,6 +229,7 @@ namespace TRRA.NPCs.Enemies
 					spawnPosition.X += Main.rand.NextBool() ? xOffset : -xOffset;
 					spawnPosition.Y += Main.rand.NextBool() ? yOffset : -yOffset;
 
+                    SoundEngine.PlaySound(GigasHandSound, spawnPosition);
                     // MAKE SURE TO ADJUST DAMAGE AND KNOCKBACK
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, new(0), ProjectileType<HandSpawner>(), NPC.damage, 1.0f, 0, NPC.target, Main.rand.NextBool() ? 1 : -1);
                 }
@@ -214,18 +252,28 @@ namespace TRRA.NPCs.Enemies
 				{
 					NPC.velocity.X = 0f;
 				}
-			}
+                else if (soundTimer++ == 15)
+                {
+                    SoundEngine.PlaySound(SoundID.DeerclopsStep, NPC.Bottom);
+                    soundTimer = 0;
+                }
+            }
 			else
 			{
 				if (NPC.direction > 0)
 				{
-					NPC.velocity.X = (NPC.velocity.X * 20f + speedAdjustment) / 21f;
+                    NPC.velocity.X = (NPC.velocity.X * 20f + speedAdjustment) / 21f;
 				}
 				if (NPC.direction < 0)
 				{
 					NPC.velocity.X = (NPC.velocity.X * 20f - speedAdjustment) / 21f;
 				}
-			}
+                if (soundTimer++ == 15)
+                {
+                    SoundEngine.PlaySound(SoundID.DeerclopsStep, NPC.Bottom);
+                    soundTimer = 0;
+                }
+            }
 
 			// PHASE THROUGH WALLS
 			int num903 = 80;

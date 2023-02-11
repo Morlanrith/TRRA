@@ -48,8 +48,8 @@ namespace TRRA.NPCs.Enemies
 			NPC.damage = 110;
 			NPC.defense = 40;
 			NPC.lifeMax = 4800;
-			NPC.HitSound = SoundID.NPCHit20;
-			NPC.DeathSound = SoundID.NPCDeath25;
+            NPC.HitSound = SoundID.NPCHit41;
+            NPC.DeathSound = SoundID.Item70;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.knockBackResist = 0f;
@@ -130,7 +130,7 @@ namespace TRRA.NPCs.Enemies
                 }
             }
 
-            Vector2 vector22 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
+            Vector2 vector22 = new(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
             float num182 = parent.position.X + (float)(parent.width / 2) - 200f * NPC.ai[0] - vector22.X;
             float num183 = parent.position.Y + 230f - vector22.Y;
             NPC.rotation = (float)Math.Atan2(num183, num182) - 1.57f;
@@ -140,6 +140,7 @@ namespace TRRA.NPCs.Enemies
         {
             NPC parent = Main.npc[(int)NPC.ai[1]];
             float parentState = parent.ai[0];
+            Lighting.AddLight(NPC.Center, 0.15f, 0f, 0f);
 
             NPC.spriteDirection = -(int)NPC.ai[0];
 			// Automatically destroy the arm if the main enemy has been slain
