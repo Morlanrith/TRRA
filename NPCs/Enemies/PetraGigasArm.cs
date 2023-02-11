@@ -64,8 +64,16 @@ namespace TRRA.NPCs.Enemies
 				return;
 			if (NPC.life <= 0)
 			{
-				// DUST + GORE HERE
-			}
+                for (int i = 0; i < 10; i++)
+                {
+                    Vector2 dustOffset = Vector2.Normalize(new Vector2(NPC.velocity.X, NPC.velocity.Y)) * 32f;
+                    int dust = Dust.NewDust(NPC.position + dustOffset, NPC.width, NPC.height, DustID.Stone);
+                    Main.dust[dust].noGravity = false;
+                    Main.dust[dust].velocity *= 1f;
+                }
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigasArm_Shoulder").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigasArm_Wrist").Type);
+            }
 		}
 
 		private void NormalBehaviour()

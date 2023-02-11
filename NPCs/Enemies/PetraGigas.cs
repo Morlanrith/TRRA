@@ -81,18 +81,22 @@ namespace TRRA.NPCs.Enemies
 				return;
 			if (NPC.life <= 0)
 			{
-				/*for (int i = 0; i < 10; i++)
+				for (int i = 0; i < 30; i++)
 				{
-					Vector2 dustOffset = Vector2.Normalize(new Vector2(NPC.NPC.velocity.X, NPC.NPC.velocity.Y)) * 32f;
-					int dust = Dust.NewDust(NPC.position + dustOffset, NPC.width, NPC.height, DustType<GrimmParticle>());
-					Main.dust[dust].noGravity = true;
-					Main.dust[dust].NPC.velocity *= 1f;
+					Vector2 dustOffset = Vector2.Normalize(new Vector2(NPC.velocity.X, NPC.velocity.Y)) * 32f;
+					int dust = Dust.NewDust(NPC.position + dustOffset, NPC.width, NPC.height, DustID.Stone);
+					Main.dust[dust].noGravity = false;
+					Main.dust[dust].velocity *= 1f;
 				}
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.NPC.velocity, Mod.Find<ModGore>("Creep_Head").Type);
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.NPC.velocity, Mod.Find<ModGore>("Creep_Torso").Type);
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.NPC.velocity, Mod.Find<ModGore>("Creep_Tail").Type);*/
-			}
-		}
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_Body").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_Leg").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_LongRock").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_MidRock").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_MidRock2").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_SmallRock").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PetraGigas_SmallRock2").Type);
+            }
+        }
 
         public override void OnSpawn(IEntitySource source)
         {
