@@ -1421,6 +1421,16 @@ Create boss trophy for Petra Gigas.
 Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+12th February 2022
+-------------
+Work Done:
+Setup Bestiary for the Petra Gigas.
+-------------
+Next Task:
+Create boss trophy for Petra Gigas.
+Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

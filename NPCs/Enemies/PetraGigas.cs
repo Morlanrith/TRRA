@@ -65,9 +65,19 @@ namespace TRRA.NPCs.Enemies
 			};
 
 			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
-		}
 
-		public override void SetDefaults() {
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
+            {
+                CustomTexturePath = "TRRA/NPCs/Enemies/PetraGigas_Portrait",
+                Position = new Vector2(15f, 104f),
+                PortraitPositionYOverride = 80f,
+                PortraitPositionXOverride = 0f,
+            };
+
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+        }
+
+        public override void SetDefaults() {
 			NPC.width = 104;
 			NPC.height = 154;
 			NPC.aiStyle = -1;
@@ -77,7 +87,7 @@ namespace TRRA.NPCs.Enemies
 			NPC.HitSound = SoundID.NPCHit41;
 			NPC.DeathSound = SoundID.NPCDeath43;
 			NPC.knockBackResist = 0f;
-			NPC.value = 1000f;
+			NPC.value = 10000f;
 			NPC.npcSlots = 4f;
 			NPC.boss = true;
 			NPC.BossBar = GetInstance<PetraGigasBossBar>();
@@ -89,7 +99,7 @@ namespace TRRA.NPCs.Enemies
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			IItemDropRule rule = ItemDropRule.Common(ItemType<EssenceOfGrimm>(), 1);
+			IItemDropRule rule = ItemDropRule.Common(ItemType<EssenceOfGrimm>(), 1, 5, 15);
 			npcLoot.Add(rule);
 			rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
 			npcLoot.Add(rule);
@@ -99,7 +109,7 @@ namespace TRRA.NPCs.Enemies
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 
-				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.Creep"), // CHANGE LATER
+				new FlavorTextBestiaryInfoElement("Mods.TRRA.Bestiary.PetraGigas"),
 
 			});
 		}

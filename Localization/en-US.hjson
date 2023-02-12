@@ -11,6 +11,7 @@ Mods: {
 			Lancer: "A dangerous hornet-like creature that is not of this world.\nThe stingers they fire are not as poisonous as a conventional Hornet, but the hardened material they're made of allows them to pierce near any armor."
 			Apathy: "A dangerous zombie-like creature that is not of this world.\nWhile rather frail in appearance, the screams they emit can drain you of the will to go on. Try to keep your distance!"
 			Ravager: "A dangerous bat-like creature that is not of this world.\nThough they appear similar to the various bat species of our world, they are notably larger and far more aggressive."
+			PetraGigas: "A massive golem-like creature that is not of this world.\nTheir floating limbs give them a lot of extra options in combat, so try to destroy them first! Also, while the Petra Gigas appears large and imposing, this is only a protective shell to hide its true form..."
 		}
 		
 		TownNPCMood: {

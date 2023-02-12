@@ -58,7 +58,12 @@ namespace TRRA.NPCs.Enemies
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            database.Entries.Remove(bestiaryEntry);
+        }
+
+        public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
 				return;
