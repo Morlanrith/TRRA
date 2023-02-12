@@ -6,7 +6,6 @@ using Terraria.GameContent.Bestiary;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Dusts;
 using TRRA.Biomes;
 using TRRA.Items.Placeable;
 using Terraria.DataStructures;
@@ -23,12 +22,24 @@ namespace TRRA.NPCs.Enemies
 {
     public class PetraGigasBossBar : ModBossBar
     {
+        private int bossHeadIndex = -1;
+
+        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame)
+        {
+            if (bossHeadIndex != -1)
+            {
+                return TextureAssets.NpcHeadBoss[bossHeadIndex];
+            }
+            return null;
+        }
 
         public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float lifePercent, ref float shieldPercent)
         {
             NPC npc = Main.npc[info.npcIndexToAimAt];
             if (!npc.active)
                 return false;
+
+            bossHeadIndex = npc.GetBossHeadTextureIndex();
 
             lifePercent = Utils.Clamp(npc.life / (float)npc.lifeMax, 0f, 1f);
 
@@ -91,21 +102,23 @@ namespace TRRA.NPCs.Enemies
 			NPC.npcSlots = 4f;
 			NPC.boss = true;
 			NPC.BossBar = GetInstance<PetraGigasBossBar>();
-			//Banner = NPC.type;
-			//BannerItem = ItemType<CreepBanner>();
 			AnimationType = NPCID.MourningWood;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			IItemDropRule rule = ItemDropRule.Common(ItemType<EssenceOfGrimm>(), 1, 5, 15);
+			IItemDropRule rule = ItemDropRule.Common(ItemType<EssenceOfGrimm>(), 1, 10, 20);
 			npcLoot.Add(rule);
 			rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
 			npcLoot.Add(rule);
-		}
+			rule = ItemDropRule.Common(ItemType<GeistTrophy>(), 10);
+            npcLoot.Add(rule);
+			rule = ItemDropRule.MasterModeCommonDrop(ItemType<GeistRelic>());
+            npcLoot.Add(rule);
+        }
 
-		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 
@@ -181,8 +194,6 @@ namespace TRRA.NPCs.Enemies
 			}
 
 			bool stopMoving = false;
-
-			//Lighting.AddLight(NPC.Bottom + new Vector2(0f, -30f), 0.3f, 0.125f, 0.06f); // Mourning wood ambient light
 
 			// ATTACKING
 			if (Main.dayTime)
@@ -288,7 +299,7 @@ namespace TRRA.NPCs.Enemies
 			// PHASE THROUGH WALLS
 			int num903 = 80;
 			int num904 = 20;
-			Vector2 vector114 = new Vector2(NPC.Center.X - (float)(num903 / 2), NPC.position.Y + (float)NPC.height - (float)num904);
+			Vector2 vector114 = new(NPC.Center.X - (float)(num903 / 2), NPC.position.Y + (float)NPC.height - (float)num904);
 			bool flag51 = false;
 			if (NPC.position.X < Main.player[NPC.target].position.X && NPC.position.X + (float)NPC.width > Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width && NPC.position.Y + (float)NPC.height < Main.player[NPC.target].position.Y + (float)Main.player[NPC.target].height - 16f)
 			{

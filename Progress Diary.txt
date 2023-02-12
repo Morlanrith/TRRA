@@ -1425,9 +1425,9 @@ Date:
 -------------
 Work Done:
 Setup Bestiary for the Petra Gigas.
+Created boss trophy and relic for Petra Gigas.
 -------------
 Next Task:
-Create boss trophy for Petra Gigas.
 Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:

@@ -2,13 +2,9 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Audio;
 using Terraria.ModLoader;
-using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
-using TRRA.Dusts;
 using Terraria.DataStructures;
-using System.Reflection.Metadata;
 
 namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 {

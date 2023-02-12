@@ -1,19 +1,12 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Dusts;
 using TRRA.Biomes;
-using TRRA.Items.Placeable;
 using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
-using TRRA.Items.Consumables;
-using TRRA.Items.Materials;
-using System.Reflection.Metadata;
 
 namespace TRRA.NPCs.Enemies
 {
