@@ -1431,6 +1431,15 @@ Next Task:
 Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+13th February 2022
+-------------
+Work Done:
+Prevented issue where Petra Gigas could attempt to use attacks 1 or 2 when no arms remain (arms are required for those).
+-------------
+Next Task:
+Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

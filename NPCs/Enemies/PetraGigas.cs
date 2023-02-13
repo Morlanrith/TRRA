@@ -50,7 +50,8 @@ namespace TRRA.NPCs.Enemies
     [AutoloadBossHead]
     public class PetraGigas : ModNPC
 	{
-		private int soundTimer = 0;
+        private int[] arms = { 0, 0 };
+        private int soundTimer = 0;
         private static readonly SoundStyle GigasHandSound = new($"{nameof(TRRA)}/Sounds/NPCs/PetraGigas/Gigas_HandPortal")
         {
             Volume = 0.6f,
@@ -158,19 +159,19 @@ namespace TRRA.NPCs.Enemies
         public override void OnSpawn(IEntitySource source)
         {
 			NPC.TargetClosest();
-			int num156 = NPC.NewNPC(source, (int)(NPC.position.X + (float)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, NPCType<PetraGigasArm>(), NPC.whoAmI);
-			Main.npc[num156].ai[0] = -1f;
-			Main.npc[num156].ai[1] = NPC.whoAmI;
-			Main.npc[num156].target = NPC.target;
-			Main.npc[num156].netUpdate = true;
-            int num157 = NPC.NewNPC(source, (int)(NPC.position.X + (float)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, NPCType<PetraGigasArm>(), NPC.whoAmI);
-			Main.npc[num157].ai[0] = 1f;
-			Main.npc[num157].ai[1] = NPC.whoAmI;
-			Main.npc[num157].ai[3] = 150f;
-			Main.npc[num157].target = NPC.target;
-			Main.npc[num157].netUpdate = true;
-			Main.npc[num157].ai[2] = Main.npc[num156].whoAmI;
-            Main.npc[num156].ai[2] = Main.npc[num157].whoAmI;
+			arms[0] = NPC.NewNPC(source, (int)(NPC.position.X + (float)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, NPCType<PetraGigasArm>(), NPC.whoAmI);
+			Main.npc[arms[0]].ai[0] = -1f;
+			Main.npc[arms[0]].ai[1] = NPC.whoAmI;
+			Main.npc[arms[0]].target = NPC.target;
+			Main.npc[arms[0]].netUpdate = true;
+            arms[1] = NPC.NewNPC(source, (int)(NPC.position.X + (float)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, NPCType<PetraGigasArm>(), NPC.whoAmI);
+			Main.npc[arms[1]].ai[0] = 1f;
+			Main.npc[arms[1]].ai[1] = NPC.whoAmI;
+			Main.npc[arms[1]].ai[3] = 150f;
+			Main.npc[arms[1]].target = NPC.target;
+			Main.npc[arms[1]].netUpdate = true;
+			Main.npc[arms[1]].ai[2] = Main.npc[arms[0]].whoAmI;
+            Main.npc[arms[0]].ai[2] = Main.npc[arms[1]].whoAmI;
 		}
 
         public override void AI()
@@ -182,6 +183,8 @@ namespace TRRA.NPCs.Enemies
 				NPC.EncourageDespawn(10);
 			}
             Lighting.AddLight(NPC.Center, 0.3f, 0f, 0f);
+
+			bool noArmsLeft = (!Main.npc[arms[0]].active || Main.npc[arms[0]].type != NPCType<PetraGigasArm>()) && (!Main.npc[arms[1]].active || Main.npc[arms[1]].type != NPCType<PetraGigasArm>());
 
             float speedAdjustment = desperationMode ? 4f : 2f;
 
@@ -209,7 +212,7 @@ namespace TRRA.NPCs.Enemies
 				if (NPC.ai[1] >= 300f && Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					NPC.ai[1] = 0f; // Reset the timer
-                    NPC.ai[0] = Main.rand.Next(1, 4); // Selects between attacks 1-3
+                    NPC.ai[0] = noArmsLeft ? 3f : Main.rand.Next(1, 4); // Selects between attacks 1-3
                     NPC.ai[2] = NPC.direction;
 					NPC.ai[3] = NPC.target;
 					NPC.netUpdate = true;
