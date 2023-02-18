@@ -1336,7 +1336,7 @@ Next Task:
 Implement behaviour for Petra Gigas arms.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-1st January 2022
+1st January 2023
 -------------
 Work Done:
 Began altering behaviour for Petra Gigas arms.
@@ -1345,7 +1345,7 @@ Next Task:
 Work on attack 2.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-21st January 2022
+21st January 2023
 -------------
 Work Done:
 Implemented initial version of attack 2 (arms spinning around body).
@@ -1354,7 +1354,7 @@ Next Task:
 Continue work on attack 2.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-22nd January 2022
+22nd January 2023
 -------------
 Work Done:
 Finished attack 2 (arms spinning around body).
@@ -1365,7 +1365,7 @@ Adjust position that arms normally occupy.
 Begin work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-28th January 2022
+28th January 2023
 -------------
 Work Done:
 Implemented attack 1 (throw arms at player).
@@ -1375,7 +1375,7 @@ Adjust position that arms normally occupy.
 Begin work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-29th January 2022
+29th January 2023
 -------------
 Work Done:
 Adjusted position that arms normally occupy.
@@ -1385,7 +1385,7 @@ Next Task:
 Continue work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-3rd February 2022
+3rd February 2023
 -------------
 Work Done:
 Added standard main body (no animation) and arm sprites.
@@ -1395,7 +1395,7 @@ Next Task:
 Continue work on sprites.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-4th February 2022
+4th February 2023
 -------------
 Work Done:
 Added animation to Petra Gigas body sprite.
@@ -1408,7 +1408,7 @@ Add SFX.
 Add extra VFX (lighting, dusts, etc.).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-11th February 2022
+11th February 2023
 -------------
 Work Done:
 Added gore sprites for Petra Gigas.
@@ -1421,7 +1421,7 @@ Create boss trophy for Petra Gigas.
 Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-12th February 2022
+12th February 2023
 -------------
 Work Done:
 Setup Bestiary for the Petra Gigas.
@@ -1431,7 +1431,7 @@ Next Task:
 Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-13th February 2022
+13th February 2023
 -------------
 Work Done:
 Prevented issue where Petra Gigas could attempt to use attacks 1 or 2 when no arms remain (arms are required for those).
@@ -1440,10 +1440,22 @@ Next Task:
 Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+18th February 2023
+-------------
+Work Done:
+Began adding the Geist enemy (to spawn when the Petra Gigas is defeated).
+Added AI for the Geist.
+-------------
+Next Task:
+Create sprites/update visuals for the Geist
+Add SFX/VFX to the Geist
+Update needed boss logic for Petra Gigas to Geist.
+Add Bestiary info for the Geist.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
-

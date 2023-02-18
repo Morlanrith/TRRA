@@ -99,25 +99,13 @@ namespace TRRA.NPCs.Enemies
 			NPC.HitSound = SoundID.NPCHit41;
 			NPC.DeathSound = SoundID.NPCDeath43;
 			NPC.knockBackResist = 0f;
-			NPC.value = 10000f;
+			NPC.value = 0f;
 			NPC.npcSlots = 4f;
 			NPC.boss = true;
 			NPC.BossBar = GetInstance<PetraGigasBossBar>();
 			AnimationType = NPCID.MourningWood;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
-
-		public override void ModifyNPCLoot(NPCLoot npcLoot)
-		{
-			IItemDropRule rule = ItemDropRule.Common(ItemType<EssenceOfGrimm>(), 1, 10, 20);
-			npcLoot.Add(rule);
-			rule = ItemDropRule.Common(ItemType<MoonSummoner>(), 100);
-			npcLoot.Add(rule);
-			rule = ItemDropRule.Common(ItemType<GeistTrophy>(), 10);
-            npcLoot.Add(rule);
-			rule = ItemDropRule.MasterModeCommonDrop(ItemType<GeistRelic>());
-            npcLoot.Add(rule);
-        }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
@@ -173,6 +161,11 @@ namespace TRRA.NPCs.Enemies
 			Main.npc[arms[1]].ai[2] = Main.npc[arms[0]].whoAmI;
             Main.npc[arms[0]].ai[2] = Main.npc[arms[1]].whoAmI;
 		}
+
+        public override void OnKill()
+        {
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Geist>());
+        }
 
         public override void AI()
         {
