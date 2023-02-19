@@ -49,7 +49,7 @@ namespace TRRA.NPCs.Enemies
 			NPC.width = 90;
 			NPC.height = 60;
 			NPC.aiStyle = -1;
-			NPC.damage = 90;
+			NPC.damage = 60;
 			NPC.defense = 30;
 			NPC.lifeMax = 1800;
 			NPC.HitSound = SoundID.NPCHit54;
@@ -82,7 +82,18 @@ namespace TRRA.NPCs.Enemies
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
+        public override void OnSpawn(IEntitySource source)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Vector2 dustOffset = Vector2.Normalize(new Vector2(NPC.velocity.X, NPC.velocity.Y));
+                int dust = Dust.NewDust(NPC.position + dustOffset, NPC.width, NPC.height, DustID.Wraith, 0, 0, 50, default, 3);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].velocity *= 1f;
+            }
+        }
+
+        public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.netMode == NetmodeID.Server)
 				return;
@@ -112,7 +123,7 @@ namespace TRRA.NPCs.Enemies
 
             int frameSpeed = 5;
             NPC.frameCounter += 0.5f;
-            NPC.frameCounter += NPC.velocity.Length() / 10f; // Make the counter go faster with more movement speed
+            NPC.frameCounter += NPC.velocity.Length() / 10f;
             if (NPC.frameCounter > frameSpeed)
             {
                 NPC.frameCounter = 0;

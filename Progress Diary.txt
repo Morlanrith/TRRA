@@ -1461,10 +1461,11 @@ Added SFX/VFX to the Geist.
 Added Bestiary info for the Geist.
 Updated needed boss logic for Petra Gigas to Geist.
 Added Petra Gigas to the Shattered Moon spawn pool as a unique enemy.
+Final balancing/fixes for the Petra Gigas.
+Released version 3.4.0.
 -------------
 Next Task:
-Final balancing/fixes for the Petra Gigas.
-Release version 3.4.0.
+Begin work on chibi team RWBY pets.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

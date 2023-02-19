@@ -24,7 +24,7 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 			Projectile.aiStyle = 1;
 			Projectile.friendly = false;
 			Projectile.hostile = true;
-			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.DamageType = DamageClass.Generic;
 			Projectile.penetrate = 5;
 			Projectile.timeLeft = 90;
 			Projectile.alpha = 255;
@@ -43,18 +43,6 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
         public override void OnSpawn(IEntitySource source)
         {
             Projectile.spriteDirection = Main.rand.NextBool() ? 1 : -1;
-        }
-
-		public override void Kill(int timeLeft)
-		{
-            for (int i = 0; i < 10; i++)
-            {
-                Vector2 dustOffset = Vector2.Normalize(new Vector2(Projectile.velocity.X, Projectile.velocity.Y)) * 32f;
-                int dust = Dust.NewDust(Projectile.position + dustOffset, Projectile.width, Projectile.height, DustType<GrimmParticle>());
-                Main.dust[dust].noGravity = true;
-                Main.dust[dust].velocity *= 1f;
-            }
-
         }
 
         public override bool PreDraw(ref Color lightColor)

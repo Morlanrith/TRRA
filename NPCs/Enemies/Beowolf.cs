@@ -51,7 +51,10 @@ namespace TRRA.NPCs.Enemies
 
 			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
-				Velocity = 3f,
+                Position = new Vector2(12f, 12f),
+                PortraitPositionXOverride = 0f,
+                PortraitPositionYOverride = 0f,
+                Velocity = 3f,
 			};
 
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);

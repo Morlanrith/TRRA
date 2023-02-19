@@ -3,13 +3,9 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 3.3.0.2 of the mod, which adds the following:
+This is version 3.4.0 of the mod, which adds the following:
 
-2 new Grimm to the Shattered Moon event; the Ravager, and the Apathy.
-
-TRRA's first pet, Zwei. His summon item can be obtained as a rare drop from Beowolves.
-
-Other small adjustments, the most notable being the inclusion of research values for all TRRA items in Journey mode.
+A new boss Grimm for the Shattered Moon event, the Petra Gigas. It can spawn at any point past midnight during the event.
 
 This mod now also has a wiki! It can be found at: https://terrariamods.fandom.com/wiki/TRRA_(A_RWBY_Mod)
 

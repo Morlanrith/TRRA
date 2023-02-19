@@ -90,8 +90,8 @@ namespace TRRA.NPCs.Enemies
 			NPC.height = 154;
 			NPC.aiStyle = -1;
 			NPC.damage = 140;
-			NPC.defense = 60;
-			NPC.lifeMax = 24000;
+			NPC.defense = 50;
+			NPC.lifeMax = 18000;
 			NPC.HitSound = SoundID.NPCHit41;
 			NPC.DeathSound = SoundID.NPCDeath43;
 			NPC.knockBackResist = 0f;
@@ -246,8 +246,7 @@ namespace TRRA.NPCs.Enemies
 					spawnPosition.Y += Main.rand.NextBool() ? yOffset : -yOffset;
 
                     SoundEngine.PlaySound(GigasHandSound, spawnPosition);
-                    // MAKE SURE TO ADJUST DAMAGE AND KNOCKBACK
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, new(0), ProjectileType<HandSpawner>(), NPC.damage, 1.0f, 0, NPC.target, Main.rand.NextBool() ? 1 : -1);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPosition, new(0), ProjectileType<HandSpawner>(), 60, 1.5f, 0, NPC.target, Main.rand.NextBool() ? 1 : -1);
                 }
                 if (NPC.ai[1] >= 240f) // Stop attacking and reset to netural state
 				{
