@@ -51,6 +51,8 @@ namespace TRRA.NPCs.Enemies
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
 		}
 
+        public override bool CheckActive() => false;
+
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             database.Entries.Remove(bestiaryEntry);

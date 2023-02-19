@@ -94,6 +94,10 @@ namespace TRRA.NPCs
 						else if (i == NPCType<Apathy>()) spawnChance = 0.4f;
 						pool.Add(i, spawnChance);
 					}
+					if(Main.time > 16200 && !TRRAWorld.GigasSpawned())
+					{
+						pool.Add(NPCType<PetraGigas>(), 1.0f);
+                    }
 				}
 			}
         }

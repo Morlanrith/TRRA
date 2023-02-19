@@ -1449,8 +1449,22 @@ Added AI for the Geist.
 Next Task:
 Create sprites/update visuals for the Geist
 Add SFX/VFX to the Geist
-Update needed boss logic for Petra Gigas to Geist.
 Add Bestiary info for the Geist.
+Update needed boss logic for Petra Gigas to Geist.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+19th February 2022
+-------------
+Work Done:
+Created sprites for the Geist.
+Added SFX/VFX to the Geist.
+Added Bestiary info for the Geist.
+Updated needed boss logic for Petra Gigas to Geist.
+Added Petra Gigas to the Shattered Moon spawn pool as a unique enemy.
+-------------
+Next Task:
+Final balancing/fixes for the Petra Gigas.
+Release version 3.4.0.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

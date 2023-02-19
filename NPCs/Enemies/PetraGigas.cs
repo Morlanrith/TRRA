@@ -7,11 +7,7 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Biomes;
-using TRRA.Items.Placeable;
 using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
-using TRRA.Items.Consumables;
-using TRRA.Items.Materials;
 using TRRA.Projectiles.NPCs.Enemies.PetraGigas;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -141,11 +137,14 @@ namespace TRRA.NPCs.Enemies
 
         public override void BossLoot(ref string name, ref int potionType)
         {
+			name = "A Petra Gigas";
 			potionType = ItemID.GreaterHealingPotion;
         }
 
         public override void OnSpawn(IEntitySource source)
         {
+            TRRAWorld.SetGigas(NPC.whoAmI);
+            Main.NewText("A Petra Gigas has spawned!", 175, 75);
 			NPC.TargetClosest();
 			arms[0] = NPC.NewNPC(source, (int)(NPC.position.X + (float)(NPC.width / 2)), (int)NPC.position.Y + NPC.height / 2, NPCType<PetraGigasArm>(), NPC.whoAmI);
 			Main.npc[arms[0]].ai[0] = -1f;
@@ -164,7 +163,7 @@ namespace TRRA.NPCs.Enemies
 
         public override void OnKill()
         {
-			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Geist>());
+			TRRAWorld.SetGigas(NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Geist>()));
         }
 
         public override void AI()
