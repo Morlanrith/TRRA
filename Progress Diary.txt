@@ -1285,7 +1285,187 @@ Work Done:
 Finished adding extra notes/trivia to weapon sections on wiki.
 -------------
 Next Task:
-Begin work on 3.4.0, likely starting with work on the Petra-Gigas miniboss.
+Begin work on 3.4.0, likely starting with work on the Petra Gigas miniboss.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+26th November 2022
+-------------
+Work Done:
+Created notes to define the rough design for the Petra Gigas miniboss.
+-------------
+Next Task:
+Create basic dummy version of the enemy using existing enemy code/assets.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+4th December 2022
+-------------
+Work Done:
+Began working on a dummy version of the Petra Gigas, using the Mourning Wood and Skeletron Arms enemies as a base.
+Have the arms spawn correctly as children of the main Petra Gigas enemy.
+-------------
+Next Task:
+Begin modifying the behaviour of the Petra Gigas AI.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+11th December 2022
+-------------
+Work Done:
+Added comments to the Petra Gigas adapated AI to decipher what each part of the code does, so it can easily be altered.
+-------------
+Next Task:
+Begin modifying the behaviour of the Petra Gigas AI.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+19th December 2022
+-------------
+Work Done:
+Created code structure for the Petra Gigas' attack selection.
+Created rough code structure for Petra Gigas hand projectile attack.
+-------------
+Next Task:
+Create Petra Gigas hand spawn projectile and hand projectile (using existing sprites to start).
+Implement behaviour for Petra Gigas arms.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+30th December 2022
+-------------
+Work Done:
+Created Petra Gigas hand spawn projectile and hand projectile (just using existing sprites).
+-------------
+Next Task:
+Implement behaviour for Petra Gigas arms.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+1st January 2023
+-------------
+Work Done:
+Began altering behaviour for Petra Gigas arms.
+-------------
+Next Task:
+Work on attack 2.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+21st January 2023
+-------------
+Work Done:
+Implemented initial version of attack 2 (arms spinning around body).
+-------------
+Next Task:
+Continue work on attack 2.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+22nd January 2023
+-------------
+Work Done:
+Finished attack 2 (arms spinning around body).
+-------------
+Next Task:
+Begin work on attack 1 (throw arms at player).
+Adjust position that arms normally occupy.
+Begin work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+28th January 2023
+-------------
+Work Done:
+Implemented attack 1 (throw arms at player).
+-------------
+Next Task:
+Adjust position that arms normally occupy.
+Begin work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+29th January 2023
+-------------
+Work Done:
+Adjusted position that arms normally occupy.
+Began work on main body sprites.
+-------------
+Next Task:
+Continue work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+3rd February 2023
+-------------
+Work Done:
+Added standard main body (no animation) and arm sprites.
+Updated Petra Gigas to face direction it's moving in.
+-------------
+Next Task:
+Continue work on sprites.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+4th February 2023
+-------------
+Work Done:
+Added animation to Petra Gigas body sprite.
+Added sprite for hand spawning projectile.
+Added sprite for hand projectile.
+-------------
+Next Task:
+Create gore sprites.
+Add SFX.
+Add extra VFX (lighting, dusts, etc.).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+11th February 2023
+-------------
+Work Done:
+Added gore sprites for Petra Gigas.
+Added SFX and lighting to Petra Gigas.
+Added boss health bar for Petra Gigas.
+-------------
+Next Task:
+Setup Bestiary for Petra Gigas (remove arms).
+Create boss trophy for Petra Gigas.
+Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+12th February 2023
+-------------
+Work Done:
+Setup Bestiary for the Petra Gigas.
+Created boss trophy and relic for Petra Gigas.
+-------------
+Next Task:
+Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+13th February 2023
+-------------
+Work Done:
+Prevented issue where Petra Gigas could attempt to use attacks 1 or 2 when no arms remain (arms are required for those).
+-------------
+Next Task:
+Begin experimenting with work on the potential Geist enemy (final stage for Petra Gigas).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+18th February 2023
+-------------
+Work Done:
+Began adding the Geist enemy (to spawn when the Petra Gigas is defeated).
+Added AI for the Geist.
+-------------
+Next Task:
+Create sprites/update visuals for the Geist
+Add SFX/VFX to the Geist
+Add Bestiary info for the Geist.
+Update needed boss logic for Petra Gigas to Geist.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+19th February 2022
+-------------
+Work Done:
+Created sprites for the Geist.
+Added SFX/VFX to the Geist.
+Added Bestiary info for the Geist.
+Updated needed boss logic for Petra Gigas to Geist.
+Added Petra Gigas to the Shattered Moon spawn pool as a unique enemy.
+Final balancing/fixes for the Petra Gigas.
+Released version 3.4.0.
+-------------
+Next Task:
+Begin work on chibi team RWBY pets.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

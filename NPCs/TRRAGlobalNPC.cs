@@ -94,6 +94,11 @@ namespace TRRA.NPCs
 						else if (i == NPCType<Apathy>()) spawnChance = 0.4f;
 						pool.Add(i, spawnChance);
 					}
+					// If time is past midnight, and one has not already spawned, allow spawning of a Petra Gigas
+					if(Main.time > 16200 && !TRRAWorld.GigasSpawned())
+					{
+						pool.Add(NPCType<PetraGigas>(), 1.0f);
+                    }
 				}
 			}
         }
