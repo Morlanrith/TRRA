@@ -7,6 +7,7 @@ using TRRA.Tiles;
 using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
 using TRRA.NPCs.Enemies;
+using TRRA.Items.Placeable;
 
 namespace TRRA.NPCs
 {
@@ -54,7 +55,19 @@ namespace TRRA.NPCs
 			public static int[] GetEnemies() { return enemies; }
 		}
 
-		public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        {
+            if (type == NPCID.Painter && TRRAWorld.GetNoDust())
+            {
+                shop.item[nextSlot].SetDefaults(ItemType<Items.Placeable.Worthy>());
+                nextSlot++;
+
+                shop.item[nextSlot].SetDefaults(ItemType<Items.Placeable.KeepMovingForward>());
+                nextSlot++;
+            }
+        }
+
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
 		{
 			if (npc.type == NPCID.Golem)
 			{

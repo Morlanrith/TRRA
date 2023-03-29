@@ -1473,9 +1473,10 @@ Date:
 Work Done:
 Decided against adding the chibi team RWBY pets, as would rather focus on other things (may still return to idea later).
 Added a new furniture item, a painting called 'Worthy'.
+Added a second painting, 'Keep Moving Forward'.
+Added both paintings to the Painters sold items (when Skeletron has been defeated - i.e. when dust is available)
 -------------
 Next Task:
-Add a second painting, 'Keep Moving Forward'.
 Begin work on remaining vanity outfits.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
