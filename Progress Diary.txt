@@ -1453,7 +1453,7 @@ Add Bestiary info for the Geist.
 Update needed boss logic for Petra Gigas to Geist.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-19th February 2022
+19th February 2023
 -------------
 Work Done:
 Created sprites for the Geist.
@@ -1466,6 +1466,17 @@ Released version 3.4.0.
 -------------
 Next Task:
 Begin work on chibi team RWBY pets.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+29th March 2023
+-------------
+Work Done:
+Decided against adding the chibi team RWBY pets, as would rather focus on other things (may still return to idea later).
+Added a new furniture item, a painting called 'Worthy'.
+-------------
+Next Task:
+Add a second painting, 'Keep Moving Forward'.
+Begin work on remaining vanity outfits.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
