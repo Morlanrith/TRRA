@@ -1453,7 +1453,7 @@ Add Bestiary info for the Geist.
 Update needed boss logic for Petra Gigas to Geist.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-19th February 2022
+19th February 2023
 -------------
 Work Done:
 Created sprites for the Geist.
@@ -1468,9 +1468,52 @@ Next Task:
 Begin work on chibi team RWBY pets.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+29th March 2023
+-------------
+Work Done:
+Decided against adding the chibi team RWBY pets, as would rather focus on other things (may still return to idea later).
+Added a new furniture item, a painting called 'Worthy'.
+Added a second painting, 'Keep Moving Forward'.
+Added both paintings to the Painters sold items (when Skeletron has been defeated - i.e. when dust is available)
+-------------
+Next Task:
+Begin work on remaining vanity outfits.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+30th March 2023
+-------------
+Work Done:
+Added the Silent vanity set, which is based on the original outfit worn by Neopolitan.
+-------------
+Next Task:
+Add a vanity set based on Penny Polendina.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+31st March 2023
+-------------
+Work Done:
+Added the Protector vanity set, which is based on the Volume 7 outfit worn by Penny Polendina.
+-------------
+Next Task:
+Add a vanity set based on Qrow Branwen.
+Add a vanity set based on Raven Branwen.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+1st April 2023
+-------------
+Work Done:
+Added the Unlucky vanity set, which is based on the original outfit worn by Qrow Branwen.
+Added the Ominous vanity set, which is based on the original outfit worn by Raven Branwen.
+Released version 3.4.1.
+-------------
+Next Task:
+Begin work on porting TRRA to version 1.4.4 compliant tModLoader.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
+

@@ -5,13 +5,12 @@ using Terraria.ID;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
-	public class ShroudBoots : ModItem
+	public class ProtectorBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Boots");
-			Tooltip.SetDefault("'Nevermore will I run away'");
+			DisplayName.SetDefault("Protector Boots");
+			Tooltip.SetDefault("'Take a message of hope to the stars'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-			SetupDrawing();
 		}
 
 		public override void SetDefaults()
@@ -23,18 +22,11 @@ namespace TRRA.Items.Armor
 			Item.vanity = true;
 		}
 
-		private void SetupDrawing()
-		{
-			if (Main.netMode == NetmodeID.Server)
-				return;
-			int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
-			ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
-		}
-
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Moonglow, 1)
-			.AddIngredient(ItemID.Silk, 20)
-            .AddTile(TileID.Loom)
+            .AddIngredient(ItemID.Nanites, 1)
+            .AddIngredient(ItemID.BlackPaint, 1)
+            .AddRecipeGroup("IronBar", 5)
+            .AddTile(TileID.Anvils)
             .Register();
 	}
 }

@@ -5,13 +5,12 @@ using Terraria.ID;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
-	public class ShroudBoots : ModItem
+	public class OminousBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Boots");
-			Tooltip.SetDefault("'Nevermore will I run away'");
+			DisplayName.SetDefault("Ominous Boots");
+			Tooltip.SetDefault("'I won't fall for you'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-			SetupDrawing();
 		}
 
 		public override void SetDefaults()
@@ -23,16 +22,8 @@ namespace TRRA.Items.Armor
 			Item.vanity = true;
 		}
 
-		private void SetupDrawing()
-		{
-			if (Main.netMode == NetmodeID.Server)
-				return;
-			int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
-			ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
-		}
-
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Moonglow, 1)
+			.AddIngredient(ItemID.Deathweed, 1)
 			.AddIngredient(ItemID.Silk, 20)
             .AddTile(TileID.Loom)
             .Register();

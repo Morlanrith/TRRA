@@ -5,11 +5,11 @@ using Terraria.ID;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
-	public class ShroudBoots : ModItem
+	public class SilentBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Boots");
-			Tooltip.SetDefault("'Nevermore will I run away'");
+			DisplayName.SetDefault("Silent Boots");
+			Tooltip.SetDefault("'Now you'll pay the price'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			SetupDrawing();
 		}
@@ -32,9 +32,9 @@ namespace TRRA.Items.Armor
 		}
 
 		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Moonglow, 1)
+			.AddIngredient(ItemID.PinkThread, 1)
 			.AddIngredient(ItemID.Silk, 20)
-            .AddTile(TileID.Loom)
+			.AddTile(TileID.Loom)
             .Register();
 	}
 }
