@@ -1503,9 +1503,10 @@ Date:
 -------------
 Work Done:
 Added the Unlucky vanity set, which is based on the original outfit worn by Qrow Branwen.
+Added the Ominous vanity set, which is based on the original outfit worn by Raven Branwen.
 -------------
 Next Task:
-Add a vanity set based on Raven Branwen.
+Release version 3.4.1.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
