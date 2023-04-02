@@ -11,7 +11,6 @@ namespace TRRA.Projectiles.Item.Weapon
 	public class GravityBullet : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Gravity Dust Bullet");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}

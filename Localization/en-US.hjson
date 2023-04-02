@@ -20,6 +20,67 @@ Mods: {
 				DisplayName: "Apathetic"
 				Description: "You feel tired..."
 			}
+			
+			ArrayBladeBuff: {
+				DisplayName: "Array Blades"
+				Description: "There are many strings on you"
+			}
+			
+			CorvidBuff: {
+				DisplayName: "Corvid Form"
+				Description: "Gifted with the ability to \"see\" more"
+			}
+			
+			PortalBuff: {
+				DisplayName: "Kindred Link"
+				Description: "Can warp back to your placed portal"
+			}
+			
+			ZweiBuff: {
+				DisplayName: "Zwei"
+				Description: "Known for his perceptive nose and heightened sense of sound"
+			}
+		}
+		
+		Projectiles: {
+			EmberPunch.DisplayName: Ember Punch
+			EmberRocket.DisplayName: Ember Rocket
+			ChildEmberRocket.DisplayName: Child Ember Rocket
+			TripEmberRocket.DisplayName: Triple Ember Rocket
+			ArrayLaser.DisplayName: Array Laser
+			ArrayGuns.DisplayName: Array Guns
+			ArrayBlade.DisplayName: Array Blade
+			GambolBlade.DisplayName: Gambol Blade
+			GambolRibbonEnd.DisplayName: Gambol Ribbon End
+			ShadeRibbonEnd.DisplayName: Shade Ribbon End
+			VeilBlade.DisplayName: Veil Blade
+			HarbingerBB.DisplayName: Harbinger Blade Beam
+			HarbingerCorvid.DisplayName: Harbinger Corvid
+			HarbingerG.DisplayName: Harbinger Gun
+			HarbingerScythe.DisplayName: Harbinger Scythe
+			PortentG.DisplayName: Portent Gun
+			HushClosed.DisplayName: Hush Closed
+			QuietClosed.DisplayName: Quiet Closed
+			WhisperClosed.DisplayName: Whisper Closed
+			KleineblumeR.DisplayName: Kleineblume Rapier
+			SilbernelkeR.DisplayName: Silbernelke Rapier
+			SilbernelkeFR.DisplayName: Silbernelke Fire Rapier
+			MyrtenasterS.DisplayName: Myrtenaster Sword
+			MyrtenasterR.DisplayName: Myrtenaster Rapier
+			MyrtenasterFS.DisplayName: Myrtenaster Fire Wave
+			MyrtenasterFR.DisplayName: Myrtenaster Fire Rapier
+			ForebodeBlade.DisplayName: Forebode Blade
+			PresageBlade.DisplayName: Presage Blade
+			OmenBlade.DisplayName: Omen Blade
+			OmenPortal.DisplayName: Omen Portal
+			FireBullet.DisplayName: Fire Dust Bullet
+			GravityBullet.DisplayName: Gravity Dust Bullet
+			PlantBullet.DisplayName: Plant Dust Bullet
+			IceBullet.DisplayName: Ice Dust Bullet
+			IceFragment.DisplayName: Ice Fragment
+			LancerStinger.DisplayName: Lancer Stinger
+			GeistHand.DisplayName: Geist Hand
+			HandSpawner.DisplayName: Geist Hand Spawner
 		}
 		
 		TownNPCMood: {

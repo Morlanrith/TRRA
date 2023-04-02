@@ -18,7 +18,6 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Presage Blade");
 			Main.projFrames[Projectile.type] = 14;
 		}
 
@@ -43,9 +42,9 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustID, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
 		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-			switch (Projectile.frame / 7)
+            switch (Projectile.frame / 7)
 			{
 				case 0:
 					target.AddBuff(BuffID.OnFire, 120);

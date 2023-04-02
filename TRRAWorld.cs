@@ -130,7 +130,7 @@ namespace TRRA
 					moonType = oldMoonType;
 				if (invasionType == -1) invasionType = 0;
 			}
-			else if (justDay && !dayTime && !fastForwardTime && !ShouldNormalEventsBeAbleToStart())
+			else if (justDay && !dayTime && !fastForwardTimeToDawn && !fastForwardTimeToDusk && !ShouldNormalEventsBeAbleToStart())
             {
                 justDay = false;
                 if (rand.NextBool(9) && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp && NPC.downedPlantBoss)

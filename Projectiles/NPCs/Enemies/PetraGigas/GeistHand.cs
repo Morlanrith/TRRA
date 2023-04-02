@@ -12,10 +12,6 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 {
 	public class GeistHand : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Geist Hand");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.damage = 135;

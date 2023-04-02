@@ -6,10 +6,6 @@ namespace TRRA.Projectiles.Item.Weapon.Hush
 {
 	public class WhisperClosed : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("WhisperClosed");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 14;

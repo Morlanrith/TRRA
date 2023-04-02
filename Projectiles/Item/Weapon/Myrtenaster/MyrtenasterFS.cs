@@ -11,7 +11,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 	public class MyrtenasterFS : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("MyrtenasterFS");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -49,9 +48,9 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Main.dust[fire].velocity *= -0.25f;
 			Main.dust[fire].position -= Projectile.velocity * 0.5f;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.OnFire, 180);
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.OnFire, 180);
 		}
 
 		public override void Kill(int timeLeft)

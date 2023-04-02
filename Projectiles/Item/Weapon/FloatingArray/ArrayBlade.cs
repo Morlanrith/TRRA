@@ -14,9 +14,6 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Array Blades");
-			Description.SetDefault("There are many strings on you");
-
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -41,8 +38,6 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 		private static Asset<Texture2D> threadTexture;
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Array Blade");
-
 			Main.projPet[Projectile.type] = true;
 
 			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;

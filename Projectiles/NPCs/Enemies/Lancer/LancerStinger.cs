@@ -12,7 +12,6 @@ namespace TRRA.Projectiles.NPCs.Enemies.Lancer
 	public class LancerStinger : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Lancer Stinger");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -34,9 +33,9 @@ namespace TRRA.Projectiles.NPCs.Enemies.Lancer
 			AIType = ProjectileID.Bullet;
 		}
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-			if (damage != 0)
+            if (info.Damage != 0)
 			{
 				Random r = new();
 				int _ = r.Next(0, 3);
