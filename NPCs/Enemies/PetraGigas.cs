@@ -29,7 +29,7 @@ namespace TRRA.NPCs.Enemies
             return null;
         }
 
-        public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float lifePercent, ref float shieldPercent)
+        public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float life, ref float lifeMax, ref float shield, ref float shieldMax)
         {
             NPC npc = Main.npc[info.npcIndexToAimAt];
             if (!npc.active)
@@ -37,7 +37,9 @@ namespace TRRA.NPCs.Enemies
 
             bossHeadIndex = npc.GetBossHeadTextureIndex();
 
-            lifePercent = Utils.Clamp(npc.life / (float)npc.lifeMax, 0f, 1f);
+			life = npc.life;
+			lifeMax = npc.lifeMax;
+            //lifePercent = Utils.Clamp(npc.life / (float)npc.lifeMax, 0f, 1f);
 
             return true;
         }
@@ -112,9 +114,9 @@ namespace TRRA.NPCs.Enemies
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (Main.netMode == NetmodeID.Server)
 				return;
 			if (NPC.life <= 0)
 			{

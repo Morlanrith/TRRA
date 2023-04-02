@@ -58,9 +58,9 @@ namespace TRRA.NPCs.Enemies
             database.Entries.Remove(bestiaryEntry);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (Main.netMode == NetmodeID.Server)
 				return;
 			if (NPC.life <= 0)
 			{

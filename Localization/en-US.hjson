@@ -14,6 +14,13 @@ Mods: {
 			PetraGigas: "A massive golem-like creature that is not of this world.\nTheir floating limbs give them a lot of extra options in combat, so try to destroy them first! Also, while it appears large and imposing, this is only a protective shell to hide its true form..."
 			Geist: "A wraith-like creature that is not of this world.\nThis is the true being that exists within the monolithic Petra Gigas, and is very vulnerable while exposed. As a result, it will immediately attempt to flee once forced out, so make sure it doesn't get away."
 		}
+
+		Buffs: {
+			ApatheticDebuff: {
+				DisplayName: "Apathetic"
+				Description: "You feel tired..."
+			}
+		}
 		
 		TownNPCMood: {
 			Shopkeep: {

@@ -8,6 +8,8 @@ using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
 using TRRA.NPCs.Enemies;
 using TRRA.Items.Placeable;
+using Steamworks;
+using System.Linq;
 
 namespace TRRA.NPCs
 {
@@ -35,11 +37,21 @@ namespace TRRA.NPCs
 
 		public class BossBags : GlobalItem
 		{
-            [System.Obsolete]
-            public override void OpenVanillaBag(string context, Player player, int arg)
-			{
-				if (context == "bossBag" && arg == ItemID.GolemBossBag) player.QuickSpawnItem(player.GetSource_OpenItem(ItemType<DustExtract>()), ItemType<DustExtract>(), 1);
-			}
+            public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
+            {
+                if (item.type == ItemID.GolemBossBag)
+                {
+                    foreach (var rule in itemLoot.Get())
+                    {
+                        if (rule is OneFromOptionsNotScaledWithLuckDropRule oneFromOptionsDrop && oneFromOptionsDrop.dropIds.Contains(ItemID.BeeGun))
+                        {
+                            var original = oneFromOptionsDrop.dropIds.ToList();
+                            original.Add(ItemType<DustExtract>());
+                            oneFromOptionsDrop.dropIds = original.ToArray();
+                        }
+                    }
+                }
+            }
 		}
 
 		public class ShatteredMoon
@@ -55,15 +67,12 @@ namespace TRRA.NPCs
 			public static int[] GetEnemies() { return enemies; }
 		}
 
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        public override void ModifyShop(NPCShop shop)
         {
-            if (type == NPCID.Painter && TRRAWorld.GetNoDust())
+            if (shop.NpcType == NPCID.Painter && TRRAWorld.GetNoDust())
             {
-                shop.item[nextSlot].SetDefaults(ItemType<Items.Placeable.Worthy>());
-                nextSlot++;
-
-                shop.item[nextSlot].SetDefaults(ItemType<Items.Placeable.KeepMovingForward>());
-                nextSlot++;
+                shop.Add<Items.Placeable.Worthy>();
+                shop.Add<Items.Placeable.KeepMovingForward>();
             }
         }
 

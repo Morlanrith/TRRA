@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
@@ -73,32 +75,37 @@ namespace TRRA.NPCs
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
-				return;
-			if (NPC.life <= 0)
-			{
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Head").Type);
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Arm").Type);
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Leg").Type);
-			}
-		}
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (Main.netMode == NetmodeID.Server)
+                return;
+            if (NPC.life <= 0)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Head").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Arm").Type);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Shopkeep_Leg").Type);
+            }
+        }
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-			for (int k = 0; k < 255; k++) {
-				Player player = Main.player[k];
-				if (!player.active) {
-					continue;
-				}
-				foreach (Item item in player.inventory) {
-					if (item.type == ItemType<Items.Materials.FireDustCrystal>() || item.type == ItemType<Items.Materials.PlantDustCrystal>() || item.type == ItemType<Items.Materials.GravityDustCrystal>() || item.type == ItemType<Items.Materials.IceDustCrystal>() || (item.ModItem?.Mod == Mod && item.damage > 0)) {
-						return true;
-					}
-				}
-			}
-			return false;
-		}
+        public override bool CanTownNPCSpawn(int numTownNPCs)
+        {
+            for (int k = 0; k < 255; k++)
+            {
+                Player player = Main.player[k];
+                if (!player.active)
+                {
+                    continue;
+                }
+                foreach (Item item in player.inventory)
+                {
+                    if (item.type == ItemType<Items.Materials.FireDustCrystal>() || item.type == ItemType<Items.Materials.PlantDustCrystal>() || item.type == ItemType<Items.Materials.GravityDustCrystal>() || item.type == ItemType<Items.Materials.IceDustCrystal>() || (item.ModItem?.Mod == Mod && item.damage > 0))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
 		public override List<string> SetNPCNameList()
 		{
@@ -143,27 +150,26 @@ namespace TRRA.NPCs
 			button = Language.GetTextValue("LegacyInterface.28");
 		}
 
-		public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
-			if (firstButton) shop = true;
-		}
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            shopName = "Shop";
+        }
 
-		public override void SetupShop(Chest shop, ref int nextSlot) {
-			shop.item[nextSlot].SetDefaults(ItemType<Items.Placeable.DustToolbench>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.DustWeaponKit>());
-			nextSlot++;
-			if(Main.hardMode)
+        public override void AddShops()
+        {
+			var npcShop = new NPCShop(Type, "Shop")
+			.Add<Items.Placeable.DustToolbench>()
+			.Add<Items.Materials.DustWeaponKit>();
+
+            if (Main.hardMode)
             {
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.FireDustExtract>());
-				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.PlantDustExtract>());
-				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.GravityDustExtract>());
-				nextSlot++;
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Materials.IceDustExtract>());
-				nextSlot++;
-			}
-		}
+                npcShop.Add(ItemType<Items.Materials.FireDustExtract>());
+                npcShop.Add(ItemType<Items.Materials.PlantDustExtract>());
+                npcShop.Add(ItemType<Items.Materials.GravityDustExtract>());
+                npcShop.Add(ItemType<Items.Materials.IceDustExtract>());
+            }
+            npcShop.Register(); // Name of this shop tab
+        }
 
 		public override bool CanGoToStatue(bool toKingStatue) {
 			return toKingStatue;
@@ -181,11 +187,11 @@ namespace TRRA.NPCs
 			}
 		}
 
-        public override void DrawTownAttackGun(ref float scale, ref int item, ref int closeness)
+        public override void DrawTownAttackGun(ref Texture2D item, ref Rectangle itemFrame, ref float scale, ref int horizontalHoldoutOffset)
         {
-			scale = 0.75f;
-			item = ItemID.Handgun;
-		}
+            scale = 0.75f;
+            item = TextureAssets.Item[ItemID.Handgun].Value;
+        }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback) {
 			damage = 20;
