@@ -8,7 +8,6 @@ namespace TRRA.Items.Placeable
     public class Worthy : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Worthy");
             Tooltip.SetDefault("'L. Bromley'");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;

@@ -83,6 +83,10 @@ Mods: {
 			HandSpawner.DisplayName: Geist Hand Spawner
 		}
 		
+		Biomes: {
+			ShatteredMoonFakeBiome.DisplayName: Shattered Moon
+		}
+		
 		TownNPCMood: {
 			Shopkeep: {
 				Content: I feel rather relaxed right now.
