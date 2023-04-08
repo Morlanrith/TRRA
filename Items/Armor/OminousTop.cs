@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class OminousTop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Ominous Top");
-			// Tooltip.SetDefault("'I'm not your sacrifice'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

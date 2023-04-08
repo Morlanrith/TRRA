@@ -38,8 +38,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			// DisplayName.SetDefault("Hush");
-			// Tooltip.SetDefault("'I scream, you scream...'\nRight Click to teleport to the position of the mouse");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

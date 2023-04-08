@@ -28,8 +28,6 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Spark Celica");
-			// Tooltip.SetDefault("'Hotter than the sun in the middle of July'\nRight Click to Charge");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

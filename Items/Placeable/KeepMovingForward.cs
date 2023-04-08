@@ -8,9 +8,6 @@ namespace TRRA.Items.Placeable
     public class KeepMovingForward : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Keep Moving Forward");
-            // Tooltip.SetDefault("'M. Oum'");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

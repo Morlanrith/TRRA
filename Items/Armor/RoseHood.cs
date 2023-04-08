@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class RoseHood : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Rose Hood");
-			// Tooltip.SetDefault("'Red like roses'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

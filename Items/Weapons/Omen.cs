@@ -31,8 +31,6 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Omen");
-			// Tooltip.SetDefault("'Strong enough to do what others won't'\nRight Click to create a portal");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

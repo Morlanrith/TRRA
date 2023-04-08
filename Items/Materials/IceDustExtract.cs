@@ -7,7 +7,6 @@ namespace TRRA.Items.Materials
 	public class IceDustExtract : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("An extract of Ice Dust\nCan be used to convert Crystal Shards to Ice Dust Crystals");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

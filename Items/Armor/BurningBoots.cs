@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class BurningBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Burning Boots");
-			// Tooltip.SetDefault("'Yellow beauty burns gold'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

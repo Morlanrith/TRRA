@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class BurningJacket : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Burning Jacket");
-			// Tooltip.SetDefault("'Light up the night with the love in your heart'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

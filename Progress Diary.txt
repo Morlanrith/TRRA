@@ -1510,6 +1510,15 @@ Next Task:
 Begin work on porting TRRA to version 1.4.4 compliant tModLoader.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+8th April 2023
+-------------
+Work Done:
+Finished initial conversion to 1.4.4.
+-------------
+Next Task:
+Check functionality of everything to see if anymore fixes are needed.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

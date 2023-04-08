@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class OminousBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Ominous Boots");
-			// Tooltip.SetDefault("'I won't fall for you'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

@@ -19,8 +19,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			// DisplayName.SetDefault("Crescent Bloom");
-			// Tooltip.SetDefault("'Justice will be swift!'\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

@@ -7,7 +7,6 @@ namespace TRRA.Items.Materials
 	public class DustWeaponKit : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("A kit containing various tools and components to contruct weapons from Dust");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

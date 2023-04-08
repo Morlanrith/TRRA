@@ -13,8 +13,6 @@ namespace TRRA.Items.Weapons
 	public class GambolShadeS : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Gambol Shade");
-			// Tooltip.SetDefault("'May or may not look better with a bow'\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

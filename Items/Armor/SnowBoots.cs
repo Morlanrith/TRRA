@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class SnowBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Snow Boots");
-			// Tooltip.SetDefault("'Carve out your own way'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

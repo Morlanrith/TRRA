@@ -9,8 +9,6 @@ namespace TRRA.Items.Consumables
 	public class MoonSummoner : ModItem
 	{
 		public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Stone of Negativity");
-            // Tooltip.SetDefault("'This is the beginning of the end...'\nSummons the Shattered Moon");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
         }
 

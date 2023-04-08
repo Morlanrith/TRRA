@@ -23,8 +23,6 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Myrtenaster");
-			// Tooltip.SetDefault("'For those who are more than just a name'\nRight Click to shoot a wave of fire\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class ShroudTop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Shroud Top");
-			// Tooltip.SetDefault("'Be seen for who you are'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

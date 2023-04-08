@@ -30,8 +30,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			// DisplayName.SetDefault("Crescent Rose (Nightmare)");
-			// Tooltip.SetDefault("'Wait, that's not right...'\nRight Click to fire as a gun");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

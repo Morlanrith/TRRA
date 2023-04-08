@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class SilentTop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Silent Top");
-			// Tooltip.SetDefault("'One thing, to help escape the misery'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class ProtectorTop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Protector Top");
-			// Tooltip.SetDefault("'Feels as warm as a hug'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
