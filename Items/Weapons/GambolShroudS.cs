@@ -12,7 +12,37 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
-	public class GambolShroudS : ModItem
+    public class ShadowCloneBuff : ModBuff
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.buffNoSave[Type] = true;
+            Main.buffNoTimeDisplay[Type] = false;
+        }
+
+        public override bool RightClick(int buffIndex)
+        {
+			return false;
+        }
+
+        public override void Update(Player player, ref int buffIndex)
+        {
+			if(!player.immune && player.buffTime[buffIndex] > 1)
+			{
+                player.onHitDodge = true;
+                player.shadowDodge = true;
+            }
+			else
+			{
+                player.onHitDodge = false;
+                player.shadowDodge = false;
+                player.shadowDodgeTimer = 600;
+                player.DelBuff(buffIndex);
+            }
+        }
+    }
+
+    public class GambolShroudS : ModItem
 	{
 		private bool canParry = true;
 
@@ -81,8 +111,7 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse == 2)
 			{
 				ResetValues();
-				player.AddBuff(BuffID.ShadowDodge, 30);
-				player.shadowDodgeTimer = 600;
+				player.AddBuff(BuffType<ShadowCloneBuff>(), 30);
 			}
 			else
 			{

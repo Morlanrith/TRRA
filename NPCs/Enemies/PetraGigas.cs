@@ -103,6 +103,7 @@ namespace TRRA.NPCs.Enemies
 			NPC.BossBar = GetInstance<PetraGigasBossBar>();
 			AnimationType = NPCID.MourningWood;
 			SpawnModBiomes = new int[] { GetInstance<ShatteredMoonFakeBiome>().Type };
+			Music = MusicID.OtherworldlyEerie;
 		}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

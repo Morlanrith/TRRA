@@ -650,6 +650,11 @@ Mods: {
 				DisplayName: Kindred Link
 				Description: Can warp back to your placed portal
 			}
+
+			ShadowCloneBuff: {
+				DisplayName: Shadow Clone
+				Description: You will dodge the next attack
+			}
 		}
 
 		Projectiles: {

@@ -31,9 +31,9 @@ namespace TRRA.Items.Weapons
 			Item.rare = ItemRarityID.Orange;
 			Item.value = Item.sellPrice(silver: 54);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 15;
-			Item.useTime = 15;
-			Item.damage = 20;
+			Item.useAnimation = 20;
+			Item.useTime = 20;
+			Item.damage = 25;
 			Item.crit = 31;
 			Item.knockBack = 5f;
 			Item.UseSound = HushStabSound;

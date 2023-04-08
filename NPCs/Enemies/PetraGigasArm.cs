@@ -153,13 +153,14 @@ namespace TRRA.NPCs.Enemies
 					NPC.active = false;
 				}
 			}
-            if (parentState == 0f || parentState == 3f)
+            if (parentState == 0f || parentState == 3f || Main.dayTime)
             {
                 if(!Main.npc[(int)NPC.ai[2]].active)
                 {
                     singleArm= true;
                 }
                 NormalBehaviour();
+                return;
             }
             else if (parentState == 1f) // Fly at player
             {

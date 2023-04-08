@@ -83,7 +83,7 @@ namespace TRRA
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             // Transform Weapon
-            if(TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2)
+            if(TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2 && Player.itemAnimation == 0)
             {
                 Item heldItem = Player.inventory[Player.selectedItem]; // Obtains the current held item from the players inventory
                 Item chosenItem = null;

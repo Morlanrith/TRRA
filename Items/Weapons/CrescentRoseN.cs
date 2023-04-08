@@ -35,11 +35,11 @@ namespace TRRA.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 240;
+			Item.damage = 245;
 			Item.width = 66;
 			Item.height = 56;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.DamageType = DamageClass.Melee;
 			Item.knockBack = 7;

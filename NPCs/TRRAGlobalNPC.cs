@@ -41,15 +41,7 @@ namespace TRRA.NPCs
             {
                 if (item.type == ItemID.GolemBossBag)
                 {
-                    foreach (var rule in itemLoot.Get())
-                    {
-                        if (rule is OneFromOptionsNotScaledWithLuckDropRule oneFromOptionsDrop && oneFromOptionsDrop.dropIds.Contains(ItemID.BeeGun))
-                        {
-                            var original = oneFromOptionsDrop.dropIds.ToList();
-                            original.Add(ItemType<DustExtract>());
-                            oneFromOptionsDrop.dropIds = original.ToArray();
-                        }
-                    }
+                    itemLoot.Add(ItemDropRule.Common(ItemType<DustExtract>(), 1));
                 }
             }
 		}

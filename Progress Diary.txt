@@ -1514,9 +1514,12 @@ Date:
 -------------
 Work Done:
 Finished initial conversion to 1.4.4.
+Checked functionality of everything to see if anymore fixes are needed.
+Repaired Gambol Shroud parry.
 -------------
 Next Task:
-Check functionality of everything to see if anymore fixes are needed.
+Continue to adjust 1.4.4 updated TRRA to work with tModLoader changes.
+Release 1.4.4 updated TRRA.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

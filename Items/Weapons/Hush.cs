@@ -48,9 +48,9 @@ namespace TRRA.Items.Weapons
 			Item.rare = ItemRarityID.Cyan;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 15;
-			Item.useTime = 15;
-			Item.damage = 220;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.damage = 235;
 			Item.crit = 62;
 			Item.knockBack = 5f;
 			Item.UseSound = HushStabSound;
@@ -171,10 +171,10 @@ namespace TRRA.Items.Weapons
 			else
 			{
 				Item.holdStyle = 0;
-				Item.useAnimation = 15;
-				Item.useTime = 15;
-				Item.damage = 220;
-				Item.UseSound = HushStabSound;
+                Item.useAnimation = 20;
+                Item.useTime = 20;
+                Item.damage = 235;
+                Item.UseSound = HushStabSound;
 				Item.shoot = ProjectileType<HushClosed>();
 				Item.noUseGraphic = true;
 				Item.useStyle = ItemUseStyleID.Shoot;
