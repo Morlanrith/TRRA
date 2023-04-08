@@ -21,8 +21,8 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Quiet");
-			Tooltip.SetDefault("'Sarcastic sign not included'");
+			// DisplayName.SetDefault("Quiet");
+			// Tooltip.SetDefault("'Sarcastic sign not included'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

@@ -18,8 +18,8 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Crescent Rose");
-			Tooltip.SetDefault("'It's also a scythe'\nRight Click to zoom out\nTransforms by pressing a mapped hotkey");
+			// DisplayName.SetDefault("Crescent Rose");
+			// Tooltip.SetDefault("'It's also a scythe'\nRight Click to zoom out\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

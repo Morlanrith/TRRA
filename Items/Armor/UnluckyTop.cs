@@ -9,8 +9,8 @@ namespace TRRA.Items.Armor
 	public class UnluckyTop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Unlucky Top");
-			Tooltip.SetDefault("'I'm an albatross'");
+			// DisplayName.SetDefault("Unlucky Top");
+			// Tooltip.SetDefault("'I'm an albatross'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

@@ -9,8 +9,8 @@ namespace TRRA.Items.Weapons
 	public class IceBullet : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ice Dust Bullet");
-			Tooltip.SetDefault("A special kind of bullet that uses ice dust");
+			// DisplayName.SetDefault("Ice Dust Bullet");
+			// Tooltip.SetDefault("A special kind of bullet that uses ice dust");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

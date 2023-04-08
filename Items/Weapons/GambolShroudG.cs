@@ -22,8 +22,8 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Gambol Shroud");
-			Tooltip.SetDefault("'Don't be so dramatic'\nRight Click to fire as a gun\nTransforms by pressing a mapped hotkey");
+			// DisplayName.SetDefault("Gambol Shroud");
+			// Tooltip.SetDefault("'Don't be so dramatic'\nRight Click to fire as a gun\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

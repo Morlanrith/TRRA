@@ -8,12 +8,11 @@ namespace TRRA.Items.Armor
 	public class RoseBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Rose Boots");
-			Tooltip.SetDefault("'I promise I'll be here until the end'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            SetupDrawing();
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.width = 18;
 			Item.height = 18;
@@ -22,7 +21,15 @@ namespace TRRA.Items.Armor
 			Item.vanity = true;
 		}
 
-		public override void AddRecipes() => CreateRecipe()
+        private void SetupDrawing()
+        {
+            if (Main.netMode == NetmodeID.Server)
+                return;
+            int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+            ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
+        }
+
+        public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemID.Daybloom, 1)
 			.AddIngredient(ItemID.Silk, 20)
 			.AddTile(TileID.Loom)

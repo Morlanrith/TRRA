@@ -8,7 +8,7 @@ namespace TRRA.Items.Placeable
     public class GeistRelic : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Geist Relic");
+			// DisplayName.SetDefault("Geist Relic");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

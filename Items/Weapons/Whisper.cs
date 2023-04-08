@@ -26,8 +26,8 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Whisper");
-			Tooltip.SetDefault("'The enemies won't stay dead, but they might with this'");
+			// DisplayName.SetDefault("Whisper");
+			// Tooltip.SetDefault("'The enemies won't stay dead, but they might with this'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

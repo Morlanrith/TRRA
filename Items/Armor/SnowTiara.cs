@@ -8,8 +8,8 @@ namespace TRRA.Items.Armor
 	public class SnowTiara : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Snow Tiara");
-			Tooltip.SetDefault("'Burdened by a royal test'");
+			// DisplayName.SetDefault("Snow Tiara");
+			// Tooltip.SetDefault("'Burdened by a royal test'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

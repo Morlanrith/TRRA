@@ -8,8 +8,8 @@ namespace TRRA.Items.Armor
 	public class ShroudBow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Bow");
-			Tooltip.SetDefault("'It'll go great with your pajamas!'");
+			// DisplayName.SetDefault("Shroud Bow");
+			// Tooltip.SetDefault("'It'll go great with your pajamas!'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

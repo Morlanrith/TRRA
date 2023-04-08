@@ -13,8 +13,8 @@ namespace TRRA.Items.Weapons
 	public class GambolVeil : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Gambol Veil");
-			Tooltip.SetDefault("'Now that's a katana!'");
+			// DisplayName.SetDefault("Gambol Veil");
+			// Tooltip.SetDefault("'Now that's a katana!'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

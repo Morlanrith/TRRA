@@ -21,8 +21,8 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Steel Celica");
-			Tooltip.SetDefault("'Instead of sweetheart, you can just call me SIR'");
+			// DisplayName.SetDefault("Steel Celica");
+			// Tooltip.SetDefault("'Instead of sweetheart, you can just call me SIR'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

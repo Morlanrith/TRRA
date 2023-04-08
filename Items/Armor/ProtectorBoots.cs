@@ -8,8 +8,8 @@ namespace TRRA.Items.Armor
 	public class ProtectorBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Protector Boots");
-			Tooltip.SetDefault("'Take a message of hope to the stars'");
+			// DisplayName.SetDefault("Protector Boots");
+			// Tooltip.SetDefault("'Take a message of hope to the stars'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

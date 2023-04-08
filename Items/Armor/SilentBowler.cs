@@ -8,8 +8,8 @@ namespace TRRA.Items.Armor
 	public class SilentBowler : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Silent Bowler");
-			Tooltip.SetDefault("'Like a candle's flame'");
+			// DisplayName.SetDefault("Silent Bowler");
+			// Tooltip.SetDefault("'Like a candle's flame'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

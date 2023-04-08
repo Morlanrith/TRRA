@@ -10,8 +10,8 @@ namespace TRRA.Items.Weapons
 	public class SilbernelkeF : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Silbernelke");
-			Tooltip.SetDefault("'Not the start of its name, and certainly not the end'");
+			// DisplayName.SetDefault("Silbernelke");
+			// Tooltip.SetDefault("'Not the start of its name, and certainly not the end'");
 		}
 
 		public override void SetDefaults() {

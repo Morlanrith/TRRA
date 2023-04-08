@@ -8,7 +8,7 @@ namespace TRRA.Items.Placeable
     public class GeistTrophy : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Geist Trophy");
+			// DisplayName.SetDefault("Geist Trophy");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

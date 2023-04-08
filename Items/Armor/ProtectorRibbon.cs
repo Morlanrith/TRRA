@@ -8,8 +8,8 @@ namespace TRRA.Items.Armor
 	public class ProtectorRibbon : ModItem
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Protector Ribbon");
-			Tooltip.SetDefault("'Sal...u...TATIOOOOOOOONS!'");
+			// DisplayName.SetDefault("Protector Ribbon");
+			// Tooltip.SetDefault("'Sal...u...TATIOOOOOOOONS!'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
 			ArmorIDs.Head.Sets.FrontToBackID[Item.headSlot] = EquipLoader.GetEquipSlot(Mod, "ProtectorRibbonTex", EquipType.Head);

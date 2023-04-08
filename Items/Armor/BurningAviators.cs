@@ -8,8 +8,8 @@ namespace TRRA.Items.Armor
 	public class BurningAviators : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Burning Aviators");
-			Tooltip.SetDefault("'Fool, you shouldn't stare into these eyes of fire'");
+			// DisplayName.SetDefault("Burning Aviators");
+			// Tooltip.SetDefault("'Fool, you shouldn't stare into these eyes of fire'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

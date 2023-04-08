@@ -4,6 +4,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -63,8 +64,7 @@ namespace TRRA.Tiles
 			TileObjectData.addAlternate(0);
 
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Gravity Dust Crystal");
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(95, 34, 156), name);
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { Type };
@@ -105,13 +105,6 @@ namespace TRRA.Tiles
 			r = 0.37f;
 			g = 0.13f;
 			b = 0.61f;
-		}
-
-        public override bool Drop(int i, int j)
-		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<Items.Materials.GravityDustCrystal>());
-			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i *16,j*16));
-			return base.Drop(i, j);
 		}
 	}
 }

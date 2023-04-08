@@ -7,7 +7,7 @@ namespace TRRA.Items.Materials
 	public class DustExtract : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("A strange otherworldly extract, obtained from the Golems power cell");
+			// Tooltip.SetDefault("A strange otherworldly extract, obtained from the Golems power cell");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

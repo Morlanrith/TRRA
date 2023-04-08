@@ -9,7 +9,7 @@ namespace TRRA.Items.Materials
 	public class EssenceOfGrimm : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'They are creatures of Grimm, the manifestation of anonymity'\nA strange essence left behind by a creature of Grimm");
+			// Tooltip.SetDefault("'They are creatures of Grimm, the manifestation of anonymity'\nA strange essence left behind by a creature of Grimm");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;

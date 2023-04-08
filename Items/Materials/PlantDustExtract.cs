@@ -7,7 +7,7 @@ namespace TRRA.Items.Materials
 	public class PlantDustExtract : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("An extract of Plant Dust\nCan be used to convert Crystal Shards to Plant Dust Crystals");
+			// Tooltip.SetDefault("An extract of Plant Dust\nCan be used to convert Crystal Shards to Plant Dust Crystals");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

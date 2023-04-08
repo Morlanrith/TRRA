@@ -28,8 +28,8 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ember Celica");
-			Tooltip.SetDefault("'Armed and Ready'\nRight Click to Charge\nTransforms by pressing a mapped hotkey");
+			// DisplayName.SetDefault("Ember Celica");
+			// Tooltip.SetDefault("'Armed and Ready'\nRight Click to Charge\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
