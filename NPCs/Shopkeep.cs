@@ -190,7 +190,8 @@ namespace TRRA.NPCs
         public override void DrawTownAttackGun(ref Texture2D item, ref Rectangle itemFrame, ref float scale, ref int horizontalHoldoutOffset)
         {
             scale = 0.75f;
-            item = TextureAssets.Item[ItemID.Handgun].Value;
+            Main.GetItemDrawFrame(ItemID.Handgun, out item, out itemFrame);
+			horizontalHoldoutOffset = (int)Main.DrawPlayerItemPos(1f, ItemID.Handgun).X - 0;
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback) {
