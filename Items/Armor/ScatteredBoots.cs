@@ -6,10 +6,11 @@ using static Terraria.ModLoader.ModContent;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
-	public class RoseBoots : ModItem
+	public class ScatteredBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<RoseBoots>();
             SetupDrawing();
         }
 
@@ -29,12 +30,5 @@ namespace TRRA.Items.Armor
             int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
             ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
         }
-
-        public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Daybloom, 1)
-			.AddIngredient(ItemID.Silk, 20)
-			.AddTile(TileID.Loom)
-			.AddCustomShimmerResult(ItemType<ScatteredBoots>(), 1)
-            .Register();
 	}
 }

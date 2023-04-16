@@ -3,13 +3,7 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 3.4.1 of the mod, which is a small update that adds the following:
-
-- New vanity outfits based off the characters whose weapons have been implemented (who don't already have outfits).
-
-- Some new paintings which are available from the Painter once Skeletron has been defeated.
-
-A new boss Grimm for the Shattered Moon event, the Petra Gigas. It can spawn at any point past midnight during the event.
+This is version 3.4.2 of the mod, which updates the mod for use with the version 1.4.4 compliant tModLoader. It also adds a special extra vanity set. 
 
 This mod now also has a wiki! It can be found at: https://terrariamods.fandom.com/wiki/TRRA_(A_RWBY_Mod)
 

@@ -7,13 +7,14 @@ using static Terraria.ModLoader.ModContent;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Body, EquipType.Back)]
-	public class RoseCloak : ModItem
+	public class ScatteredCloak : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<RoseCloak>();
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 18;
@@ -27,12 +28,5 @@ namespace TRRA.Items.Armor
             base.DrawArmorColor(drawPlayer, shadow, ref color, ref glowMask, ref glowMaskColor);
 			drawPlayer.back = Item.backSlot;
 		}
-
-        public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Daybloom, 1)
-			.AddIngredient(ItemID.Silk, 20)
-			.AddTile(TileID.Loom)
-			.AddCustomShimmerResult(ItemType<ScatteredCloak>(), 1)
-            .Register();
 	}
 }

@@ -1522,6 +1522,16 @@ Continue to adjust 1.4.4 updated TRRA to work with tModLoader changes.
 Release 1.4.4 updated TRRA.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+16th April 2023
+-------------
+Work Done:
+Updated version number for 1.4.4 release version.
+Added the Scattered vanity set, which is based on the Volume 9 outfit worn by Summer Rose.
+-------------
+Next Task:
+
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

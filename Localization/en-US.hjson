@@ -177,6 +177,33 @@ Mods: {
 				DisplayName: Rose Hood
 			}
 
+			ScatteredBoots: {
+				Tooltip:
+					'''
+					'Where thy mates of the garden
+					Lie scentless and dead'
+					'''
+				DisplayName: Scattered Boots
+			}
+
+			ScatteredCloak: {
+				Tooltip:
+					'''
+					'Thus kindly I scatter
+					Thy leaves o'er the bed'
+					'''
+				DisplayName: Scattered Cloak
+			}
+
+			ScatteredHood: {
+				Tooltip:
+					'''
+					'Since the lovely are sleeping,
+					Go, sleep thou with them'
+					'''
+				DisplayName: Scattered Hood
+			}
+
 			ShroudBoots: {
 				Tooltip: "'Nevermore will I run away'"
 				DisplayName: Shroud Boots
