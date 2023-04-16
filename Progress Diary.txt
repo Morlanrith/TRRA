@@ -1527,9 +1527,10 @@ Date:
 Work Done:
 Updated version number for 1.4.4 release version.
 Added the Scattered vanity set, which is based on the Volume 9 outfit worn by Summer Rose.
+Released version 3.4.2 (1.4.4 compliant version).
 -------------
 Next Task:
-
+Look into refining the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
