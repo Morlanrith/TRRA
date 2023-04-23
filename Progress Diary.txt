@@ -1546,9 +1546,9 @@ Date:
 -------------
 Work Done:
 Finished reworked Crescent Rose melee attack.
+Added a bonus projectile to Crescent Rose's ranged attack.
 -------------
 Next Task:
-Begin work on adjusting Crescent Rose ranged attack.
 Being work on overhauling Crescent Rose dash.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:

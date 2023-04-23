@@ -9,7 +9,6 @@ using Terraria.GameInput;
 using TRRA.Tiles;
 using Terraria.DataStructures;
 using Terraria.Audio;
-using TRRA.Projectiles.Item.Weapon;
 using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons

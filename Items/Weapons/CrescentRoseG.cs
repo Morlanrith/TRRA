@@ -1,9 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Items.Materials;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 using TRRA.Tiles;
 using static Terraria.ModLoader.ModContent;
 
@@ -79,5 +81,12 @@ namespace TRRA.Items.Weapons
 			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0)) position += muzzleOffset;
 		}
 
-	}
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile.NewProjectile(source, position, velocity, ProjectileType<RoseBullet>(), damage, knockback, player.whoAmI);
+
+            return true;
+        }
+
+    }
 }

@@ -724,6 +724,7 @@ Mods: {
 			GeistHand.DisplayName: Geist Hand
 			HandSpawner.DisplayName: Geist Hand Spawner
 			CrescentScytheSlash.DisplayName: Crescent Scythe Slash
+			RoseBullet.DisplayName: Rose Bullet
 		}
 
 		Tiles: {
