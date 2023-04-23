@@ -9,6 +9,8 @@ using Terraria.GameInput;
 using TRRA.Tiles;
 using Terraria.DataStructures;
 using Terraria.Audio;
+using TRRA.Projectiles.Item.Weapon;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons
 {
@@ -35,7 +37,7 @@ namespace TRRA.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 310;
+			Item.damage = 155;
 			Item.width = 66;
 			Item.height = 58;
 			Item.useTime = 28;
@@ -49,9 +51,12 @@ namespace TRRA.Items.Weapons
 			Item.crit = 26;
 			Item.autoReuse = true;
 			Item.maxStack = 1;
-		}
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+            Item.shootsEveryUse = true;
+        }
 
-		public override bool AltFunctionUse(Player player)
+        public override bool AltFunctionUse(Player player)
 		{
 			if(player.mount.Active) return false;
 			return true;
@@ -62,12 +67,14 @@ namespace TRRA.Items.Weapons
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = false;
 			Item.noUseGraphic = false;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
-			Item.shoot = ProjectileID.None;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
 			Item.UseSound = RoseSliceSound;
 			Item.autoReuse = true;
-		}
+
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+        }
 
 		public override bool CanUseItem(Player player)
 		{
@@ -130,8 +137,10 @@ namespace TRRA.Items.Weapons
 				Main.dust[dust].velocity *= 1f;
 				Main.dust[dust].scale = 1.5f;
 			}
-			return false;
-		}
+			//return false;
+			return player.altFunctionUse != 2;
+
+        }
 
 	}
 

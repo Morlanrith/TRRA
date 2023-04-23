@@ -1,4 +1,3 @@
-
 Mods: {
 	TRRA: {
 		NPCs: {
@@ -724,6 +723,7 @@ Mods: {
 			LancerStinger.DisplayName: Lancer Stinger
 			GeistHand.DisplayName: Geist Hand
 			HandSpawner.DisplayName: Geist Hand Spawner
+			CrescentScytheSlash.DisplayName: Crescent Scythe Slash
 		}
 
 		Tiles: {
@@ -742,5 +742,4 @@ Mods: {
 		"Keybinds.Transform Weapon.DisplayName": Mods.TRRA.Keybinds.Transform Weapon.DisplayName
 	}
 }
-
 TownNPCMood_Princess.LoveNPC_TRRA/Shopkeep: Did you know {NPCName} is from a different world! It sounds like something out of a fairy tale.
