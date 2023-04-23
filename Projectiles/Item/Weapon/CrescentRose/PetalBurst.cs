@@ -1,8 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
@@ -19,7 +17,12 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
-		public override void Update(Player player, ref int buffIndex)
+        public override bool RightClick(int buffIndex)
+        {
+            return false;
+        }
+
+        public override void Update(Player player, ref int buffIndex)
 		{
 			if (player.ownedProjectileCounts[ProjectileType<PetalBurst>()] > 0)
 			{
@@ -46,7 +49,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 
 		public override void SetDefaults()
 		{
-			Projectile.width = 28;
+			Projectile.width = 84;
 			Projectile.height = 32;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
@@ -73,7 +76,12 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 
         public override void OnSpawn(IEntitySource source)
         {
-			targetPos = new(Projectile.ai[0], Projectile.ai[1]);
+            Player player = Main.player[Projectile.owner];
+            targetPos = new(Projectile.ai[0], Projectile.ai[1]);
+			Vector2 targetVec = (targetPos-Projectile.position)*player.direction;
+			targetVec.Normalize();
+			Projectile.rotation = targetVec.ToRotation();
+			Projectile.spriteDirection = player.direction;
         }
 
         public override void AI()
@@ -92,7 +100,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 				// If the player channels the weapon, do something. This check only works if item.channel is true for the weapon.
 				if (!(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.CrescentRoseS>())
 				{
-					float maxDistance = 15f; // This also sets the maximun speed the Projectile can reach while following the cursor.
+					float maxDistance = 20f; // This also sets the maximun speed the Projectile can reach while following the cursor.
 					Vector2 vectorToPos = targetPos - Projectile.position;
 					float distanceToPos = vectorToPos.Length();
 
@@ -130,8 +138,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 			// Set the rotation so the Projectile points towards where it's going.
 			if (Projectile.velocity != Vector2.Zero)
 			{
-				Projectile.spriteDirection = Projectile.direction*-1;
-				Main.player[Projectile.owner].direction = Projectile.spriteDirection * -1;
+				Main.player[Projectile.owner].direction = Projectile.spriteDirection;
 			}
 			//Animation and firing in terms of frameCounter and first counter
 			if (++Projectile.frameCounter >= 3)
@@ -146,7 +153,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 
 		public override void Kill(int timeLeft)
 		{
-			Main.player[Projectile.owner].direction = Projectile.spriteDirection*-1;
+			Main.player[Projectile.owner].direction = Projectile.spriteDirection;
 			Main.player[Projectile.owner].velocity = Projectile.velocity/3;
 			for (int i = 0; i < Main.rand.Next(4, 7); i++)
 				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<RosePetal>());
