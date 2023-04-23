@@ -71,7 +71,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 		{
 			float xVal = Math.Abs(Projectile.position.X - targetPos.X);
             float yVal = Math.Abs(Projectile.position.Y - targetPos.Y);
-			return xVal < 1f && yVal < 1f;
+			return xVal < 15f && yVal < 15f;
         }
 
         public override void OnSpawn(IEntitySource source)
