@@ -3,7 +3,7 @@
 Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
-This is version 3.4.2 of the mod, which updates the mod for use with the version 1.4.4 compliant tModLoader. It also adds a special extra vanity set. 
+This is version 3.4.3 of the mod, which reworks Crescent Rose to be much more effective.
 
 This mod now also has a wiki! It can be found at: https://terrariamods.fandom.com/wiki/TRRA_(A_RWBY_Mod)
 

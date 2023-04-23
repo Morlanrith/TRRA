@@ -1533,10 +1533,31 @@ Next Task:
 Look into refining the Shattered Moon event.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+22nd April 2023
+-------------
+Work Done:
+Began working on a rework for Crescent Rose, starting with the primary melee attack in scythe mode.
+-------------
+Next Task:
+Continue work on Crescent Rose melee rework.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+23rd April 2023
+-------------
+Work Done:
+Finished reworked Crescent Rose melee attack.
+Added a bonus projectile to Crescent Rose's ranged attack.
+Overhauled Crescent Rose dash with a new effect, the "Petal Burst".
+Released version 3.4.3.
+-------------
+Next Task:
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
+
 

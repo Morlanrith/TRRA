@@ -5,8 +5,6 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Dusts;
-using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 {

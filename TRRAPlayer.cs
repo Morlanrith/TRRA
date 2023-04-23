@@ -5,6 +5,8 @@ using Terraria.Audio;
 using TRRA.Items.Weapons;
 using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
+using Terraria.DataStructures;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA
 {
@@ -78,6 +80,12 @@ namespace TRRA
             EmberFists();
             if(Player.sleeping.isSleeping && TRRAWorld.IsShatteredMoon())
                 Player.sleeping.timeSleeping = 0;
+        }
+
+        public override bool ImmuneTo(PlayerDeathReason damageSource, int cooldownCounter, bool dodgeable)
+        {
+            if (Player.HasBuff<PetalBurstBuff>()) return true;
+            return base.ImmuneTo(damageSource, cooldownCounter, dodgeable);
         }
 
         public override void ProcessTriggers(TriggersSet triggersSet)
