@@ -1547,9 +1547,10 @@ Date:
 Work Done:
 Finished reworked Crescent Rose melee attack.
 Added a bonus projectile to Crescent Rose's ranged attack.
+Began work on overhauling Crescent Rose dash with a new effect, the "Petal Burst".
 -------------
 Next Task:
-Being work on overhauling Crescent Rose dash.
+Continue work on overhauling Crescent Rose dash.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

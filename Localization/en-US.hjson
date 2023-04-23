@@ -681,6 +681,11 @@ Mods: {
 				DisplayName: Shadow Clone
 				Description: You will dodge the next attack
 			}
+
+			PetalBurstBuff: {
+				DisplayName: Petal Burst
+				Description: Mass no longer matters
+			}
 		}
 
 		Projectiles: {
@@ -725,6 +730,7 @@ Mods: {
 			HandSpawner.DisplayName: Geist Hand Spawner
 			CrescentScytheSlash.DisplayName: Crescent Scythe Slash
 			RoseBullet.DisplayName: Rose Bullet
+			PetalBurst.DisplayName: Petal Burst
 		}
 
 		Tiles: {
