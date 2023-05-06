@@ -1553,11 +1553,23 @@ Released version 3.4.3.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+6th May 2023
+-------------
+Work Done:
+Began adding Sundered Rose, an alt variant of Crescent Rose.
+-------------
+Next Task:
+Continue work on Sundered Rose.
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
+
 
 
