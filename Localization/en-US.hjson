@@ -417,7 +417,7 @@ Mods: {
 				Tooltip:
 					'''
 					'It's also a gun'
-					Right Click to dash
+					Right Click to petal burst
 					Transforms by pressing a mapped hotkey
 					'''
 				DisplayName: Crescent Rose
@@ -647,6 +647,25 @@ Mods: {
 				DisplayName: Geist Trophy
 				Tooltip: ""
 			}
+
+			SunderedRoseG: {
+				DisplayName: Sundered Rose
+				Tooltip:
+					'''
+					'I love you just the way you are'
+					Transforms by pressing a mapped hotkey
+					'''
+			}
+
+			SunderedRoseA: {
+				DisplayName: Sundered Rose
+				Tooltip:
+					'''
+					'I love you just the way you are'
+					Right Click to petal burst
+					Transforms by pressing a mapped hotkey
+					'''
+			}
 		}
 
 		Biomes.ShatteredMoonFakeBiome.DisplayName: Shattered Moon
@@ -749,4 +768,5 @@ Mods: {
 		"Keybinds.Transform Weapon.DisplayName": Mods.TRRA.Keybinds.Transform Weapon.DisplayName
 	}
 }
+
 TownNPCMood_Princess.LoveNPC_TRRA/Shopkeep: Did you know {NPCName} is from a different world! It sounds like something out of a fairy tale.

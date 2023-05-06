@@ -73,7 +73,9 @@ namespace TRRA
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
             rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
             oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
-            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item;
+            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item,
+            axe = GetModItem(ItemType<SunderedRoseA>()).Item,
+            axeGun = GetModItem(ItemType<SunderedRoseG>()).Item;
 
         public override void PostUpdate()
         {
@@ -167,6 +169,13 @@ namespace TRRA
                             SoundEngine.PlaySound(HarbingerSwTransformSound); // Plays the relevant transform sound effect
                             chosenItem = oldSword;
                         }
+                        break;
+                    case "Sundered Rose":
+                        SoundEngine.PlaySound(RoseTransformSound); // Plays the transform sound effect for Sundered Rose
+                        if (heldItem.type.Equals(axe.type)) // If the current held Sundered Rose is in Axe form, swaps to gun
+                            chosenItem = axeGun;
+                        else // Otherwise, swaps to axe
+                            chosenItem = axe;
                         break;
                 }
                 if(chosenItem != null)
