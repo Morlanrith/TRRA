@@ -95,6 +95,7 @@ namespace TRRA.Items.Weapons
                 Item.noMelee = true;
                 Item.noUseGraphic = true;
                 Item.useAnimation = 1;
+                Item.UseSound = RoseDashSound;
                 Item.shootSpeed = 10f;
                 Item.shoot = ProjectileType<PetalBurst>();
                 newPos = vector;
@@ -144,7 +145,6 @@ namespace TRRA.Items.Weapons
 					Main.dust[dust].scale = 1.5f;
 				}
                 player.AddBuff(Item.buffType, 2);
-                SoundEngine.PlaySound(RoseDashSound, position);
                 Projectile.NewProjectileDirect(source, player.direction == 1 ? player.Left : player.Right, velocity, type, damage, knockback, Main.myPlayer, newPos.X, newPos.Y);
                 return false;
 			}
