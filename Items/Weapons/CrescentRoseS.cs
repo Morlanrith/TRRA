@@ -32,9 +32,10 @@ namespace TRRA.Items.Weapons
 		public override void SetStaticDefaults() 
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SunderedRoseA>();
+        }
 
-		public override void SetDefaults() 
+        public override void SetDefaults() 
 		{
 			Item.damage = 155;
 			Item.width = 66;

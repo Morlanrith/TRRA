@@ -1564,12 +1564,19 @@ Look into refining the Shattered Moon event.
 Look into implementing continuous Dust generation.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+7th May 2023
+-------------
+Work Done:
+Finished adding Sundered Rose.
+-------------
+Next Task:
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
-
-
-

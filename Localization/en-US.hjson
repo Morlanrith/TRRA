@@ -750,6 +750,9 @@ Mods: {
 			CrescentScytheSlash.DisplayName: Crescent Scythe Slash
 			RoseBullet.DisplayName: Rose Bullet
 			PetalBurst.DisplayName: Petal Burst
+			SunderedAxeSlash.DisplayName: Sundered Axe Slash
+			WhitePetalBurst.DisplayName: White Petal Burst
+			WhiteRoseBullet.DisplayName: White Rose Bullet
 		}
 
 		Tiles: {

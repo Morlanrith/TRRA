@@ -1,14 +1,13 @@
 using TRRA.Dusts;
-using TRRA.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using TRRA.Tiles;
 using Terraria.DataStructures;
 using Terraria.Audio;
 using TRRA.Projectiles.Item.Weapon.CrescentRose;
+using TRRA.Projectiles.Item.Weapon.SunderedRose;
 
 namespace TRRA.Items.Weapons
 {
@@ -23,34 +22,35 @@ namespace TRRA.Items.Weapons
 			Pitch = 0.0f,
 		};
 
-		private static readonly SoundStyle RoseSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseSlice")
+		private static readonly SoundStyle RoseSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseSlice")
 		{
-			Volume = 0.4f,
-			Pitch = 0.0f,
+			Volume = 0.3f,
+			Pitch = -0.2f,
 		};
 
 		public override void SetStaticDefaults() 
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+			ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<CrescentRoseS>();
+        }
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 155;
-			Item.width = 70;
-			Item.height = 52;
-			Item.useTime = 28;
-			Item.useAnimation = 28;
+			Item.damage = 140;
+			Item.width = 60;
+			Item.height = 46;
+			Item.useTime = 24;
+			Item.useAnimation = 24;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.DamageType = DamageClass.Melee;
 			Item.knockBack = 7;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = RoseSliceSound;
-			Item.crit = 26;
+			Item.crit = 21;
 			Item.autoReuse = true;
 			Item.maxStack = 1;
-            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shoot = ProjectileType<SunderedAxeSlash>();
             Item.shootSpeed = 5f;
             Item.shootsEveryUse = true;
             Item.buffType = BuffType<PetalBurstBuff>();
@@ -67,11 +67,11 @@ namespace TRRA.Items.Weapons
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = false;
 			Item.noUseGraphic = false;
-			Item.useTime = 28;
-			Item.useAnimation = 28;
+			Item.useTime = 24;
+			Item.useAnimation = 24;
 			Item.UseSound = RoseSliceSound;
 			Item.autoReuse = true;
-            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shoot = ProjectileType<SunderedAxeSlash>();
             Item.shootSpeed = 5f;
         }
 
@@ -95,7 +95,7 @@ namespace TRRA.Items.Weapons
                 Item.noUseGraphic = true;
                 Item.useAnimation = 1;
                 Item.shootSpeed = 10f;
-                Item.shoot = ProjectileType<PetalBurst>();
+                Item.shoot = ProjectileType<WhitePetalBurst>();
                 newPos = vector;
                 return true;
 			}
@@ -112,7 +112,7 @@ namespace TRRA.Items.Weapons
 		{
 			if (Main.rand.NextBool(3))
 			{
-				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustType<RosePetal>());
+				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustType<WhiteRosePetal>());
 			}
 		}
 
@@ -125,7 +125,7 @@ namespace TRRA.Items.Weapons
 				for (int i = 0; i < dustQuantity; i++)
 				{
 					Vector2 dustOffset = Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 32f;
-					int dust = Dust.NewDust(player.position + dustOffset, Item.width, Item.height, DustType<RosePetal>());
+					int dust = Dust.NewDust(player.position + dustOffset, Item.width, Item.height, DustType<WhiteRosePetal>());
 					Main.dust[dust].noGravity = false;
 					Main.dust[dust].velocity *= 1f;
 					Main.dust[dust].scale = 1.5f;

@@ -54,6 +54,12 @@ namespace TRRA
             Pitch = -0.2f,
         };
 
+        private static readonly SoundStyle WhiteRoseTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseTransform")
+        {
+            Volume = 0.5f,
+            Pitch = 0.0f,
+        };
+
         private ModKeybind altUseHotkey = null;
         private readonly List<Projectile> blades = new();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
@@ -171,7 +177,7 @@ namespace TRRA
                         }
                         break;
                     case "Sundered Rose":
-                        SoundEngine.PlaySound(RoseTransformSound); // Plays the transform sound effect for Sundered Rose
+                        SoundEngine.PlaySound(WhiteRoseTransformSound); // Plays the transform sound effect for Sundered Rose
                         if (heldItem.type.Equals(axe.type)) // If the current held Sundered Rose is in Axe form, swaps to gun
                             chosenItem = axeGun;
                         else // Otherwise, swaps to axe
