@@ -1572,6 +1572,7 @@ Added shimmer transformation between the existing Bloody Tear and the Stone of N
 Removed one time restriction on dust spawning. Now occurs every time Skeletron is killed. (May change this back later)
 Updated the sprite for the painting 'Keep Moving Forward'.
 Released version 3.4.4.
+Fixed sound bug for Crescent Rose and Sundered Rose.
 -------------
 Next Task:
 Look into refining the Shattered Moon event.
