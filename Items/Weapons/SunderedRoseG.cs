@@ -4,33 +4,31 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Items.Materials;
-using TRRA.Projectiles.Item.Weapon.CrescentRose;
-using TRRA.Tiles;
+using TRRA.Projectiles.Item.Weapon.SunderedRose;
 using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons
 {
-	public class CrescentRoseG : ModItem
+	public class SunderedRoseG : ModItem
 	{
-		private static readonly SoundStyle RoseShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseShot")
+		private static readonly SoundStyle RoseShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseShot")
 		{
-			Volume = 0.6f,
+			Volume = 0.3f,
 			Pitch = 0.0f,
 		};
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SunderedRoseG>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<CrescentRoseG>();
         }
 
         public override void SetDefaults() {
-			Item.damage = 240;
+			Item.damage = 180;
 			Item.DamageType = DamageClass.Ranged;
-			Item.width = 68;
-			Item.height = 18;
-			Item.useTime = 30;
-			Item.useAnimation = 30;
+			Item.width = 56;
+			Item.height = 16;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.knockBack = 7;
@@ -41,38 +39,15 @@ namespace TRRA.Items.Weapons
 			Item.autoReuse = false;
 			Item.shoot = ProjectileID.PurificationPowder;
 			Item.shootSpeed = 16f;
-			Item.crit = 36;
+			Item.crit = 31;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.maxStack = 1;
-		}
-
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<CrescentBloomG>(), 1)
-			.AddIngredient(ItemType<FireDustCrystal>(), 10)
-			.AddIngredient(ItemType<PlantDustCrystal>(), 10)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 10)
-			.AddIngredient(ItemType<IceDustCrystal>(), 10)
-			.AddIngredient(ItemID.RedPaint, 10)
-			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddTile(TileType<DustToolbenchTile>())
-			.Register();
-
-		public override void UseStyle(Player player, Rectangle r)
-		{
-			// Allows the player to utilise the scope function with Right Click
-			player.scope = true;
-		}
-
-		public override void HoldItemFrame(Player player)
-		{
-			player.scope = true;
 		}
 
 		public override Vector2? HoldoutOffset()
 		{
 			// Offsets the weapon model, so it is being held correctly
-			return new Vector2(4, 0);
+			return new Vector2(-17, 0);
 		}
 
 		// Offsets the fire location of the bullet from the weapons muzzle
@@ -84,7 +59,7 @@ namespace TRRA.Items.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(source, position, velocity, ProjectileType<RoseBullet>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ProjectileType<WhiteRoseBullet>(), damage, knockback, player.whoAmI);
 
             return true;
         }

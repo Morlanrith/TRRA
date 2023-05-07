@@ -6,40 +6,11 @@ using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
 using TRRA.Dusts;
 using Terraria.DataStructures;
-using TRRA.Projectiles.Item.Weapon.SunderedRose;
 
-namespace TRRA.Projectiles.Item.Weapon.CrescentRose
+namespace TRRA.Projectiles.Item.Weapon.SunderedRose
 {
-	public class PetalBurstBuff : ModBuff
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.buffNoSave[Type] = true;
-			Main.buffNoTimeDisplay[Type] = true;
-		}
-
-        public override bool RightClick(int buffIndex)
-        {
-            return false;
-        }
-
-        public override void Update(Player player, ref int buffIndex)
-		{
-			if (player.ownedProjectileCounts[ProjectileType<PetalBurst>()] > 0 || player.ownedProjectileCounts[ProjectileType<WhitePetalBurst>()] > 0)
-			{
-				player.buffTime[buffIndex] = 18000;
-				player.invis = true;
-			}
-			else
-			{
-				player.DelBuff(buffIndex);
-				player.invis = false;
-                buffIndex--;
-			}
-		}
-	}
 	// Code adapted from the vanilla's magic missile.
-	public class PetalBurst : ModProjectile
+	public class WhitePetalBurst : ModProjectile
 	{
 		private Vector2 targetPos;
 
@@ -91,7 +62,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 
             if (Main.rand.NextBool(5))
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<RosePetal>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 0, default, 0.7f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<WhiteRosePetal>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 0, default, 0.7f);
             }
             // In Multi Player (MP) This code only runs on the client of the Projectile's owner, this is because it relies on mouse position, which isn't the same across all clients.
             if (Main.myPlayer == Projectile.owner)
@@ -99,7 +70,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 
 				Player player = Main.player[Projectile.owner];
 				// If the player channels the weapon, do something. This check only works if item.channel is true for the weapon.
-				if (!(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.CrescentRoseS>())
+				if (!(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.SunderedRoseA>())
 				{
 					float maxDistance = 20f; // This also sets the maximun speed the Projectile can reach while following the cursor.
 					Vector2 vectorToPos = targetPos - Projectile.position;
@@ -157,7 +128,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 			Main.player[Projectile.owner].direction = Projectile.spriteDirection;
 			Main.player[Projectile.owner].velocity = Projectile.velocity/3;
 			for (int i = 0; i < Main.rand.Next(4, 7); i++)
-				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<RosePetal>());
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<WhiteRosePetal>());
 		}
 	}
 }

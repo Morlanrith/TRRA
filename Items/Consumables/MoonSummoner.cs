@@ -10,6 +10,7 @@ namespace TRRA.Items.Consumables
 	{
 		public override void SetStaticDefaults() {
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.BloodMoonStarter;
         }
 
         public override void SetDefaults() {
@@ -25,7 +26,7 @@ namespace TRRA.Items.Consumables
             Item.rare = ItemRarityID.Yellow;
         }
 
-        public override bool? UseItem(Player player)
+        public override bool CanUseItem(Player player)
         {
             if (TRRAWorld.BeginShatteredMoon())
             {
@@ -35,7 +36,16 @@ namespace TRRA.Items.Consumables
                 if (LanternNight.LanternsUp) LanternNight.GenuineLanterns = false;
                 return true;
             }
+            else if (!NPC.downedPlantBoss)
+            {
+                Main.NewText("The ruler of the jungle is holding the Shattered Moon at bay...", 186, 34, 64);
+            }
             return false;
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            return true;
         }
 
         public override void Update(ref float gravity, ref float maxFallSpeed)

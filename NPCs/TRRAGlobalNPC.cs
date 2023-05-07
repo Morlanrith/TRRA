@@ -61,10 +61,10 @@ namespace TRRA.NPCs
 
         public override void ModifyShop(NPCShop shop)
         {
-            if (shop.NpcType == NPCID.Painter && TRRAWorld.GetNoDust())
+            if (shop.NpcType == NPCID.Painter)
             {
-                shop.Add<Items.Placeable.Worthy>();
-                shop.Add<Items.Placeable.KeepMovingForward>();
+                shop.Add<Items.Placeable.Worthy>(Condition.DownedSkeletron);
+                shop.Add<Items.Placeable.KeepMovingForward>(Condition.DownedSkeletron);
             }
         }
 
@@ -170,13 +170,11 @@ namespace TRRA.NPCs
 					else style += 18;
 				}
 			}
-			TRRAWorld.DustSpawned();
 		}
 
 		public override void OnKill(NPC npc)
 		{
-			if (npc.type == NPCID.SkeletronHead && !TRRAWorld.GetNoDust()) GenerateDust();
-			base.OnKill(npc);
+			if (npc.type == NPCID.SkeletronHead) GenerateDust();
 		}
 
 		private static bool PlacementCheck(int i, int j, int attachType)

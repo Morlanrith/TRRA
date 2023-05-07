@@ -1553,11 +1553,34 @@ Released version 3.4.3.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+6th May 2023
+-------------
+Work Done:
+Began adding Sundered Rose, an alt variant of Crescent Rose.
+-------------
+Next Task:
+Continue work on Sundered Rose.
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+7th May 2023
+-------------
+Work Done:
+Finished adding Sundered Rose.
+Added shimmer transformation between the existing Bloody Tear and the Stone of Negativity.
+Removed one time restriction on dust spawning. Now occurs every time Skeletron is killed. (May change this back later)
+Updated the sprite for the painting 'Keep Moving Forward'.
+Released version 3.4.4.
+-------------
+Next Task:
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
-
-
