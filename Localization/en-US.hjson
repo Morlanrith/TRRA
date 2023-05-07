@@ -266,8 +266,8 @@ Mods: {
 			MoonSummoner: {
 				Tooltip:
 					'''
-					'This is the beginning of the end...'
 					Summons the Shattered Moon
+					'This is the beginning of the end...'
 					'''
 				DisplayName: Stone of Negativity
 			}

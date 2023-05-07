@@ -16,7 +16,6 @@ namespace TRRA
 {
 	public class TRRAWorld : ModSystem
 	{
-		private static bool NoDust = false;
 		private static bool ShatteredMoon = false;
 		private static int SpawnedGigas = 0;
         private bool justDay = false;
@@ -30,12 +29,10 @@ namespace TRRA
         }
 		public static int TheSpawnedGigas() { return SpawnedGigas; }
 		public static void SetGigas(int enemyID) { SpawnedGigas = enemyID; }
-        public static bool GetNoDust() { return NoDust; }
-		public static void DustSpawned() { NoDust = true; }
 		public static bool IsShatteredMoon() { return ShatteredMoon; }
 		public static bool BeginShatteredMoon()
         {
-			if (IsShatteredMoon() || dayTime || bloodMoon || pumpkinMoon || snowMoon || invasionType != 0 || DD2Event.Ongoing)
+			if (IsShatteredMoon() || dayTime || bloodMoon || pumpkinMoon || snowMoon || invasionType != 0 || DD2Event.Ongoing || !NPC.downedPlantBoss)
 				return false;
 			if (netMode != NetmodeID.Server)
 			{
@@ -57,12 +54,10 @@ namespace TRRA
 				newMoons[TextureAssets.Moon.Length] = ModContent.Request<Texture2D>($"{effectAssetPath}/Moon_Shattered");
 				TextureAssets.Moon = newMoons;
 			}
-			NoDust = Terraria.NPC.downedBoss3;
 		}
 
 		public override void OnWorldUnload()
         {
-			NoDust = false;
             ShatteredMoon = false;
 			if (netMode != NetmodeID.Server)
 			{
@@ -133,7 +128,7 @@ namespace TRRA
 			else if (justDay && !dayTime && !fastForwardTimeToDawn && !fastForwardTimeToDusk && !ShouldNormalEventsBeAbleToStart())
             {
                 justDay = false;
-                if (rand.NextBool(9) && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp && NPC.downedPlantBoss)
+                if (rand.NextBool(9) && moonPhase != 4 && !slimeRain && !LanternNight.LanternsUp)
 					BeginShatteredMoon();
             }
             else if (!justDay && dayTime && !gameMenu) justDay = true;
