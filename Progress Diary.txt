@@ -1579,9 +1579,22 @@ Look into refining the Shattered Moon event.
 Look into implementing continuous Dust generation.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+17th June 2023
+-------------
+Work Done:
+Recent update of tModLoader broke the mod, as it was now missing a slope image for the Shattered Moon water style. This has
+now been added.
+-------------
+Next Task:
+Wait for 1.4.4 version of tModLoader to become the standard version.
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
 
 -------------
 Next Task:
+

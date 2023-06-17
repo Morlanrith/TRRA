@@ -1,7 +1,27 @@
 Mods: {
 	TRRA: {
 		NPCs: {
-			Shopkeep.DisplayName: Shopkeep
+			Shopkeep: {
+				DisplayName: Shopkeep
+
+				TownNPCMood: {
+					Content: "{$Mods.TRRA.TownNPCMood.Shopkeep.Content}"
+					NoHome: "{$Mods.TRRA.TownNPCMood.Shopkeep.NoHome}"
+					FarFromHome: "{$Mods.TRRA.TownNPCMood.Shopkeep.FarFromHome}"
+					LoveSpace: "{$Mods.TRRA.TownNPCMood.Shopkeep.LoveSpace}"
+					DislikeCrowded: "{$Mods.TRRA.TownNPCMood.Shopkeep.DislikeCrowded}"
+					HateCrowded: "{$Mods.TRRA.TownNPCMood.Shopkeep.HateCrowded}"
+					LikeBiome: "{$Mods.TRRA.TownNPCMood.Shopkeep.LikeBiome}"
+					DislikeBiome: "{$Mods.TRRA.TownNPCMood.Shopkeep.DislikeBiome}"
+					LoveNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.LoveNPC}"
+					LikeNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.LikeNPC}"
+					DislikeNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.DislikeNPC}"
+					HateNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.HateNPC}"
+					LikeNPC_Princess: "{$Mods.TRRA.TownNPCMood.Shopkeep.LikeNPC_Princess}"
+					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_TRRA/Shopkeep}"
+				}
+			}
+
 			Apathy.DisplayName: Apathy
 			Beowolf.DisplayName: Beowolf
 			Creep.DisplayName: Creep
@@ -668,7 +688,12 @@ Mods: {
 			}
 		}
 
-		Biomes.ShatteredMoonFakeBiome.DisplayName: Shattered Moon
+		Biomes: {
+			ShatteredMoonFakeBiome: {
+				DisplayName: Shattered Moon
+				TownNPCDialogueName: the Shattered Moon Fake Biome
+			}
+		}
 
 		Buffs: {
 			ApatheticDebuff: {
