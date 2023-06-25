@@ -1591,6 +1591,17 @@ Look into refining the Shattered Moon event.
 Look into implementing continuous Dust generation.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+25th June 2023
+-------------
+Work Done:
+Fixed issue that was preventing variants 2-5 of dust crystals from not dropping when broken.
+-------------
+Next Task:
+Wait for 1.4.4 version of tModLoader to become the standard version.
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

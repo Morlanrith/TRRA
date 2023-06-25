@@ -21,7 +21,7 @@ namespace TRRA.Items.Materials
 			Item.autoReuse = true;
 			Item.maxStack = 999;
 			Item.consumable = true;
-			Item.createTile = TileType<Tiles.FireDustCrystalTile>();
+			Item.createTile = TileType<FireDustCrystalTile>();
 			Item.width = 18;
 			Item.height = 18;
 			Item.value = Item.sellPrice(silver: 25);
