@@ -128,7 +128,6 @@ namespace TRRA.Items.Weapons
         {
 			if (player.altFunctionUse != 2)
 			{
-				player.channel = true;
 				bladeAmount = player.GetModPlayer<TRRAPlayer>().KillBlades();
 				laserFiring = true;
 				var projectile = Projectile.NewProjectile(source, position, velocity, type, (damage/6)*bladeAmount, Item.knockBack, player.whoAmI, 30f, 0f);
