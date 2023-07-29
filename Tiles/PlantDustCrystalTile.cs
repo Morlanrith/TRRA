@@ -30,9 +30,10 @@ namespace TRRA.Tiles
 			TileObjectData.newTile.LavaPlacement = LiquidPlacement.Allowed;
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.RandomStyleRange = 6;
+            TileObjectData.newTile.StyleMultiplier = 6;
 
-			// Allow hanging from ceilings
-			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+            // Allow hanging from ceilings
+            TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
 			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.newAlternate.Origin = new Point16(0, 0);
 			TileObjectData.newAlternate.AnchorLeft = AnchorData.Empty;
