@@ -9,8 +9,6 @@ namespace TRRA.Items.Accessories
 	public class EyeOfTheHuntress : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eye of the Huntress");
-			Tooltip.SetDefault("Strike a Grimm down with but a mere sight\n12% increased melee damage\n12% increased ranged damage\n8% increased critical strike chance");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

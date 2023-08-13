@@ -17,7 +17,6 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Forebode Blade");
 			Main.projFrames[Projectile.type] = 14;
 		}
 

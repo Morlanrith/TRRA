@@ -9,6 +9,7 @@ using TRRA.Tiles;
 using Terraria.Audio;
 using Terraria.GameInput;
 using Terraria.DataStructures;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons
 {
@@ -30,18 +31,16 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Crescent Rose (Nightmare)");
-			Tooltip.SetDefault("'Wait, that's not right...'\nRight Click to fire as a gun");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 240;
+			Item.damage = 108;
 			Item.width = 66;
 			Item.height = 56;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.DamageType = DamageClass.Melee;
 			Item.knockBack = 7;
@@ -49,7 +48,9 @@ namespace TRRA.Items.Weapons
 			Item.rare = ItemRarityID.Lime;
 			Item.crit = 20;
 			Item.autoReuse = true;
-			Item.shootSpeed = 16f;
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+            Item.shootsEveryUse = true;
 			Item.maxStack = 1;
 		}
 
@@ -67,14 +68,16 @@ namespace TRRA.Items.Weapons
 		private void ResetValues()
 		{
 			Item.autoReuse = true;
-			Item.damage = 240;
-			Item.useStyle = ItemUseStyleID.Swing;
+            Item.damage = 108;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = false;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
-			Item.shoot = ProjectileID.None;
-			Item.useAmmo = AmmoID.None;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+            Item.shootsEveryUse = true;
+            Item.useAmmo = AmmoID.None;
 			Item.UseSound = RoseSliceSound;
 		}
 
@@ -92,7 +95,9 @@ namespace TRRA.Items.Weapons
 				Item.useAnimation = 30;
 				Item.autoReuse = false;
 				Item.shoot = ProjectileID.Bullet;
-				Item.useAmmo = AmmoID.Bullet;
+                Item.shootSpeed = 16f;
+                Item.shootsEveryUse = false;
+                Item.useAmmo = AmmoID.Bullet;
 				Item.UseSound = RoseShotSound;
 			}
 			else
@@ -135,8 +140,11 @@ namespace TRRA.Items.Weapons
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 			if (player.altFunctionUse == 2) // Fires the shot backwards
+			{
 				Projectile.NewProjectile(source, position, velocity.RotatedBy(MathHelper.ToRadians(-45 * player.direction)) * -1, type, damage, Item.knockBack, player.whoAmI);
-			return false;
+				return false;
+			}
+			return true;
         }
 		public override Vector2? HoldoutOffset()
 		{

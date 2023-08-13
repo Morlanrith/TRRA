@@ -11,7 +11,6 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 	public class HarbingerBB : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Harbinger Blade Beam");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 2;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}

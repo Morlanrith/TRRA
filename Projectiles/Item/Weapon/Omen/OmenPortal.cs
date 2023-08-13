@@ -14,9 +14,6 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Kindred Link");
-			Description.SetDefault("Can warp back to your placed portal");
-
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -44,7 +41,6 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Omen Portal");
 			Main.projFrames[Projectile.type] = 6;
 		}
 

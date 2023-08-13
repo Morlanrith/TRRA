@@ -7,10 +7,6 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 {
 	public class HarbingerG : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Harbinger Gun");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 48;

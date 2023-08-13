@@ -6,10 +6,6 @@ namespace TRRA.Projectiles.Item.Weapon.EmberCelica
 {
 	public class EmberPunch : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ember Punch");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 26;

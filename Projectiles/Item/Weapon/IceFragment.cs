@@ -10,7 +10,6 @@ namespace TRRA.Projectiles.Item.Weapon
 	public class IceFragment : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ice Fragment");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}

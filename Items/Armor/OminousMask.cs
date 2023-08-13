@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class OminousMask : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ominous Mask");
-			Tooltip.SetDefault("'Close your eyes now time for dreams'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

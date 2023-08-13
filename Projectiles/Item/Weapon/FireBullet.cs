@@ -11,7 +11,6 @@ namespace TRRA.Projectiles.Item.Weapon
 	public class FireBullet : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fire Dust Bullet");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -41,9 +40,9 @@ namespace TRRA.Projectiles.Item.Weapon
 			Main.dust[fire].position -= Projectile.velocity * 0.5f;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.OnFire, 120);
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.OnFire, 120);
 		}
 
 		public override bool PreDraw(ref Color lightColor) {

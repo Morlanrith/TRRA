@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Armor
 {
@@ -8,8 +9,6 @@ namespace TRRA.Items.Armor
 	public class RoseHood : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Rose Hood");
-			Tooltip.SetDefault("'Red like roses'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -26,6 +25,7 @@ namespace TRRA.Items.Armor
 			.AddIngredient(ItemID.Daybloom, 1)
 			.AddIngredient(ItemID.Silk, 10)
 			.AddTile(TileID.Loom)
-			.Register();
+			.AddCustomShimmerResult(ItemType<ScatteredHood>(), 1)
+            .Register();
 	}
 }

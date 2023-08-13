@@ -1,9 +1,11 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -29,9 +31,10 @@ namespace TRRA.Tiles
 			TileObjectData.newTile.LavaPlacement = LiquidPlacement.Allowed;
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.RandomStyleRange = 6;
+            TileObjectData.newTile.StyleMultiplier = 6;
 
-			// Allow hanging from ceilings
-			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+            // Allow hanging from ceilings
+            TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
 			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.newAlternate.Origin = new Point16(0, 0);
 			TileObjectData.newAlternate.AnchorLeft = AnchorData.Empty;
@@ -63,8 +66,7 @@ namespace TRRA.Tiles
 			TileObjectData.addAlternate(0);
 
 			TileObjectData.addTile(Type);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Fire Dust Crystal");
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(255, 77, 26), name);
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { Type };
@@ -105,13 +107,6 @@ namespace TRRA.Tiles
 			r = 1.0f;
 			g = 0.3f;
 			b = 0.1f;
-		}
-
-        public override bool Drop(int i, int j)
-		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<Items.Materials.FireDustCrystal>());
-			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i*16,j*16));
-			return base.Drop(i, j);
 		}
 	}
 }

@@ -25,8 +25,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Harbinger");
-			Tooltip.SetDefault("'Doubles as a bad luck charm'\nRight Click to fire as a gun\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

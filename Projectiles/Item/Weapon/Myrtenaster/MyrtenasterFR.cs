@@ -20,11 +20,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("MyrtenasterFR");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;
@@ -39,9 +34,9 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Projectile.localNPCHitCooldown = 4;
 		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-			target.AddBuff(BuffID.OnFire, 180);
+            target.AddBuff(BuffID.OnFire, 180);
 		}
 
         public override void AI()

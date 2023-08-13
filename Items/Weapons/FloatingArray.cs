@@ -25,8 +25,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Floating Array");
-			Tooltip.SetDefault("'I'm Combat Ready!'\nUse an Array of Blades to fight for you\nRight Click to summon a Blade\nLeft Click with Blades active to fire a laser");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -130,7 +128,6 @@ namespace TRRA.Items.Weapons
         {
 			if (player.altFunctionUse != 2)
 			{
-				player.channel = true;
 				bladeAmount = player.GetModPlayer<TRRAPlayer>().KillBlades();
 				laserFiring = true;
 				var projectile = Projectile.NewProjectile(source, position, velocity, type, (damage/6)*bladeAmount, Item.knockBack, player.whoAmI, 30f, 0f);

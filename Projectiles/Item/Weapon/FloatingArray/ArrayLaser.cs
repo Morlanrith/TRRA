@@ -15,11 +15,6 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 		private static Asset<Texture2D> laserEndTexture;
 		private Vector2 endPoint = new();
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Array Laser");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 18;
@@ -203,7 +198,7 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 
 
 			// Smoke dust
-			if (Main.rand.Next(5) == 0)
+			if (Main.rand.NextBool(5))
 			{
 				Vector2 vector83 = Projectile.velocity.RotatedBy(1.5707963705062866) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
 				int num738 = Dust.NewDust(vector81 + vector83 - Vector2.One * 4f, 8, 8, 31, 0f, 0f, 100, default(Color), 1.5f);

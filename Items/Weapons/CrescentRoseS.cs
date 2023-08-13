@@ -5,18 +5,19 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Terraria.GameInput;
 using TRRA.Tiles;
 using Terraria.DataStructures;
 using Terraria.Audio;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons
 {
     public class CrescentRoseS : ModItem
 	{
 		private bool canSwing = true;
+        private Vector2 newPos;
 
-		private static readonly SoundStyle RoseDashSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseDash")
+        private static readonly SoundStyle RoseDashSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseDash")
 		{
 			Volume = 0.3f,
 			Pitch = 0.0f,
@@ -30,18 +31,17 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Crescent Rose");
-			Tooltip.SetDefault("'It's also a gun'\nRight Click to dash\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SunderedRoseA>();
+        }
 
-		public override void SetDefaults() 
+        public override void SetDefaults() 
 		{
-			Item.damage = 300;
+			Item.damage = 155;
 			Item.width = 66;
 			Item.height = 58;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.DamageType = DamageClass.Melee;
 			Item.knockBack = 7;
@@ -51,9 +51,13 @@ namespace TRRA.Items.Weapons
 			Item.crit = 26;
 			Item.autoReuse = true;
 			Item.maxStack = 1;
-		}
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+            Item.shootsEveryUse = true;
+            Item.buffType = BuffType<PetalBurstBuff>();
+        }
 
-		public override bool AltFunctionUse(Player player)
+        public override bool AltFunctionUse(Player player)
 		{
 			if(player.mount.Active) return false;
 			return true;
@@ -64,32 +68,38 @@ namespace TRRA.Items.Weapons
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = false;
 			Item.noUseGraphic = false;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
-			Item.shoot = ProjectileID.None;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
 			Item.UseSound = RoseSliceSound;
 			Item.autoReuse = true;
-		}
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+        }
 
-		public override bool CanUseItem(Player player)
+        public override bool CanUseItem(Player player)
 		{
-			// If the player uses the alt function (Right Click), causes the player to dash in the direction they are currently facing
-			if (player.altFunctionUse == 2)
+            if (player.HasBuff<PetalBurstBuff>()) return false;
+            // If the player uses the alt function (Right Click), causes the player to travel towards the current position of the cursor
+            if (player.altFunctionUse == 2)
 			{
-				if (!PlayerInput.Triggers.JustPressed.MouseRight) return false;
-				canSwing = false;
-				Item.useStyle = ItemUseStyleID.Thrust;
-				Item.noMelee = true;
-				Item.noUseGraphic = true;
-				Item.useTime = 40;
-				Item.useAnimation = 20;
-				Item.autoReuse = false;
-				Item.shoot = ProjectileID.PurificationPowder;
-				Item.shootSpeed = 16f;
-				Item.UseSound = RoseDashSound;
-				Vector2 newVelocity = player.velocity;
-				newVelocity.X = 10f * player.direction;
-				player.velocity = newVelocity;
+                Vector2 vector = default;
+                vector.X = (float)Main.mouseX + Main.screenPosition.X;
+                if (player.gravDir == 1f) vector.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;
+                else vector.Y = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY;
+                vector.X -= player.width / 2;
+                if (!(vector.X > 50f) || !(vector.X < (float)(Main.maxTilesX * 16 - 50)) || !(vector.Y > 50f) || !(vector.Y < (float)(Main.maxTilesY * 16 - 50))) return false;
+                int num = (int)(vector.X / 16f);
+                int num2 = (int)(vector.Y / 16f);
+                if ((Main.tile[num, num2].WallType == 87 && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
+                canSwing = false;
+                Item.noMelee = true;
+                Item.noUseGraphic = true;
+                Item.useAnimation = 1;
+                Item.UseSound = RoseDashSound;
+                Item.shootSpeed = 10f;
+                Item.shoot = ProjectileType<PetalBurst>();
+                newPos = vector;
+                return true;
 			}
 			else if (!canSwing)
 			{
@@ -123,17 +133,24 @@ namespace TRRA.Items.Weapons
         // Shoot override, used for the dash (doesn't actually generate a projectile)
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			int dustQuantity = 5;
-			for (int i = 0; i < dustQuantity; i++)
+			if (player.altFunctionUse == 2)
 			{
-				Vector2 dustOffset = Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 32f;
-				int dust = Dust.NewDust(player.position + dustOffset, Item.width, Item.height, DustType<RosePetal>());
-				Main.dust[dust].noGravity = false;
-				Main.dust[dust].velocity *= 1f;
-				Main.dust[dust].scale = 1.5f;
+				int dustQuantity = 5;
+				for (int i = 0; i < dustQuantity; i++)
+				{
+					Vector2 dustOffset = Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 32f;
+					int dust = Dust.NewDust(player.position + dustOffset, Item.width, Item.height, DustType<RosePetal>());
+					Main.dust[dust].noGravity = false;
+					Main.dust[dust].velocity *= 1f;
+					Main.dust[dust].scale = 1.5f;
+				}
+                player.AddBuff(Item.buffType, 2);
+                Projectile.NewProjectileDirect(source, player.direction == 1 ? player.Left : player.Right, velocity, type, damage, knockback, Main.myPlayer, newPos.X, newPos.Y);
+                return false;
 			}
-			return false;
-		}
+			return true;
+
+        }
 
 	}
 

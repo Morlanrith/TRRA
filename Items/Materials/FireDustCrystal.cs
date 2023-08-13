@@ -10,7 +10,6 @@ namespace TRRA.Items.Materials
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("A strange otherworldly crystal that holds the power of fire");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
 		}
 		public override void SetDefaults()
@@ -22,7 +21,7 @@ namespace TRRA.Items.Materials
 			Item.autoReuse = true;
 			Item.maxStack = 999;
 			Item.consumable = true;
-			Item.createTile = TileType<Tiles.FireDustCrystalTile>();
+			Item.createTile = TileType<FireDustCrystalTile>();
 			Item.width = 18;
 			Item.height = 18;
 			Item.value = Item.sellPrice(silver: 25);

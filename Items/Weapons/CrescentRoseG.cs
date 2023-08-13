@@ -1,9 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Items.Materials;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 using TRRA.Tiles;
 using static Terraria.ModLoader.ModContent;
 
@@ -18,12 +20,11 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Crescent Rose");
-			Tooltip.SetDefault("'It's also a scythe'\nRight Click to zoom out\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SunderedRoseG>();
+        }
 
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.damage = 240;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 68;
@@ -81,5 +82,12 @@ namespace TRRA.Items.Weapons
 			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0)) position += muzzleOffset;
 		}
 
-	}
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile.NewProjectile(source, position, velocity, ProjectileType<RoseBullet>(), damage, knockback, player.whoAmI);
+
+            return true;
+        }
+
+    }
 }

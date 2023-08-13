@@ -14,9 +14,6 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Corvid Form");
-			Description.SetDefault("Gifted with the ability to \"see\" more");
-
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
@@ -53,7 +50,6 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Harbinger Corvid");
 			Main.projFrames[Projectile.type] = 4;
 		}
 

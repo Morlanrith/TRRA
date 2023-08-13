@@ -5,6 +5,8 @@ using Terraria.Audio;
 using TRRA.Items.Weapons;
 using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
+using Terraria.DataStructures;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA
 {
@@ -52,6 +54,12 @@ namespace TRRA
             Pitch = -0.2f,
         };
 
+        private static readonly SoundStyle WhiteRoseTransformSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseTransform")
+        {
+            Volume = 0.5f,
+            Pitch = 0.0f,
+        };
+
         private ModKeybind altUseHotkey = null;
         private readonly List<Projectile> blades = new();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
@@ -71,7 +79,9 @@ namespace TRRA
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
             rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
             oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
-            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item;
+            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item,
+            axe = GetModItem(ItemType<SunderedRoseA>()).Item,
+            axeGun = GetModItem(ItemType<SunderedRoseG>()).Item;
 
         public override void PostUpdate()
         {
@@ -80,10 +90,16 @@ namespace TRRA
                 Player.sleeping.timeSleeping = 0;
         }
 
+        public override bool ImmuneTo(PlayerDeathReason damageSource, int cooldownCounter, bool dodgeable)
+        {
+            if (Player.HasBuff<PetalBurstBuff>()) return true;
+            return base.ImmuneTo(damageSource, cooldownCounter, dodgeable);
+        }
+
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             // Transform Weapon
-            if(TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2)
+            if(TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2 && Player.itemAnimation == 0)
             {
                 Item heldItem = Player.inventory[Player.selectedItem]; // Obtains the current held item from the players inventory
                 Item chosenItem = null;
@@ -159,6 +175,13 @@ namespace TRRA
                             SoundEngine.PlaySound(HarbingerSwTransformSound); // Plays the relevant transform sound effect
                             chosenItem = oldSword;
                         }
+                        break;
+                    case "Sundered Rose":
+                        SoundEngine.PlaySound(WhiteRoseTransformSound); // Plays the transform sound effect for Sundered Rose
+                        if (heldItem.type.Equals(axe.type)) // If the current held Sundered Rose is in Axe form, swaps to gun
+                            chosenItem = axeGun;
+                        else // Otherwise, swaps to axe
+                            chosenItem = axe;
                         break;
                 }
                 if(chosenItem != null)

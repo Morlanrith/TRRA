@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class UnluckyStubble : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Unlucky Stubble");
-			Tooltip.SetDefault("'I'm a cursed black cat'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;

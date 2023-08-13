@@ -1,4 +1,4 @@
 displayName = TRRA (A RWBY Mod)
 author = Morlanrith
-version = 3.4.1
+version = 3.4.4.4
 homepage = https://terrariamods.fandom.com/wiki/TRRA_(A_RWBY_Mod)

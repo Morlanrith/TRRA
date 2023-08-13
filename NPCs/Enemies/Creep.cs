@@ -72,9 +72,9 @@ namespace TRRA.NPCs.Enemies
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (Main.netMode == NetmodeID.Server)
 				return;
 			if (NPC.life <= 0)
 			{
@@ -161,7 +161,7 @@ namespace TRRA.NPCs.Enemies
 						NPC.ai[0] = -120f;
 						NPC.ai[1] += 1f;
 					}
-					if (Main.rand.Next(15) == 0) SoundEngine.PlaySound(SoundID.NPCHit21, NPC.position);
+					if (Main.rand.NextBool(15)) SoundEngine.PlaySound(SoundID.NPCHit21, NPC.position);
 				}
 				else if (NPC.ai[0] >= -30f)
 				{

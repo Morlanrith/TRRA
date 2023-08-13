@@ -15,11 +15,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/SilbernelkeF").Value;
 		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/SilbernelkeFR").Value;
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("SilbernelkeFR");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;
@@ -34,9 +29,9 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Projectile.localNPCHitCooldown = 4;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.OnFire, 120);
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.OnFire, 120);
 		}
 
 		public override void AI()

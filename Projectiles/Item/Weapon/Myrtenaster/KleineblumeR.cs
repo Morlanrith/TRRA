@@ -13,11 +13,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 	{
 		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Kleineblume").Value;
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("KleineblumeR");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;

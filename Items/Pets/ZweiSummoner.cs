@@ -16,8 +16,6 @@ namespace TRRA.Items.Pets
         };
 
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Package from Patch");
-            Tooltip.SetDefault("Summons Zwei\n'He sent a dog? In the mail?'");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

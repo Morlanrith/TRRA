@@ -11,10 +11,6 @@ namespace TRRA.Biomes
 		public override string BestiaryIcon => base.BestiaryIcon;
 		public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => new(0.8f, 0.8f, 0.8f);
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Shattered Moon");
-		}
 
 		public override bool IsBiomeActive(Player player) {
 			return false; // Not a real biome, so it's never active
