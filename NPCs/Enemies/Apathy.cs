@@ -13,16 +13,14 @@ using TRRA.Biomes;
 using System;
 using Terraria.Audio;
 using TRRA.Items.Placeable;
+using Terraria.Localization;
 
 namespace TRRA.NPCs.Enemies
 {
 	public class ApatheticDebuff : ModBuff
 	{
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Apathetic");
-			Description.SetDefault("You feel tired...");
-
 			Main.debuff[Type] = true;
 		}
 
@@ -53,8 +51,6 @@ namespace TRRA.NPCs.Enemies
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Apathy");
-
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Medusa];
 
 			NPCDebuffImmunityData debuffData = new()
@@ -106,9 +102,9 @@ namespace TRRA.NPCs.Enemies
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (Main.netMode == NetmodeID.Server)
 				return;
 			if (NPC.life <= 0)
 			{

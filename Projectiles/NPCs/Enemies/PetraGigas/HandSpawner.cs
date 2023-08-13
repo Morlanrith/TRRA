@@ -14,7 +14,6 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Geist Hand Spawner");
 			Main.projFrames[Projectile.type] = 1;
 		}
 

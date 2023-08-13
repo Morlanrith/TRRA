@@ -9,8 +9,6 @@ namespace TRRA.Items.Weapons
 	public class FireBullet : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fire Dust Bullet");
-			Tooltip.SetDefault("A special kind of bullet that uses fire dust");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

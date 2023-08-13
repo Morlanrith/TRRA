@@ -11,7 +11,6 @@ namespace TRRA.Projectiles.Item.Weapon
 	public class PlantBullet : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Plant Dust Bullet");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -58,9 +57,9 @@ namespace TRRA.Projectiles.Item.Weapon
 			return false;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			Projectile.Kill();
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            Projectile.Kill();
 		}
 
 		public override bool PreDraw(ref Color lightColor) {

@@ -5,17 +5,11 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TRRA.Dusts;
-using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 {
 	public class GeistHand : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Geist Hand");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.damage = 135;

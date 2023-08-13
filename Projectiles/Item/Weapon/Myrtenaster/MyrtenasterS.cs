@@ -14,7 +14,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 	public class MyrtenasterS : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("MyrtenasterS");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}

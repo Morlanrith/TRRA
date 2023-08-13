@@ -26,8 +26,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Whisper");
-			Tooltip.SetDefault("'The enemies won't stay dead, but they might with this'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -38,9 +36,9 @@ namespace TRRA.Items.Weapons
 			Item.rare = ItemRarityID.Pink;
 			Item.value = Item.sellPrice(gold: 8);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 15;
-			Item.useTime = 15;
-			Item.damage = 100;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.damage = 110;
 			Item.crit = 47;
 			Item.knockBack = 5f;
 			Item.UseSound = HushStabSound;

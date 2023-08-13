@@ -17,11 +17,6 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			Pitch = 0.1f,
 		};
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Harbinger Scythe");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 112;

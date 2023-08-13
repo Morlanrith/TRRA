@@ -23,8 +23,6 @@ namespace TRRA.Items.Weapons
 		};
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Myrtenaster");
-			Tooltip.SetDefault("'For those who are more than just a name'\nRight Click to shoot a wave of fire\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -64,7 +62,7 @@ namespace TRRA.Items.Weapons
 			return true;
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			if (player.altFunctionUse != 2)
 			{

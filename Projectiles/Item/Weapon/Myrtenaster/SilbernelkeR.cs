@@ -15,11 +15,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Silbernelke").Value;
 		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/SilbernelkeR").Value;
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("SilbernelkeR");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;

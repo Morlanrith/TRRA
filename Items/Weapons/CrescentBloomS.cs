@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using TRRA.Tiles;
 using Terraria.Audio;
+using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons
 {
@@ -19,14 +20,12 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Crescent Bloom");
-			Tooltip.SetDefault("'Justice will be swift!'\nTransforms by pressing a mapped hotkey");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 128;
+			Item.damage = 96;
 			Item.width = 66;
 			Item.height = 58;
 			Item.useTime = 30;
@@ -39,8 +38,10 @@ namespace TRRA.Items.Weapons
 			Item.crit = 18;
 			Item.autoReuse = true;
 			Item.maxStack = 1;
-			Item.shoot = ProjectileID.None;
-			Item.UseSound = BloomSliceSound;
+            Item.shoot = ProjectileType<CrescentScytheSlash>();
+            Item.shootSpeed = 5f;
+            Item.shootsEveryUse = true;
+            Item.UseSound = BloomSliceSound;
 		}
 
 		public override void AddRecipes() => CreateRecipe()

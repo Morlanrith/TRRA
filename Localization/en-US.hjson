@@ -1,20 +1,76 @@
 Mods: {
 	TRRA: {
-		NPCName: {
-			Shopkeep: Shopkeep
+		NPCs: {
+			Shopkeep: {
+				DisplayName: Shopkeep
+
+				TownNPCMood: {
+					Content: "{$Mods.TRRA.TownNPCMood.Shopkeep.Content}"
+					NoHome: "{$Mods.TRRA.TownNPCMood.Shopkeep.NoHome}"
+					FarFromHome: "{$Mods.TRRA.TownNPCMood.Shopkeep.FarFromHome}"
+					LoveSpace: "{$Mods.TRRA.TownNPCMood.Shopkeep.LoveSpace}"
+					DislikeCrowded: "{$Mods.TRRA.TownNPCMood.Shopkeep.DislikeCrowded}"
+					HateCrowded: "{$Mods.TRRA.TownNPCMood.Shopkeep.HateCrowded}"
+					LikeBiome: "{$Mods.TRRA.TownNPCMood.Shopkeep.LikeBiome}"
+					DislikeBiome: "{$Mods.TRRA.TownNPCMood.Shopkeep.DislikeBiome}"
+					LoveNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.LoveNPC}"
+					LikeNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.LikeNPC}"
+					DislikeNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.DislikeNPC}"
+					HateNPC: "{$Mods.TRRA.TownNPCMood.Shopkeep.HateNPC}"
+					LikeNPC_Princess: "{$Mods.TRRA.TownNPCMood.Shopkeep.LikeNPC_Princess}"
+					Princess_LovesNPC: "{$TownNPCMood_Princess.LoveNPC_TRRA/Shopkeep}"
+				}
+			}
+
+			Apathy.DisplayName: Apathy
+			Beowolf.DisplayName: Beowolf
+			Creep.DisplayName: Creep
+			Geist.DisplayName: Geist
+			Lancer.DisplayName: Lancer
+			PetraGigas.DisplayName: Petra Gigas
+			PetraGigasArm.DisplayName: Petra Gigas Arm
+			Ravager.DisplayName: Ravager
 		}
 
 		Bestiary: {
-			Shopkeep: "A simple shopkeep from a distant and incomplete world, they can provide you with all manner of wares to assist you in using 'Dust'."
-			Beowolf: "A dangerous wolf-like creature that is not of this world.\nIn small numbers they are not very intimidating, but with their sharp claws and fangs, large packs will leave you quickly overwhelmed if you're not careful."
-			Creep: "A dangerous lizard-like creature that is not of this world.\nBe mindful of their stocky, clawed hind limbs as they will repeatedly attempt to leap on you."
-			Lancer: "A dangerous hornet-like creature that is not of this world.\nThe stingers they fire are not as poisonous as a conventional Hornet, but the hardened material they're made of allows them to pierce near any armor."
-			Apathy: "A dangerous zombie-like creature that is not of this world.\nWhile rather frail in appearance, the screams they emit can drain you of the will to go on. Try to keep your distance!"
-			Ravager: "A dangerous bat-like creature that is not of this world.\nThough they appear similar to the various bat species of our world, they are notably larger and far more aggressive."
-			PetraGigas: "A massive golem-like creature that is not of this world.\nTheir floating limbs give them a lot of extra options in combat, so try to destroy them first! Also, while it appears large and imposing, this is only a protective shell to hide its true form..."
-			Geist: "A wraith-like creature that is not of this world.\nThis is the true being that exists within the monolithic Petra Gigas, and is very vulnerable while exposed. As a result, it will immediately attempt to flee once forced out, so make sure it doesn't get away."
+			Shopkeep: A simple shopkeep from a distant and incomplete world, they can provide you with all manner of wares to assist you in using 'Dust'.
+			Beowolf:
+				'''
+				A dangerous wolf-like creature that is not of this world.
+				In small numbers they are not very intimidating, but with their sharp claws and fangs, large packs will leave you quickly overwhelmed if you're not careful.
+				'''
+			Creep:
+				'''
+				A dangerous lizard-like creature that is not of this world.
+				Be mindful of their stocky, clawed hind limbs as they will repeatedly attempt to leap on you.
+				'''
+			Lancer:
+				'''
+				A dangerous hornet-like creature that is not of this world.
+				The stingers they fire are not as poisonous as a conventional Hornet, but the hardened material they're made of allows them to pierce near any armor.
+				'''
+			Apathy:
+				'''
+				A dangerous zombie-like creature that is not of this world.
+				While rather frail in appearance, the screams they emit can drain you of the will to go on. Try to keep your distance!
+				'''
+			Ravager:
+				'''
+				A dangerous bat-like creature that is not of this world.
+				Though they appear similar to the various bat species of our world, they are notably larger and far more aggressive.
+				'''
+			PetraGigas:
+				'''
+				A massive golem-like creature that is not of this world.
+				Their floating limbs give them a lot of extra options in combat, so try to destroy them first! Also, while it appears large and imposing, this is only a protective shell to hide its true form...
+				'''
+			Geist:
+				'''
+				A wraith-like creature that is not of this world.
+				This is the true being that exists within the monolithic Petra Gigas, and is very vulnerable while exposed. As a result, it will immediately attempt to flee once forced out, so make sure it doesn't get away.
+				'''
 		}
-		
+
 		TownNPCMood: {
 			Shopkeep: {
 				Content: I feel rather relaxed right now.
@@ -23,27 +79,722 @@ Mods: {
 				FarFromHome: I feel I'm a bit lost, do you know the way back?
 				DislikeCrowded: I'm more of a solo businessman, all these people are starting to get in the way.
 				HateCrowded: This is getting out of hand, I can't keep track of anything with all these people!
-				LikeBiome: "I like {BiomeName}, it reminds me of home."
-				DislikeBiome: "It's far too dangerous in {BiomeName}, you have to get me out of here!"
+				LikeBiome: I like {BiomeName}, it reminds me of home.
+				DislikeBiome: It's far too dangerous in {BiomeName}, you have to get me out of here!
 				LikeNPC: "{NPCName} gives me enough space, I like that."
 				LikeNPC_Princess: "{NPCName} seems very interested in Remnant, such a sweet girl."
 				LoveNPC: "{NPCName} seems intrigued by some potential uses of Dust, it's nice to have someone who appreciates my wares."
 				DislikeNPC: "{NPCName} can be a bit annoying."
-				HateNPC: "Does {NPCName} really not understand how reactive Dust can be! I swear he's going to get us all killed."
+				HateNPC: Does {NPCName} really not understand how reactive Dust can be! I swear he's going to get us all killed.
 			}
 		}
 
-		ItemTooltip: {
-			BeowolfBanner: "{$CommonItemTooltip.BannerBonus}Beowolf"
-			CreepBanner: "{$CommonItemTooltip.BannerBonus}Creep"
-			LancerBanner: "{$CommonItemTooltip.BannerBonus}Lancer"
-			ApathyBanner: "{$CommonItemTooltip.BannerBonus}Apathy"
-			RavagerBanner: "{$CommonItemTooltip.BannerBonus}Ravager"
+		Items: {
+			BeowolfBanner: {
+				Tooltip: "{$CommonItemTooltip.BannerBonus}Beowolf"
+				DisplayName: Beowolf Banner
+			}
+
+			CreepBanner: {
+				Tooltip: "{$CommonItemTooltip.BannerBonus}Creep"
+				DisplayName: Creep Banner
+			}
+
+			LancerBanner: {
+				Tooltip: "{$CommonItemTooltip.BannerBonus}Lancer"
+				DisplayName: Lancer Banner
+			}
+
+			ApathyBanner: {
+				Tooltip: "{$CommonItemTooltip.BannerBonus}Apathy"
+				DisplayName: Apathy Banner
+			}
+
+			RavagerBanner: {
+				Tooltip: "{$CommonItemTooltip.BannerBonus}Ravager"
+				DisplayName: Ravager Banner
+			}
+
+			EyeOfTheHuntress: {
+				Tooltip:
+					'''
+					Strike a Grimm down with but a mere sight
+					12% increased melee damage
+					12% increased ranged damage
+					8% increased critical strike chance
+					'''
+				DisplayName: Eye of the Huntress
+			}
+
+			HuntressEmblem: {
+				Tooltip:
+					'''
+					For the best and brightest warriors of Remnant
+					14% increased melee damage
+					14% increased ranged damage
+					'''
+				DisplayName: Huntress Emblem
+			}
+
+			BurningAviators: {
+				Tooltip: "'Fool, you shouldn't stare into these eyes of fire'"
+				DisplayName: Burning Aviators
+			}
+
+			BurningBoots: {
+				Tooltip: "'Yellow beauty burns gold'"
+				DisplayName: Burning Boots
+			}
+
+			BurningJacket: {
+				Tooltip: "'Light up the night with the love in your heart'"
+				DisplayName: Burning Jacket
+			}
+
+			OminousBoots: {
+				Tooltip: "'I won't fall for you'"
+				DisplayName: Ominous Boots
+			}
+
+			OminousMask: {
+				Tooltip: "'Close your eyes now time for dreams'"
+				DisplayName: Ominous Mask
+			}
+
+			OminousTop: {
+				Tooltip: "'I'm not your sacrifice'"
+				DisplayName: Ominous Top
+			}
+
+			ProtectorBoots: {
+				Tooltip: "'Take a message of hope to the stars'"
+				DisplayName: Protector Boots
+			}
+
+			ProtectorRibbon: {
+				Tooltip: "'Sal...u...TATIOOOOOOOONS!'"
+				DisplayName: Protector Ribbon
+			}
+
+			ProtectorTop: {
+				Tooltip: "'Feels as warm as a hug'"
+				DisplayName: Protector Top
+			}
+
+			RoseBoots: {
+				Tooltip: "'I promise I'll be here until the end'"
+				DisplayName: Rose Boots
+			}
+
+			RoseCloak: {
+				Tooltip: "'Just like the heroes in the books'"
+				DisplayName: Rose Cloak
+			}
+
+			RoseHood: {
+				Tooltip: "'Red like roses'"
+				DisplayName: Rose Hood
+			}
+
+			ScatteredBoots: {
+				Tooltip:
+					'''
+					'Where thy mates of the garden
+					Lie scentless and dead'
+					'''
+				DisplayName: Scattered Boots
+			}
+
+			ScatteredCloak: {
+				Tooltip:
+					'''
+					'Thus kindly I scatter
+					Thy leaves o'er the bed'
+					'''
+				DisplayName: Scattered Cloak
+			}
+
+			ScatteredHood: {
+				Tooltip:
+					'''
+					'Since the lovely are sleeping,
+					Go, sleep thou with them'
+					'''
+				DisplayName: Scattered Hood
+			}
+
+			ShroudBoots: {
+				Tooltip: "'Nevermore will I run away'"
+				DisplayName: Shroud Boots
+			}
+
+			ShroudBow: {
+				Tooltip: "'It'll go great with your pajamas!'"
+				DisplayName: Shroud Bow
+			}
+
+			ShroudTop: {
+				Tooltip: "'Be seen for who you are'"
+				DisplayName: Shroud Top
+			}
+
+			SilentBoots: {
+				Tooltip: "'Now you'll pay the price'"
+				DisplayName: Silent Boots
+			}
+
+			SilentBowler: {
+				Tooltip: "'Like a candle's flame'"
+				DisplayName: Silent Bowler
+			}
+
+			SilentTop: {
+				Tooltip: "'One thing, to help escape the misery'"
+				DisplayName: Silent Top
+			}
+
+			SnowBoots: {
+				Tooltip: "'Carve out your own way'"
+				DisplayName: Snow Boots
+			}
+
+			SnowTiara: {
+				Tooltip: "'Burdened by a royal test'"
+				DisplayName: Snow Tiara
+			}
+
+			SnowTop: {
+				Tooltip: "'It's a combat skirt!'"
+				DisplayName: Snow Top
+			}
+
+			UnluckyPants: {
+				Tooltip: "'I'm a mirror broken'"
+				DisplayName: Unlucky Pants
+			}
+
+			UnluckyStubble: {
+				Tooltip: "'I'm a cursed black cat'"
+				DisplayName: Unlucky Stubble
+			}
+
+			UnluckyTop: {
+				Tooltip: "'I'm an albatross'"
+				DisplayName: Unlucky Top
+			}
+
+			MoonSummoner: {
+				Tooltip:
+					'''
+					Summons the Shattered Moon
+					'This is the beginning of the end...'
+					'''
+				DisplayName: Stone of Negativity
+			}
+
+			DustExtract: {
+				Tooltip: A strange otherworldly extract, obtained from the Golems power cell
+				DisplayName: Dust Extract
+			}
+
+			DustWeaponKit: {
+				Tooltip: A kit containing various tools and components to contruct weapons from Dust
+				DisplayName: Dust Weapon Kit
+			}
+
+			EssenceOfGrimm: {
+				Tooltip:
+					'''
+					'They are creatures of Grimm, the manifestation of anonymity'
+					A strange essence left behind by a creature of Grimm
+					'''
+				DisplayName: Essence Of Grimm
+			}
+
+			FireDustCrystal: {
+				Tooltip: A strange otherworldly crystal that holds the power of fire
+				DisplayName: Fire Dust Crystal
+			}
+
+			FireDustExtract: {
+				Tooltip:
+					'''
+					An extract of Fire Dust
+					Can be used to convert Crystal Shards to Fire Dust Crystals
+					'''
+				DisplayName: Fire Dust Extract
+			}
+
+			GravityDustCrystal: {
+				Tooltip: A strange otherworldly crystal that holds the power of gravity
+				DisplayName: Gravity Dust Crystal
+			}
+
+			GravityDustExtract: {
+				Tooltip:
+					'''
+					An extract of Gravity Dust
+					Can be used to convert Crystal Shards to Gravity Dust Crystals
+					'''
+				DisplayName: Gravity Dust Extract
+			}
+
+			IceDustCrystal: {
+				Tooltip: A strange otherworldly crystal that holds the power of ice
+				DisplayName: Ice Dust Crystal
+			}
+
+			IceDustExtract: {
+				Tooltip:
+					'''
+					An extract of Ice Dust
+					Can be used to convert Crystal Shards to Ice Dust Crystals
+					'''
+				DisplayName: Ice Dust Extract
+			}
+
+			PlantDustCrystal: {
+				Tooltip: A strange otherworldly crystal that holds the power of plantlife
+				DisplayName: Plant Dust Crystal
+			}
+
+			PlantDustExtract: {
+				Tooltip:
+					'''
+					An extract of Plant Dust
+					Can be used to convert Crystal Shards to Plant Dust Crystals
+					'''
+				DisplayName: Plant Dust Extract
+			}
+
+			ZweiSummoner: {
+				Tooltip:
+					'''
+					Summons Zwei
+					'He sent a dog? In the mail?'
+					'''
+				DisplayName: Package from Patch
+			}
+
+			DustToolbench: {
+				Tooltip: Converts Dust Crystals into various Weapons and Ammo
+				DisplayName: Dust Toolbench
+			}
+
+			KeepMovingForward: {
+				Tooltip: "'M. Oum'"
+				DisplayName: Keep Moving Forward
+			}
+
+			Worthy: {
+				Tooltip: "'L. Bromley'"
+				DisplayName: Worthy
+			}
+
+			CrescentBloomG: {
+				Tooltip:
+					'''
+					'Justice will be painful!'
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Crescent Bloom
+			}
+
+			CrescentBloomS: {
+				Tooltip:
+					'''
+					'Justice will be swift!'
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Crescent Bloom
+			}
+
+			CrescentBud: {
+				Tooltip: "'A smaller, more honest scythe'"
+				DisplayName: Crescent Bud
+			}
+
+			CrescentRoseG: {
+				Tooltip:
+					'''
+					'It's also a scythe'
+					Right Click to zoom out
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Crescent Rose
+			}
+
+			CrescentRoseN: {
+				Tooltip:
+					'''
+					'Wait, that's not right...'
+					Right Click to fire as a gun
+					'''
+				DisplayName: Crescent Rose (Nightmare)
+			}
+
+			CrescentRoseS: {
+				Tooltip:
+					'''
+					'It's also a gun'
+					Right Click to petal burst
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Crescent Rose
+			}
+
+			EmberCelicaR: {
+				Tooltip:
+					'''
+					'Armed and Ready'
+					Right Click to fire a splitting Rocket
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Ember Celica
+			}
+
+			EmberCelicaS: {
+				Tooltip:
+					'''
+					'Armed and Ready'
+					Right Click to Charge
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Ember Celica
+			}
+
+			FireBullet: {
+				Tooltip: A special kind of bullet that uses fire dust
+				DisplayName: Fire Dust Bullet
+			}
+
+			FloatingArray: {
+				Tooltip:
+					'''
+					'I'm Combat Ready!'
+					Use an Array of Blades to fight for you
+					Right Click to summon a Blade
+					Left Click with Blades active to fire a laser
+					'''
+				DisplayName: Floating Array
+			}
+
+			Forebode: {
+				Tooltip: "'Strength is all that matters in a fight'"
+				DisplayName: Forebode
+			}
+
+			GambolShadeG: {
+				Tooltip:
+					'''
+					'May or may not look better with a bow'
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shade
+			}
+
+			GambolShadeS: {
+				Tooltip:
+					'''
+					'May or may not look better with a bow'
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shade
+			}
+
+			GambolShroudG: {
+				Tooltip:
+					'''
+					'Don't be so dramatic'
+					Right Click to fire as a gun
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shroud
+			}
+
+			GambolShroudS: {
+				Tooltip:
+					'''
+					'Don't be so dramatic'
+					Right Click to activate a parry (has a cooldown)
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shroud
+			}
+
+			GambolVeil: {
+				Tooltip: "'Now that's a katana!'"
+				DisplayName: Gambol Veil
+			}
+
+			GravityBullet: {
+				Tooltip: A special kind of bullet that uses gravity dust
+				DisplayName: Gravity Dust Bullet
+			}
+
+			HarbingerSc: {
+				Tooltip:
+					'''
+					'Doubles as a bad luck charm'
+					Right Click to take the form of a Corvid
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Harbinger
+			}
+
+			HarbingerSw: {
+				Tooltip:
+					'''
+					'Doubles as a bad luck charm'
+					Right Click to fire as a gun
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Harbinger
+			}
+
+			Herald: {
+				Tooltip: "'A dusty, old sword...'"
+				DisplayName: Herald
+			}
+
+			Hush: {
+				Tooltip:
+					'''
+					'I scream, you scream...'
+					Right Click to teleport to the position of the mouse
+					'''
+				DisplayName: Hush
+			}
+
+			IceBullet: {
+				Tooltip: A special kind of bullet that uses ice dust
+				DisplayName: Ice Dust Bullet
+			}
+
+			Kleineblume: {
+				Tooltip: "'I'm. Not. Perfect! Not yet...'"
+				DisplayName: Kleineblume
+			}
+
+			Myrtenaster: {
+				Tooltip:
+					'''
+					'For those who are more than just a name'
+					Right Click to fire a summoned sword
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Myrtenaster
+			}
+
+			MyrtenasterF: {
+				Tooltip:
+					'''
+					'For those who are more than just a name'
+					Right Click to shoot a wave of fire
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Myrtenaster
+			}
+
+			Omen: {
+				Tooltip:
+					'''
+					'Strong enough to do what others won't'
+					Right Click to create a portal
+					'''
+				DisplayName: Omen
+			}
+
+			PlantBullet: {
+				Tooltip: A special kind of bullet that uses plant dust
+				DisplayName: Plant Dust Bullet
+			}
+
+			Portent: {
+				Tooltip:
+					'''
+					'Some weapons are just made unlucky'
+					Right Click to fire as a gun
+					'''
+				DisplayName: Portent
+			}
+
+			Presage: {
+				Tooltip: "'The weak die, the strong live. Those are the rules.'"
+				DisplayName: Presage
+			}
+
+			Quiet: {
+				Tooltip: "'Sarcastic sign not included'"
+				DisplayName: Quiet
+			}
+
+			Silbernelke: {
+				Tooltip: "'Not the start of its name, and certainly not the end'"
+				DisplayName: Silbernelke
+			}
+
+			SilbernelkeF: {
+				Tooltip: "'Not the start of its name, and certainly not the end'"
+				DisplayName: Silbernelke
+			}
+
+			SparkCelica: {
+				Tooltip:
+					'''
+					'Hotter than the sun in the middle of July'
+					Right Click to Charge
+					'''
+				DisplayName: Spark Celica
+			}
+
+			SteelCelica: {
+				Tooltip: "'Instead of sweetheart, you can just call me SIR'"
+				DisplayName: Steel Celica
+			}
+
+			Whisper: {
+				Tooltip: "'The enemies won't stay dead, but they might with this'"
+				DisplayName: Whisper
+			}
+
+			GeistRelic: {
+				DisplayName: Geist Relic
+				Tooltip: ""
+			}
+
+			GeistTrophy: {
+				DisplayName: Geist Trophy
+				Tooltip: ""
+			}
+
+			SunderedRoseG: {
+				DisplayName: Sundered Rose
+				Tooltip:
+					'''
+					'I love you just the way you are'
+					Transforms by pressing a mapped hotkey
+					'''
+			}
+
+			SunderedRoseA: {
+				DisplayName: Sundered Rose
+				Tooltip:
+					'''
+					'I love you just the way you are'
+					Right Click to petal burst
+					Transforms by pressing a mapped hotkey
+					'''
+			}
 		}
 
+		Biomes: {
+			ShatteredMoonFakeBiome: {
+				DisplayName: Shattered Moon
+				TownNPCDialogueName: the Shattered Moon Fake Biome
+			}
+		}
+
+		Buffs: {
+			ApatheticDebuff: {
+				DisplayName: Apathetic
+				Description: You feel tired...
+			}
+
+			ZweiBuff: {
+				DisplayName: Zwei
+				Description: Known for his perceptive nose and heightened sense of sound
+			}
+
+			ArrayBladeBuff: {
+				DisplayName: Array Blades
+				Description: There are many strings on you
+			}
+
+			CorvidBuff: {
+				DisplayName: Corvid Form
+				Description: Gifted with the ability to "see" more
+			}
+
+			PortalBuff: {
+				DisplayName: Kindred Link
+				Description: Can warp back to your placed portal
+			}
+
+			ShadowCloneBuff: {
+				DisplayName: Shadow Clone
+				Description: You will dodge the next attack
+			}
+
+			PetalBurstBuff: {
+				DisplayName: Petal Burst
+				Description: Mass no longer matters
+			}
+		}
+
+		Projectiles: {
+			Zwei.DisplayName: Zwei
+			ChildEmberRocket.DisplayName: Child Ember Rocket
+			EmberPunch.DisplayName: Ember Punch
+			EmberRocket.DisplayName: Ember Rocket
+			TripEmberRocket.DisplayName: Triple Ember Rocket
+			FireBullet.DisplayName: Fire Dust Bullet
+			ArrayBlade.DisplayName: Array Blade
+			ArrayGuns.DisplayName: Array Guns
+			ArrayLaser.DisplayName: Array Laser
+			GambolBlade.DisplayName: Gambol Blade
+			GambolRibbonEnd.DisplayName: Gambol Ribbon End
+			ShadeRibbonEnd.DisplayName: Shade Ribbon End
+			VeilBlade.DisplayName: Veil Blade
+			GravityBullet.DisplayName: Gravity Dust Bullet
+			HarbingerBB.DisplayName: Harbinger Blade Beam
+			HarbingerCorvid.DisplayName: Harbinger Corvid
+			HarbingerG.DisplayName: Harbinger Gun
+			HarbingerScythe.DisplayName: Harbinger Scythe
+			PortentG.DisplayName: Portent Gun
+			HushClosed.DisplayName: HushClosed
+			QuietClosed.DisplayName: QuietClosed
+			WhisperClosed.DisplayName: WhisperClosed
+			IceBullet.DisplayName: Ice Dust Bullet
+			IceFragment.DisplayName: Ice Fragment
+			KleineblumeR.DisplayName: KleineblumeR
+			MyrtenasterFR.DisplayName: MyrtenasterFR
+			MyrtenasterFS.DisplayName: MyrtenasterFS
+			MyrtenasterR.DisplayName: MyrtenasterR
+			MyrtenasterS.DisplayName: MyrtenasterS
+			SilbernelkeFR.DisplayName: SilbernelkeFR
+			SilbernelkeR.DisplayName: SilbernelkeR
+			ForebodeBlade.DisplayName: Forebode Blade
+			OmenBlade.DisplayName: Omen Blade
+			OmenPortal.DisplayName: Omen Portal
+			PresageBlade.DisplayName: Presage Blade
+			PlantBullet.DisplayName: Plant Dust Bullet
+			LancerStinger.DisplayName: Lancer Stinger
+			GeistHand.DisplayName: Geist Hand
+			HandSpawner.DisplayName: Geist Hand Spawner
+			CrescentScytheSlash.DisplayName: Crescent Scythe Slash
+			RoseBullet.DisplayName: Rose Bullet
+			PetalBurst.DisplayName: Petal Burst
+			SunderedAxeSlash.DisplayName: Sundered Axe Slash
+			WhitePetalBurst.DisplayName: White Petal Burst
+			WhiteRoseBullet.DisplayName: White Rose Bullet
+		}
+
+		Tiles: {
+			ApathyBannerTile.MapEntry: Banner
+			BeowolfBannerTile.MapEntry: Banner
+			CreepBannerTile.MapEntry: Banner
+			DustToolbenchTile.MapEntry: Dust Toolbench
+			FireDustCrystalTile.MapEntry: Fire Dust Crystal
+			GravityDustCrystalTile.MapEntry: Gravity Dust Crystal
+			IceDustCrystalTile.MapEntry: Ice Dust Crystal
+			LancerBannerTile.MapEntry: Banner
+			PlantDustCrystalTile.MapEntry: Plant Dust Crystal
+			RavagerBannerTile.MapEntry: Banner
+		}
+
+		"Keybinds.Transform Weapon.DisplayName": Mods.TRRA.Keybinds.Transform Weapon.DisplayName
 	}
 }
 
-TownNPCMood_Princess: {
-	LoveNPC_TRRA/Shopkeep: "Did you know {NPCName} is from a different world! It sounds like something out of a fairy tale."
-}
+TownNPCMood_Princess.LoveNPC_TRRA/Shopkeep: Did you know {NPCName} is from a different world! It sounds like something out of a fairy tale.

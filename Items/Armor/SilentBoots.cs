@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class SilentBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Silent Boots");
-			Tooltip.SetDefault("'Now you'll pay the price'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			SetupDrawing();
 		}

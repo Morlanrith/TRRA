@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class ShroudBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shroud Boots");
-			Tooltip.SetDefault("'Nevermore will I run away'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			SetupDrawing();
 		}

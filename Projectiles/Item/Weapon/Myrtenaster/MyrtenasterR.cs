@@ -20,11 +20,6 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("MyrtenasterR");
-		}
-
 		public override void SetDefaults()
 		{
 			Projectile.width = 40;

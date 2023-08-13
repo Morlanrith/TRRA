@@ -58,9 +58,9 @@ namespace TRRA.NPCs.Enemies
             database.Entries.Remove(bestiaryEntry);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.netMode == NetmodeID.Server)
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (Main.netMode == NetmodeID.Server)
 				return;
 			if (NPC.life <= 0)
 			{
@@ -153,13 +153,14 @@ namespace TRRA.NPCs.Enemies
 					NPC.active = false;
 				}
 			}
-            if (parentState == 0f || parentState == 3f)
+            if (parentState == 0f || parentState == 3f || Main.dayTime)
             {
                 if(!Main.npc[(int)NPC.ai[2]].active)
                 {
                     singleArm= true;
                 }
                 NormalBehaviour();
+                return;
             }
             else if (parentState == 1f) // Fly at player
             {

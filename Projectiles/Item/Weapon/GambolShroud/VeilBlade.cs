@@ -17,7 +17,6 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Veil Blade");
 			Main.projFrames[Projectile.type] = 14;
 		}
 

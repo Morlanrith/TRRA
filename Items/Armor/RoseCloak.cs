@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Armor
 {
@@ -9,8 +10,6 @@ namespace TRRA.Items.Armor
 	public class RoseCloak : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Rose Cloak");
-			Tooltip.SetDefault("'Just like the heroes in the books'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -33,6 +32,7 @@ namespace TRRA.Items.Armor
 			.AddIngredient(ItemID.Daybloom, 1)
 			.AddIngredient(ItemID.Silk, 20)
 			.AddTile(TileID.Loom)
-			.Register();
+			.AddCustomShimmerResult(ItemType<ScatteredCloak>(), 1)
+            .Register();
 	}
 }

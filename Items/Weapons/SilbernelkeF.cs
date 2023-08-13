@@ -10,11 +10,10 @@ namespace TRRA.Items.Weapons
 	public class SilbernelkeF : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Silbernelke");
-			Tooltip.SetDefault("'Not the start of its name, and certainly not the end'");
-		}
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+        }
 
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.width = 14;
 			Item.height = 46;
 			Item.rare = ItemRarityID.Pink;

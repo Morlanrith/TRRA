@@ -8,7 +8,6 @@ namespace TRRA.Items.Placeable
 	public class DustToolbench : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Converts Dust Crystals into various Weapons and Ammo");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

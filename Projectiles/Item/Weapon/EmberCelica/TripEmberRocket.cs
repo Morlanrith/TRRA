@@ -10,10 +10,6 @@ namespace TRRA.Projectiles.Item.Weapon.EmberCelica
 {
     public class TripEmberRocket : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Triple Ember Rocket");
-		}
-
 		public override void SetDefaults() {
             Projectile.width = 10;
             Projectile.height = 10;
@@ -39,7 +35,7 @@ namespace TRRA.Projectiles.Item.Weapon.EmberCelica
             Main.dust[fire].position -= Projectile.velocity * 0.5f;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 180);
         }

@@ -19,11 +19,6 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
             Pitch = 0.0f,
         };
 
-        public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Gambol Ribbon End");
-		}
-
         public override void SetDefaults()
         {
             Projectile.width = 100;

@@ -19,7 +19,6 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Array Guns");
 			Main.projFrames[Projectile.type] = 4;
 		}
 

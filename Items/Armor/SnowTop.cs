@@ -8,8 +8,6 @@ namespace TRRA.Items.Armor
 	public class SnowTop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Snow Top");
-			Tooltip.SetDefault("'It's a combat skirt!'");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

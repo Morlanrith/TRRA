@@ -24,8 +24,6 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Portent");
-			Tooltip.SetDefault("'Some weapons are just made unlucky'\nRight Click to fire as a gun");
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
