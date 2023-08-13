@@ -161,17 +161,10 @@ namespace TRRA.NPCs
 			.Add<Items.Placeable.DustToolbench>()
 			.Add<Items.Materials.DustWeaponKit>();
 
-            if (Main.hardMode)
-            {
-                npcShop.Add(ItemType<Items.Materials.FireDustExtract>());
-                npcShop.Add(ItemType<Items.Materials.PlantDustExtract>());
-                npcShop.Add(ItemType<Items.Materials.GravityDustExtract>());
-                npcShop.Add(ItemType<Items.Materials.IceDustExtract>());
-            }
             npcShop.Register(); // Name of this shop tab
         }
 
-		public override bool CanGoToStatue(bool toKingStatue) {
+        public override bool CanGoToStatue(bool toKingStatue) {
 			return toKingStatue;
 		}
 
