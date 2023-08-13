@@ -145,8 +145,6 @@ namespace TRRA.Items.Weapons
 		{
 			if (player.altFunctionUse != 2)
 			{
-				player.channel = true;
-
 				Projectile.NewProjectile(source, position, velocity, type, damage, Item.knockBack, player.whoAmI, 30f, 0f);
 
 				return false;

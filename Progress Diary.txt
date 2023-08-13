@@ -1602,6 +1602,29 @@ Look into refining the Shattered Moon event.
 Look into implementing continuous Dust generation.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+29th July 2023
+-------------
+Work Done:
+Remove channel setting inside the Shoot function, as it seems like it may be causing issues with other mods (and is
+otherwise not needed anyway).
+-------------
+Next Task:
+Wait for 1.4.4 version of tModLoader to become the standard version.
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+13th August 2023
+-------------
+Work Done:
+Fixed Dust Extracts not being sold by Shopkeep in hardmode.
+-------------
+Next Task:
+Wait for 1.4.4 version of tModLoader to become the standard version.
+Look into refining the Shattered Moon event.
+Look into implementing continuous Dust generation.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

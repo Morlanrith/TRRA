@@ -188,7 +188,6 @@ namespace TRRA.Items.Weapons
 			}
 			else
 			{
-				player.channel = true;
 				Projectile.NewProjectile(source, position, velocity, type, damage, Item.knockBack, player.whoAmI, 30f, 0f);
 			}
 			return false;

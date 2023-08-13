@@ -66,6 +66,13 @@ namespace TRRA.NPCs
                 shop.Add<Items.Placeable.Worthy>(Condition.DownedSkeletron);
                 shop.Add<Items.Placeable.KeepMovingForward>(Condition.DownedSkeletron);
             }
+			else if(shop.NpcType == NPCType<Shopkeep>())
+			{
+                shop.Add<FireDustExtract>(Condition.Hardmode);
+                shop.Add<PlantDustExtract>(Condition.Hardmode);
+                shop.Add<GravityDustExtract>(Condition.Hardmode);
+                shop.Add<IceDustExtract>(Condition.Hardmode);
+            }
         }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
