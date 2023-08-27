@@ -686,6 +686,11 @@ Mods: {
 					Transforms by pressing a mapped hotkey
 					'''
 			}
+
+			CroceaMors: {
+				DisplayName: Crocea Mors
+				Tooltip: ""
+			}
 		}
 
 		Biomes: {
@@ -778,6 +783,7 @@ Mods: {
 			SunderedAxeSlash.DisplayName: Sundered Axe Slash
 			WhitePetalBurst.DisplayName: White Petal Burst
 			WhiteRoseBullet.DisplayName: White Rose Bullet
+			CroceaSlash.DisplayName: Crocea Slash
 		}
 
 		Tiles: {
