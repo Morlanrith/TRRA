@@ -40,7 +40,7 @@ namespace TRRA.Projectiles.Item.Weapon.EmberCelica
             target.AddBuff(BuffID.OnFire, 180);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             if (timeLeft > 0)
             {

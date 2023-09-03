@@ -151,7 +151,7 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 				Projectile.velocity = Vector2.Zero;
 				Projectile.Center = Vector2.SmoothStep(Projectile.Center, idleSpot3, 0.45f);
 				Projectile.rotation = Projectile.rotation.AngleLerp(idleRotation3, 0.45f);
-				if (Main.rand.Next(20) == 0)
+				if (Main.rand.NextBool(20))
 				{
 					int num7 = Swords_TryAttackingNPCs(blacklist);
 					if (num7 != -1)
@@ -380,10 +380,9 @@ namespace TRRA.Projectiles.Item.Weapon.FloatingArray
 			return false;
 		}
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
 			Main.player[Projectile.owner].GetModPlayer<TRRAPlayer>().RemoveBlade(Projectile);
-            base.Kill(timeLeft);
         }
     }
 }

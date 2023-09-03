@@ -1625,10 +1625,11 @@ Look into refining the Shattered Moon event.
 Look into implementing continuous Dust generation.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-
+3rd September 2023
 -------------
 Work Done:
-
+Fixed issues caused by changes in preview-v2023.08.
+Released version 3.4.4.5 (only on preview branch for now).
 -------------
 Next Task:
 

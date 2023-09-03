@@ -48,7 +48,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			return true;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
 		{
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < Main.rand.Next(3,5); i++)

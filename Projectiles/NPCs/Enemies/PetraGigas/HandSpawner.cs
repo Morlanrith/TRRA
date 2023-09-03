@@ -74,7 +74,7 @@ namespace TRRA.Projectiles.NPCs.Enemies.PetraGigas
 			}
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			for (int i = 0; i < Main.rand.Next(5, 10); i++)
 				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.RedTorch);

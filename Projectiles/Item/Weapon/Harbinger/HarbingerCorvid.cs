@@ -139,7 +139,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			}
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			Main.player[Projectile.owner].direction = Projectile.spriteDirection*-1;
 			Main.player[Projectile.owner].velocity = Projectile.velocity/3;
