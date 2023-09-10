@@ -34,7 +34,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
 		{
             int dustQuantity = 5;
             for (int i = 0; i < dustQuantity; i++)

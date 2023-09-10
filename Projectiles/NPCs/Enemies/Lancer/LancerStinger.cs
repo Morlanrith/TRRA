@@ -53,7 +53,7 @@ namespace TRRA.Projectiles.NPCs.Enemies.Lancer
 			return true;
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			if(timeLeft > 0)
             {

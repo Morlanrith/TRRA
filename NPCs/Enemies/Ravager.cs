@@ -7,7 +7,6 @@ using Terraria.ModLoader;
 using TRRA.Dusts;
 using TRRA.Biomes;
 using TRRA.Items.Placeable;
-using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using TRRA.Items.Consumables;
 using TRRA.Items.Materials;
@@ -22,26 +21,19 @@ namespace TRRA.NPCs.Enemies
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Harpy];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			NPCDebuffImmunityData debuffData = new()
-			{
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Bleeding,
-					BuffID.Venom,
-					BuffID.Ichor,
-					BuffID.Confused
-				}
-			};
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Bleeding] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Venom] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Position = new Vector2(0f, 24f),
 				PortraitPositionYOverride = 0f,
 			};
 
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
-
-			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
 		}
 
 		public override void SetDefaults() {

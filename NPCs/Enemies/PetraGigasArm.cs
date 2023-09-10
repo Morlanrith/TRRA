@@ -6,7 +6,6 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Biomes;
-using Terraria.DataStructures;
 
 namespace TRRA.NPCs.Enemies
 {
@@ -20,19 +19,12 @@ namespace TRRA.NPCs.Enemies
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.SkeletronHand];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			NPCDebuffImmunityData debuffData = new()
-			{
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Bleeding,
-					BuffID.Venom,
-					BuffID.Ichor,
-					BuffID.Confused
-				}
-			};
-
-			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
-		}
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Bleeding] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Venom] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+        }
 
 		public override void SetDefaults() {
 			NPC.width = 40;

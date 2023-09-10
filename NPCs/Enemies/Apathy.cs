@@ -53,20 +53,13 @@ namespace TRRA.NPCs.Enemies
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Medusa];
 
-			NPCDebuffImmunityData debuffData = new()
-			{
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Bleeding,
-					BuffID.Venom,
-					BuffID.Ichor,
-					BuffID.Confused
-				}
-			};
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Bleeding] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Venom] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
-			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
-
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new(0)
 			{
 				Velocity = 1f,
 				Position = new Vector2(0f, 24f),
