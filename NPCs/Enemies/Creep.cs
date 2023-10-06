@@ -24,19 +24,12 @@ namespace TRRA.NPCs.Enemies
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Derpling];
 			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
 
-			NPCDebuffImmunityData debuffData = new()
-			{
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Bleeding,
-					BuffID.Venom,
-					BuffID.Ichor,
-					BuffID.Confused
-				}
-			};
-
-			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
-		}
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Bleeding] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Venom] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+        }
 
 		public override void SetDefaults() {
 			NPC.width = 64;

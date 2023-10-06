@@ -123,7 +123,7 @@ namespace TRRA.Projectiles.Item.Weapon.SunderedRose
 			}
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			Main.player[Projectile.owner].direction = Projectile.spriteDirection;
 			Main.player[Projectile.owner].velocity = Projectile.velocity/3;

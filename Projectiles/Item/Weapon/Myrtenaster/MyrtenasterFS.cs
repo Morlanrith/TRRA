@@ -53,7 +53,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
             target.AddBuff(BuffID.OnFire, 180);
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
