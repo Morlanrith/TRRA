@@ -463,6 +463,15 @@ Mods: {
 				DisplayName: Ember Celica
 			}
 
+			FireFists: {
+				DisplayName: Fire Fists
+				Tooltip:
+					'''
+					'Wait, where'd my bullets go!?'
+					Right Click to Charge
+					'''
+			}
+
 			FireBullet: {
 				Tooltip: A special kind of bullet that uses fire dust
 				DisplayName: Fire Dust Bullet
@@ -778,6 +787,9 @@ Mods: {
 			SunderedAxeSlash.DisplayName: Sundered Axe Slash
 			WhitePetalBurst.DisplayName: White Petal Burst
 			WhiteRoseBullet.DisplayName: White Rose Bullet
+			FirePunch.DisplayName: Fire Punch
+			FireBlast.DisplayName: Fire Blast
+			FireFistsExplosion.DisplayName: Fire Fists Explosion
 		}
 
 		Tiles: {

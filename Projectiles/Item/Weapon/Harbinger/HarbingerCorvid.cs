@@ -1,8 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.Audio;
+ using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;

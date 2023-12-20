@@ -1632,4 +1632,23 @@ Fixed issues caused by changes in preview-v2023.08.
 Released version 3.4.4.5 (only on preview branch for now).
 -------------
 Next Task:
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+20th December 2023
+-------------
+Work Done:
+Began work on shimmer weapon variations for the WBY team members (planned to be the last content update for TRRA).
+Added a shimmer variation of the Ember Celica, called the 'Fire Fists' (based on Yangs gauntlets from the RWBY/DC crossover).
+-------------
+Next Task:
+Add shimmer variation of Gambol Shroud.
+Add shimmer variation of Myrtenaster.
+Add vanity sets to match shimmer weapons (optional).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
+-------------
+Work Done:
+
+-------------
+Next Task:
