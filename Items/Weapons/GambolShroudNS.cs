@@ -12,37 +12,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
-    public class ShadowCloneBuff : ModBuff
-    {
-        public override void SetStaticDefaults()
-        {
-            Main.buffNoSave[Type] = true;
-            Main.buffNoTimeDisplay[Type] = false;
-        }
 
-        public override bool RightClick(int buffIndex)
-        {
-			return false;
-        }
-
-        public override void Update(Player player, ref int buffIndex)
-        {
-			if(!player.immune && player.buffTime[buffIndex] > 1)
-			{
-                player.onHitDodge = true;
-                player.shadowDodge = true;
-            }
-			else
-			{
-                player.onHitDodge = false;
-                player.shadowDodge = false;
-                player.shadowDodgeTimer = 600;
-                player.DelBuff(buffIndex);
-            }
-        }
-    }
-
-    public class GambolShroudS : ModItem
+    public class GambolShroudNS : ModItem
 	{
 		private bool canParry = true;
 
@@ -54,27 +25,27 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<GambolShroudNS>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<GambolShroudS>();
         }
 
         public override void SetDefaults() {
-			Item.damage = 200;
+			Item.damage = 210;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 44;
+			Item.width = 40;
 			Item.height = 44;
 			Item.useTime = 21;
 			Item.useAnimation = 21;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 4;
+			Item.knockBack = 5;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.rare = ItemRarityID.Cyan;
 			Item.UseSound = null;
 			Item.autoReuse = false;
-			Item.crit = 36;
+			Item.crit = 24;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.channel = true;
-			Item.shoot = ProjectileType<GambolBlade>();
+			Item.shoot = ProjectileType<GambolNBlade>();
 			Item.shootSpeed = 5f;
 			Item.maxStack = 1;
 		}
@@ -121,7 +92,7 @@ namespace TRRA.Items.Weapons
 				Item.useTime = 21;
 				Item.useAnimation = 21;
 				Item.channel = true;
-				Item.shoot = ProjectileType<GambolBlade>();
+				Item.shoot = ProjectileType<GambolNBlade>();
 			}
 			return base.CanUseItem(player);
 		}
@@ -131,16 +102,6 @@ namespace TRRA.Items.Weapons
 			// Offsets the weapon model, so it is being held correctly
 			return new Vector2(6, -12);
 		}
-
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<GambolShadeS>(), 1)
-			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
-			.AddIngredient(ItemID.BlackPaint, 10)
-			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddTile(TileType<DustToolbenchTile>())
-			.Register();
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{

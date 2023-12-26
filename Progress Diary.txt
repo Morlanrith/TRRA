@@ -1646,6 +1646,16 @@ Add shimmer variation of Myrtenaster.
 Add vanity sets to match shimmer weapons (optional).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+26th December 2023
+-------------
+Work Done:
+Added a shimmer variation of Gambol Shroud, called 'Gambol Shroud (Nightmare)' (based on Nightmare Blake's weapon from the Ice Queendom).
+-------------
+Next Task:
+Add shimmer variation of Myrtenaster.
+Add vanity sets to match shimmer weapons (optional).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

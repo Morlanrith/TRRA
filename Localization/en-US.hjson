@@ -695,6 +695,26 @@ Mods: {
 					Transforms by pressing a mapped hotkey
 					'''
 			}
+
+			GambolShroudNG: {
+				Tooltip:
+					'''
+					'Does it look like I'm just playing around?'
+					Right Click to fire as a gun
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shroud (Nightmare)
+			}
+
+			GambolShroudNS: {
+				Tooltip:
+					'''
+					'Does it look like I'm just playing around?'
+					Right Click to activate a parry (has a cooldown)
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shroud (Nightmare)
+			}
 		}
 
 		Biomes: {
@@ -790,6 +810,8 @@ Mods: {
 			FirePunch.DisplayName: Fire Punch
 			FireBlast.DisplayName: Fire Blast
 			FireFistsExplosion.DisplayName: Fire Fists Explosion
+			GambolNBlade.DisplayName: Gambol Nightmare Blade
+			GambolNChainEnd.DisplayName: Gambol Nightmare Chain End
 		}
 
 		Tiles: {

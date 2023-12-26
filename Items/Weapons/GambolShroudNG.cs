@@ -11,38 +11,38 @@ using TRRA.Tiles;
 
 namespace TRRA.Items.Weapons
 {
-	public class GambolShroudG : ModItem
+	public class GambolShroudNG : ModItem
 	{
 		private bool resetTime = false;
 
 		private static readonly SoundStyle GambolShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolShot")
 		{
 			Volume = 0.3f,
-			Pitch = -0.1f,
+			Pitch = -0.3f,
 		};
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<GambolShroudNG>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<GambolShroudG>();
         }
 
         public override void SetDefaults() {
-			Item.damage = 150;
+			Item.damage = 165;
 			Item.DamageType = DamageClass.Ranged;
-			Item.width = 36;
-			Item.height = 24;
+			Item.width = 42;
+			Item.height = 18;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.rare = ItemRarityID.Cyan;
 			Item.noUseGraphic = true;
-			Item.useTime = 10;
-			Item.useAnimation = 10;
-			Item.knockBack = 7f;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
+			Item.knockBack = 8f;
 			Item.UseSound = SoundID.Item1;
-			Item.shoot = ProjectileType<GambolRibbonEnd>();
+			Item.shoot = ProjectileType<GambolNChainEnd>();
 			Item.shootSpeed = 10f;
-			Item.crit = 8;
+			Item.crit = 4;
 			Item.useAmmo = AmmoID.None;
 			Item.channel = true;
 			Item.autoReuse = false;
@@ -85,10 +85,10 @@ namespace TRRA.Items.Weapons
 			if (player.altFunctionUse == 2)
 			{
 				Item.noUseGraphic = false;
-				Item.damage = 130;
-				Item.useTime = 20;
-				Item.useAnimation = 20;
-				Item.knockBack = 4;
+				Item.damage = 150;
+				Item.useTime = 25;
+				Item.useAnimation = 25;
+				Item.knockBack = 5;
 				Item.UseSound = GambolShotSound;
 				Item.shoot = ProjectileID.PurificationPowder;
 				Item.shootSpeed = 13f;
@@ -100,14 +100,14 @@ namespace TRRA.Items.Weapons
 			else
 			{
 				Item.noUseGraphic = true;
-				Item.damage = 150;
-				Item.useTime = 10;
-				Item.useAnimation = 10;
-				Item.knockBack = 7f;
+                Item.damage = 165;
+                Item.useTime = 15;
+				Item.useAnimation = 15;
+				Item.knockBack = 8f;
 				Item.UseSound = SoundID.Item1;
-				Item.shoot = ProjectileType<GambolRibbonEnd>();
+				Item.shoot = ProjectileType<GambolNChainEnd>();
 				Item.shootSpeed = 10f;
-				Item.crit = 8;
+				Item.crit = 4;
 				Item.useAmmo = AmmoID.None;
 				Item.channel = true;
 				Item.autoReuse = false;
@@ -115,20 +115,10 @@ namespace TRRA.Items.Weapons
 			return base.CanUseItem(player);
 		}
 
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<GambolShadeG>(), 1)
-			.AddIngredient(ItemType<PlantDustCrystal>(), 20)
-			.AddIngredient(ItemType<GravityDustCrystal>(), 20)
-			.AddIngredient(ItemID.BlackPaint, 10)
-			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddTile(TileType<DustToolbenchTile>())
-			.Register();
-
 		public override Vector2? HoldoutOffset()
 		{
 			// Offsets the weapon model, so it is being held correctly
-			return new Vector2(-15, 3);
+			return new Vector2(3, 3);
 		}
 
 		// Changes musket balls to high velocity bullets

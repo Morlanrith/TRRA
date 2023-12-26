@@ -76,6 +76,8 @@ namespace TRRA
             gunkata = GetModItem(ItemType<GambolShroudG>()).Item,
             katanaJr = GetModItem(ItemType<GambolShadeS>()).Item,
             gunkataJr = GetModItem(ItemType<GambolShadeG>()).Item,
+            katanaN = GetModItem(ItemType<GambolShroudNS>()).Item,
+            gunkataN = GetModItem(ItemType<GambolShroudNG>()).Item,
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
             rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
             oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
@@ -155,6 +157,18 @@ namespace TRRA
                         {
                             SoundEngine.PlaySound(GambolTransformSound); // Plays the relevant transform sound effect
                             chosenItem = katanaJr;
+                        }
+                        break;
+                    case "Gambol Shroud (Nightmare)":
+                        if (heldItem.type.Equals(katanaN.type)) // If the current held Gambol Shroud is in katana form, swaps to gun
+                        {
+                            SoundEngine.PlaySound(GambolCockSound); // Plays the relevant transform sound effect
+                            chosenItem = gunkataN;
+                        }
+                        else // Otherwise, swaps to katana
+                        {
+                            SoundEngine.PlaySound(GambolTransformSound); // Plays the relevant transform sound effect
+                            chosenItem = katanaN;
                         }
                         break;
                     case "Ember Celica":
