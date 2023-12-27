@@ -725,6 +725,21 @@ Mods: {
 					'''
 				DisplayName: Winter's Sword
 			}
+
+			NightmareMask: {
+				DisplayName: Nightmare Mask
+				Tooltip: "'Born with no life into subjugation'"
+			}
+
+			NightmareBoots: {
+				DisplayName: Nightmare Boots
+				Tooltip: "'Stripped of all rights, just a lesser being'"
+			}
+
+			NightmareTop: {
+				DisplayName: Nightmare Top
+				Tooltip: "'Treated like a worthless animal'"
+			}
 		}
 
 		Biomes: {

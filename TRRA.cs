@@ -23,6 +23,7 @@ namespace TRRA
             Filters.Scene["ShatteredMoon"] = new Filter(new ShatteredMoonShader("FilterBloodMoon").UseColor(1f, 0f, 0.5f), EffectPriority.Medium);
 
             EquipLoader.AddEquipTexture(this, $"TRRA/Items/Armor/ProtectorRibbon_Texture", EquipType.Head, null, "ProtectorRibbonTex");
+            EquipLoader.AddEquipTexture(this, $"TRRA/Items/Armor/NightmareMask_Texture", EquipType.Head, null, "NightmareMaskTex");
 
             base.Load();
         }
