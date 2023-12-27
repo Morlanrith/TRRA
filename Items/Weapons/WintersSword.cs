@@ -1,18 +1,16 @@
-using TRRA.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
-using TRRA.Tiles;
 using TRRA.Projectiles.Item.Weapon.Myrtenaster;
 using Terraria.DataStructures;
 using Terraria.Audio;
 
 namespace TRRA.Items.Weapons
 {
-	public class Myrtenaster : ModItem
+	public class WintersSword : ModItem
 	{
 		private bool resetTime = false;
 
@@ -24,7 +22,7 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WintersSword>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<Myrtenaster>();
         }
 
         public override void SetDefaults() {
@@ -34,13 +32,13 @@ namespace TRRA.Items.Weapons
 			Item.noUseGraphic = true;
 			Item.channel = true;
 			Item.noMelee = true;
-			Item.damage = 90;
-			Item.crit = 10;
+			Item.damage = 86;
+			Item.crit = 15;
 			Item.knockBack = 4f;
 			Item.autoReuse = false;
 			Item.noMelee = true;
 			Item.DamageType = DamageClass.Melee;
-			Item.shoot = ProjectileType<MyrtenasterR>();
+			Item.shoot = ProjectileType<WinterR>();
 			Item.shootSpeed = 15f;
 			Item.value = Item.sellPrice(gold: 25);
 			Item.useStyle = ItemUseStyleID.Rapier; // 13
@@ -48,16 +46,6 @@ namespace TRRA.Items.Weapons
 			Item.useTime = 6;
 			Item.maxStack = 1;
 		}
-
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemType<Silbernelke>(), 1)
-			.AddIngredient(ItemType<FireDustCrystal>(), 20)
-			.AddIngredient(ItemType<IceDustCrystal>(), 20)
-			.AddIngredient(ItemID.WhitePaint, 10)
-			.AddIngredient(ItemType<EssenceOfGrimm>(), 20)
-			.AddIngredient(ItemType<DustExtract>(), 1)
-			.AddTile(TileType<DustToolbenchTile>())
-			.Register();
 
 		public override bool AltFunctionUse(Player player) {
 			return true;
@@ -95,11 +83,11 @@ namespace TRRA.Items.Weapons
 				Item.noUseGraphic = false;
 				Item.channel = false;
 				Item.useStyle = ItemUseStyleID.Shoot;
-				Item.damage = 200;
+				Item.damage = 190;
 				Item.useTime = 30;
 				Item.useAnimation = 30;
 				Item.DamageType = DamageClass.Ranged;
-				Item.shoot = ProjectileType<MyrtenasterS>();
+				Item.shoot = ProjectileType<WinterNevermore>();
 				Item.shootSpeed = 6f;
 				Item.UseSound = IceSwordSound;
 				Item.autoReuse = true;
@@ -111,8 +99,8 @@ namespace TRRA.Items.Weapons
 				Item.DamageType = DamageClass.Melee;
 				Item.useAnimation = 18;
 				Item.useTime = 6;
-				Item.damage = 90;
-				Item.shoot = ProjectileType<MyrtenasterR>();
+				Item.damage = 86;
+				Item.shoot = ProjectileType<WinterR>();
 				Item.shootSpeed = 15f;
 				Item.UseSound = null;
 				Item.autoReuse = false;
@@ -123,7 +111,7 @@ namespace TRRA.Items.Weapons
 		public override Vector2? HoldoutOffset()
 		{
 			// Offsets the weapon model, so it is being held correctly
-			return new Vector2(6, -11);
+			return new Vector2(3, -11);
 		}
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

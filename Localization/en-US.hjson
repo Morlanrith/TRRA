@@ -715,6 +715,16 @@ Mods: {
 					'''
 				DisplayName: Gambol Shroud (Nightmare)
 			}
+
+			WintersSword: {
+				Tooltip:
+					'''
+					'This was seriously the best you could come up with?'
+					Right Click to fire a summoned nevermore
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Winter's Sword
+			}
 		}
 
 		Biomes: {
@@ -781,18 +791,18 @@ Mods: {
 			HarbingerG.DisplayName: Harbinger Gun
 			HarbingerScythe.DisplayName: Harbinger Scythe
 			PortentG.DisplayName: Portent Gun
-			HushClosed.DisplayName: HushClosed
-			QuietClosed.DisplayName: QuietClosed
-			WhisperClosed.DisplayName: WhisperClosed
+			HushClosed.DisplayName: Hush
+			QuietClosed.DisplayName: Quiet
+			WhisperClosed.DisplayName: Whisper
 			IceBullet.DisplayName: Ice Dust Bullet
 			IceFragment.DisplayName: Ice Fragment
-			KleineblumeR.DisplayName: KleineblumeR
-			MyrtenasterFR.DisplayName: MyrtenasterFR
-			MyrtenasterFS.DisplayName: MyrtenasterFS
-			MyrtenasterR.DisplayName: MyrtenasterR
-			MyrtenasterS.DisplayName: MyrtenasterS
-			SilbernelkeFR.DisplayName: SilbernelkeFR
-			SilbernelkeR.DisplayName: SilbernelkeR
+			KleineblumeR.DisplayName: Kleineblume Rapier
+			MyrtenasterFR.DisplayName: Myrtenaster Fire Rapier
+			MyrtenasterFS.DisplayName: Myrtenaster Fire Wave
+			MyrtenasterR.DisplayName: Myrtenaster Rapier
+			MyrtenasterS.DisplayName: Myrtenaster Sword
+			SilbernelkeFR.DisplayName: Silbernelke Fire Rapier
+			SilbernelkeR.DisplayName: Silbernelke Rapier
 			ForebodeBlade.DisplayName: Forebode Blade
 			OmenBlade.DisplayName: Omen Blade
 			OmenPortal.DisplayName: Omen Portal
@@ -812,6 +822,8 @@ Mods: {
 			FireFistsExplosion.DisplayName: Fire Fists Explosion
 			GambolNBlade.DisplayName: Gambol Nightmare Blade
 			GambolNChainEnd.DisplayName: Gambol Nightmare Chain End
+			WinterNevermore.DisplayName: Winter Nevermore
+			WinterR.DisplayName: Winter Rapier
 		}
 
 		Tiles: {

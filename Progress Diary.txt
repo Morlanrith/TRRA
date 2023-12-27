@@ -1656,6 +1656,17 @@ Add shimmer variation of Myrtenaster.
 Add vanity sets to match shimmer weapons (optional).
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+27th December 2023
+-------------
+Work Done:
+Added a shimmer variation of Myrtenaster, called 'Winter's Sword' (based on... Winter Schnee's sword).
+-------------
+Next Task:
+Add vanity sets to match shimmer weapons.
+Update outdated weapon variant sprites (CR and EC).
+Release Patch 3.5.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
