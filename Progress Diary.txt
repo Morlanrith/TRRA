@@ -1632,4 +1632,55 @@ Fixed issues caused by changes in preview-v2023.08.
 Released version 3.4.4.5 (only on preview branch for now).
 -------------
 Next Task:
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+20th December 2023
+-------------
+Work Done:
+Began work on shimmer weapon variations for the WBY team members (planned to be the last content update for TRRA).
+Added a shimmer variation of the Ember Celica, called the 'Fire Fists' (based on Yangs gauntlets from the RWBY/DC crossover).
+-------------
+Next Task:
+Add shimmer variation of Gambol Shroud.
+Add shimmer variation of Myrtenaster.
+Add vanity sets to match shimmer weapons (optional).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+26th December 2023
+-------------
+Work Done:
+Added a shimmer variation of Gambol Shroud, called 'Gambol Shroud (Nightmare)' (based on Nightmare Blake's weapon from the Ice Queendom).
+-------------
+Next Task:
+Add shimmer variation of Myrtenaster.
+Add vanity sets to match shimmer weapons (optional).
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+27th December 2023
+-------------
+Work Done:
+Added a shimmer variation of Myrtenaster, called 'Winter's Sword' (based on... Winter Schnee's sword).
+Updated outdated weapon variant sprites (CR and EC).
+Added Nightmare vanity set to match the Gambol Shroud variant.
+-------------
+Next Task:
+Add remaining vanity sets to match shimmer weapons.
+Release Patch 3.5.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+28th December 2023
+-------------
+Work Done:
+Added Fire vanity set to match the Ember Celica variant.
+Added Winter vanity set to match the Myrtenaster variant.
+Released Patch 3.5.
+-------------
+Next Task:
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
+-------------
+Work Done:
+
+-------------
+Next Task:

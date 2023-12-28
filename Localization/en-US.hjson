@@ -463,6 +463,15 @@ Mods: {
 				DisplayName: Ember Celica
 			}
 
+			FireFists: {
+				DisplayName: Fire Fists
+				Tooltip:
+					'''
+					'Wait, where'd my bullets go!?'
+					Right Click to Charge
+					'''
+			}
+
 			FireBullet: {
 				Tooltip: A special kind of bullet that uses fire dust
 				DisplayName: Fire Dust Bullet
@@ -686,6 +695,71 @@ Mods: {
 					Transforms by pressing a mapped hotkey
 					'''
 			}
+
+			GambolShroudNG: {
+				Tooltip:
+					'''
+					'Does it look like I'm just playing around?'
+					Right Click to fire as a gun
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shroud (Nightmare)
+			}
+
+			GambolShroudNS: {
+				Tooltip:
+					'''
+					'Does it look like I'm just playing around?'
+					Right Click to activate a parry (has a cooldown)
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Gambol Shroud (Nightmare)
+			}
+
+			WintersSword: {
+				Tooltip:
+					'''
+					'This was seriously the best name you could come up with?'
+					Right Click to fire a summoned nevermore
+					Transforms by pressing a mapped hotkey
+					'''
+				DisplayName: Winter's Sword
+			}
+
+			NightmareMask: {
+				DisplayName: Nightmare Mask
+				Tooltip: "'Born with no life into subjugation'"
+			}
+
+			NightmareBoots: {
+				DisplayName: Nightmare Boots
+				Tooltip: "'Stripped of all rights, just a lesser being'"
+			}
+
+			NightmareTop: {
+				DisplayName: Nightmare Top
+				Tooltip: "'Treated like a worthless animal'"
+			}
+
+			FireTop: {
+				DisplayName: Fire Top
+				Tooltip: "'Lived alotta life to be called a kid'"
+			}
+
+			FireBoots: {
+				DisplayName: Fire Boots
+				Tooltip: "'I guess you weren't expecting this?'"
+			}
+
+			WinterTop: {
+				DisplayName: Winter Top
+				Tooltip: "'I outrank you'"
+			}
+
+			WinterBoots: {
+				DisplayName: Winter Boots
+				Tooltip: "'I've made it my own. And I take great pride in it.'"
+			}
 		}
 
 		Biomes: {
@@ -752,18 +826,18 @@ Mods: {
 			HarbingerG.DisplayName: Harbinger Gun
 			HarbingerScythe.DisplayName: Harbinger Scythe
 			PortentG.DisplayName: Portent Gun
-			HushClosed.DisplayName: HushClosed
-			QuietClosed.DisplayName: QuietClosed
-			WhisperClosed.DisplayName: WhisperClosed
+			HushClosed.DisplayName: Hush
+			QuietClosed.DisplayName: Quiet
+			WhisperClosed.DisplayName: Whisper
 			IceBullet.DisplayName: Ice Dust Bullet
 			IceFragment.DisplayName: Ice Fragment
-			KleineblumeR.DisplayName: KleineblumeR
-			MyrtenasterFR.DisplayName: MyrtenasterFR
-			MyrtenasterFS.DisplayName: MyrtenasterFS
-			MyrtenasterR.DisplayName: MyrtenasterR
-			MyrtenasterS.DisplayName: MyrtenasterS
-			SilbernelkeFR.DisplayName: SilbernelkeFR
-			SilbernelkeR.DisplayName: SilbernelkeR
+			KleineblumeR.DisplayName: Kleineblume Rapier
+			MyrtenasterFR.DisplayName: Myrtenaster Fire Rapier
+			MyrtenasterFS.DisplayName: Myrtenaster Fire Wave
+			MyrtenasterR.DisplayName: Myrtenaster Rapier
+			MyrtenasterS.DisplayName: Myrtenaster Sword
+			SilbernelkeFR.DisplayName: Silbernelke Fire Rapier
+			SilbernelkeR.DisplayName: Silbernelke Rapier
 			ForebodeBlade.DisplayName: Forebode Blade
 			OmenBlade.DisplayName: Omen Blade
 			OmenPortal.DisplayName: Omen Portal
@@ -778,6 +852,13 @@ Mods: {
 			SunderedAxeSlash.DisplayName: Sundered Axe Slash
 			WhitePetalBurst.DisplayName: White Petal Burst
 			WhiteRoseBullet.DisplayName: White Rose Bullet
+			FirePunch.DisplayName: Fire Punch
+			FireBlast.DisplayName: Fire Blast
+			FireFistsExplosion.DisplayName: Fire Fists Explosion
+			GambolNBlade.DisplayName: Gambol Nightmare Blade
+			GambolNChainEnd.DisplayName: Gambol Nightmare Chain End
+			WinterNevermore.DisplayName: Winter Nevermore
+			WinterR.DisplayName: Winter Rapier
 		}
 
 		Tiles: {

@@ -76,6 +76,8 @@ namespace TRRA
             gunkata = GetModItem(ItemType<GambolShroudG>()).Item,
             katanaJr = GetModItem(ItemType<GambolShadeS>()).Item,
             gunkataJr = GetModItem(ItemType<GambolShadeG>()).Item,
+            katanaN = GetModItem(ItemType<GambolShroudNS>()).Item,
+            gunkataN = GetModItem(ItemType<GambolShroudNG>()).Item,
             fist = GetModItem(ItemType<EmberCelicaS>()).Item,
             rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
             oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
@@ -157,6 +159,18 @@ namespace TRRA
                             chosenItem = katanaJr;
                         }
                         break;
+                    case "Gambol Shroud (Nightmare)":
+                        if (heldItem.type.Equals(katanaN.type)) // If the current held Gambol Shroud is in katana form, swaps to gun
+                        {
+                            SoundEngine.PlaySound(GambolCockSound); // Plays the relevant transform sound effect
+                            chosenItem = gunkataN;
+                        }
+                        else // Otherwise, swaps to katana
+                        {
+                            SoundEngine.PlaySound(GambolTransformSound); // Plays the relevant transform sound effect
+                            chosenItem = katanaN;
+                        }
+                        break;
                     case "Ember Celica":
                         SoundEngine.PlaySound(EmberTransformSound); // Plays the transform sound effect for the Ember Celica
                         if (heldItem.type.Equals(fist.type)) // If the current held Ember Celica is in shotgun form, swaps to rocket
@@ -202,7 +216,7 @@ namespace TRRA
 
         private void EmberFists()
         {
-            if (Player.HeldItem.Name == "Ember Celica" || Player.HeldItem.Name == "Steel Celica" || Player.HeldItem.Name == "Spark Celica")
+            if (Player.HeldItem.Name == "Ember Celica" || Player.HeldItem.Name == "Steel Celica" || Player.HeldItem.Name == "Spark Celica" || Player.HeldItem.Name == "Fire Fists")
             {
                 if (Player.HeldItem.handOnSlot > 0)
                 {

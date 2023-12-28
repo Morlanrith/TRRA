@@ -23,9 +23,10 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<GambolShroudNG>();
+        }
 
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.damage = 150;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 36;

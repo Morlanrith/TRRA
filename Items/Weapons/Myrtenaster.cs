@@ -24,9 +24,10 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WintersSword>();
+        }
 
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.width = 14;
 			Item.height = 46;
 			Item.rare = ItemRarityID.Cyan;

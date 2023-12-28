@@ -1,8 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.Audio;
+ using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.GameInput;
 using static Terraria.ModLoader.ModContent;
@@ -74,7 +73,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
         public override void AI()
 		{
-			// This part makes the Projectile do a shime sound every 10 ticks as long as it is moving.
+			// This part makes the Projectile do a flap sound every 10 ticks as long as it is moving.
 			if (Projectile.soundDelay == 0 && Math.Abs(Projectile.velocity.X) + Math.Abs(Projectile.velocity.Y) > 2f)
 			{
 				Projectile.soundDelay = 20;

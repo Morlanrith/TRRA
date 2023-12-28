@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Armor
 {
@@ -9,9 +10,10 @@ namespace TRRA.Items.Armor
 	{
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WinterTop>();
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 18;

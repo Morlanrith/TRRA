@@ -25,9 +25,10 @@ namespace TRRA.Items.Weapons
 
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<FireFists>();
+        }
 
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.damage = 50;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 62;
