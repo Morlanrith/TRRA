@@ -6,26 +6,20 @@ using static Terraria.ModLoader.ModContent;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	public class SnowTop : ModItem
+	public class WinterTop : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WinterTop>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SnowTop>();
         }
 
         public override void SetDefaults()
 		{
-			Item.width = 22;
-			Item.height = 18;
+			Item.width = 30;
+			Item.height = 28;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.sellPrice(silver: 15);
 			Item.vanity = true;
 		}
-
-        public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Shiverthorn, 1)
-			.AddIngredient(ItemID.Silk, 20)
-			.AddTile(TileID.Loom)
-			.Register();
 	}
 }

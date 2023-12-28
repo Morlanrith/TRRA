@@ -4,8 +4,7 @@ Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 
-This is version 3.4.4.5 of the mod, which makes a handful of miscellaneous changes and additions.
-The most notable of these involve Dust now always spawning whenever Skeletron is killed (rather than just the first time) and Stones of Negativity now being obtainable by throwing Bloody Tears into Shimmer.
+This is version 3.5 of the mod, which adds a handful of weapon/vanity variants that can be obtained by throwing existing items into the Shimmer.
 
 This mod now also has a wiki! It can be found at: https://terrariamods.fandom.com/wiki/TRRA_(A_RWBY_Mod)
 

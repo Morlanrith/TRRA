@@ -6,14 +6,15 @@ using static Terraria.ModLoader.ModContent;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
-	public class SnowBoots : ModItem
+	public class WinterBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WinterBoots>();
-        }
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SnowBoots>();
+            SetupDrawing();
+		}
 
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			Item.width = 12;
 			Item.height = 12;
@@ -22,10 +23,12 @@ namespace TRRA.Items.Armor
 			Item.vanity = true;
 		}
 
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Shiverthorn, 1)
-			.AddIngredient(ItemID.Silk, 20)
-			.AddTile(TileID.Loom)
-			.Register();
+		private void SetupDrawing()
+		{
+			if (Main.netMode == NetmodeID.Server)
+				return;
+			int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+			ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
+		}
 	}
 }

@@ -1672,10 +1672,10 @@ Date:
 -------------
 Work Done:
 Added Fire vanity set to match the Ember Celica variant.
+Added Winter vanity set to match the Myrtenaster variant.
+Released Patch 3.5.
 -------------
 Next Task:
-Add remaining vanity sets to match shimmer weapons.
-Release Patch 3.5.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 
