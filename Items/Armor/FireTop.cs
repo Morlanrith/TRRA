@@ -6,11 +6,11 @@ using static Terraria.ModLoader.ModContent;
 namespace TRRA.Items.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	public class BurningJacket : ModItem
+	public class FireTop : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<FireTop>();
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<BurningJacket>();
         }
 
         public override void SetDefaults()
@@ -21,11 +21,5 @@ namespace TRRA.Items.Armor
 			Item.value = Item.sellPrice(silver: 15);
 			Item.vanity = true;
 		}
-
-		public override void AddRecipes() => CreateRecipe()
-			.AddIngredient(ItemID.Fireblossom, 1)
-			.AddIngredient(ItemID.Silk, 20)
-			.AddTile(TileID.Loom)
-			.Register();
 	}
 }

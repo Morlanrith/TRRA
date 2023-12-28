@@ -1668,6 +1668,16 @@ Add remaining vanity sets to match shimmer weapons.
 Release Patch 3.5.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+28th December 2023
+-------------
+Work Done:
+Added Fire vanity set to match the Ember Celica variant.
+-------------
+Next Task:
+Add remaining vanity sets to match shimmer weapons.
+Release Patch 3.5.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

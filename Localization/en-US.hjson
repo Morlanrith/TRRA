@@ -740,6 +740,16 @@ Mods: {
 				DisplayName: Nightmare Top
 				Tooltip: "'Treated like a worthless animal'"
 			}
+
+			FireTop: {
+				DisplayName: Fire Top
+				Tooltip: "'Lived alotta life to be called a kid'"
+			}
+
+			FireBoots: {
+				DisplayName: Fire Boots
+				Tooltip: "'I guess you weren't expecting this?'"
+			}
 		}
 
 		Biomes: {
