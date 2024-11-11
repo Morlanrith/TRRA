@@ -4,7 +4,7 @@ Hello!
 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 
-This is version 3.5 of the mod, which adds a handful of weapon/vanity variants that can be obtained by throwing existing items into the Shimmer.
+This is version 4.0.0 of the mod.
 
 This mod now also has a wiki! It can be found at: https://terrariamods.fandom.com/wiki/TRRA_(A_RWBY_Mod)
 
@@ -21,7 +21,7 @@ New Event: A new 'blood moon' style event called the 'Shattered Moon', during wh
 Transform Hotkey: An additional hotkey for use with the new weapons in this mod. Causes the weapons to change from one form to another.
 
 It should go without saying, but I do not own the copyright to the weapon designs implemented in this mod.
-These are owned by Rooster Teeth Productions, LLC.
+These are owned by VIZ Media, LLC.
 
 Some sound effects used from:
 - https://mixkit.co/

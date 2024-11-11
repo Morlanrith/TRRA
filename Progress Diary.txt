@@ -1678,9 +1678,9 @@ Released Patch 3.5.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
-
+11th November 2024
 -------------
 Work Done:
-
+Beginning work on a major code refactor to clean-up existing implementations and improve performance (will likely add extra content as well).
 -------------
 Next Task:
