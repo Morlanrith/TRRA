@@ -99,7 +99,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
 
 				Player player = Main.player[Projectile.owner];
 				// If the player channels the weapon, do something. This check only works if item.channel is true for the weapon.
-				if (!(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.CrescentRoseS>())
+				if (!(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.CrescentRose.CrescentRoseS>())
 				{
 					float maxDistance = 20f; // This also sets the maximun speed the Projectile can reach while following the cursor.
 					Vector2 vectorToPos = targetPos - Projectile.position;

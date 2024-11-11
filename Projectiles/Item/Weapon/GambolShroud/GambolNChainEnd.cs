@@ -36,7 +36,7 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 
         public override void AI()
         {
-            if (Main.player[Projectile.owner].HeldItem.type != ItemType<Items.Weapons.GambolShroudNG>()) Projectile.Kill();
+            if (Main.player[Projectile.owner].HeldItem.type != ItemType<Items.Weapons.GambolShroud.Nightmare.GambolShroudNG>()) Projectile.Kill();
             if (Main.rand.NextBool(5))
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.RedTorch, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
             if (Projectile.soundDelay == 0)

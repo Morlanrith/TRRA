@@ -86,7 +86,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 				Player player = Main.player[Projectile.owner];
 				// If the player channels the weapon, do something. This check only works if item.channel is true for the weapon.
-				if (!PlayerInput.Triggers.JustReleased.MouseRight && !(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.HarbingerSc>())
+				if (!PlayerInput.Triggers.JustReleased.MouseRight && !(player.CCed || player.dead || player.mount.Active || player.grappling[0] > -1 || PlayerInput.Triggers.JustPressed.Grapple) && player.HeldItem.type == ItemType<Items.Weapons.Harbinger.HarbingerSc>())
 				{
 					float maxDistance = 15f; // This also sets the maximun speed the Projectile can reach while following the cursor.
 					Vector2 vectorToCursor = Main.MouseWorld - Projectile.Center;

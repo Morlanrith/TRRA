@@ -1682,5 +1682,17 @@ Date:
 -------------
 Work Done:
 Beginning work on a major code refactor to clean-up existing implementations and improve performance (will likely add extra content as well).
+Move all weapons into unique namespaces per weapon-tree.
+-------------
+Next Task:
+Finish work on file tree.
+Investigate if single file per class structure is best practice.
+Look to reduce namespace usage in classes where possible.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+
+-------------
+Work Done:
+
 -------------
 Next Task:

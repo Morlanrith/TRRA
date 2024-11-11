@@ -36,7 +36,7 @@ namespace TRRA.Projectiles.Item.Weapon.CrescentRose
         {
             Player owner = Main.player[Projectile.owner];
             Projectile.spriteDirection = owner.direction;
-            completeRose = owner.HeldItem.type == ItemType<CrescentRoseS>();
+            completeRose = owner.HeldItem.type == ItemType<Items.Weapons.CrescentRose.CrescentRoseS>();
             if(!completeRose)
             {
                 Projectile.penetrate = 2;
