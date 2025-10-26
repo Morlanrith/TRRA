@@ -17,7 +17,7 @@ namespace TRRA.Items.Weapons.Ammunition
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 8;
 			Item.height = 8;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.knockBack = 8.0f;
 			Item.value = Item.sellPrice(copper: 50);

@@ -1690,6 +1690,17 @@ Investigate if single file per class structure is best practice.
 Look to reduce namespace usage in classes where possible.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+26th October 2025
+-------------
+Work Done:
+Increased item capacity to 9999 for some consumables/materials.
+-------------
+Next Task:
+Finish work on file tree.
+Investigate if single file per class structure is best practice.
+Look to reduce namespace usage in classes where possible.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:
