@@ -1,9 +1,13 @@
 Hello! 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 
-This is version 3.5.1 of the mod.
+This is version 3.5.1 of the mod. This is almost entirely focused on code/backend cleanup, and so doesn't really feature anything interesting.
+However, it does increase the max capacity for most items from 999 to 9999.
 
-This mod now also has a wiki! It's now linked as the mods homepage (it can also be found by navigating through the Terraria Mods wiki).
+Additionally, this does mark the rebeginning of development for the mod. I'll be making sure that it works with the v1.4.5 supported tModLoader.
+I'm also going to be planning out and implementing a large content update, which will be focused on providing more unique systems to TRRA (no clue when that will be done though!).
+
+This mod also has a wiki. It's linked as the mods homepage (it can also be found by navigating through the Terraria Mods wiki).
 
 This mod currently includes the following:
 New Weapons: A variety of weapons from the original series. Most of these weapons utilise a transform function that gives them dual use.
