@@ -10,8 +10,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.Hush
 {
-    public class Quiet : ModItem
-	{
+    public class Quiet : TRRAWeapon
+    {
 
 		private static readonly SoundStyle HushStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Hush/HushStab")
 		{

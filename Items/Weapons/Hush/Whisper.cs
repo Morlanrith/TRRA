@@ -10,8 +10,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.Hush
 {
-    public class Whisper : ModItem
-	{
+    public class Whisper : TRRAWeapon
+    {
 		private static readonly SoundStyle HushOpenSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Hush/HushOpen")
 		{
 			Volume = 0.3f,

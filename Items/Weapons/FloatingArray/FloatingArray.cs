@@ -12,8 +12,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.FloatingArray
 {
-    public class FloatingArray : ModItem
-	{
+    public class FloatingArray : TRRAWeapon
+    {
 		private bool canSummon = true, laserFiring = false;
 		private int bladeAmount = 0;
 
@@ -137,7 +137,4 @@ namespace TRRA.Items.Weapons.FloatingArray
         }
 
     }
-
-
-
 }

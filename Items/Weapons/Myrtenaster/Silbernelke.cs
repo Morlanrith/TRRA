@@ -9,9 +9,20 @@ using TRRA.Projectiles.Item.Weapon.Myrtenaster;
 
 namespace TRRA.Items.Weapons.Myrtenaster
 {
-	public class Silbernelke : ModItem
-	{
-		public override void SetStaticDefaults() {
+	public class Silbernelke : TransformingWeapon
+    {
+        public Silbernelke() :
+            base(
+                GetModItem(ItemType<SilbernelkeF>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/DustSpin")
+                {
+                    Volume = 0.8f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

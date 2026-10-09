@@ -10,8 +10,8 @@ using Terraria.DataStructures;
 
 namespace TRRA.Items.Weapons.Omen
 {
-	public class Presage : ModItem
-	{
+	public class Presage : TRRAWeapon
+    {
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

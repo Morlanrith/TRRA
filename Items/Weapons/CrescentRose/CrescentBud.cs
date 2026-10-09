@@ -8,8 +8,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
-    public class CrescentBud : ModItem
-	{
+    public class CrescentBud : TRRAWeapon
+    {
 		private static readonly SoundStyle BudSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseSlice")
 		{
 			Volume = 0.4f,

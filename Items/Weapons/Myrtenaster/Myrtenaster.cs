@@ -1,19 +1,20 @@
-using TRRA.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
-using TRRA.Tiles;
+using TRRA.Items.Materials;
+using TRRA.Items.Weapons.CrescentRose;
 using TRRA.Projectiles.Item.Weapon.Myrtenaster;
-using Terraria.DataStructures;
-using Terraria.Audio;
+using TRRA.Tiles;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons.Myrtenaster
 {
-	public class Myrtenaster : ModItem
-	{
+	public class Myrtenaster : TransformingWeapon
+    {
 		private bool resetTime = false;
 
 		private static readonly SoundStyle IceSwordSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/IceSword")
@@ -22,7 +23,18 @@ namespace TRRA.Items.Weapons.Myrtenaster
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() {
+        public Myrtenaster() :
+            base(
+                GetModItem(ItemType<MyrtenasterF>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/DustSpin")
+                {
+                    Volume = 0.8f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WintersSword.WintersSword>();
         }

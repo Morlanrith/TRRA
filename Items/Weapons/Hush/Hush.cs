@@ -14,8 +14,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.Hush
 {
-    public class Hush : ModItem
-	{
+    public class Hush : TRRAWeapon
+    {
 		private bool canTeleport;
 
 		private static readonly SoundStyle HushOpenSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Hush/HushOpen")

@@ -13,8 +13,8 @@ using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons.CrescentRose.Nightmare
 {
-    public class CrescentRoseN : ModItem
-	{
+    public class CrescentRoseN : TRRAWeapon
+    {
 		private bool canSwing = true;
 
 		private static readonly SoundStyle RoseSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseSlice")

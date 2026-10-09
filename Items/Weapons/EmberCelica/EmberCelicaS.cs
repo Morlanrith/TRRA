@@ -1,20 +1,20 @@
-using TRRA.Items.Materials;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader;
-using TRRA.Tiles;
-using Terraria.DataStructures;
+using TRRA.Items.Materials;
 using TRRA.Projectiles.Item.Weapon.EmberCelica;
-using Terraria.Audio;
+using TRRA.Tiles;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons.EmberCelica
 {
 	[AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-	public class EmberCelicaS : ModItem
-	{
+	public class EmberCelicaS : TransformingWeapon
+    {
 		private static readonly SoundStyle EmberShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberShot")
 		{
 			Volume = 0.3f,
@@ -27,7 +27,18 @@ namespace TRRA.Items.Weapons.EmberCelica
 			Pitch = -0.1f,
 		};
 
-		public override void SetStaticDefaults() {
+        public EmberCelicaS() :
+            base(
+                GetModItem(ItemType<EmberCelicaR>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<FireFists.FireFists>();
         }
@@ -52,6 +63,14 @@ namespace TRRA.Items.Weapons.EmberCelica
 			Item.noMelee = true;
 			Item.crit = 26;
 		}
+
+        public override void ApplyVisualEffects(Player player)
+        {
+            player.handon = Item.handOnSlot;
+            player.cHandOn = 0;
+			player.handoff = Item.handOffSlot;
+            player.cHandOff = 0;
+        }
 
 		public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemType<SparkCelica>(), 1)

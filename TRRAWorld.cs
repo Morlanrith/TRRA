@@ -74,7 +74,6 @@ namespace TRRA
 				moonType = oldMoonType;
 		}
 
-
 		public override void NetSend(BinaryWriter writer)
 		{
 			// Order of operations is important and has to match that of NetReceive

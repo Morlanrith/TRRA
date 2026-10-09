@@ -1706,11 +1706,12 @@ Date:
 Work Done:
 Adjusted file tree for armor sets (happy that this concludes work on the tree).
 Rescoped version to be a minor change to the latest (intention is to push out the backend changes when they're done, then focus on content later - i.e. V4.0).
+Simplified weapon transformation code, while also binding weapons more closely to their pair types.
+Adjusted display elements for weapons (e.g. Ember Celica) into a generic system, which should allow it to be extended for other weapons in the future.
+Release v3.5.1.
 -------------
 Next Task:
-Investigate cleanup of weapon transformation.
-Investigate cleanup of Shattered Moon.
-Investigate further cleanup.
+Investigate updating to support Terraria v1.4.5.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
 

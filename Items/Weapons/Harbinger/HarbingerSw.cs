@@ -13,8 +13,8 @@ using TRRA.Dusts;
 
 namespace TRRA.Items.Weapons.Harbinger
 {
-	public class HarbingerSw : ModItem
-	{
+	public class HarbingerSw : TransformingWeapon
+    {
 		private bool resetTime = false;
 
 		private static readonly SoundStyle HarbingerSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerSlice")
@@ -23,7 +23,18 @@ namespace TRRA.Items.Weapons.Harbinger
 			Pitch = 0f,
 		};
 
-		public override void SetStaticDefaults()
+        public HarbingerSw() :
+            base(
+                GetModItem(ItemType<HarbingerSc>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerScytheTransform")
+                {
+                    Volume = 0.7f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults()
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

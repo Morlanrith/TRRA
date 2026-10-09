@@ -1,18 +1,19 @@
-using TRRA.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using Terraria.DataStructures;
-using Terraria.Audio;
+using TRRA.Dusts;
+using TRRA.Items.Weapons.CrescentRose;
 using TRRA.Projectiles.Item.Weapon.CrescentRose;
 using TRRA.Projectiles.Item.Weapon.SunderedRose;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons.SunderedRose
 {
-    public class SunderedRoseA : ModItem
-	{
+    public class SunderedRoseA : TransformingWeapon
+    {
 		private bool canSwing = true;
         private Vector2 newPos;
 
@@ -28,7 +29,18 @@ namespace TRRA.Items.Weapons.SunderedRose
 			Pitch = -0.2f,
 		};
 
-		public override void SetStaticDefaults() 
+        public SunderedRoseA() :
+            base(
+                GetModItem(ItemType<SunderedRoseG>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() 
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<CrescentRose.CrescentRoseS>();

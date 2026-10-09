@@ -1,24 +1,36 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
-using TRRA.Projectiles.Item.Weapon.Harbinger;
-using Terraria.Audio;
 using TRRA.Dusts;
+using TRRA.Items.Weapons.CrescentRose;
+using TRRA.Projectiles.Item.Weapon.Harbinger;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons.Harbinger
 {
-	public class HarbingerSc : ModItem
-	{
+	public class HarbingerSc : TransformingWeapon
+    {
 		private static readonly SoundStyle HarbingerCorvidSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerCorvidTransform")
 		{
 			Volume = 0.4f,
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults()
+        public HarbingerSc() :
+            base(
+                GetModItem(ItemType<HarbingerSw>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/Harbinger/HarbingerSwordTransform")
+                {
+                    Volume = 0.7f,
+                    Pitch = -0.2f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults()
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

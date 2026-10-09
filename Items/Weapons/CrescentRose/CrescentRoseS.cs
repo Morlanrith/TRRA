@@ -12,7 +12,7 @@ using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
-    public class CrescentRoseS : ModItem
+    public class CrescentRoseS : TransformingWeapon
 	{
 		private bool canSwing = true;
         private Vector2 newPos;
@@ -28,6 +28,17 @@ namespace TRRA.Items.Weapons.CrescentRose
 			Volume = 0.4f,
 			Pitch = 0.0f,
 		};
+
+		public CrescentRoseS() :
+			base(
+				GetModItem(ItemType<CrescentRoseG>()),
+				new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseTransform")
+					{
+						Volume = 0.5f,
+						Pitch = 0.0f,
+					}
+				)
+		{}
 
 		public override void SetStaticDefaults() 
 		{
@@ -90,7 +101,7 @@ namespace TRRA.Items.Weapons.CrescentRose
                 if (!(vector.X > 50f) || !(vector.X < (float)(Main.maxTilesX * 16 - 50)) || !(vector.Y > 50f) || !(vector.Y < (float)(Main.maxTilesY * 16 - 50))) return false;
                 int num = (int)(vector.X / 16f);
                 int num2 = (int)(vector.Y / 16f);
-                if ((Main.tile[num, num2].WallType == 87 && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
+                if ((Main.tile[num, num2].WallType == WallID.LihzahrdBrickUnsafe && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
                 canSwing = false;
                 Item.noMelee = true;
                 Item.noUseGraphic = true;
@@ -153,7 +164,4 @@ namespace TRRA.Items.Weapons.CrescentRose
         }
 
 	}
-
-
-
 }

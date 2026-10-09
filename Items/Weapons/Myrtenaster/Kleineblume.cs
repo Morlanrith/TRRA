@@ -9,8 +9,8 @@ using TRRA.Projectiles.Item.Weapon.Myrtenaster;
 
 namespace TRRA.Items.Weapons.Myrtenaster
 {
-	public class Kleineblume : ModItem
-	{
+	public class Kleineblume : TRRAWeapon
+    {
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

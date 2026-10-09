@@ -11,8 +11,8 @@ using TRRA.Tiles;
 
 namespace TRRA.Items.Weapons.GambolShroud
 {
-	public class GambolShroudG : ModItem
-	{
+	public class GambolShroudG : TransformingWeapon
+    {
 		private bool resetTime = false;
 
 		private static readonly SoundStyle GambolShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolShot")
@@ -21,7 +21,18 @@ namespace TRRA.Items.Weapons.GambolShroud
 			Pitch = -0.1f,
 		};
 
-		public override void SetStaticDefaults() {
+        public GambolShroudG() :
+            base(
+                GetModItem(ItemType<GambolShroudS>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<Nightmare.GambolShroudNG>();
         }
