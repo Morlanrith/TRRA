@@ -1701,6 +1701,18 @@ Investigate if single file per class structure is best practice.
 Look to reduce namespace usage in classes where possible.
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+9th October 2026
+-------------
+Work Done:
+Adjusted file tree for armor sets (happy that this concludes work on the tree).
+Rescoped version to be a minor change to the latest (intention is to push out the backend changes when they're done, then focus on content later - i.e. V4.0).
+-------------
+Next Task:
+Investigate cleanup of weapon transformation.
+Investigate cleanup of Shattered Moon.
+Investigate further cleanup.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

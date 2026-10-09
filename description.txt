@@ -1,7 +1,7 @@
 Hello! 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 
-This is version 4.0.0 of the mod.
+This is version 3.5.1 of the mod.
 
 This mod now also has a wiki! It's now linked as the mods homepage (it can also be found by navigating through the Terraria Mods wiki).
 
