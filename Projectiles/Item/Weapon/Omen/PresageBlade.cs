@@ -58,7 +58,7 @@ namespace TRRA.Projectiles.Item.Weapon.Omen
         public override void AI()
         {
 			int itemType = Main.player[Projectile.owner].HeldItem.type;
-			if (itemType != ItemType<Items.Weapons.Presage>()) Projectile.Kill();
+			if (itemType != ItemType<Items.Weapons.Omen.Presage>()) Projectile.Kill();
 			if (Projectile.soundDelay == 0)
 			{
 				Projectile.soundDelay = 21;

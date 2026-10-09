@@ -43,7 +43,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 			float num4 = -(float)Math.PI / 4f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
             _ = Vector2.Zero;
-            if (player.dead || player.HeldItem.type != ItemType<Items.Weapons.HarbingerSc>())
+            if (player.dead || player.HeldItem.type != ItemType<Items.Weapons.Harbinger.HarbingerSc>())
 			{
 				Projectile.Kill();
 				return;

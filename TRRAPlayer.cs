@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria.Audio;
-using TRRA.Items.Weapons;
 using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
 using Terraria.DataStructures;
@@ -64,26 +63,26 @@ namespace TRRA
         private readonly List<Projectile> blades = new();
         // Immediately gets instances of all TRRA weapons and weapon types (used to prevent instance issues)
         private static readonly Item 
-            gun = GetModItem(ItemType<CrescentRoseG>()).Item,
-            scythe = GetModItem(ItemType<CrescentRoseS>()).Item,
-            gunJr = GetModItem(ItemType<CrescentBloomG>()).Item,
-            scytheJr = GetModItem(ItemType<CrescentBloomS>()).Item,
-            rapier = GetModItem(ItemType<Myrtenaster>()).Item,
-            rapierF = GetModItem(ItemType<MyrtenasterF>()).Item,
-            rapierJr = GetModItem(ItemType<Silbernelke>()).Item,
-            rapierFJr = GetModItem(ItemType<SilbernelkeF>()).Item,
-            katana = GetModItem(ItemType<GambolShroudS>()).Item,
-            gunkata = GetModItem(ItemType<GambolShroudG>()).Item,
-            katanaJr = GetModItem(ItemType<GambolShadeS>()).Item,
-            gunkataJr = GetModItem(ItemType<GambolShadeG>()).Item,
-            katanaN = GetModItem(ItemType<GambolShroudNS>()).Item,
-            gunkataN = GetModItem(ItemType<GambolShroudNG>()).Item,
-            fist = GetModItem(ItemType<EmberCelicaS>()).Item,
-            rocket = GetModItem(ItemType<EmberCelicaR>()).Item,
-            oldSword = GetModItem(ItemType<HarbingerSw>()).Item,
-            oldScythe = GetModItem(ItemType<HarbingerSc>()).Item,
-            axe = GetModItem(ItemType<SunderedRoseA>()).Item,
-            axeGun = GetModItem(ItemType<SunderedRoseG>()).Item;
+            gun = GetModItem(ItemType<Items.Weapons.CrescentRose.CrescentRoseG>()).Item,
+            scythe = GetModItem(ItemType<Items.Weapons.CrescentRose.CrescentRoseS>()).Item,
+            gunJr = GetModItem(ItemType<Items.Weapons.CrescentRose.CrescentBloomG>()).Item,
+            scytheJr = GetModItem(ItemType<Items.Weapons.CrescentRose.CrescentBloomS>()).Item,
+            rapier = GetModItem(ItemType<Items.Weapons.Myrtenaster.Myrtenaster>()).Item,
+            rapierF = GetModItem(ItemType<Items.Weapons.Myrtenaster.MyrtenasterF>()).Item,
+            rapierJr = GetModItem(ItemType<Items.Weapons.Myrtenaster.Silbernelke>()).Item,
+            rapierFJr = GetModItem(ItemType<Items.Weapons.Myrtenaster.SilbernelkeF>()).Item,
+            katana = GetModItem(ItemType<Items.Weapons.GambolShroud.GambolShroudS>()).Item,
+            gunkata = GetModItem(ItemType<Items.Weapons.GambolShroud.GambolShroudG>()).Item,
+            katanaJr = GetModItem(ItemType<Items.Weapons.GambolShroud.GambolShadeS>()).Item,
+            gunkataJr = GetModItem(ItemType<Items.Weapons.GambolShroud.GambolShadeG>()).Item,
+            katanaN = GetModItem(ItemType<Items.Weapons.GambolShroud.Nightmare.GambolShroudNS>()).Item,
+            gunkataN = GetModItem(ItemType<Items.Weapons.GambolShroud.Nightmare.GambolShroudNG>()).Item,
+            fist = GetModItem(ItemType<Items.Weapons.EmberCelica.EmberCelicaS>()).Item,
+            rocket = GetModItem(ItemType<Items.Weapons.EmberCelica.EmberCelicaR>()).Item,
+            oldSword = GetModItem(ItemType<Items.Weapons.Harbinger.HarbingerSw>()).Item,
+            oldScythe = GetModItem(ItemType<Items.Weapons.Harbinger.HarbingerSc>()).Item,
+            axe = GetModItem(ItemType<Items.Weapons.SunderedRose.SunderedRoseA>()).Item,
+            axeGun = GetModItem(ItemType<Items.Weapons.SunderedRose.SunderedRoseG>()).Item;
 
         public override void PostUpdate()
         {

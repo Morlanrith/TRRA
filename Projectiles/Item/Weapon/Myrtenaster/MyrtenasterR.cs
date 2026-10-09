@@ -12,7 +12,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 {
 	public class MyrtenasterR : ModProjectile
 	{
-		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Myrtenaster").Value;
+		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Myrtenaster/Myrtenaster").Value;
 		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/MyrtenasterR").Value;
 		private static readonly SoundStyle IceStabSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/IceStab")
 		{
@@ -37,7 +37,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 		public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			if (player.HeldItem.type != ItemType<Items.Weapons.Myrtenaster>()) Projectile.Kill();
+			if (player.HeldItem.type != ItemType<Items.Weapons.Myrtenaster.Myrtenaster>()) Projectile.Kill();
 			float num = (float)Math.PI / 2f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
 			int num2 = 2;

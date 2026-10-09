@@ -13,7 +13,7 @@ namespace TRRA.Items.Materials
 		public override void SetDefaults() {
 			Item.width = 22;
 			Item.height = 22;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(copper: 10);
 			Item.rare = ItemRarityID.Green;
 		}

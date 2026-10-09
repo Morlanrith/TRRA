@@ -12,7 +12,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 {
 	public class SilbernelkeFR : ModProjectile
 	{
-		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/SilbernelkeF").Value;
+		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Myrtenaster/SilbernelkeF").Value;
 		private readonly Texture2D projTexture = ModContent.Request<Texture2D>($"TRRA/Projectiles/Item/Weapon/Myrtenaster/SilbernelkeFR").Value;
 
 		public override void SetDefaults()
@@ -37,7 +37,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 		public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			if (player.HeldItem.type != ItemType<Items.Weapons.SilbernelkeF>()) Projectile.Kill();
+			if (player.HeldItem.type != ItemType<Items.Weapons.Myrtenaster.SilbernelkeF>()) Projectile.Kill();
 			float num = (float)Math.PI / 2f;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter);
 			int num2 = 2;

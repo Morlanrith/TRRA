@@ -11,7 +11,7 @@ namespace TRRA.Projectiles.Item.Weapon.Myrtenaster
 {
 	public class KleineblumeR : ModProjectile
 	{
-		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Kleineblume").Value;
+		private readonly Texture2D weaponTexture = ModContent.Request<Texture2D>($"TRRA/Items/Weapons/Myrtenaster/Kleineblume").Value;
 
 		public override void SetDefaults()
 		{

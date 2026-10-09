@@ -19,7 +19,7 @@ namespace TRRA.Items.Materials
 			Item.useAnimation = 15;
 			Item.useTime = 10;
 			Item.autoReuse = true;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.createTile = TileType<Tiles.GravityDustCrystalTile>();
 			Item.width = 18;
