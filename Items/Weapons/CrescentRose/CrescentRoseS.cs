@@ -12,7 +12,7 @@ using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
-    public class CrescentRoseS : ModItem
+    public class CrescentRoseS : TransformingWeapon
 	{
 		private bool canSwing = true;
         private Vector2 newPos;
@@ -28,6 +28,17 @@ namespace TRRA.Items.Weapons.CrescentRose
 			Volume = 0.4f,
 			Pitch = 0.0f,
 		};
+
+		public CrescentRoseS() :
+			base(
+				GetModItem(ItemType<CrescentRoseG>()),
+				new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseTransform")
+					{
+						Volume = 0.5f,
+						Pitch = 0.0f,
+					}
+				)
+		{}
 
 		public override void SetStaticDefaults() 
 		{
@@ -153,7 +164,4 @@ namespace TRRA.Items.Weapons.CrescentRose
         }
 
 	}
-
-
-
 }

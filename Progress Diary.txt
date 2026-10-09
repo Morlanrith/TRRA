@@ -1706,6 +1706,7 @@ Date:
 Work Done:
 Adjusted file tree for armor sets (happy that this concludes work on the tree).
 Rescoped version to be a minor change to the latest (intention is to push out the backend changes when they're done, then focus on content later - i.e. V4.0).
+Simplified weapon transformation code, while also binding weapons more closely to their pair types.
 -------------
 Next Task:
 Investigate cleanup of weapon transformation.

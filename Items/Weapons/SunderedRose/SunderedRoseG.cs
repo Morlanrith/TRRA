@@ -9,15 +9,26 @@ using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons.SunderedRose
 {
-	public class SunderedRoseG : ModItem
-	{
+	public class SunderedRoseG : TransformingWeapon
+    {
 		private static readonly SoundStyle RoseShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseShot")
 		{
 			Volume = 0.3f,
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() {
+        public SunderedRoseG() :
+            base(
+                GetModItem(ItemType<SunderedRoseA>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/SunderedRose/WhiteRoseTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<CrescentRose.CrescentRoseG>();
         }

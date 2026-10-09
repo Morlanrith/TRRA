@@ -9,8 +9,8 @@ using static Terraria.ModLoader.ModContent;
 namespace TRRA.Items.Weapons.EmberCelica
 {
 	[AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-	public class EmberCelicaR : ModItem
-	{
+	public class EmberCelicaR : TransformingWeapon
+    {
 		private static readonly SoundStyle RocketSingleSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/RocketSingle")
 		{
 			Volume = 0.3f,
@@ -23,7 +23,18 @@ namespace TRRA.Items.Weapons.EmberCelica
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() {
+        public EmberCelicaR() :
+            base(
+                GetModItem(ItemType<EmberCelicaS>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<FireFists.FireFists>();
         }

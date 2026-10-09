@@ -12,8 +12,8 @@ using TRRA.Items.Materials;
 
 namespace TRRA.Items.Weapons.Myrtenaster
 {
-	public class MyrtenasterF : ModItem
-	{
+	public class MyrtenasterF : TransformingWeapon
+    {
 		private bool resetTime = false;
 
 		private static readonly SoundStyle FireWaveSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/FireWave")
@@ -21,8 +21,18 @@ namespace TRRA.Items.Weapons.Myrtenaster
 			Volume = 0.3f,
 			Pitch = 0.0f,
 		};
+        public MyrtenasterF() :
+            base(
+                GetModItem(ItemType<Myrtenaster>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/Myrtenaster/DustSpin")
+                {
+                    Volume = 0.8f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
 
-		public override void SetStaticDefaults() {
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<WintersSword.WintersSword>();
         }

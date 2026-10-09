@@ -7,10 +7,20 @@ using TRRA.Projectiles.Item.Weapon.GambolShroud;
 
 namespace TRRA.Items.Weapons.GambolShroud
 {
-	public class GambolShadeG : ModItem
-	{
+	public class GambolShadeG : TransformingWeapon
+    {
+        public GambolShadeG() :
+            base(
+                GetModItem(ItemType<GambolShadeS>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
 
-		public override void SetStaticDefaults() {
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

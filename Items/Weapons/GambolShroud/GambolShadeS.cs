@@ -10,9 +10,20 @@ using Terraria.DataStructures;
 
 namespace TRRA.Items.Weapons.GambolShroud
 {
-	public class GambolShadeS : ModItem
-	{
-		public override void SetStaticDefaults() {
+	public class GambolShadeS : TransformingWeapon
+    {
+        public GambolShadeS() :
+            base(
+                GetModItem(ItemType<GambolShadeG>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolCock")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

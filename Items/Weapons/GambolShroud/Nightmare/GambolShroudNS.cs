@@ -12,9 +12,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.GambolShroud.Nightmare
 {
-
-    public class GambolShroudNS : ModItem
-	{
+    public class GambolShroudNS : TransformingWeapon
+    {
 		private bool canParry = true;
 
 		private static readonly SoundStyle ShadowCloneSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/ShadowClone")
@@ -23,7 +22,18 @@ namespace TRRA.Items.Weapons.GambolShroud.Nightmare
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() {
+        public GambolShroudNS() :
+            base(
+                GetModItem(ItemType<GambolShroudNG>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/GambolShroud/GambolCock")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<GambolShroud.GambolShroudS>();
         }

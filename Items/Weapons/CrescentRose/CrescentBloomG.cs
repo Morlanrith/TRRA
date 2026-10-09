@@ -3,18 +3,30 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
-	public class CrescentBloomG : ModItem
-	{
+	public class CrescentBloomG : TransformingWeapon
+    {
 		private static readonly SoundStyle BloomShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseShot")
 		{
 			Volume = 0.6f,
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() {
+        public CrescentBloomG() :
+            base(
+                GetModItem(ItemType<CrescentBloomS>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

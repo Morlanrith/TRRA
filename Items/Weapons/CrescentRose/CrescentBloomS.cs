@@ -9,16 +9,26 @@ using TRRA.Projectiles.Item.Weapon.CrescentRose;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
-    public class CrescentBloomS : ModItem
-	{
-
+    public class CrescentBloomS : TransformingWeapon
+    {
 		private static readonly SoundStyle BloomSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseSlice")
 		{
 			Volume = 0.4f,
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() 
+        public CrescentBloomS() :
+            base(
+                GetModItem(ItemType<CrescentBloomG>()),
+                new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseTransform")
+                {
+                    Volume = 0.5f,
+                    Pitch = 0.0f,
+                }
+                )
+        { }
+
+        public override void SetStaticDefaults() 
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
