@@ -33,7 +33,7 @@ namespace TRRA.Projectiles.Item.Weapon.Harbinger
 
 		public override void AI()
 		{
-			if (Main.player[Projectile.owner].dead || Main.player[Projectile.owner].HeldItem.type != ItemType<Items.Weapons.Portent>() || Main.player[Projectile.owner].itemAnimation < 1)
+			if (Main.player[Projectile.owner].dead || Main.player[Projectile.owner].HeldItem.type != ItemType<Items.Weapons.Harbinger.Portent>() || Main.player[Projectile.owner].itemAnimation < 1)
 			{
 				Projectile.Kill();
 				return;

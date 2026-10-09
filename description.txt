@@ -1,9 +1,13 @@
 Hello! 
 This is TRRA, a mod designed to bring elements of the online web series RWBY into Terraria.
 
-This is version 3.5 of the mod, which adds a handful of weapon/vanity variants that can be obtained by throwing existing items into the Shimmer.
+This is version 3.5.1 of the mod. This is almost entirely focused on code/backend cleanup, and so doesn't really feature anything interesting.
+However, it does increase the max capacity for most items from 999 to 9999.
 
-This mod now also has a wiki! It's now linked as the mods homepage (it can also be found by navigating through the Terraria Mods wiki).
+Additionally, this does mark the rebeginning of development for the mod. I'll be making sure that it works with the v1.4.5 supported tModLoader.
+I'm also going to be planning out and implementing a large content update, which will be focused on providing more unique systems to TRRA (no clue when that will be done though!).
+
+This mod also has a wiki. It's linked as the mods homepage (it can also be found by navigating through the Terraria Mods wiki).
 
 This mod currently includes the following:
 New Weapons: A variety of weapons from the original series. Most of these weapons utilise a transform function that gives them dual use.
@@ -12,4 +16,4 @@ New NPC: A new town NPC that sells a variety of Dust related items which are req
 New Event: A new 'blood moon' style event called the 'Shattered Moon', during which the creatures of Grimm will swarm the surface. This event will start randomly occuring at the beginning of night once Plantera has been defeated.
 Transform Hotkey: An additional hotkey for use with the new weapons in this mod. Causes the weapons to change from one form to another.
 
-It should go without saying, but I do not own the copyright to the weapon designs implemented in this mod. These are owned by Rooster Teeth Productions, LLC.
+It should go without saying, but I do not own the copyright to the weapon designs implemented in this mod. These are owned by VIZ Media, LLC.

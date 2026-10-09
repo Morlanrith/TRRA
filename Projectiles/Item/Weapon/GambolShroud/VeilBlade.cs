@@ -37,7 +37,7 @@ namespace TRRA.Projectiles.Item.Weapon.GambolShroud
 		public override void AI()
         {
 			int itemType = Main.player[Projectile.owner].HeldItem.type;
-			if (itemType != ItemType<Items.Weapons.GambolVeil>() && itemType != ItemType<Items.Weapons.GambolShadeS>()) Projectile.Kill();
+			if (itemType != ItemType<Items.Weapons.GambolShroud.GambolVeil>() && itemType != ItemType<Items.Weapons.GambolShroud.GambolShadeS>()) Projectile.Kill();
 			if (Projectile.soundDelay == 0)
 			{
 				Projectile.soundDelay = 21;

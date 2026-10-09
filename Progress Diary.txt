@@ -1678,6 +1678,42 @@ Released Patch 3.5.
 Next Task:
 ----------------------------------------------------------------------------------------------------------------------------
 Date:
+11th November 2024
+-------------
+Work Done:
+Beginning work on a major code refactor to clean-up existing implementations and improve performance (will likely add extra content as well).
+Move all weapons into unique namespaces per weapon-tree.
+-------------
+Next Task:
+Finish work on file tree.
+Investigate if single file per class structure is best practice.
+Look to reduce namespace usage in classes where possible.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+26th October 2025
+-------------
+Work Done:
+Increased item capacity to 9999 for some consumables/materials.
+-------------
+Next Task:
+Finish work on file tree.
+Investigate if single file per class structure is best practice.
+Look to reduce namespace usage in classes where possible.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
+9th October 2026
+-------------
+Work Done:
+Adjusted file tree for armor sets (happy that this concludes work on the tree).
+Rescoped version to be a minor change to the latest (intention is to push out the backend changes when they're done, then focus on content later - i.e. V4.0).
+Simplified weapon transformation code, while also binding weapons more closely to their pair types.
+Adjusted display elements for weapons (e.g. Ember Celica) into a generic system, which should allow it to be extended for other weapons in the future.
+Release v3.5.1.
+-------------
+Next Task:
+Investigate updating to support Terraria v1.4.5.
+----------------------------------------------------------------------------------------------------------------------------
+Date:
 
 -------------
 Work Done:

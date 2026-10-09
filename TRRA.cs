@@ -8,10 +8,6 @@ namespace TRRA
     {
         private static ModKeybind TransformHotKey;
 
-        public TRRA()
-        {
-        }
-
         public static ModKeybind GetTransformHotKey() { return TransformHotKey; }
 
         public override void Load()
@@ -22,8 +18,8 @@ namespace TRRA
             // Setup filter for Shattered Moon
             Filters.Scene["ShatteredMoon"] = new Filter(new ShatteredMoonShader("FilterBloodMoon").UseColor(1f, 0f, 0.5f), EffectPriority.Medium);
 
-            EquipLoader.AddEquipTexture(this, $"TRRA/Items/Armor/ProtectorRibbon_Texture", EquipType.Head, null, "ProtectorRibbonTex");
-            EquipLoader.AddEquipTexture(this, $"TRRA/Items/Armor/NightmareMask_Texture", EquipType.Head, null, "NightmareMaskTex");
+            EquipLoader.AddEquipTexture(this, $"TRRA/Items/Armor/Protector_Set/ProtectorRibbon_Texture", EquipType.Head, null, "ProtectorRibbonTex");
+            EquipLoader.AddEquipTexture(this, $"TRRA/Items/Armor/Nightmare_Set/NightmareMask_Texture", EquipType.Head, null, "NightmareMaskTex");
 
             base.Load();
         }

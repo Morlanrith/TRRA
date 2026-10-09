@@ -19,7 +19,7 @@ namespace TRRA.Items.Materials
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(silver: 2);
 			Item.rare = ItemRarityID.LightRed;
 		}
