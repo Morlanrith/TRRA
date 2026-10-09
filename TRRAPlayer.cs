@@ -14,7 +14,9 @@ namespace TRRA
 
         public override void PostUpdate()
         {
-            EmberFists();
+            if(Player.HeldItem.ModItem != null && Player.HeldItem.ModItem is TRRAWeapon heldWeapon)
+                heldWeapon.ApplyVisualEffects(Player);
+
             if(Player.sleeping.isSleeping && TRRAWorld.IsShatteredMoon())
                 Player.sleeping.timeSleeping = 0;
         }
@@ -40,23 +42,6 @@ namespace TRRA
             }
 
             base.ProcessTriggers(triggersSet);
-        }
-
-        private void EmberFists()
-        {
-            if (Player.HeldItem.Name == "Ember Celica" || Player.HeldItem.Name == "Steel Celica" || Player.HeldItem.Name == "Spark Celica" || Player.HeldItem.Name == "Fire Fists")
-            {
-                if (Player.HeldItem.handOnSlot > 0)
-                {
-                    Player.handon = Player.HeldItem.handOnSlot;
-                    Player.cHandOn = 0;
-                }
-                if (Player.HeldItem.handOffSlot > 0)
-                {
-                    Player.handoff = Player.HeldItem.handOffSlot;
-                    Player.cHandOff = 0;
-                }
-            }
         }
 
         public void AddBlade(Projectile projectile)

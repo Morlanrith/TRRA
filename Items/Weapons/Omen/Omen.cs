@@ -13,8 +13,8 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.Omen
 {
-	public class Omen : ModItem
-	{
+	public class Omen : TRRAWeapon
+    {
 		private bool canPortal = true;
 		private int portalID = -1;
 

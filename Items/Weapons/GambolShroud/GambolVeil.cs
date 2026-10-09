@@ -10,8 +10,8 @@ using Terraria.DataStructures;
 
 namespace TRRA.Items.Weapons.GambolShroud
 {
-	public class GambolVeil : ModItem
-	{
+	public class GambolVeil : TRRAWeapon
+    {
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

@@ -10,7 +10,7 @@ using Terraria.Audio;
 
 namespace TRRA.Items.Weapons.WintersSword
 {
-	public class WintersSword : ModItem
+	public class WintersSword : TRRAWeapon
 	{
 		private bool resetTime = false;
 

@@ -10,8 +10,8 @@ using TRRA.Projectiles.Item.Weapon.EmberCelica;
 namespace TRRA.Items.Weapons.FireFists
 {
 	[AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-	public class FireFists : ModItem
-	{
+	public class FireFists : TRRAWeapon
+    {
 		public override void SetStaticDefaults() {
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<EmberCelica.EmberCelicaS>();
@@ -38,7 +38,15 @@ namespace TRRA.Items.Weapons.FireFists
 			Item.crit = 26;
 		}
 
-		public override bool AltFunctionUse(Player player) {
+        public override void ApplyVisualEffects(Player player)
+        {
+            player.handon = Item.handOnSlot;
+            player.cHandOn = 0;
+            player.handoff = Item.handOffSlot;
+            player.cHandOff = 0;
+        }
+
+        public override bool AltFunctionUse(Player player) {
 			if (player.mount.Active) return false;
 			return true;
 		}

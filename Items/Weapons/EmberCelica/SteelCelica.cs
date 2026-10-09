@@ -12,8 +12,8 @@ using Terraria.Audio;
 namespace TRRA.Items.Weapons.EmberCelica
 {
 	[AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-	public class SteelCelica : ModItem
-	{
+	public class SteelCelica : TRRAWeapon
+    {
 		private static readonly SoundStyle EmberShotSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/EmberCelica/EmberShot")
 		{
 			Volume = 0.3f,
@@ -44,7 +44,15 @@ namespace TRRA.Items.Weapons.EmberCelica
 			Item.crit = 6;
 		}
 
-		public override void AddRecipes() => CreateRecipe()
+        public override void ApplyVisualEffects(Player player)
+        {
+            player.handon = Item.handOnSlot;
+            player.cHandOn = 0;
+            player.handoff = Item.handOffSlot;
+            player.cHandOff = 0;
+        }
+
+        public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemType<DustWeaponKit>(), 1)
 			.AddIngredient(ItemType<FireDustCrystal>(), 30)
 			.AddIngredient(ItemType<GravityDustCrystal>(), 10)

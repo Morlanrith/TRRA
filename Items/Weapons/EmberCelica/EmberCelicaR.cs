@@ -58,7 +58,15 @@ namespace TRRA.Items.Weapons.EmberCelica
 			Item.noMelee = true;
 		}
 
-		public override bool AltFunctionUse(Player player) {
+        public override void ApplyVisualEffects(Player player)
+        {
+            player.handon = Item.handOnSlot;
+            player.cHandOn = 0;
+            player.handoff = Item.handOffSlot;
+            player.cHandOff = 0;
+        }
+
+        public override bool AltFunctionUse(Player player) {
 			return true;
 		}
 

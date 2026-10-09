@@ -6,7 +6,6 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TRRA.Items.Materials;
-using TRRA.Items.Weapons.CrescentRose;
 using TRRA.Projectiles.Item.Weapon.EmberCelica;
 using TRRA.Tiles;
 using static Terraria.ModLoader.ModContent;
@@ -64,6 +63,14 @@ namespace TRRA.Items.Weapons.EmberCelica
 			Item.noMelee = true;
 			Item.crit = 26;
 		}
+
+        public override void ApplyVisualEffects(Player player)
+        {
+            player.handon = Item.handOnSlot;
+            player.cHandOn = 0;
+			player.handoff = Item.handOffSlot;
+            player.cHandOff = 0;
+        }
 
 		public override void AddRecipes() => CreateRecipe()
 			.AddIngredient(ItemType<SparkCelica>(), 1)
