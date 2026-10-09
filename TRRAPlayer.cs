@@ -1,8 +1,6 @@
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
-using Terraria.Audio;
-using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
 using Terraria.DataStructures;
 using TRRA.Projectiles.Item.Weapon.CrescentRose;
@@ -12,8 +10,7 @@ namespace TRRA
 {
     public class TRRAPlayer : ModPlayer
 	{
-        private ModKeybind altUseHotkey = null;
-        private readonly List<Projectile> blades = new();
+        private readonly List<Projectile> blades = [];
 
         public override void PostUpdate()
         {
@@ -34,23 +31,16 @@ namespace TRRA
             if (TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2 && Player.itemAnimation == 0)
             {
                 Item heldItem = Player.inventory[Player.selectedItem]; // Obtains the current held item from the players inventory
-                Item chosenItem = null;
 
                 if (heldItem.ModItem != null && heldItem.ModItem is TransformingWeapon transfItem)
                 {
-                    chosenItem = transfItem.TransformWeapon().Item;
+                    Item chosenItem = transfItem.TransformWeapon().Item;
                     Player.inventory[Player.selectedItem] = chosenItem.Clone();
                     Player.inventory[Player.selectedItem].SetDefaults(chosenItem.type);
                 }
-
-                // Prevents the transform hotkey from being repeatedly activated whilst holding the key down
-                if (altUseHotkey != null && altUseHotkey.JustReleased)
-                {
-                    altUseHotkey = null;
-                }
-
-                base.ProcessTriggers(triggersSet);
             }
+
+            base.ProcessTriggers(triggersSet);
         }
 
         private void EmberFists()

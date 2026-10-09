@@ -101,7 +101,7 @@ namespace TRRA.Items.Weapons.CrescentRose
                 if (!(vector.X > 50f) || !(vector.X < (float)(Main.maxTilesX * 16 - 50)) || !(vector.Y > 50f) || !(vector.Y < (float)(Main.maxTilesY * 16 - 50))) return false;
                 int num = (int)(vector.X / 16f);
                 int num2 = (int)(vector.Y / 16f);
-                if ((Main.tile[num, num2].WallType == 87 && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
+                if ((Main.tile[num, num2].WallType == WallID.LihzahrdBrickUnsafe && (double)num2 > Main.worldSurface && !NPC.downedPlantBoss) || Collision.SolidCollision(vector, player.width, player.height)) return false;
                 canSwing = false;
                 Item.noMelee = true;
                 Item.noUseGraphic = true;

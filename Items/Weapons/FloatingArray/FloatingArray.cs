@@ -137,7 +137,4 @@ namespace TRRA.Items.Weapons.FloatingArray
         }
 
     }
-
-
-
 }
