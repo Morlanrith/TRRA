@@ -10,7 +10,7 @@ namespace TRRA
 {
     public class TRRAPlayer : ModPlayer
 	{
-        private readonly List<Projectile> blades = [];
+        private readonly List<Projectile> _arrayBlades = [];
 
         public override void PostUpdate()
         {
@@ -46,21 +46,20 @@ namespace TRRA
 
         public void AddBlade(Projectile projectile)
         {
-            blades.Add(projectile);
+            _arrayBlades.Add(projectile);
         }
 
         public void RemoveBlade(Projectile projectile)
         {
-            blades.Remove(projectile);
+            _arrayBlades.Remove(projectile);
         }
 
         public int KillBlades()
         {
-            int currentAmount = blades.Count;
-            for(int i=blades.Count-1; i >= 0; i--)
-                blades[i].Kill();
+            int currentAmount = _arrayBlades.Count;
+            for(int i= _arrayBlades.Count-1; i >= 0; i--)
+                _arrayBlades[i].Kill();
             return currentAmount;
         }
-
     }
 }
