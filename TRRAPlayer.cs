@@ -28,16 +28,15 @@ namespace TRRA
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
             // Transform Weapon
-            if (TRRA.GetTransformHotKey().JustPressed && Player.altFunctionUse != 2 && Player.itemAnimation == 0)
+            if (TRRA.GetTransformHotKey().JustPressed &&
+                Player.altFunctionUse != 2 &&
+                Player.itemAnimation == 0 &&
+                Player.HeldItem.ModItem != null &&
+                Player.HeldItem.ModItem is TransformingWeapon transfItem)
             {
-                Item heldItem = Player.inventory[Player.selectedItem]; // Obtains the current held item from the players inventory
-
-                if (heldItem.ModItem != null && heldItem.ModItem is TransformingWeapon transfItem)
-                {
-                    Item chosenItem = transfItem.TransformWeapon().Item;
-                    Player.inventory[Player.selectedItem] = chosenItem.Clone();
-                    Player.inventory[Player.selectedItem].SetDefaults(chosenItem.type);
-                }
+                Item chosenItem = transfItem.TransformWeapon().Item;
+                Player.inventory[Player.selectedItem] = chosenItem.Clone();
+                Player.inventory[Player.selectedItem].SetDefaults(chosenItem.type);
             }
 
             base.ProcessTriggers(triggersSet);
