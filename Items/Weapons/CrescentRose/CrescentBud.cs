@@ -9,17 +9,13 @@ using System;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
-    public class CrescentBud : TRRAWeapon
+    public class CrescentBud() : TRRAWeapon(10)
     {
 		private static readonly SoundStyle BudSliceSound = new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseSlice")
 		{
 			Volume = 0.4f,
 			Pitch = 0.0f,
 		};
-
-        public CrescentBud() :
-            base(10)
-        {}
 
         public override void SetStaticDefaults() 
 		{
