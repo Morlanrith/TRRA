@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using TRRA.Tiles;
 using Terraria.Audio;
+using System;
 
 namespace TRRA.Items.Weapons.CrescentRose
 {
@@ -16,14 +17,18 @@ namespace TRRA.Items.Weapons.CrescentRose
 			Pitch = 0.0f,
 		};
 
-		public override void SetStaticDefaults() 
+        public CrescentBud() :
+            base(10)
+        {}
+
+        public override void SetStaticDefaults() 
 		{
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 52;
+			Item.damage = 15 + Convert.ToInt32(37.0 * GetRankRatio());
 			Item.width = 66;
 			Item.height = 58;
 			Item.useTime = 35;
@@ -48,9 +53,5 @@ namespace TRRA.Items.Weapons.CrescentRose
 			.AddIngredient(ItemType<IceDustCrystal>(), 10)
 			.AddTile(TileType<DustToolbenchTile>())
 			.Register();
-
 	}
-
-
-
 }
