@@ -24,7 +24,7 @@ namespace TRRA.Items.Weapons.CrescentRose
 
 		public override void SetDefaults() 
 		{
-			Item.damage = 15 + Convert.ToInt32(37.0 * GetRankRatio());
+			Item.damage = 15 + ScaleValueByRank(37);
 			Item.width = 66;
 			Item.height = 58;
 			Item.useTime = 35;
@@ -33,7 +33,7 @@ namespace TRRA.Items.Weapons.CrescentRose
 			Item.DamageType = DamageClass.Melee;
 			Item.knockBack = 7;
 			Item.value = Item.sellPrice(silver: 54);
-			Item.rare = ItemRarityID.Orange;
+			Item.rare = IsMaxRank() ? ItemRarityID.Orange : ItemRarityID.Green;
 			Item.crit = 10;
 			Item.autoReuse = true;
 			Item.maxStack = 1;

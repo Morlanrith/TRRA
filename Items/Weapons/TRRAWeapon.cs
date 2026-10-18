@@ -10,9 +10,16 @@ namespace TRRA.Items.Weapons
         private uint _currentRank = 1;
         public uint CurrentRank { get => _currentRank; }
 
+        public bool IsMaxRank() { return _currentRank == MaxRank; }
+
         public double GetRankRatio()
         {
             return (double)_currentRank / MaxRank;
+        }
+
+        public int ScaleValueByRank(int value)
+        {
+            return Convert.ToInt32(value * GetRankRatio());
         }
 
         public void IncreaseRank()
