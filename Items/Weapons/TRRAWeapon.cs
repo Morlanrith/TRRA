@@ -1,5 +1,6 @@
 using System;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace TRRA.Items.Weapons
 {
@@ -37,7 +38,23 @@ namespace TRRA.Items.Weapons
             SetDefaults();
         }
 
-		public virtual void ApplyVisualEffects(Terraria.Player player)
+        public override void SaveData(TagCompound tag)
+        {
+            tag["CurrentRank"] = _currentRank;
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            uint rankToSetTo = tag.Get<uint>("CurrentRank");
+
+            if (rankToSetTo == 0) { rankToSetTo = 1; }
+
+            _currentRank = rankToSetTo;
+
+            SetDefaults();
+        }
+
+        public virtual void ApplyVisualEffects(Terraria.Player player)
         {}
     }
 }
