@@ -33,6 +33,8 @@ namespace TRRA.Items.Weapons
             {
                 _currentRank = newRank;
             }
+
+            SetDefaults();
         }
 
 		public virtual void ApplyVisualEffects(Terraria.Player player)
