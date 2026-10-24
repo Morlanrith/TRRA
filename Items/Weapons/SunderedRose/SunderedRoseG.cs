@@ -24,7 +24,8 @@ namespace TRRA.Items.Weapons.SunderedRose
                 {
                     Volume = 0.5f,
                     Pitch = 0.0f,
-                }
+                },
+				10
                 )
         { }
 
