@@ -23,10 +23,11 @@ namespace TRRA.Items.Weapons.CrescentRose
             base(
                 GetModItem(ItemType<CrescentRoseS>()),
                 new($"{nameof(TRRA)}/Sounds/Item/Weapon/CrescentRose/RoseTransform")
-                {
-                    Volume = 0.5f,
-                    Pitch = 0.0f,
-                }
+					{
+						Volume = 0.5f,
+						Pitch = 0.0f,
+					},
+                10
                 )
         { }
 
@@ -36,8 +37,8 @@ namespace TRRA.Items.Weapons.CrescentRose
         }
 
         public override void SetDefaults() {
-			Item.damage = 240;
-			Item.DamageType = DamageClass.Ranged;
+			Item.damage = 200 + ScaleValueByRank(40);
+            Item.DamageType = DamageClass.Ranged;
 			Item.width = 68;
 			Item.height = 18;
 			Item.useTime = 30;

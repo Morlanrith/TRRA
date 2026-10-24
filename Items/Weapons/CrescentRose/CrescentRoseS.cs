@@ -36,7 +36,8 @@ namespace TRRA.Items.Weapons.CrescentRose
 					{
 						Volume = 0.5f,
 						Pitch = 0.0f,
-					}
+					},
+				10
 				)
 		{}
 
@@ -46,9 +47,9 @@ namespace TRRA.Items.Weapons.CrescentRose
             ItemID.Sets.ShimmerTransformToItem[Type] = ItemType<SunderedRose.SunderedRoseA>();
         }
 
-        public override void SetDefaults() 
-		{
-			Item.damage = 155;
+        public override void SetDefaults()
+        {
+            Item.damage = 120 + ScaleValueByRank(35);
 			Item.width = 66;
 			Item.height = 58;
 			Item.useTime = 28;

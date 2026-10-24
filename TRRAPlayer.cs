@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Terraria.DataStructures;
 using TRRA.Projectiles.Item.Weapon.CrescentRose;
 using TRRA.Items.Weapons;
+using TRRA.Items.Weapons.CrescentRose;
+using System;
 
 namespace TRRA
 {
@@ -36,9 +38,30 @@ namespace TRRA
                 Player.HeldItem.ModItem != null &&
                 Player.HeldItem.ModItem is TransformingWeapon transfItem)
             {
+                uint currentRank = transfItem.CurrentRank;
                 Item chosenItem = transfItem.TransformWeapon().Item;
                 Player.inventory[Player.selectedItem] = chosenItem.Clone();
                 Player.inventory[Player.selectedItem].SetDefaults(chosenItem.type);
+                if (Player.HeldItem.ModItem != null && Player.inventory[Player.selectedItem].ModItem is TRRAWeapon weaponItem)
+                {
+                    weaponItem.SetRank(currentRank);
+                }
+            }
+            else if (TRRA.GetTransformHotKey().JustPressed &&
+                Player.altFunctionUse != 2 &&
+                Player.itemAnimation == 0 &&
+                Player.HeldItem.ModItem != null &&
+                Player.HeldItem.ModItem is CrescentBud cBud) // Test functionality - should be removed eventually
+            {
+                if (!cBud.IsMaxRank())
+                {
+                    cBud.IncreaseRank();
+                    Main.NewText($"Increased rank to {cBud.CurrentRank}");
+                }
+                else {
+                    cBud.SetRank(1);
+                    Main.NewText($"Reset rank to {cBud.CurrentRank}");
+                }
             }
 
             base.ProcessTriggers(triggersSet);
