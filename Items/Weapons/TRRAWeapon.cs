@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -63,5 +64,14 @@ namespace TRRA.Items.Weapons
 
         public virtual void ApplyVisualEffects(Terraria.Player player)
         {}
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            base.ModifyTooltips(tooltips);
+            if (MaxRank > 1)
+            {
+                tooltips.Add(new TooltipLine(Mod, "Weapon Rank", "Weapon Rank: " + (_currentRank == MaxRank ? "MAX" : $"{_currentRank}/{MaxRank}")));
+            }
+        }
     }
 }
