@@ -47,22 +47,6 @@ namespace TRRA
                     weaponItem.SetRank(currentRank);
                 }
             }
-            else if (TRRA.GetTransformHotKey().JustPressed &&
-                Player.altFunctionUse != 2 &&
-                Player.itemAnimation == 0 &&
-                Player.HeldItem.ModItem != null &&
-                Player.HeldItem.ModItem is CrescentBud cBud) // Test functionality - should be removed eventually
-            {
-                if (!cBud.IsMaxRank())
-                {
-                    cBud.IncreaseRank();
-                    Main.NewText($"Increased rank to {cBud.CurrentRank}");
-                }
-                else {
-                    cBud.SetRank(1);
-                    Main.NewText($"Reset rank to {cBud.CurrentRank}");
-                }
-            }
 
             base.ProcessTriggers(triggersSet);
         }
